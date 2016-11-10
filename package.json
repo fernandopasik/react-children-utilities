@@ -1,6 +1,6 @@
 {
   "name": "react-children-utilities",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/fernandopasik/react-children-utilities",
@@ -13,7 +13,9 @@
     "url": "https://github.com/fernandopasik/react-children-utilities.git"
   },
   "main": "dist/index.js",
-  "files": [ "dist" ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint .",
     "test": "mocha",
