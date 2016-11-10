@@ -1,0 +1,6 @@
+--compilers js:babel-register
+--require test/setup.js
+--recursive
+--reporter min
+--ui bdd
+test/**/*.spec.js

@@ -1,0 +1,9 @@
+{
+  "extends": [ "fernandopasik", "fernandopasik/es6", "fernandopasik/react", "fernandopasik/mocha" ],
+  "env": {
+    "node": true
+  },
+  "globals": {
+    "expect": true
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "react-children-utilities",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/fernandopasik/react-children-utilities",
+  "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
+  "license": "MIT",
+  "author": "Fernando Pasik <fernando@pasik.com.ar> (http://fernandopasik.com)",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fernandopasik/react-children-utilities.git"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha",
+    "coverage": "rm -rf coverage .nyc_output && nyc mocha",
+    "check": "npm run -s lint && npm run -s coverage",
+    "dist": "rm -rf dist && mkdir dist && babel src/index.js --minified ---source-maps --no-comments --out-file dist/index.js",
+    "build": "npm run -s check && npm run -s dist",
+    "prepublishOnly": "npm run -s dist",
+    "preversion": "npm run -s check",
+    "commitmsg": "validate-commit-msg",
+    "precommit": "npm run -s lint",
+    "prepush": "npm run -s check",
+    "preparecommitmsg": "prepare-commit-msg-angular $2 $3"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "all": true,
+    "require": [
+      "babel-register"
+    ],
+    "include": [
+      "src/"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100,
+    "statements": 100
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-plugin-istanbul": "^2.0.3",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.6.0",
+    "dirty-chai": "^1.2.2",
+    "enzyme": "^2.6.0",
+    "eslint-config-fernandopasik": "^0.5.1",
+    "husky": "^0.11.9",
+    "mocha": "^3.1.2",
+    "nyc": "^8.4.0",
+    "prepare-commit-msg-angular": "^0.2.0",
+    "validate-commit-msg": "^2.8.2"
+  },
+  "engines": {
+    "node": ">=6.0.0",
+    "npm": ">=3.0.0"
+  }
+}
