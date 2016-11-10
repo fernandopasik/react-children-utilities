@@ -13,9 +13,6 @@
     "url": "https://github.com/fernandopasik/react-children-utilities.git"
   },
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "lint": "eslint .",
     "test": "mocha",
