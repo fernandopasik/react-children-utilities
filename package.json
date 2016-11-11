@@ -18,7 +18,7 @@
     "test": "mocha",
     "coverage": "rm -rf coverage .nyc_output && nyc mocha",
     "check": "npm run -s lint && npm run -s coverage",
-    "dist": "rm -rf dist && mkdir dist && babel src/index.js --minified ---source-maps --no-comments --out-file dist/index.js",
+    "dist": "rm -rf dist && mkdir dist && babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
     "build": "npm run -s check && npm run -s dist",
     "prepublishOnly": "npm run -s dist",
     "preversion": "npm run -s check",
@@ -38,6 +38,12 @@
     ],
     "include": [
       "src/"
+    ],
+    "exclude": [
+      "dist/**",
+      "node_modules/**",
+      "docs/**",
+      "test/**"
     ],
     "sourceMap": false,
     "instrument": false,
