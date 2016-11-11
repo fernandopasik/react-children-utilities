@@ -1,6 +1,9 @@
-import chai from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-import dirtyChai from 'dirty-chai';
+require('babel-register')({ plugins: [ 'istanbul' ] });
+
+const
+  chai = require('chai'),
+  chaiEnzyme = require('chai-enzyme'),
+  dirtyChai = require('dirty-chai');
 
 global.expect = chai.expect;
 chai.should();
