@@ -54,26 +54,27 @@
     "statements": 100
   },
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
-    "babel-plugin-istanbul": "^2.0.3",
+    "babel-plugin-istanbul": "^3.0.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
-    "chai-enzyme": "^0.6.0",
+    "chai-enzyme": "^0.6.1",
     "dirty-chai": "^1.2.2",
     "enzyme": "^2.6.0",
     "eslint-config-fernandopasik": "^0.5.1",
     "husky": "^0.11.9",
     "mocha": "^3.1.2",
-    "nyc": "^8.4.0",
+    "nyc": "^9.0.1",
     "prepare-commit-msg-angular": "^0.2.0",
+    "react-addons-test-utils": "^15.4.0",
     "validate-commit-msg": "^2.8.2"
   },
   "engines": {
