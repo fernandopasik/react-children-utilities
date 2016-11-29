@@ -1,8 +1,14 @@
 {
   "name": "react-children-utilities",
   "version": "0.1.5",
-  "description": "",
-  "keywords": [],
+  "description": "Extended utils for React.Children",
+  "keywords": [
+    "react",
+    "reactjs",
+    "children",
+    "utils",
+    "utilities"
+  ],
   "homepage": "https://github.com/fernandopasik/react-children-utilities",
   "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
   "license": "MIT",
