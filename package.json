@@ -54,8 +54,8 @@
     "statements": 100
   },
   "dependencies": {
-    "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -74,7 +74,7 @@
     "mocha": "^3.1.2",
     "nyc": "^9.0.1",
     "prepare-commit-msg-angular": "^0.2.0",
-    "react-addons-test-utils": "^15.4.0",
+    "react-addons-test-utils": "^15.0.0",
     "validate-commit-msg": "^2.8.2"
   },
   "engines": {
