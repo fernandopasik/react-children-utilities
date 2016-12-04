@@ -39,3 +39,53 @@ With ES6 modules
 ```
 import Children from 'react-children-utilities';
 ```
+
+## Api documentation
+
+### Children.filter
+
+Creates a new children array with all elements that pass the test implemented by the provided function.
+
+```
+Children.filter(children, callback)
+```
+
+### Children.groupByType
+
+Returns an object with keys that map each tag name to an array of children of that type, and a key that maps the rest of children.
+
+```
+Children.groupByType(children, tagNames[, restKey])
+```
+
+### Children.deepMap
+
+Creates a new children array with the results of calling a provided function on every element (and its children) in the provided children.
+
+```
+Children.deepMap(children, callback)
+```
+
+### Children.deepForEach
+
+Executes a provided function on every element (and its children) in the provided children.
+
+```
+Children.deepForEach(children, callback)
+```
+
+### Children.deepFind
+
+Returns the first element in the children (and its children) that satisfies the provided testing function.
+
+```
+Children.deepFind(children, callback)
+```
+
+### Children.onlyText
+
+Strips all html and returns only text nodes
+
+```
+Children.onlyText(children)
+```
