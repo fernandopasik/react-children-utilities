@@ -1,4 +1,4 @@
-# React Children Utils
+# React Children Utilities
 
 [![npm version][img-1]][1]
 [![Build Status][img-2]][2]
@@ -18,7 +18,7 @@
 [4]: https://david-dm.org/fernandopasik/react-children-utilities#info=devDependencies "devDependency Status"
 [5]: https://coveralls.io/r/fernandopasik/react-children-utilities "Coverage Status"
 
-Extended utils for React.Children
+Extended utils for React.Children opaque data structure.
 
 ## Install
 
