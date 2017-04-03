@@ -1,3 +1,4 @@
+--require babel-register
 --require test/setup.js
 --recursive
 --reporter min

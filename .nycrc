@@ -1,0 +1,25 @@
+{
+  "reporter": [
+    "lcov",
+    "text"
+  ],
+  "all": true,
+  "require": [
+    "babel-register"
+  ],
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "dist",
+    "docs",
+    "test"
+  ],
+  "sourceMap": false,
+  "instrument": false,
+  "check-coverage": true,
+  "lines": 100,
+  "functions": 100,
+  "branches": 100,
+  "statements": 100
+}
