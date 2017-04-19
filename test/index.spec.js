@@ -1,5 +1,6 @@
-import React, { cloneElement, PropTypes } from 'react';
+import React, { cloneElement } from 'react';
 import Children from '../src/index.js';
+import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 
 describe('Children', () => {
