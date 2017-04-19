@@ -36,8 +36,8 @@
     "preparecommitmsg": "prepare-commit-msg-angular $2 $3"
   },
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -58,7 +58,7 @@
     "mocha": "^3.2.0",
     "nyc": "^10.2.0",
     "prepare-commit-msg-angular": "^0.2.0",
-    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4",
     "validate-commit-msg": "^2.12.1"
   },
   "engines": {
