@@ -89,3 +89,7 @@ Strips all html and returns only text nodes
 ```
 Children.onlyText(children)
 ```
+
+## License
+
+MIT (c) 2017 [Fernando Pasik](https://fernandopasik.com)
