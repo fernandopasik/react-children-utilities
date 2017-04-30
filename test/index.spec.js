@@ -9,8 +9,9 @@ describe('Children', () => {
     const Filtered = props => <div>{ Children.filter(props.children, item => item.type === 'span') }</div>;
     Filtered.propTypes = { children: PropTypes.node };
     const wrapper = shallow(<Filtered><span>1</span><span>2</span><strong>3</strong></Filtered>);
-    expect(wrapper).to.have.exactly(2).descendants('span');
-    expect(wrapper).to.not.have.descendants('strong');
+    expect(wrapper.find('span')).toBePresent();
+    expect(wrapper.find('span')).toHaveLength(2);
+    expect(wrapper.find('strong')).not.toBePresent();
   });
 
   it('group by type', () => {
@@ -25,11 +26,13 @@ describe('Children', () => {
     const wrapper = shallow(
       <Grouped><span><b>1</b></span><span><b>2</b></span><strong>3</strong></Grouped>
     );
-    expect(wrapper.find('.spans')).to.have.exactly(2).descendants('b');
-    expect(wrapper.find('.spans')).to.not.have.descendants('strong');
-    expect(wrapper.find('.rest')).to.not.have.descendants('span');
-    expect(wrapper.find('.rest')).to.have.exactly(1).descendants('strong');
-    expect(wrapper.find('.empty')).to.be.blank();
+    expect(wrapper.find('.spans b')).toBePresent();
+    expect(wrapper.find('.spans b')).toHaveLength(2);
+    expect(wrapper.find('.spans strong')).toBeEmpty();
+    expect(wrapper.find('.rest span')).toBeEmpty();
+    expect(wrapper.find('.rest strong')).toBePresent();
+    expect(wrapper.find('.rest strong')).toHaveLength(1);
+    expect(wrapper.find('.empty *')).toBeEmpty();
   });
 
   it('deep map', () => {
@@ -46,7 +49,8 @@ describe('Children', () => {
     const wrapper = shallow(
       <DeepMapped><b>1</b><b>2</b><span><b>3</b></span><div><div><b>4</b></div></div></DeepMapped>
     );
-    expect(wrapper).to.have.exactly(4).descendants('.mapped');
+    expect(wrapper.find('.mapped')).toBePresent();
+    expect(wrapper.find('.mapped')).toHaveLength(4);
   });
 
   it('deep each', () => {
@@ -64,15 +68,16 @@ describe('Children', () => {
     shallow(
       <DeepForEached><b>1</b><b>2</b><span><b>3</b></span><div><div><b>4</b></div></div></DeepForEached>
     );
-    expect(texts).to.eql([ '1', '2', '3', '4' ]);
+    expect(texts).toEqual([ '1', '2', '3', '4' ]);
   });
 
   it('deep find', () => {
     const DeepFound = props => (<div>{ Children.deepFind(props.children, child => child.type === 'i') }</div>);
     DeepFound.propTypes = { children: PropTypes.node };
     const wrapper = shallow(<DeepFound><b>1</b><b>2</b><span><b>3</b></span><i>4</i></DeepFound>);
-    expect(wrapper).to.have.exactly(1).descendants('i');
-    expect(wrapper).to.have.text('4');
+    expect(wrapper.find('i')).toBePresent();
+    expect(wrapper.find('i')).toHaveLength(1);
+    expect(wrapper).toHaveText('4');
   });
 
   it('only text', () => {
@@ -81,9 +86,9 @@ describe('Children', () => {
     const wrapper = shallow(
       <OnlyText><span>0</span><b>1</b><span><i>2</i></span><i>3</i></OnlyText>
     );
-    expect(wrapper).to.not.have.descendants('i');
-    expect(wrapper).to.not.have.descendants('b');
-    expect(wrapper).to.not.have.descendants('span');
-    expect(wrapper).to.have.text('0123');
+    expect(wrapper.find('i')).toBeEmpty();
+    expect(wrapper.find('b')).toBeEmpty();
+    expect(wrapper.find('span')).toBeEmpty();
+    expect(wrapper).toHaveText('0123');
   });
 });
