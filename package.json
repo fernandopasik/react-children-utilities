@@ -40,7 +40,7 @@
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
   },
   "dependencies": {
-    "prop-types": "^15.5.8",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
@@ -56,8 +56,8 @@
     "eslint": "^3.19.0",
     "eslint-config-fernandopasik": "^0.5.1",
     "husky": "^0.13.3",
-    "jest": "^19.0.2",
-    "jest-enzyme": "^3.0.1",
+    "jest": "^20.0.1",
+    "jest-enzyme": "^3.1.1",
     "prepare-commit-msg-angular": "^0.2.0",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "^15.5.4",
