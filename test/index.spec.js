@@ -74,10 +74,10 @@ describe('Children', () => {
   it('deep find', () => {
     const DeepFound = props => (<div>{ Children.deepFind(props.children, child => child.type === 'i') }</div>);
     DeepFound.propTypes = { children: PropTypes.node };
-    const wrapper = shallow(<DeepFound><b>1</b><b>2</b><span><b>3</b></span><i>4</i></DeepFound>);
+    const wrapper = shallow(<DeepFound><b>1</b><b>2</b><span><i>3</i></span><i>4</i></DeepFound>);
     expect(wrapper.find('i')).toBePresent();
     expect(wrapper.find('i')).toHaveLength(1);
-    expect(wrapper).toHaveText('4');
+    expect(wrapper).toHaveText('3');
   });
 
   it('only text', () => {
