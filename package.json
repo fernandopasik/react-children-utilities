@@ -35,10 +35,6 @@
     "prepush": "npm run -s check",
     "preparecommitmsg": "prepare-commit-msg-angular $2 $3"
   },
-  "jest": {
-    "coverageDirectory": "coverage",
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
-  },
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
