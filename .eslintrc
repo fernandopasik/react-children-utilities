@@ -1,7 +1,10 @@
 {
-  "extends": [ "fernandopasik", "fernandopasik/es6", "fernandopasik/react" ],
+  "extends": [ "airbnb" ],
   "env": {
     "node": true,
     "jest": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": "off"
   }
 }

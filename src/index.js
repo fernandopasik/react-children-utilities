@@ -28,13 +28,13 @@ export default {
     return Children
       .toArray(children)
       .reduce((group, child) => {
-        const
-          isGrouped = types.includes(child.type),
-          addChild = isGrouped ? child.props.children : child,
-          key = isGrouped ? child.type : rest;
+        const isGrouped = types.includes(child.type);
+        const addChild = isGrouped ? child.props.children : child;
+        const key = isGrouped ? child.type : rest;
+
         return {
           ...group,
-          [key]: [ ...(group[key] || []), addChild ]
+          [key]: [...(group[key] || []), addChild],
         };
       }, {});
   },
@@ -47,13 +47,13 @@ export default {
    */
   deepMap(children, deepMapFn) {
     return Children
-      .map(children, child => {
+      .map(children, (child) => {
         if (child.props && child.props.children
           && typeof child.props.children === 'object') {
           // Clone the child that has children and map them too
           return deepMapFn(cloneElement(child, {
             ...child.props,
-            children: this.deepMap(child.props.children, deepMapFn)
+            children: this.deepMap(child.props.children, deepMapFn),
           }));
         }
         return deepMapFn(child);
@@ -67,7 +67,7 @@ export default {
    */
   deepForEach(children, deepForEachFn) {
     Children
-      .forEach(children, child => {
+      .forEach(children, (child) => {
         if (child.props && child.props.children
           && typeof child.props.children === 'object') {
           // Each inside the child that has children
@@ -86,7 +86,7 @@ export default {
   deepFind(children, deepFindFn) {
     return Children
       .toArray(children)
-      .find(child => {
+      .find((child) => {
         if (child.props && child.props.children
           && typeof child.props.children === 'object') {
           // Find inside the child that has children
@@ -106,8 +106,8 @@ export default {
       .toArray(children)
       .reduce((flattened, child) => [
         ...flattened,
-        child.props && child.props.children ? this.onlyText(child.props.children) : child
+        child.props && child.props.children ? this.onlyText(child.props.children) : child,
       ], [])
       .join('');
-  }
+  },
 };
