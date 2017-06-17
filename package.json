@@ -34,9 +34,7 @@
     "preparecommitmsg": "prepare-commit-msg-angular $2 $3"
   },
   "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "15.x"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -56,8 +54,10 @@
     "jest": "^20.0.4",
     "jest-enzyme": "^3.2.0",
     "prepare-commit-msg-angular": "^0.2.0",
-    "react-addons-test-utils": "^15.6.0",
-    "react-test-renderer": "^15.6.1",
+    "prop-types": "^15.5.10",
+    "react-addons-test-utils": "15.x",
+    "react-dom": "15.x",
+    "react-test-renderer": "15.x",
     "validate-commit-msg": "^2.12.2"
   },
   "engines": {
