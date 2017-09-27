@@ -12,7 +12,7 @@
   "homepage": "https://github.com/fernandopasik/react-children-utilities",
   "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
   "license": "MIT",
-  "author": "Fernando Pasik <fernando@pasik.com.ar> (http://fernandopasik.com)",
+  "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [],
   "typings": "./src/index.d.ts",
   "repository": {
