@@ -1,7 +1,10 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Children from '../src/';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Children', () => {
   it('filter', () => {
@@ -31,7 +34,7 @@ describe('Children', () => {
     expect(wrapper.find('.rest span')).toBeEmpty();
     expect(wrapper.find('.rest strong')).toBePresent();
     expect(wrapper.find('.rest strong')).toHaveLength(1);
-    expect(wrapper.find('.empty *')).toBeEmpty();
+    expect(wrapper.find('.empty').children()).toBeEmpty();
   });
 
   it('deep map', () => {

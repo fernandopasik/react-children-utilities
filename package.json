@@ -33,9 +33,10 @@
     "prepush": "npm run -s prebuild",
     "preparecommitmsg": "prepare-commit-msg-angular $2 $3"
   },
-  "dependencies": {
-    "react": "15.x"
+  "peerDependencies": {
+    "react": "15.x || 16.x"
   },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -45,7 +46,8 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "coveralls": "^2.13.1",
-    "enzyme": "^2.9.1",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
     "eslint": "^4.7.2",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
@@ -53,12 +55,13 @@
     "eslint-plugin-react": "^7.4.0",
     "husky": "^0.14.3",
     "jest": "^21.2.0",
-    "jest-enzyme": "^3.8.3",
+    "jest-enzyme": "^4.0.0",
     "prepare-commit-msg-angular": "^0.2.0",
     "prop-types": "^15.6.0",
-    "react-addons-test-utils": "15.x",
-    "react-dom": "15.x",
-    "react-test-renderer": "15.x",
+    "raf": "^3.3.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-test-renderer": "^16.0.0",
     "validate-commit-msg": "^2.14.0"
   },
   "engines": {
