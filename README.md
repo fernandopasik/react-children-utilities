@@ -22,8 +22,10 @@ Extended utils for React.Children opaque data structure.
 
 ## Install
 
+This is a peer dependency so react must be present
+
 ```
-npm install --save react-children-utilities
+npm install --save react-children-utilities react
 ```
 
 ## Usage
