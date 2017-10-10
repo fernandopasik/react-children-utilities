@@ -6,6 +6,7 @@
   },
   "rules": {
     "react/jsx-filename-extension": "off",
-    "jsx-a11y/href-no-hash": "off"
+    "jsx-a11y/href-no-hash": "off",
+    "function-paren-newline": "off"
   }
 }
