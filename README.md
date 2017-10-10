@@ -1,22 +1,25 @@
 # React Children Utilities
 
-[![npm version][img-1]][1]
-[![Build Status][img-2]][2]
-[![Dependency Status][img-3]][3]
-[![devDependency Status][img-4]][4]
-[![Coverage Status][img-5]][5]
+[![npm version][img-1]][url-1]
+[![npm downloads][img-2]][url-2]
+[![Build Status][img-3]][url-3]
+[![Dependency Status][img-4]][url-4]
+[![devDependency Status][img-5]][url-5]
+[![Coverage Status][img-6]][url-6]
 
 [img-1]: https://img.shields.io/npm/v/react-children-utilities.svg
-[img-2]: https://travis-ci.org/fernandopasik/react-children-utilities.svg?branch=master
-[img-3]: https://david-dm.org/fernandopasik/react-children-utilities.svg
-[img-4]: https://david-dm.org/fernandopasik/react-children-utilities/dev-status.svg
-[img-5]: https://img.shields.io/coveralls/fernandopasik/react-children-utilities.svg
+[img-2]: https://img.shields.io/npm/dm/react-children-utilities.svg
+[img-3]: https://travis-ci.org/fernandopasik/react-children-utilities.svg?branch=master
+[img-4]: https://david-dm.org/fernandopasik/react-children-utilities.svg
+[img-5]: https://david-dm.org/fernandopasik/react-children-utilities/dev-status.svg
+[img-6]: https://img.shields.io/coveralls/fernandopasik/react-children-utilities.svg
 
-[1]: https://www.npmjs.com/package/react-children-utilities "npm version"
-[2]: https://travis-ci.org/fernandopasik/react-children-utilities "Build Status"
-[3]: https://david-dm.org/fernandopasik/react-children-utilities "Dependency Status"
-[4]: https://david-dm.org/fernandopasik/react-children-utilities#info=devDependencies "devDependency Status"
-[5]: https://coveralls.io/r/fernandopasik/react-children-utilities "Coverage Status"
+[url-1]: https://www.npmjs.com/package/react-children-utilities "npm version"
+[url-2]: https://www.npmjs.com/package/react-children-utilities "npm downloads"
+[url-3]: https://travis-ci.org/fernandopasik/react-children-utilities "Build Status"
+[url-4]: https://david-dm.org/fernandopasik/react-children-utilities "Dependency Status"
+[url-5]: https://david-dm.org/fernandopasik/react-children-utilities#info=devDependencies "devDependency Status"
+[url-6]: https://coveralls.io/r/fernandopasik/react-children-utilities "Coverage Status"
 
 Extended utils for React.Children opaque data structure.
 
