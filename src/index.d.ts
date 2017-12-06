@@ -12,6 +12,8 @@ declare module 'react-children-utilities' {
 
   export function filter(children: ReactNode, filterFn: ICallback): ReactNode
 
+  export function deepFilter(children: ReactNode, deepFilterFn: ICallback): ReactNode
+
   export function groupByType(children: ReactNode, types: string[], rest?: string): IKeyChildren
 
   export function deepMap(children: ReactNode, deepMapFn: ICallback): ReactNode
