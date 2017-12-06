@@ -17,6 +17,28 @@ export default {
   },
 
   /**
+   * Filter children and its children
+   * @param   {object} children     - React component children
+   * @param {function} deepFilterFn - Deep Filter callback
+   */
+  deepFilter(children, deepFilterFn) {
+    return Children
+      .toArray(children)
+      .filter(deepFilterFn)
+      .map((child) => {
+        if (child.props && child.props.children
+          && typeof child.props.children === 'object') {
+          // Clone the child that has children and filter them too
+          return cloneElement(child, {
+            ...child.props,
+            children: this.deepFilter(child.props.children, deepFilterFn),
+          });
+        }
+        return child;
+      });
+  },
+
+  /**
    * Group children by type and puts in a rest key
    * the types not indicated
    * @param   {object} children - React component children
