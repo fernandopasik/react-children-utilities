@@ -31,7 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "validate-commit-msg",
+      "commit-msg": "commitlint -e $GIT_PARAMS",
       "pre-push": "yarn prebuild",
       "prepare-commit-msg": "prepare-commit-msg-angular $2 $3"
     }
@@ -41,6 +41,8 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "^6.1.2",
+    "@commitlint/config-conventional": "^6.1.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.1",
@@ -64,8 +66,7 @@
     "raf": "^3.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-test-renderer": "^16.2.0",
-    "validate-commit-msg": "^2.14.0"
+    "react-test-renderer": "^16.2.0"
   },
   "engines": {
     "node": ">=6.0.0"
