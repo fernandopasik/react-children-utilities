@@ -24,14 +24,15 @@
     "test": "jest --coverage",
     "lint": "eslint .",
     "build": "rm -rf dist && mkdir dist && babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
+    "prebuild": "yarn lint && yarn test",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "prepublishOnly": "npm run -s build",
-    "preversion": "npm run -s prebuild"
+    "prepublishOnly": "yarn build",
+    "preversion": "yarn prebuild"
   },
   "husky": {
     "hooks": {
       "commit-msg": "validate-commit-msg",
-      "pre-push": "npm run -s lint && npm test",
+      "pre-push": "yarn prebuild",
       "prepare-commit-msg": "prepare-commit-msg-angular $2 $3"
     }
   },
