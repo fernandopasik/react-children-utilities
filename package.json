@@ -24,14 +24,16 @@
     "test": "jest --coverage",
     "lint": "eslint .",
     "build": "rm -rf dist && mkdir dist && babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
-    "prebuild": "npm run -s lint && npm test",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prepublishOnly": "npm run -s build",
-    "preversion": "npm run -s prebuild",
-    "commitmsg": "validate-commit-msg",
-    "precommit": "npm run -s lint",
-    "prepush": "npm run -s prebuild",
-    "preparecommitmsg": "prepare-commit-msg-angular $2 $3"
+    "preversion": "npm run -s prebuild"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "validate-commit-msg",
+      "pre-push": "npm run -s lint && npm test",
+      "prepare-commit-msg": "prepare-commit-msg-angular $2 $3"
+    }
   },
   "peerDependencies": {
     "react": ">=15.0.0"
