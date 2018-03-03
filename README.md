@@ -97,4 +97,4 @@ Children.onlyText(children)
 
 ## License
 
-MIT (c) 2017 [Fernando Pasik](https://fernandopasik.com)
+MIT (c) 2018 [Fernando Pasik](https://fernandopasik.com)
