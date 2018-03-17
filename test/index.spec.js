@@ -59,7 +59,7 @@ describe('Children', () => {
     const DeepMapped = props => (
       <div>
         { Children.deepMap(props.children,
-          child => (
+          child => child && (
             child.type === 'b'
               ? cloneElement(child, { ...child.props, className: 'mapped' })
               : child
@@ -69,7 +69,21 @@ describe('Children', () => {
     );
     DeepMapped.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
-      <DeepMapped><b>1</b><b>2</b><span><b>3</b></span><div><div><b>4</b></div></div></DeepMapped>,
+      <DeepMapped>
+        <b>1</b>
+        <b>2</b>
+        <span>
+          <b>3</b>
+        </span>
+        <div>
+          <div>
+            <b>4</b>
+          </div>
+        </div>
+        {null && <div>will not show up</div>}
+        {false && <div>will not show up</div>}
+        {undefined && <div>will not show up</div>}
+      </DeepMapped>,
     );
     expect(wrapper.find('.mapped')).toBePresent();
     expect(wrapper.find('.mapped')).toHaveLength(4);
@@ -80,7 +94,7 @@ describe('Children', () => {
     const DeepForEached = props => (
       <div>
         { Children.deepForEach(props.children, (child) => {
-          if (child.type === 'b') {
+          if (child && child.type === 'b') {
             texts.push(child.props.children);
           }
         }) }
@@ -89,7 +103,19 @@ describe('Children', () => {
     DeepForEached.propTypes = { children: PropTypes.node.isRequired };
     shallow(
       <DeepForEached>
-        <b>1</b><b>2</b><span><b>3</b></span><div><div><b>4</b></div></div>
+        <b>1</b>
+        <b>2</b>
+        <span>
+          <b>3</b>
+        </span>
+        <div>
+          <div>
+            <b>4</b>
+          </div>
+        </div>
+        {null && <div>will not show up</div>}
+        {false && <div>will not show up</div>}
+        {undefined && <div>will not show up</div>}
       </DeepForEached>,
     );
     expect(texts).toEqual(['1', '2', '3', '4']);
@@ -98,7 +124,19 @@ describe('Children', () => {
   it('deep find', () => {
     const DeepFound = props => (<div>{ Children.deepFind(props.children, child => child.type === 'i') }</div>);
     DeepFound.propTypes = { children: PropTypes.node.isRequired };
-    const wrapper = shallow(<DeepFound><b>1</b><b>2</b><span><i>3</i></span><i>4</i></DeepFound>);
+    const wrapper = shallow(
+      <DeepFound>
+        <b>1</b>
+        <b>2</b>
+        <span>
+          <i>3</i>
+        </span>
+        <i>4</i>
+        {null && <div>will not show up</div>}
+        {false && <div>will not show up</div>}
+        {undefined && <div>will not show up</div>}
+      </DeepFound>,
+    );
     expect(wrapper.find('i')).toBePresent();
     expect(wrapper.find('i')).toHaveLength(1);
     expect(wrapper).toHaveText('3');

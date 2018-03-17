@@ -1,5 +1,8 @@
 import { Children, cloneElement } from 'react';
 
+const hasChildren = child => child && child.props && child.props.children;
+const hasComplexChildren = child => hasChildren(child) && typeof child.props.children === 'object';
+
 export default {
 
   ...Children,
@@ -26,8 +29,7 @@ export default {
       .toArray(children)
       .filter(deepFilterFn)
       .map((child) => {
-        if (child.props && child.props.children
-          && typeof child.props.children === 'object') {
+        if (hasComplexChildren(child)) {
           // Clone the child that has children and filter them too
           return cloneElement(child, {
             ...child.props,
@@ -70,8 +72,7 @@ export default {
   deepMap(children, deepMapFn) {
     return Children
       .map(children, (child) => {
-        if (child.props && child.props.children
-          && typeof child.props.children === 'object') {
+        if (hasComplexChildren(child)) {
           // Clone the child that has children and map them too
           return deepMapFn(cloneElement(child, {
             ...child.props,
@@ -90,8 +91,7 @@ export default {
   deepForEach(children, deepForEachFn) {
     Children
       .forEach(children, (child) => {
-        if (child.props && child.props.children
-          && typeof child.props.children === 'object') {
+        if (hasComplexChildren(child)) {
           // Each inside the child that has children
           this.deepForEach(child.props.children, deepForEachFn);
         }
@@ -109,8 +109,7 @@ export default {
     return Children
       .toArray(children)
       .find((child) => {
-        if (child.props && child.props.children
-          && typeof child.props.children === 'object') {
+        if (hasComplexChildren(child)) {
           // Find inside the child that has children
           return this.deepFind(child.props.children, deepFindFn);
         }
@@ -128,7 +127,7 @@ export default {
       .toArray(children)
       .reduce((flattened, child) => [
         ...flattened,
-        child.props && child.props.children ? this.onlyText(child.props.children) : child,
+        hasChildren(child) ? this.onlyText(child.props.children) : child,
       ], [])
       .join('');
   },
