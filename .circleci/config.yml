@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest-browsers
+    branches:
+      ignore:
+        - gh-pages
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Unit Tests
+          command: yarn test --ci --testResultsProcessor="jest-junit"
+          when: always
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+      - run:
+          name: Lint
+          command: yarn lint --format junit -o reports/junit/js-lint-results.xml
+          when: always
+      - run:
+          name: Flow
+          command: yarn flow
+          when: always
+      - store_test_results:
+          path: reports/junit
+      - store_artifacts:
+          path: reports/junit
+      - run:
+          name: Build
+          command: yarn build
+          when: always
+experimental:
+  notify:
+    branches:
+      only:
+        - master
