@@ -73,6 +73,6 @@
     "react-test-renderer": "^16.2.0"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   }
 }
