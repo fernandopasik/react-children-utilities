@@ -1,9 +1,7 @@
 {
-  "extends": [ "airbnb" ],
-  "env": {
-    "node": true,
-    "jest": true
-  },
+  "extends": ["airbnb"],
+  "parser": "babel-eslint",
+  "plugins": ["flowtype", "react", "import"],
   "rules": {
     "react/jsx-filename-extension": "off",
     "jsx-a11y/href-no-hash": "off",

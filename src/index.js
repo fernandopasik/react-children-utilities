@@ -1,7 +1,12 @@
+// @flow
 import { Children, cloneElement } from 'react';
+import type { Element, Node } from 'react';
 
-const hasChildren = child => child && child.props && child.props.children;
-const hasComplexChildren = child => hasChildren(child) && typeof child.props.children === 'object';
+const hasChildren = (child: Element<any>): boolean =>
+  Boolean(child && child.props && child.props.children);
+
+const hasComplexChildren = (child: Element<any>): boolean =>
+  hasChildren(child) && typeof child.props.children === 'object';
 
 export default {
 
@@ -13,7 +18,7 @@ export default {
    * @param {function} filterFn - Array filter callback
    * @returns  {array}          - Filtered children
    */
-  filter(children, filterFn) {
+  filter(children: number, filterFn: (child: Node) => boolean): Node {
     return Children
       .toArray(children)
       .filter(filterFn);
@@ -23,8 +28,9 @@ export default {
    * Filter children and its children
    * @param   {object} children     - React component children
    * @param {function} deepFilterFn - Deep Filter callback
+   * @returns  {array}              - Deep Filtered children
    */
-  deepFilter(children, deepFilterFn) {
+  deepFilter(children: Node, deepFilterFn: (child: Node) => boolean): Node {
     return Children
       .toArray(children)
       .filter(deepFilterFn)
@@ -48,7 +54,7 @@ export default {
    * @param   {string} rest     - Object key name where non types will be saved
    * @returns {object}          - Map of the types and rest
    */
-  groupByType(children, types, rest) {
+  groupByType(children: Node, types: [string], rest: string): Object {
     return Children
       .toArray(children)
       .reduce((group, child) => {
@@ -69,7 +75,7 @@ export default {
    * @param {function} deepMapFn - Deep Map callback
    * @returns  {array}           - Deep Mapped children
    */
-  deepMap(children, deepMapFn) {
+  deepMap(children: Node, deepMapFn: (child: Node) => Node): Node {
     return Children
       .map(children, (child) => {
         if (hasComplexChildren(child)) {
@@ -88,7 +94,7 @@ export default {
    * @param   {object} children      - React component children
    * @param {function} deepForEachFn - Deep Map callback
    */
-  deepForEach(children, deepForEachFn) {
+  deepForEach(children: Node, deepForEachFn: (child: Node) => void): void {
     Children
       .forEach(children, (child) => {
         if (hasComplexChildren(child)) {
@@ -105,7 +111,7 @@ export default {
    * @param {function} deepFindFn - Deep Map callback
    * @returns  {array}            - Children found
    */
-  deepFind(children, deepFindFn) {
+  deepFind(children: Node, deepFindFn): Node {
     return Children
       .toArray(children)
       .find((child) => {
@@ -122,7 +128,7 @@ export default {
    * @param   {object} children - React component children
    * @returns  {string}         - Text of all children
    */
-  onlyText(children) {
+  onlyText(children: Node): string {
     return Children
       .toArray(children)
       .reduce((flattened, child) => [
