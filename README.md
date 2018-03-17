@@ -9,14 +9,14 @@
 
 [img-1]: https://img.shields.io/npm/v/react-children-utilities.svg
 [img-2]: https://img.shields.io/npm/dm/react-children-utilities.svg
-[img-3]: https://travis-ci.org/fernandopasik/react-children-utilities.svg?branch=master
+[img-3]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
 [img-4]: https://david-dm.org/fernandopasik/react-children-utilities/peer-status.svg
 [img-5]: https://david-dm.org/fernandopasik/react-children-utilities/dev-status.svg
 [img-6]: https://coveralls.io/repos/github/fernandopasik/react-children-utilities/badge.svg?branch=master
 
 [url-1]: https://www.npmjs.com/package/react-children-utilities "npm version"
 [url-2]: https://www.npmjs.com/package/react-children-utilities "npm downloads"
-[url-3]: https://travis-ci.org/fernandopasik/react-children-utilities "Build Status"
+[url-3]: https://circleci.com/gh/fernandopasik/react-children-utilities "Build Status"
 [url-4]: https://david-dm.org/fernandopasik/react-children-utilities?type=peer "Peer Dependency Status"
 [url-5]: https://david-dm.org/fernandopasik/react-children-utilities?type=dev "Dev Dependency Status"
 [url-6]: https://coveralls.io/github/fernandopasik/react-children-utilities?branch=master "Coverage Status"
