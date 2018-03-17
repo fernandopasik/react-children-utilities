@@ -11,9 +11,9 @@ describe('Children', () => {
     const Filtered = props => <div>{ Children.filter(props.children, item => item.type === 'span') }</div>;
     Filtered.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(<Filtered><span>1</span><span>2</span><strong>3</strong></Filtered>);
-    expect(wrapper.find('span')).toBePresent();
+    expect(wrapper.find('span')).toExist();
     expect(wrapper.find('span')).toHaveLength(2);
-    expect(wrapper.find('strong')).not.toBePresent();
+    expect(wrapper.find('strong')).not.toExist();
   });
 
   it('deep filter', () => {
@@ -29,9 +29,9 @@ describe('Children', () => {
         </span>
       </DeepFiltered>,
     );
-    expect(wrapper.find('span')).toBePresent();
+    expect(wrapper.find('span')).toExist();
     expect(wrapper.find('span')).toHaveLength(5);
-    expect(wrapper.find('strong')).not.toBePresent();
+    expect(wrapper.find('strong')).not.toExist();
   });
 
   it('group by type', () => {
@@ -46,13 +46,13 @@ describe('Children', () => {
     const wrapper = shallow(
       <Grouped><span><b>1</b></span><span><b>2</b></span><strong>3</strong></Grouped>,
     );
-    expect(wrapper.find('.spans b')).toBePresent();
+    expect(wrapper.find('.spans b')).toExist();
     expect(wrapper.find('.spans b')).toHaveLength(2);
-    expect(wrapper.find('.spans strong')).toBeEmpty();
-    expect(wrapper.find('.rest span')).toBeEmpty();
-    expect(wrapper.find('.rest strong')).toBePresent();
+    expect(wrapper.find('.spans strong')).not.toExist();
+    expect(wrapper.find('.rest span')).not.toExist();
+    expect(wrapper.find('.rest strong')).toExist();
     expect(wrapper.find('.rest strong')).toHaveLength(1);
-    expect(wrapper.find('.empty').children()).toBeEmpty();
+    expect(wrapper.find('.empty').children()).not.toExist();
   });
 
   it('deep map', () => {
@@ -85,7 +85,7 @@ describe('Children', () => {
         {undefined && <div>will not show up</div>}
       </DeepMapped>,
     );
-    expect(wrapper.find('.mapped')).toBePresent();
+    expect(wrapper.find('.mapped')).toExist();
     expect(wrapper.find('.mapped')).toHaveLength(4);
   });
 
@@ -137,7 +137,7 @@ describe('Children', () => {
         {undefined && <div>will not show up</div>}
       </DeepFound>,
     );
-    expect(wrapper.find('i')).toBePresent();
+    expect(wrapper.find('i')).toExist();
     expect(wrapper.find('i')).toHaveLength(1);
     expect(wrapper).toHaveText('3');
   });
@@ -148,9 +148,9 @@ describe('Children', () => {
     const wrapper = shallow(
       <OnlyText><span>0</span><b>1</b><span><i>2</i></span><i>3</i></OnlyText>,
     );
-    expect(wrapper.find('i')).toBeEmpty();
-    expect(wrapper.find('b')).toBeEmpty();
-    expect(wrapper.find('span')).toBeEmpty();
+    expect(wrapper.find('i')).not.toExist();
+    expect(wrapper.find('b')).not.toExist();
+    expect(wrapper.find('span')).not.toExist();
     expect(wrapper).toHaveText('0123');
   });
 });
