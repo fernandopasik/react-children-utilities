@@ -13,7 +13,9 @@
   "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
   "license": "MIT",
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
-  "contributors": [],
+  "contributors": [
+    "mrm007 (https://github.com/mrm007)"
+  ],
   "typings": "./src/index.d.ts",
   "repository": {
     "type": "git",
