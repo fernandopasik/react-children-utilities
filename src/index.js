@@ -54,7 +54,7 @@ export default {
    * @param   {string} rest     - Object key name where non types will be saved
    * @returns {object}          - Map of the types and rest
    */
-  groupByType(children: Node, types: [string], rest: string): Object {
+  groupByType(children: Node, types: Array<string>, rest: string): Object {
     return Children
       .toArray(children)
       .reduce((group, child) => {
