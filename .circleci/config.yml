@@ -13,10 +13,14 @@ jobs:
           command: yarn
       - run:
           name: Unit Tests
-          command: yarn test --ci --testResultsProcessor="jest-junit"
+          command: yarn test --coverage --ci --testResultsProcessor="jest-junit"
           when: always
           environment:
             JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+      - run:
+          name: Send coverage
+          command: yarn codecov
+          when: always
       - run:
           name: Lint
           command: yarn lint --format junit -o reports/junit/js-lint-results.xml

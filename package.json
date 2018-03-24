@@ -27,7 +27,6 @@
     "lint": "eslint .",
     "build": "rm -rf dist && mkdir dist && babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
     "prebuild": "yarn lint && yarn test && yarn flow",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "preversion": "yarn build"
   },
   "husky": {
@@ -53,7 +52,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
-    "coveralls": "^3.0.0",
+    "codecov": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
