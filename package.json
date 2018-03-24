@@ -28,13 +28,12 @@
     "build": "rm -rf dist && mkdir dist && babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
     "prebuild": "yarn lint && yarn test && yarn flow",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "prepublishOnly": "yarn build",
-    "preversion": "yarn prebuild"
+    "preversion": "yarn build"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -e $GIT_PARAMS",
-      "pre-push": "yarn prebuild",
+      "pre-push": "yarn build",
       "prepare-commit-msg": "prepare-commit-msg-angular $2 $3"
     }
   },
