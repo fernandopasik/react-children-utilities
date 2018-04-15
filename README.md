@@ -12,14 +12,14 @@
 [img-3]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
 [img-4]: https://david-dm.org/fernandopasik/react-children-utilities/peer-status.svg
 [img-5]: https://david-dm.org/fernandopasik/react-children-utilities/dev-status.svg
-[img-6]: https://coveralls.io/repos/github/fernandopasik/react-children-utilities/badge.svg?branch=master
+[img-6]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
 
 [url-1]: https://www.npmjs.com/package/react-children-utilities "npm version"
 [url-2]: https://www.npmjs.com/package/react-children-utilities "npm downloads"
 [url-3]: https://circleci.com/gh/fernandopasik/react-children-utilities "Build Status"
 [url-4]: https://david-dm.org/fernandopasik/react-children-utilities?type=peer "Peer Dependency Status"
 [url-5]: https://david-dm.org/fernandopasik/react-children-utilities?type=dev "Dev Dependency Status"
-[url-6]: https://coveralls.io/github/fernandopasik/react-children-utilities?branch=master "Coverage Status"
+[url-6]: https://codecov.io/gh/fernandopasik/react-children-utilities "Coverage Status"
 
 Extended utils for React.Children opaque data structure.
 
