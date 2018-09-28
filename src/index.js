@@ -2,11 +2,12 @@
 import { Children, cloneElement } from 'react';
 import type { Element, Node } from 'react';
 
-const hasChildren = (child: Element<any>): boolean =>
-  Boolean(child && child.props && child.props.children);
+const hasChildren = (child: Element<any>): boolean => Boolean(
+  child && child.props && child.props.children,
+);
 
-const hasComplexChildren = (child: Element<any>): boolean =>
-  hasChildren(child) && typeof child.props.children === 'object';
+const hasComplexChildren = (child: Element<any>): boolean => hasChildren(child)
+  && typeof child.props.children === 'object';
 
 export default {
 
