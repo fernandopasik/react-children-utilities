@@ -17,7 +17,6 @@ yarn-error.log
 
 # test files
 coverage
-.nyc_output
 
 # build and temp folders
 !dist
