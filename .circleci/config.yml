@@ -13,7 +13,7 @@ jobs:
           command: yarn
       - run:
           name: Unit Tests
-          command: yarn test --coverage --ci --testResultsProcessor="jest-junit"
+          command: yarn test --coverage --ci --reporters=default --reporters=jest-junit
           when: always
           environment:
             JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
