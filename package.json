@@ -30,13 +30,6 @@
     "prebuild": "yarn lint && yarn test && yarn flow",
     "preversion": "yarn build"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e $GIT_PARAMS",
-      "pre-push": "yarn build",
-      "prepare-commit-msg": "prepare-commit-msg-angular $2 $3"
-    }
-  },
   "peerDependencies": {
     "react": ">=15.0.0"
   },

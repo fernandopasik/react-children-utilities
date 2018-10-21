@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "commit-msg": "commitlint -e $GIT_PARAMS",
+    "pre-push": "yarn build",
+    "prepare-commit-msg": "prepare-commit-msg-angular $2 $3"
+  }
+}
