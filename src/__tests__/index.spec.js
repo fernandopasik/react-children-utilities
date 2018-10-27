@@ -2,7 +2,7 @@ import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Children from '../src';
+import Children from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
 
