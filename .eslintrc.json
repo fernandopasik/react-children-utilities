@@ -1,7 +1,20 @@
 {
   "extends": ["airbnb"],
   "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
   "plugins": ["flowtype", "react", "import"],
+  "overrides": [{
+    "files": [
+      "src/**/__tests__/*.js",
+      "src/**/__mocks__/*.js"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true
+    }
+  }],
   "rules": {
     "react/jsx-filename-extension": "off",
     "jsx-a11y/href-no-hash": "off",
