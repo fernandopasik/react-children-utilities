@@ -1,25 +1,26 @@
 # React Children Utilities
 
-[![npm version][img-1]][url-1]
-[![npm downloads][img-2]][url-2]
-[![Build Status][img-3]][url-3]
-[![peerDependency Status][img-4]][url-4]
-[![devDependency Status][img-5]][url-5]
-[![Coverage Status][img-6]][url-6]
+[![Build Status][badge-1]][url-1]
+[![Test Coverage Status][badge-2]][url-2]
 
-[img-1]: https://img.shields.io/npm/v/react-children-utilities.svg
-[img-2]: https://img.shields.io/npm/dm/react-children-utilities.svg
-[img-3]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
-[img-4]: https://david-dm.org/fernandopasik/react-children-utilities/peer-status.svg
-[img-5]: https://david-dm.org/fernandopasik/react-children-utilities/dev-status.svg
-[img-6]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
+[![npm version][badge-3]][url-3]
+[![npm downloads][badge-4]][url-4]
+[![peerDependency Status][badge-5]][url-5]
+[![devDependency Status][badge-6]][url-6]
 
-[url-1]: https://www.npmjs.com/package/react-children-utilities "npm version"
-[url-2]: https://www.npmjs.com/package/react-children-utilities "npm downloads"
-[url-3]: https://circleci.com/gh/fernandopasik/react-children-utilities "Build Status"
-[url-4]: https://david-dm.org/fernandopasik/react-children-utilities?type=peer "Peer Dependency Status"
-[url-5]: https://david-dm.org/fernandopasik/react-children-utilities?type=dev "Dev Dependency Status"
-[url-6]: https://codecov.io/gh/fernandopasik/react-children-utilities "Coverage Status"
+[badge-1]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
+[badge-2]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
+[badge-3]: https://img.shields.io/npm/v/react-children-utilities.svg
+[badge-4]: https://img.shields.io/npm/dm/react-children-utilities.svg
+[badge-5]: https://david-dm.org/fernandopasik/react-children-utilities/peer-status.svg
+[badge-6]: https://david-dm.org/fernandopasik/react-children-utilities/dev-status.svg
+
+[url-1]: https://circleci.com/gh/fernandopasik/react-children-utilities "Build Status"
+[url-2]: https://codecov.io/gh/fernandopasik/react-children-utilities "Test Coverage Status"
+[url-3]: https://www.npmjs.com/package/react-children-utilities "npm version"
+[url-4]: https://www.npmjs.com/package/react-children-utilities "npm downloads"
+[url-5]: https://david-dm.org/fernandopasik/react-children-utilities?type=peer "Peer Dependency Status"
+[url-6]: https://david-dm.org/fernandopasik/react-children-utilities?type=dev "Dev Dependency Status"
 
 Extended utils for React.Children opaque data structure.
 
