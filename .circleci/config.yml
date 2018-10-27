@@ -37,6 +37,10 @@ jobs:
           name: Build
           command: yarn build
           when: always
+      - run:
+          name: Check Bundle Size
+          command: yarn size
+          when: always
 experimental:
   notify:
     branches:
