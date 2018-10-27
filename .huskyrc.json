@@ -1,7 +1,7 @@
 {
   "hooks": {
     "commit-msg": "commitlint -e $GIT_PARAMS",
-    "pre-push": "yarn build",
+    "pre-push": "yarn lint && yarn test && yarn flow && yarn build && yarn size",
     "prepare-commit-msg": "prepare-commit-msg-angular $2 $3"
   }
 }
