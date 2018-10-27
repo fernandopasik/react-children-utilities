@@ -28,8 +28,15 @@
     "lint": "eslint .",
     "build": "babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
     "prebuild": "del dist && make-dir dist",
+    "size": "bundlesize",
     "preversion": "yarn lint && yarn test && yarn flow"
   },
+  "bundlesize": [
+    {
+      "path": "dist/index.js",
+      "maxSize": "1.2 kB"
+    }
+  ],
   "peerDependencies": {
     "react": ">=15.0.0"
   },
@@ -45,6 +52,7 @@
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "bundlesize": "^0.17.0",
     "codecov": "^3.1.0",
     "del-cli": "^1.1.0",
     "enzyme": "^3.7.0",
