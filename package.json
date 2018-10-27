@@ -26,8 +26,8 @@
   "scripts": {
     "test": "jest --coverage",
     "lint": "eslint .",
-    "build": "rm -rf dist && mkdir dist && babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
-    "prebuild": "yarn lint && yarn test && yarn flow",
+    "build": "babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
+    "prebuild": "del dist && make-dir dist",
     "preversion": "yarn lint && yarn test && yarn flow"
   },
   "peerDependencies": {
@@ -46,6 +46,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "codecov": "^3.1.0",
+    "del-cli": "^1.1.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.8.0",
@@ -59,6 +60,7 @@
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",
     "jest-junit": "^5.2.0",
+    "make-dir-cli": "^1.0.0",
     "prepare-commit-msg-angular": "^0.2.0",
     "prop-types": "^15.6.2",
     "raf": "^3.4.0",
