@@ -29,7 +29,7 @@
     "build": "babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
     "prebuild": "del dist && make-dir dist",
     "size": "bundlesize",
-    "preversion": "yarn lint && yarn test && yarn flow && yarn build"
+    "preversion": "yarn lint && yarn test && yarn flow && yarn build && yarn size"
   },
   "bundlesize": [
     {
