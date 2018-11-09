@@ -112,7 +112,7 @@ export default {
    * @param {function} deepFindFn - Deep Map callback
    * @returns  {array}            - Children found
    */
-  deepFind(children: Node, deepFindFn): Node | void {
+  deepFind(children: Node, deepFindFn: (child: Node) => boolean): Node | void {
     return Children
       .toArray(children)
       .find((child) => {
