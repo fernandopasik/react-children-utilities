@@ -76,8 +76,5 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-test-renderer": "^16.7.0"
-  },
-  "engines": {
-    "node": ">=6.0.0"
   }
 }
