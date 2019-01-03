@@ -68,6 +68,7 @@
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.1",
     "jest-junit": "^5.2.0",
+    "lint-staged": "^8.1.0",
     "make-dir-cli": "^1.0.0",
     "prepare-commit-msg-angular": "^0.2.0",
     "prop-types": "^15.6.2",

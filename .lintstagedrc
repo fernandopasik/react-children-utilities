@@ -1,0 +1,6 @@
+{
+  "src/**/*.js": [
+    "eslint",
+    "jest --bail --findRelatedTests"
+  ]
+}
