@@ -70,7 +70,6 @@
     "jest-junit": "^5.2.0",
     "lint-staged": "^8.1.0",
     "make-dir-cli": "^1.0.0",
-    "prepare-commit-msg-angular": "^0.2.0",
     "prop-types": "^15.6.2",
     "raf": "^3.4.1",
     "react": "^16.7.0",

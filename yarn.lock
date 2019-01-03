@@ -5738,11 +5738,6 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
-prepare-commit-msg-angular@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/prepare-commit-msg-angular/-/prepare-commit-msg-angular-0.2.0.tgz#9cecbeb0ed18b65aeb20836f28e5b3a88609f6fa"
-  integrity sha1-nOy+sO0YtlrrIINvKOWzqIYJ9vo=
-
 prepend-http@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
