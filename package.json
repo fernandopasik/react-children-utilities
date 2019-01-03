@@ -1,6 +1,6 @@
 {
   "name": "react-children-utilities",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Extended utils for React.Children opaque data structure",
   "keywords": [
     "react",
