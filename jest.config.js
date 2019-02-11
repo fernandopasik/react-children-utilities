@@ -4,5 +4,5 @@ module.exports = {
     require.resolve('raf/polyfill'),
   ],
   testEnvironment: 'node',
-  setupTestFrameworkScriptFile: './node_modules/jest-enzyme/lib/index.js',
+  setupFilesAfterEnv: ['./node_modules/jest-enzyme/lib/index.js'],
 };
