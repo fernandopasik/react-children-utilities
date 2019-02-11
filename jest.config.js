@@ -1,5 +1,5 @@
 module.exports = {
-  collectCoverageFrom: ['src/**'],
+  collectCoverageFrom: ['src/**/*.js'],
   setupFiles: [
     require.resolve('raf/polyfill'),
   ],
