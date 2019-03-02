@@ -7,7 +7,7 @@ import Children from '..';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Children', () => {
-  it('filter', () => {
+  test('filter', () => {
     const Filtered = ({ children }) => <div>{ Children.filter(children, item => item.type === 'span') }</div>;
     Filtered.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
@@ -22,7 +22,7 @@ describe('Children', () => {
     expect(wrapper.find('strong')).not.toExist();
   });
 
-  it('deep filter', () => {
+  test('deep filter', () => {
     const DeepFiltered = ({ children }) => <div>{ Children.deepFilter(children, item => item.type === 'span') }</div>;
     DeepFiltered.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
@@ -43,7 +43,7 @@ describe('Children', () => {
     expect(wrapper.find('strong')).not.toExist();
   });
 
-  it('group by type', () => {
+  test('group by type', () => {
     const Grouped = ({ children }) => (
       <div>
         <div className="spans">{ Children.groupByType(children, ['span', 'i'], 'rest').span }</div>
@@ -68,7 +68,7 @@ describe('Children', () => {
     expect(wrapper.find('.empty').children()).not.toExist();
   });
 
-  it('deep map', () => {
+  test('deep map', () => {
     const DeepMapped = ({ children }) => (
       <div>
         { Children.deepMap(children,
@@ -102,7 +102,7 @@ describe('Children', () => {
     expect(wrapper.find('.mapped')).toHaveLength(4);
   });
 
-  it('deep each', () => {
+  test('deep each', () => {
     const texts = [];
     const DeepForEached = ({ children }) => (
       <div>
@@ -131,10 +131,10 @@ describe('Children', () => {
         {undefined && <div>will not show up</div>}
       </DeepForEached>,
     );
-    expect(texts).toEqual(['1', '2', '3', '4']);
+    expect(texts).toStrictEqual(['1', '2', '3', '4']);
   });
 
-  it('deep find', () => {
+  test('deep find', () => {
     const DeepFound = ({ children }) => (<div>{ Children.deepFind(children, child => child.type === 'i') }</div>);
     DeepFound.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
@@ -155,7 +155,7 @@ describe('Children', () => {
     expect(wrapper).toHaveText('3');
   });
 
-  it('only text', () => {
+  test('only text', () => {
     const OnlyText = ({ children }) => (<div>{ Children.onlyText(children) }</div>);
     OnlyText.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
