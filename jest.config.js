@@ -1,8 +1,8 @@
 module.exports = {
-  collectCoverageFrom: ['src/**/*.js'],
-  setupFiles: [
-    require.resolve('raf/polyfill'),
-  ],
-  testEnvironment: 'node',
-  setupFilesAfterEnv: ['./node_modules/jest-enzyme/lib/index.js'],
+  collectCoverageFrom: ['src/**/*.js', 'src/**/*.jsx'],
+  testEnvironment: 'enzyme',
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
+  setupFilesAfterEnv: ['jest-enzyme'],
 };
