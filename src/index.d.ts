@@ -19,7 +19,7 @@ declare module 'react-children-utilities' {
   }
 
   export interface MapFn {
-    (child: ReactChild, index?: number, children?: ReactNode): void;
+    (child: ReactChild, index?: number, children?: ReactNode): ReactChild;
   }
 
   export function filter(children: ReactNode, filterFn: FilterFn): ReactNode
