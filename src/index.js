@@ -2,11 +2,11 @@
 import { Children, cloneElement } from 'react';
 import type { Element, Node } from 'react';
 
-const hasChildren = (child: Element<any>): boolean => Boolean(
+export const hasChildren = (child: Element<any>): boolean => Boolean(
   child && child.props && child.props.children,
 );
 
-const hasComplexChildren = (child: Element<any>): boolean => hasChildren(child)
+export const hasComplexChildren = (child: Element<any>): boolean => hasChildren(child)
   && typeof child.props.children === 'object';
 
 export const filter = (children: number, filterFn: (child: Node) => boolean): Node => {
@@ -102,4 +102,6 @@ export default {
   deepForEach,
   deepFind,
   onlyText,
+  hasChildren,
+  hasComplexChildren,
 };

@@ -35,4 +35,8 @@ declare module 'react-children-utilities' {
   export function deepFind(children: ReactNode, deepFindFn: FindFn): ReactElement<any>
 
   export function onlyText(children: ReactNode): string
+
+  export function hasChildren(child: ReactElement<any>): boolean
+
+  export function hasComplexChildren(child: ReactElement<any>): boolean
 }
