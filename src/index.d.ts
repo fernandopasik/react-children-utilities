@@ -1,26 +1,38 @@
-import { ReactElement, ReactNode} from 'react';
+import { ReactChild, ReactElement, ReactNode} from 'react';
 
 declare module 'react-children-utilities' {
 
-  export interface IKeyChildren {
+  export interface GroupedChildren {
     [name: string]: ReactNode;
   }
 
-  export interface ICallback {
-    (child: ReactElement<any>, index?: number): any
+  export interface ForEachFn {
+    (child: ReactChild, index?: number, children?: ReactNode): void;
   }
 
-  export function filter(children: ReactNode, filterFn: ICallback): ReactNode
+  export interface FilterFn {
+    (child: ReactChild, index?: number, children?: ReactNode): boolean;
+  }
 
-  export function deepFilter(children: ReactNode, deepFilterFn: ICallback): ReactNode
+  export interface FindFn {
+    (child: ReactChild, index?: number, children?: ReactNode): boolean;
+  }
 
-  export function groupByType(children: ReactNode, types: string[], rest?: string): IKeyChildren
+  export interface MapFn {
+    (child: ReactChild, index?: number, children?: ReactNode): void;
+  }
 
-  export function deepMap(children: ReactNode, deepMapFn: ICallback): ReactNode
+  export function filter(children: ReactNode, filterFn: FilterFn): ReactNode
 
-  export function deepForEach(children: ReactNode, deepForEachFn: ICallback): void
+  export function deepFilter(children: ReactNode, deepFilterFn: FilterFn): ReactNode
 
-  export function deepFind(children: ReactNode, deepFindFn: ICallback): ReactElement<any>
+  export function groupByType(children: ReactNode, types: string[], rest?: string): GroupedChildren
+
+  export function deepMap(children: ReactNode, deepMapFn: MapFn): ReactNode
+
+  export function deepForEach(children: ReactNode, deepForEachFn: ForEachFn): void
+
+  export function deepFind(children: ReactNode, deepFindFn: FindFn): ReactElement<any>
 
   export function onlyText(children: ReactNode): string
 }
