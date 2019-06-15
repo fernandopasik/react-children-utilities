@@ -1,3 +1,4 @@
+// @flow
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import Enzyme, { shallow } from 'enzyme';

@@ -4,7 +4,7 @@
   "env": {
     "browser": true
   },
-  "plugins": ["flowtype", "react", "import", "jest"],
+  "plugins": ["react", "import", "jest"],
   "overrides": [{
     "files": [
       "src/**/__tests__/*.js",

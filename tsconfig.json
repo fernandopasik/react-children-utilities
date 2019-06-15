@@ -26,6 +26,7 @@
     "src/**/*"
   ],
   "exclude": [
+    "src/**/*.flow",
     "node_modules"
   ]
 }

@@ -1,21 +1,16 @@
-// @flow
 import { Children, cloneElement } from 'react';
-import type { Element, Node } from 'react';
 
-export const hasChildren = (child: Element<any>): boolean => Boolean(
-  child && child.props && child.props.children,
-);
+export const hasChildren = child => Boolean(child && child.props && child.props.children);
 
-export const hasComplexChildren = (child: Element<any>): boolean => hasChildren(child)
-  && typeof child.props.children === 'object';
+export const hasComplexChildren = child => hasChildren(child) && typeof child.props.children === 'object';
 
-export const filter = (children: number, filterFn: (child: Node) => boolean): Node => {
+export const filter = (children, filterFn) => {
   return Children
     .toArray(children)
     .filter(filterFn);
 };
 
-export const deepFilter = (children: Node, deepFilterFn: (child: Node) => boolean): Node => {
+export const deepFilter = (children, deepFilterFn) => {
   return Children
     .toArray(children)
     .filter(deepFilterFn)
@@ -31,7 +26,7 @@ export const deepFilter = (children: Node, deepFilterFn: (child: Node) => boolea
     });
 };
 
-export const groupByType = (children: Node, types: Array<string>, rest: string): Object => {
+export const groupByType = (children, types, rest) => {
   return Children
     .toArray(children)
     .reduce((group, child) => {
@@ -46,7 +41,7 @@ export const groupByType = (children: Node, types: Array<string>, rest: string):
     }, {});
 };
 
-export const deepMap = (children: Node, deepMapFn: (child: Node) => Node): Node => {
+export const deepMap = (children, deepMapFn) => {
   return Children
     .map(children, (child) => {
       if (hasComplexChildren(child)) {
@@ -60,7 +55,7 @@ export const deepMap = (children: Node, deepMapFn: (child: Node) => Node): Node 
     });
 };
 
-export const deepForEach = (children: Node, deepForEachFn: (child: Node) => void): void => {
+export const deepForEach = (children, deepForEachFn) => {
   Children
     .forEach(children, (child) => {
       if (hasComplexChildren(child)) {
@@ -71,7 +66,7 @@ export const deepForEach = (children: Node, deepForEachFn: (child: Node) => void
     });
 };
 
-export const deepFind = (children: Node, deepFindFn: (child: Node) => boolean): Node | void => {
+export const deepFind = (children, deepFindFn) => {
   return Children
     .toArray(children)
     .find((child) => {
@@ -83,7 +78,7 @@ export const deepFind = (children: Node, deepFindFn: (child: Node) => boolean): 
     });
 };
 
-export const onlyText = (children: Node): string => {
+export const onlyText = (children) => {
   return Children
     .toArray(children)
     .reduce((flattened, child) => [

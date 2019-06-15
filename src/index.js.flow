@@ -1,0 +1,32 @@
+// @flow
+import type { Element, Node, ChildrenArray } from 'react';
+
+type GroupedChildren = {
+  [name: string]: Node;
+}
+
+type ForEachFn = (child: Element<any>, index?: number, children?: Node) => void;
+
+type FilterFn = (child: Element<any>, index?: number, children?: Node) => boolean;
+
+type FindFn = (child: Element<any>, index?: number, children?: Node) => boolean;
+
+type MapFn = (child: Element<any>, index?: number, children?: Node) => Element<any>;
+
+declare export function hasChildren(child: Element<any>): boolean;
+
+declare export function hasComplexChildren(child: Element<any>): boolean;
+
+declare export function filter(children: Node, filterFn: FilterFn): Node;
+
+declare export function deepFilter(children: Node, deepFilterFn: FilterFn): Node;
+
+declare export function groupByType(children: Node, types: Array<string>, rest: string): GroupedChildren;
+
+declare export function deepMap(children: Node, deepMapFn: MapFn): Node;
+
+declare export function deepForEach(children: Node, deepForEachFn: ForEachFn): void;
+
+declare export function deepFind(children: Node, deepFindFn: FindFn): Node | void;
+
+declare export function onlyText(children: Node): string;
