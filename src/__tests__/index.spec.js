@@ -11,7 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Children', () => {
   test('filter', () => {
-    const Filtered = ({ children }) => <div>{ filter(children, item => item.type === 'span') }</div>;
+    const Filtered = ({ children }) => <div>{filter(children, item => item.type === 'span')}</div>;
     Filtered.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
       <Filtered>
@@ -26,7 +26,9 @@ describe('Children', () => {
   });
 
   test('deep filter', () => {
-    const DeepFiltered = ({ children }) => <div>{ deepFilter(children, item => item.type === 'span') }</div>;
+    const DeepFiltered = ({ children }) => (
+      <div>{deepFilter(children, item => item.type === 'span')}</div>
+    );
     DeepFiltered.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
       <DeepFiltered>
@@ -49,16 +51,20 @@ describe('Children', () => {
   test('group by type', () => {
     const Grouped = ({ children }) => (
       <div>
-        <div className="spans">{ groupByType(children, ['span', 'i'], 'rest').span }</div>
-        <div className="rest">{ groupByType(children, ['span', 'i'], 'rest').rest }</div>
-        <div className="empty">{ groupByType(children, ['span', 'i'], 'rest').i }</div>
+        <div className="spans">{groupByType(children, ['span', 'i'], 'rest').span}</div>
+        <div className="rest">{groupByType(children, ['span', 'i'], 'rest').rest}</div>
+        <div className="empty">{groupByType(children, ['span', 'i'], 'rest').i}</div>
       </div>
     );
     Grouped.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
       <Grouped>
-        <span><b>1</b></span>
-        <span><b>2</b></span>
+        <span>
+          <b>1</b>
+        </span>
+        <span>
+          <b>2</b>
+        </span>
         <strong>3</strong>
       </Grouped>,
     );
@@ -74,13 +80,12 @@ describe('Children', () => {
   test('deep map', () => {
     const DeepMapped = ({ children }) => (
       <div>
-        { deepMap(children,
-          child => child && (
-            child.type === 'b'
-              ? cloneElement(child, { ...child.props, className: 'mapped' })
-              : child
-          ),
-        ) }
+        {deepMap(children, child => {
+          if (child && child.type === 'b') {
+            return cloneElement(child, { ...child.props, className: 'mapped' });
+          }
+          return child;
+        })}
       </div>
     );
     DeepMapped.propTypes = { children: PropTypes.node.isRequired };
@@ -109,11 +114,11 @@ describe('Children', () => {
     const texts = [];
     const DeepForEached = ({ children }) => (
       <div>
-        { deepForEach(children, (child) => {
+        {deepForEach(children, child => {
           if (child && child.type === 'b') {
             texts.push(child.props.children);
           }
-        }) }
+        })}
       </div>
     );
     DeepForEached.propTypes = { children: PropTypes.node.isRequired };
@@ -138,7 +143,9 @@ describe('Children', () => {
   });
 
   test('deep find', () => {
-    const DeepFound = ({ children }) => (<div>{ deepFind(children, child => child.type === 'i') }</div>);
+    const DeepFound = ({ children }) => (
+      <div>{deepFind(children, child => child.type === 'i')}</div>
+    );
     DeepFound.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
       <DeepFound>
@@ -159,13 +166,15 @@ describe('Children', () => {
   });
 
   test('only text', () => {
-    const OnlyText = ({ children }) => (<div>{ onlyText(children) }</div>);
+    const OnlyText = ({ children }) => <div>{onlyText(children)}</div>;
     OnlyText.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
       <OnlyText>
         <span>0</span>
         <b>1</b>
-        <span><i>2</i></span>
+        <span>
+          <i>2</i>
+        </span>
         <i>3</i>
       </OnlyText>,
     );
