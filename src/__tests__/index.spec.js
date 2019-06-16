@@ -80,7 +80,7 @@ describe('Children', () => {
   test('deep map', () => {
     const DeepMapped = ({ children }) => (
       <div>
-        {deepMap(children, child => {
+        {deepMap(children, (child) => {
           if (child && child.type === 'b') {
             return cloneElement(child, { ...child.props, className: 'mapped' });
           }
@@ -114,7 +114,7 @@ describe('Children', () => {
     const texts = [];
     const DeepForEached = ({ children }) => (
       <div>
-        {deepForEach(children, child => {
+        {deepForEach(children, (child) => {
           if (child && child.type === 'b') {
             texts.push(child.props.children);
           }
