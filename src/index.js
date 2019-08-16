@@ -1,18 +1,16 @@
 import { Children, cloneElement } from 'react';
 
-export const hasChildren = child => Boolean(child && child.props && child.props.children);
+export const hasChildren = (child) => Boolean(child && child.props && child.props.children);
 
-export const hasComplexChildren = child => hasChildren(child) && typeof child.props.children === 'object';
+export const hasComplexChildren = (child) =>
+  hasChildren(child) && typeof child.props.children === 'object';
 
 export const filter = (children, filterFn) => {
-  return Children
-    .toArray(children)
-    .filter(filterFn);
+  return Children.toArray(children).filter(filterFn);
 };
 
 export const deepFilter = (children, deepFilterFn) => {
-  return Children
-    .toArray(children)
+  return Children.toArray(children)
     .filter(deepFilterFn)
     .map((child) => {
       if (hasComplexChildren(child)) {
@@ -27,64 +25,62 @@ export const deepFilter = (children, deepFilterFn) => {
 };
 
 export const groupByType = (children, types, rest) => {
-  return Children
-    .toArray(children)
-    .reduce((group, child) => {
-      const isGrouped = types.includes(child.type);
-      const addChild = isGrouped ? child.props.children : child;
-      const key = isGrouped ? child.type : rest;
+  return Children.toArray(children).reduce((group, child) => {
+    const isGrouped = types.includes(child.type);
+    const addChild = isGrouped ? child.props.children : child;
+    const key = isGrouped ? child.type : rest;
 
-      return {
-        ...group,
-        [key]: [...(group[key] || []), addChild],
-      };
-    }, {});
+    return {
+      ...group,
+      [key]: [...(group[key] || []), addChild],
+    };
+  }, {});
 };
 
 export const deepMap = (children, deepMapFn) => {
-  return Children
-    .map(children, (child) => {
-      if (hasComplexChildren(child)) {
-        // Clone the child that has children and map them too
-        return deepMapFn(cloneElement(child, {
+  return Children.map(children, (child) => {
+    if (hasComplexChildren(child)) {
+      // Clone the child that has children and map them too
+      return deepMapFn(
+        cloneElement(child, {
           ...child.props,
           children: deepMap(child.props.children, deepMapFn),
-        }));
-      }
-      return deepMapFn(child);
-    });
+        }),
+      );
+    }
+    return deepMapFn(child);
+  });
 };
 
 export const deepForEach = (children, deepForEachFn) => {
-  Children
-    .forEach(children, (child) => {
-      if (hasComplexChildren(child)) {
-        // Each inside the child that has children
-        deepForEach(child.props.children, deepForEachFn);
-      }
-      deepForEachFn(child);
-    });
+  Children.forEach(children, (child) => {
+    if (hasComplexChildren(child)) {
+      // Each inside the child that has children
+      deepForEach(child.props.children, deepForEachFn);
+    }
+    deepForEachFn(child);
+  });
 };
 
 export const deepFind = (children, deepFindFn) => {
-  return Children
-    .toArray(children)
-    .find((child) => {
-      if (hasComplexChildren(child)) {
-        // Find inside the child that has children
-        return deepFind(child.props.children, deepFindFn);
-      }
-      return deepFindFn(child);
-    });
+  return Children.toArray(children).find((child) => {
+    if (hasComplexChildren(child)) {
+      // Find inside the child that has children
+      return deepFind(child.props.children, deepFindFn);
+    }
+    return deepFindFn(child);
+  });
 };
 
 export const onlyText = (children) => {
-  return Children
-    .toArray(children)
-    .reduce((flattened, child) => [
-      ...flattened,
-      hasChildren(child) ? onlyText(child.props.children) : child,
-    ], [])
+  return Children.toArray(children)
+    .reduce(
+      (flattened, child) => [
+        ...flattened,
+        hasChildren(child) ? onlyText(child.props.children) : child,
+      ],
+      [],
+    )
     .join('');
 };
 

@@ -3,15 +3,15 @@ import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {
-  deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyText,
-} from '..';
+import { deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyText } from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Children', () => {
   test('filter', () => {
-    const Filtered = ({ children }) => <div>{filter(children, item => item.type === 'span')}</div>;
+    const Filtered = ({ children }) => (
+      <div>{filter(children, (item) => item.type === 'span')}</div>
+    );
     Filtered.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
       <Filtered>
@@ -27,7 +27,7 @@ describe('Children', () => {
 
   test('deep filter', () => {
     const DeepFiltered = ({ children }) => (
-      <div>{deepFilter(children, item => item.type === 'span')}</div>
+      <div>{deepFilter(children, (item) => item.type === 'span')}</div>
     );
     DeepFiltered.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(
@@ -144,7 +144,7 @@ describe('Children', () => {
 
   test('deep find', () => {
     const DeepFound = ({ children }) => (
-      <div>{deepFind(children, child => child.type === 'i')}</div>
+      <div>{deepFind(children, (child) => child.type === 'i')}</div>
     );
     DeepFound.propTypes = { children: PropTypes.node.isRequired };
     const wrapper = shallow(

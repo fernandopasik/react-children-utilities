@@ -1,7 +1,6 @@
-import { ReactChild, ReactElement, ReactNode} from 'react';
+import { ReactChild, ReactElement, ReactNode } from 'react';
 
 declare module 'react-children-utilities' {
-
   export interface GroupedChildren {
     [name: string]: ReactNode;
   }
@@ -22,21 +21,21 @@ declare module 'react-children-utilities' {
     (child: ReactChild, index?: number, children?: ReactNode): ReactChild;
   }
 
-  export function filter(children: ReactNode, filterFn: FilterFn): ReactNode
+  export function filter(children: ReactNode, filterFn: FilterFn): ReactNode;
 
-  export function deepFilter(children: ReactNode, deepFilterFn: FilterFn): ReactNode
+  export function deepFilter(children: ReactNode, deepFilterFn: FilterFn): ReactNode;
 
-  export function groupByType(children: ReactNode, types: string[], rest?: string): GroupedChildren
+  export function groupByType(children: ReactNode, types: string[], rest?: string): GroupedChildren;
 
-  export function deepMap(children: ReactNode, deepMapFn: MapFn): ReactNode
+  export function deepMap(children: ReactNode, deepMapFn: MapFn): ReactNode;
 
-  export function deepForEach(children: ReactNode, deepForEachFn: ForEachFn): void
+  export function deepForEach(children: ReactNode, deepForEachFn: ForEachFn): void;
 
-  export function deepFind(children: ReactNode, deepFindFn: FindFn): ReactElement<any>
+  export function deepFind(children: ReactNode, deepFindFn: FindFn): ReactElement<any>;
 
-  export function onlyText(children: ReactNode): string
+  export function onlyText(children: ReactNode): string;
 
-  export function hasChildren(child: ReactElement<any>): boolean
+  export function hasChildren(child: ReactElement<any>): boolean;
 
-  export function hasComplexChildren(child: ReactElement<any>): boolean
+  export function hasComplexChildren(child: ReactElement<any>): boolean;
 }
