@@ -5,21 +5,22 @@
     "browser": true
   },
   "plugins": ["react", "import", "jest"],
-  "overrides": [{
-    "files": [
-      "src/**/__tests__/*.js",
-      "src/**/__mocks__/*.js"
-    ],
-    "env": {
-      "jest": true
+  "overrides": [
+    {
+      "files": ["src/**/__tests__/*.js", "src/**/__mocks__/*.js"],
+      "env": {
+        "jest": true
+      }
     }
-  }],
+  ],
   "rules": {
+    "object-curly-newline": ["error", { "multiline": true, "consistent": true }],
     "arrow-body-style": "off",
+    "implicit-arrow-linebreak": "off",
     "function-paren-newline": "off",
     "react/jsx-filename-extension": "off",
     "jsx-a11y/href-no-hash": "off",
-    "jest/consistent-test-it": ["error", {"fn": "test"}],
+    "jest/consistent-test-it": ["error", { "fn": "test" }],
     "jest/expect-expect": "error",
     "jest/lowercase-name": ["error", { "ignore": ["describe"] }],
     "jest/no-alias-methods": "error",
