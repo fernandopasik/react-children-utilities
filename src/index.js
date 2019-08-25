@@ -63,13 +63,20 @@ export const deepForEach = (children, deepForEachFn) => {
 };
 
 export const deepFind = (children, deepFindFn) => {
-  return Children.toArray(children).find((child) => {
+  let found;
+  Children.toArray(children).find((child) => {
     if (hasComplexChildren(child)) {
       // Find inside the child that has children
-      return deepFind(child.props.children, deepFindFn);
+      found = deepFind(child.props.children, deepFindFn);
+      return typeof (found) !== 'undefined';
     }
-    return deepFindFn(child);
+    if (deepFindFn(child)) {
+      found = child;
+      return true;
+    }
+    return false;
   });
+  return found;
 };
 
 export const onlyText = (children) => {

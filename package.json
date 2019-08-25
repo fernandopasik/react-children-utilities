@@ -34,7 +34,7 @@
   "bundlesize": [
     {
       "path": "dist/index.js",
-      "maxSize": "1.4 kB"
+      "maxSize": "1.5 kB"
     }
   ],
   "resolutions": {

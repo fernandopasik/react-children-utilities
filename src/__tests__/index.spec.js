@@ -162,6 +162,7 @@ describe('Children', () => {
     );
     expect(wrapper.find('i')).toExist();
     expect(wrapper.find('i')).toHaveLength(1);
+    expect(wrapper.find('span')).not.toExist();
     expect(wrapper).toHaveText('3');
   });
 
