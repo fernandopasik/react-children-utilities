@@ -5,7 +5,6 @@
     "browser": true
   },
   "rules": {
-    "react/jsx-filename-extension": "off",
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
   }
