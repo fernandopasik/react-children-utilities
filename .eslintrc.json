@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "plugin:jest/all"],
+  "extends": ["airbnb", "plugin:jest/all", "prettier"],
   "parser": "babel-eslint",
   "env": {
     "browser": true
