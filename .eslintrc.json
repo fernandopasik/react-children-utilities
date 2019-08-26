@@ -4,15 +4,7 @@
   "env": {
     "browser": true
   },
-  "plugins": ["react", "import", "jest"],
-  "overrides": [
-    {
-      "files": ["src/**/__tests__/*.js", "src/**/__mocks__/*.js"],
-      "env": {
-        "jest": true
-      }
-    }
-  ],
+  "plugins": ["react", "import"],
   "rules": {
     "object-curly-newline": ["error", { "multiline": true, "consistent": true }],
     "arrow-body-style": "off",
