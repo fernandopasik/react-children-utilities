@@ -5,12 +5,7 @@
     "browser": true
   },
   "rules": {
-    "object-curly-newline": ["error", { "multiline": true, "consistent": true }],
-    "arrow-body-style": "off",
-    "implicit-arrow-linebreak": "off",
-    "function-paren-newline": "off",
     "react/jsx-filename-extension": "off",
-    "jsx-a11y/href-no-hash": "off",
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
   }
