@@ -4,7 +4,6 @@
   "env": {
     "browser": true
   },
-  "plugins": ["react", "import"],
   "rules": {
     "object-curly-newline": ["error", { "multiline": true, "consistent": true }],
     "arrow-body-style": "off",
