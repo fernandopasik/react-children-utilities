@@ -68,7 +68,7 @@ export const deepFind = (children, deepFindFn) => {
     if (hasComplexChildren(child)) {
       // Find inside the child that has children
       found = deepFind(child.props.children, deepFindFn);
-      return typeof (found) !== 'undefined';
+      return typeof found !== 'undefined';
     }
     if (deepFindFn(child)) {
       found = child;
