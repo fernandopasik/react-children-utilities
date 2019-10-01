@@ -25,7 +25,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest --coverage",
-    "lint": "eslint .",
+    "lint": "eslint . --ext js,jsx",
     "build": "babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
     "prebuild": "del dist && make-dir dist",
     "size": "bundlesize",
