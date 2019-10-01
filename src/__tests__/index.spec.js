@@ -2,11 +2,9 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyText } from '..';
+import { shallow } from 'enzyme';
 
-Enzyme.configure({ adapter: new Adapter() });
+import { deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyText } from '..';
 
 describe('children', () => {
   it('filter', () => {
