@@ -1,4 +1,3 @@
-// @flow
 /* eslint-disable import/no-named-as-default-member */
 import React, { cloneElement } from 'react';
 import { shallow } from 'enzyme';
