@@ -74,7 +74,6 @@
     "jest-junit": "^8.0.0",
     "lint-staged": "^9.4.1",
     "make-dir-cli": "^2.0.0",
-    "prop-types": "^15.7.2",
     "raf": "^3.4.1",
     "react": "^16.8.4",
     "react-dom": "^16.10.1",
