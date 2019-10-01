@@ -1,6 +1,5 @@
 // @flow
 import React, { cloneElement } from 'react';
-import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
 
 import { deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyText } from '..';
@@ -10,7 +9,7 @@ describe('children', () => {
     const Filtered = ({ children }) => (
       <div>{filter(children, (item) => item.type === 'span')}</div>
     );
-    Filtered.propTypes = { children: PropTypes.node.isRequired };
+
     const wrapper = shallow(
       <Filtered>
         <span>1</span>
@@ -27,7 +26,7 @@ describe('children', () => {
     const DeepFiltered = ({ children }) => (
       <div>{deepFilter(children, (item) => item.type === 'span')}</div>
     );
-    DeepFiltered.propTypes = { children: PropTypes.node.isRequired };
+
     const wrapper = shallow(
       <DeepFiltered>
         <span>1</span>
@@ -54,7 +53,7 @@ describe('children', () => {
         <div className="empty">{groupByType(children, ['span', 'i'], 'rest').i}</div>
       </div>
     );
-    Grouped.propTypes = { children: PropTypes.node.isRequired };
+
     const wrapper = shallow(
       <Grouped>
         <span>
@@ -86,7 +85,7 @@ describe('children', () => {
         })}
       </div>
     );
-    DeepMapped.propTypes = { children: PropTypes.node.isRequired };
+
     const wrapper = shallow(
       <DeepMapped>
         <b>1</b>
@@ -119,7 +118,7 @@ describe('children', () => {
         })}
       </div>
     );
-    DeepForEached.propTypes = { children: PropTypes.node.isRequired };
+
     shallow(
       <DeepForEached>
         <b>1</b>
@@ -144,7 +143,7 @@ describe('children', () => {
     const DeepFound = ({ children }) => (
       <div>{deepFind(children, (child) => child.type === 'i')}</div>
     );
-    DeepFound.propTypes = { children: PropTypes.node.isRequired };
+
     const wrapper = shallow(
       <DeepFound>
         <b>1</b>
@@ -166,7 +165,7 @@ describe('children', () => {
 
   it('only text', () => {
     const OnlyText = ({ children }) => <div>{onlyText(children)}</div>;
-    OnlyText.propTypes = { children: PropTypes.node.isRequired };
+
     const wrapper = shallow(
       <OnlyText>
         <span>0</span>

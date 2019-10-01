@@ -4,6 +4,14 @@
   "env": {
     "browser": true
   },
+  "overrides": [
+    {
+      "files": ["*.spec.jsx", "*.spec.js"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ],
   "rules": {
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
