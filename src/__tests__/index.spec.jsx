@@ -1,25 +1,22 @@
 // @flow
+/* eslint-disable import/no-named-as-default-member */
 import React, { cloneElement } from 'react';
 import { shallow } from 'enzyme';
 
-import { deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyText } from '..';
+import Children, {
+  deepFilter,
+  deepFind,
+  deepForEach,
+  deepMap,
+  filter,
+  groupByType,
+  onlyText,
+} from '..';
 
 describe('children', () => {
-  it('filter', () => {
-    const Filtered = ({ children }) => (
-      <div>{filter(children, (item) => item.type === 'span')}</div>
-    );
-
-    const wrapper = shallow(
-      <Filtered>
-        <span>1</span>
-        <span>2</span>
-        <strong>3</strong>
-      </Filtered>,
-    );
-    expect(wrapper.find('span')).toExist();
-    expect(wrapper.find('span')).toHaveLength(2);
-    expect(wrapper.find('strong')).not.toExist();
+  it('has the right exports', () => {
+    expect(filter).toBeInstanceOf(Function);
+    expect(Children.filter).toStrictEqual(filter);
   });
 
   it('deep filter', () => {

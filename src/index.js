@@ -1,13 +1,10 @@
 import { Children, cloneElement } from 'react';
+import filter from './filter';
 
 export const hasChildren = (child) => Boolean(child && child.props && child.props.children);
 
 export const hasComplexChildren = (child) =>
   hasChildren(child) && typeof child.props.children === 'object';
-
-export const filter = (children, filterFn) => {
-  return Children.toArray(children).filter(filterFn);
-};
 
 export const deepFilter = (children, deepFilterFn) => {
   return Children.toArray(children)
@@ -90,6 +87,8 @@ export const onlyText = (children) => {
     )
     .join('');
 };
+
+export { filter };
 
 export default {
   ...Children,
