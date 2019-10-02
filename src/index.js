@@ -1,6 +1,7 @@
-import { Children, cloneElement } from 'react';
+import { Children } from 'react';
 
 import deepFilter from './deepFilter';
+import deepMap from './deepMap';
 import filter from './filter';
 import hasChildren from './hasChildren';
 import hasComplexChildren from './hasComplexChildren';
@@ -16,21 +17,6 @@ export const groupByType = (children, types, rest) => {
       [key]: [...(group[key] || []), addChild],
     };
   }, {});
-};
-
-export const deepMap = (children, deepMapFn) => {
-  return Children.map(children, (child) => {
-    if (hasComplexChildren(child)) {
-      // Clone the child that has children and map them too
-      return deepMapFn(
-        cloneElement(child, {
-          ...child.props,
-          children: deepMap(child.props.children, deepMapFn),
-        }),
-      );
-    }
-    return deepMapFn(child);
-  });
 };
 
 export const deepForEach = (children, deepForEachFn) => {
@@ -72,7 +58,7 @@ export const onlyText = (children) => {
     .join('');
 };
 
-export { deepFilter, filter };
+export { deepFilter, deepMap, filter };
 
 export default {
   ...Children,

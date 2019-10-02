@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default-member */
-import React, { cloneElement } from 'react';
+import React from 'react';
 import { shallow } from 'enzyme';
 
 import Children, {
@@ -19,6 +19,9 @@ describe('children', () => {
 
     expect(deepFilter).toBeInstanceOf(Function);
     expect(Children.deepFilter).toStrictEqual(deepFilter);
+
+    expect(deepMap).toBeInstanceOf(Function);
+    expect(Children.deepMap).toStrictEqual(deepMap);
   });
 
   it('group by type', () => {
@@ -48,39 +51,6 @@ describe('children', () => {
     expect(wrapper.find('.rest strong')).toExist();
     expect(wrapper.find('.rest strong')).toHaveLength(1);
     expect(wrapper.find('.empty').children()).not.toExist();
-  });
-
-  it('deep map', () => {
-    const DeepMapped = ({ children }) => (
-      <div>
-        {deepMap(children, (child) => {
-          if (child && child.type === 'b') {
-            return cloneElement(child, { ...child.props, className: 'mapped' });
-          }
-          return child;
-        })}
-      </div>
-    );
-
-    const wrapper = shallow(
-      <DeepMapped>
-        <b>1</b>
-        <b>2</b>
-        <span>
-          <b>3</b>
-        </span>
-        <div>
-          <div>
-            <b>4</b>
-          </div>
-        </div>
-        {null && <div>will not show up</div>}
-        {false && <div>will not show up</div>}
-        {undefined && <div>will not show up</div>}
-      </DeepMapped>,
-    );
-    expect(wrapper.find('.mapped')).toExist();
-    expect(wrapper.find('.mapped')).toHaveLength(4);
   });
 
   it('deep each', () => {
