@@ -3,6 +3,12 @@ module.exports = {
   testEnvironment: 'enzyme',
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
-  setupFilesAfterEnv: ['jest-enzyme'],
+  globals: {
+    'ts-jest': {
+      tsConfig: 'tsconfig.all.json',
+    },
+  },
+  setupFilesAfterEnv: ['./setupTests.ts'],
 };

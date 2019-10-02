@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
 import filter from '../filter';
 
+interface Props {
+  children?: ReactNode;
+}
+
 describe('filter', () => {
   it('returns same children', () => {
-    const Filtered = ({ children }) => <div>{filter(children, (item) => item.type === 'div')}</div>;
+    const Filtered = ({ children }: Props): ReactElement => (
+      <div>
+        {filter(children, (item: ReactNode) =>
+          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'div'),
+        )}
+      </div>
+    );
 
     const wrapper = shallow(
       <Filtered>
@@ -19,8 +29,12 @@ describe('filter', () => {
   });
 
   it('returns only matching children', () => {
-    const Filtered = ({ children }) => (
-      <div>{filter(children, (item) => item.type === 'span')}</div>
+    const Filtered = ({ children }: Props): ReactElement => (
+      <div>
+        {filter(children, (item: ReactNode) =>
+          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'span'),
+        )}
+      </div>
     );
 
     const wrapper = shallow(
@@ -37,8 +51,12 @@ describe('filter', () => {
   });
 
   it('does not filter nested elements', () => {
-    const Filtered = ({ children }) => (
-      <div>{filter(children, (item) => item.type === 'span')}</div>
+    const Filtered = ({ children }: Props): ReactElement => (
+      <div>
+        {filter(children, (item: ReactNode) =>
+          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'span'),
+        )}
+      </div>
     );
 
     const wrapper = shallow(
@@ -56,7 +74,13 @@ describe('filter', () => {
   });
 
   it('can handle empty children', () => {
-    const Filtered = ({ children }) => <div>{filter(children, (item) => item.type === 'div')}</div>;
+    const Filtered = ({ children }: Props): ReactElement => (
+      <div>
+        {filter(children, (item: ReactNode) =>
+          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'div'),
+        )}
+      </div>
+    );
 
     const wrapper = shallow(<Filtered />);
 

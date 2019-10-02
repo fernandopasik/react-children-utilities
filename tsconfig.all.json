@@ -2,8 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "jsx": "react"
   },
-  "include": ["src/**/*", "*.js"],
+  "include": ["src/**/*", "*.js", "*.ts"],
   "exclude": ["src/**/*.flow", "node_modules"]
 }
