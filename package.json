@@ -11,18 +11,18 @@
   ],
   "homepage": "https://github.com/fernandopasik/react-children-utilities",
   "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fernandopasik/react-children-utilities.git"
+  },
   "license": "MIT",
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [
     "mrm007 (https://github.com/mrm007)",
     "iyegoroff (https://github.com/iyegoroff)"
   ],
-  "typings": "./src/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fernandopasik/react-children-utilities.git"
-  },
   "main": "dist/index.js",
+  "typings": "./src/index.d.ts",
   "scripts": {
     "test": "jest --coverage",
     "lint": "eslint . --ext js,jsx",
@@ -30,15 +30,6 @@
     "prebuild": "del dist && make-dir dist",
     "size": "bundlesize",
     "preversion": "yarn lint && yarn test && yarn flow && yarn build && yarn size"
-  },
-  "bundlesize": [
-    {
-      "path": "dist/index.js",
-      "maxSize": "1.5 kB"
-    }
-  ],
-  "peerDependencies": {
-    "react": "15.x.x && 16.x.x"
   },
   "dependencies": {},
   "devDependencies": {
@@ -76,5 +67,14 @@
     "react-dom": "^16.10.1",
     "react-test-renderer": "^16.10.1",
     "typescript": "^3.6.3"
-  }
+  },
+  "peerDependencies": {
+    "react": "15.x.x && 16.x.x"
+  },
+  "bundlesize": [
+    {
+      "path": "dist/index.js",
+      "maxSize": "1.5 kB"
+    }
+  ]
 }
