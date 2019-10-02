@@ -1,25 +1,9 @@
 import { Children, cloneElement } from 'react';
+
+import deepFilter from './deepFilter';
 import filter from './filter';
-
-export const hasChildren = (child) => Boolean(child && child.props && child.props.children);
-
-export const hasComplexChildren = (child) =>
-  hasChildren(child) && typeof child.props.children === 'object';
-
-export const deepFilter = (children, deepFilterFn) => {
-  return Children.toArray(children)
-    .filter(deepFilterFn)
-    .map((child) => {
-      if (hasComplexChildren(child)) {
-        // Clone the child that has children and filter them too
-        return cloneElement(child, {
-          ...child.props,
-          children: deepFilter(child.props.children, deepFilterFn),
-        });
-      }
-      return child;
-    });
-};
+import hasChildren from './hasChildren';
+import hasComplexChildren from './hasComplexChildren';
 
 export const groupByType = (children, types, rest) => {
   return Children.toArray(children).reduce((group, child) => {
@@ -88,7 +72,7 @@ export const onlyText = (children) => {
     .join('');
 };
 
-export { filter };
+export { deepFilter, filter };
 
 export default {
   ...Children,

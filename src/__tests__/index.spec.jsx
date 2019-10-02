@@ -16,6 +16,9 @@ describe('children', () => {
   it('has the right exports', () => {
     expect(filter).toBeInstanceOf(Function);
     expect(Children.filter).toStrictEqual(filter);
+
+    expect(deepFilter).toBeInstanceOf(Function);
+    expect(Children.deepFilter).toStrictEqual(deepFilter);
   });
 
   it('deep filter', () => {
