@@ -24,11 +24,11 @@
   "main": "dist/index.js",
   "typings": "./src/index.d.ts",
   "scripts": {
-    "test": "jest --coverage",
+    "build": "del dist && tsc",
+    "check-types": "tsc --noEmit -p tsconfig.all.json",
     "lint": "eslint . --ext js,jsx",
-    "build": "babel src/index.js --minified --source-maps --no-comments --out-file dist/index.js",
-    "prebuild": "del dist && make-dir dist",
     "size": "bundlesize",
+    "test": "jest --coverage",
     "preversion": "yarn lint && yarn test && yarn flow && yarn build && yarn size"
   },
   "dependencies": {},

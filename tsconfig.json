@@ -4,10 +4,9 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSources": true,
-    "lib": ["es2017", "dom", "dom.iterable"],
+    "lib": ["es2019", "dom", "dom.iterable"],
     "module": "ESNext",
     "moduleResolution": "node",
-    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "noImplicitReturns": true,
@@ -22,11 +21,11 @@
     "strictPropertyInitialization": true,
     "target": "es2017"
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src/**/*"],
   "exclude": [
     "src/**/*.flow",
-    "node_modules"
+    "node_modules",
+    "**/__tests__/**/*",
+    "**/?(*.)+(spec|test).(js|ts)?(x)"
   ]
 }
