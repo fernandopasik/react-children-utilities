@@ -20,6 +20,9 @@ describe('children', () => {
     expect(deepFilter).toBeInstanceOf(Function);
     expect(Children.deepFilter).toStrictEqual(deepFilter);
 
+    expect(deepFind).toBeInstanceOf(Function);
+    expect(Children.deepFind).toStrictEqual(deepFind);
+
     expect(deepForEach).toBeInstanceOf(Function);
     expect(Children.deepForEach).toStrictEqual(deepForEach);
 
@@ -54,30 +57,6 @@ describe('children', () => {
     expect(wrapper.find('.rest strong')).toExist();
     expect(wrapper.find('.rest strong')).toHaveLength(1);
     expect(wrapper.find('.empty').children()).not.toExist();
-  });
-
-  it('deep find', () => {
-    const DeepFound = ({ children }) => (
-      <div>{deepFind(children, (child) => child.type === 'i')}</div>
-    );
-
-    const wrapper = shallow(
-      <DeepFound>
-        <b>1</b>
-        <b>2</b>
-        <span>
-          <i>3</i>
-        </span>
-        <i>4</i>
-        {null && <div>will not show up</div>}
-        {false && <div>will not show up</div>}
-        {undefined && <div>will not show up</div>}
-      </DeepFound>,
-    );
-    expect(wrapper.find('i')).toExist();
-    expect(wrapper.find('i')).toHaveLength(1);
-    expect(wrapper.find('span')).not.toExist();
-    expect(wrapper).toHaveText('3');
   });
 
   it('only text', () => {
