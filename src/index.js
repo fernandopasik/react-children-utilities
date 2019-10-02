@@ -10,7 +10,17 @@ import hasChildren from './hasChildren';
 import hasComplexChildren from './hasComplexChildren';
 import onlyText from './onlyText';
 
-export { deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyText };
+export {
+  deepFilter,
+  deepFind,
+  deepForEach,
+  deepMap,
+  filter,
+  groupByType,
+  hasChildren,
+  hasComplexChildren,
+  onlyText,
+};
 
 export default {
   ...Children,
