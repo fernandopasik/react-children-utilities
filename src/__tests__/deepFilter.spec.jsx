@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 
 import deepFilter from '../deepFilter';
 
-describe('children', () => {
-  it('deep filter', () => {
+describe('deepFilter', () => {
+  it('filters', () => {
     const DeepFiltered = ({ children }) => (
       <div>{deepFilter(children, (item) => item.type === 'span')}</div>
     );
