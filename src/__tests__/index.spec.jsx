@@ -28,6 +28,9 @@ describe('children', () => {
 
     expect(deepMap).toBeInstanceOf(Function);
     expect(Children.deepMap).toStrictEqual(deepMap);
+
+    expect(onlyText).toBeInstanceOf(Function);
+    expect(Children.onlyText).toStrictEqual(onlyText);
   });
 
   it('group by type', () => {
@@ -57,24 +60,5 @@ describe('children', () => {
     expect(wrapper.find('.rest strong')).toExist();
     expect(wrapper.find('.rest strong')).toHaveLength(1);
     expect(wrapper.find('.empty').children()).not.toExist();
-  });
-
-  it('only text', () => {
-    const OnlyText = ({ children }) => <div>{onlyText(children)}</div>;
-
-    const wrapper = shallow(
-      <OnlyText>
-        <span>0</span>
-        <b>1</b>
-        <span>
-          <i>2</i>
-        </span>
-        <i>3</i>
-      </OnlyText>,
-    );
-    expect(wrapper.find('i')).not.toExist();
-    expect(wrapper.find('b')).not.toExist();
-    expect(wrapper.find('span')).not.toExist();
-    expect(wrapper).toHaveText('0123');
   });
 });

@@ -7,6 +7,7 @@ import deepMap from './deepMap';
 import filter from './filter';
 import hasChildren from './hasChildren';
 import hasComplexChildren from './hasComplexChildren';
+import onlyText from './onlyText';
 
 export const groupByType = (children, types, rest) => {
   return Children.toArray(children).reduce((group, child) => {
@@ -21,19 +22,7 @@ export const groupByType = (children, types, rest) => {
   }, {});
 };
 
-export const onlyText = (children) => {
-  return Children.toArray(children)
-    .reduce(
-      (flattened, child) => [
-        ...flattened,
-        hasChildren(child) ? onlyText(child.props.children) : child,
-      ],
-      [],
-    )
-    .join('');
-};
-
-export { deepFilter, deepFind, deepForEach, deepMap, filter };
+export { deepFilter, deepFind, deepForEach, deepMap, filter, onlyText };
 
 export default {
   ...Children,
