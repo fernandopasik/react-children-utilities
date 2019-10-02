@@ -33,7 +33,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
