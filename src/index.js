@@ -14,13 +14,13 @@ export { deepFilter, deepFind, deepForEach, deepMap, filter, groupByType, onlyTe
 
 export default {
   ...Children,
-  filter,
   deepFilter,
-  groupByType,
-  deepMap,
-  deepForEach,
   deepFind,
-  onlyText,
+  deepForEach,
+  deepMap,
+  filter,
+  groupByType,
   hasChildren,
   hasComplexChildren,
+  onlyText,
 };
