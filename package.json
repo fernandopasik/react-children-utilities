@@ -37,9 +37,6 @@
       "maxSize": "1.5 kB"
     }
   ],
-  "resolutions": {
-    "axios": "^0.19.0"
-  },
   "peerDependencies": {
     "react": "15.x.x && 16.x.x"
   },
