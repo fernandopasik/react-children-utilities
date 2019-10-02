@@ -3,11 +3,11 @@
   "version": "1.3.3",
   "description": "Extended utils for React.Children opaque data structure",
   "keywords": [
+    "children",
     "react",
     "reactjs",
-    "children",
-    "utils",
-    "utilities"
+    "utilities",
+    "utils"
   ],
   "homepage": "https://github.com/fernandopasik/react-children-utilities",
   "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
