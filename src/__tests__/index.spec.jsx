@@ -20,6 +20,9 @@ describe('children', () => {
     expect(deepFilter).toBeInstanceOf(Function);
     expect(Children.deepFilter).toStrictEqual(deepFilter);
 
+    expect(deepForEach).toBeInstanceOf(Function);
+    expect(Children.deepForEach).toStrictEqual(deepForEach);
+
     expect(deepMap).toBeInstanceOf(Function);
     expect(Children.deepMap).toStrictEqual(deepMap);
   });
@@ -51,38 +54,6 @@ describe('children', () => {
     expect(wrapper.find('.rest strong')).toExist();
     expect(wrapper.find('.rest strong')).toHaveLength(1);
     expect(wrapper.find('.empty').children()).not.toExist();
-  });
-
-  it('deep each', () => {
-    const texts = [];
-    const DeepForEached = ({ children }) => (
-      <div>
-        {deepForEach(children, (child) => {
-          if (child && child.type === 'b') {
-            texts.push(child.props.children);
-          }
-        })}
-      </div>
-    );
-
-    shallow(
-      <DeepForEached>
-        <b>1</b>
-        <b>2</b>
-        <span>
-          <b>3</b>
-        </span>
-        <div>
-          <div>
-            <b>4</b>
-          </div>
-        </div>
-        {null && <div>will not show up</div>}
-        {false && <div>will not show up</div>}
-        {undefined && <div>will not show up</div>}
-      </DeepForEached>,
-    );
-    expect(texts).toStrictEqual(['1', '2', '3', '4']);
   });
 
   it('deep find', () => {

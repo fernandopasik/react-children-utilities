@@ -1,6 +1,7 @@
 import { Children } from 'react';
 
 import deepFilter from './deepFilter';
+import deepForEach from './deepForEach';
 import deepMap from './deepMap';
 import filter from './filter';
 import hasChildren from './hasChildren';
@@ -17,16 +18,6 @@ export const groupByType = (children, types, rest) => {
       [key]: [...(group[key] || []), addChild],
     };
   }, {});
-};
-
-export const deepForEach = (children, deepForEachFn) => {
-  Children.forEach(children, (child) => {
-    if (hasComplexChildren(child)) {
-      // Each inside the child that has children
-      deepForEach(child.props.children, deepForEachFn);
-    }
-    deepForEachFn(child);
-  });
 };
 
 export const deepFind = (children, deepFindFn) => {
@@ -58,7 +49,7 @@ export const onlyText = (children) => {
     .join('');
 };
 
-export { deepFilter, deepMap, filter };
+export { deepFilter, deepForEach, deepMap, filter };
 
 export default {
   ...Children,
