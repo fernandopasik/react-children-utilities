@@ -26,7 +26,7 @@
   "scripts": {
     "build": "del dist && tsc",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
-    "lint": "eslint . --ext js,jsx",
+    "lint": "eslint . --ext js,jsx,ts,tsx",
     "size": "bundlesize",
     "test": "jest --coverage",
     "preversion": "yarn lint && yarn check-types && yarn test && yarn build && yarn size"
@@ -43,6 +43,8 @@
     "@types/jest": "^24.0.18",
     "@types/react": "^16.9.4",
     "@types/react-dom": "^16.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "bundlesize": "^0.18.0",

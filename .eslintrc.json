@@ -1,6 +1,15 @@
 {
-  "extends": ["airbnb", "plugin:jest/all", "prettier"],
-  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/all",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.all.json"
+  },
   "env": {
     "browser": true
   },
