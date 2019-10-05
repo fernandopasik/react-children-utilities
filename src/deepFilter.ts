@@ -5,7 +5,7 @@ interface FilterFunction {
   (child: ReactNode, index?: number, children?: ReactNode[]): boolean;
 }
 
-const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction) => {
+const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNode[] => {
   return Children.toArray(children)
     .filter(deepFilterFn)
     .map((child) => {
