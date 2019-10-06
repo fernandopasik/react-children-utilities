@@ -6,6 +6,7 @@ export default [
     output: {
       file: 'dist/react-children-utilities.js',
       format: 'esm',
+      sourcemap: true,
     },
   },
   {
@@ -13,6 +14,7 @@ export default [
     output: {
       file: 'dist/react-children-utilities.min.js',
       format: 'esm',
+      sourcemap: true,
     },
     plugins: [
       terser({
