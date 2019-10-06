@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
 import groupByType from '../groupByType';
 
+interface Props {
+  children?: ReactNode;
+}
+
 describe('groupByType', () => {
   it('groups', () => {
-    const Grouped = ({ children }) => (
+    const Grouped = ({ children }: Props) => (
       <div>
         <div className="spans">{groupByType(children, ['span', 'i'], 'rest').span}</div>
         <div className="rest">{groupByType(children, ['span', 'i'], 'rest').rest}</div>
@@ -24,6 +28,7 @@ describe('groupByType', () => {
         <strong>3</strong>
       </Grouped>,
     );
+
     expect(wrapper.find('.spans b')).toExist();
     expect(wrapper.find('.spans b')).toHaveLength(2);
     expect(wrapper.find('.spans strong')).not.toExist();
