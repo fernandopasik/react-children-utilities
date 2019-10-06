@@ -24,7 +24,7 @@
   "main": "dist/index.js",
   "typings": "./src/index.d.ts",
   "scripts": {
-    "build": "del dist && tsc",
+    "build": "del dist && tsc && rollup -c",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "size": "bundlesize",
@@ -72,6 +72,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.10.2",
     "react-test-renderer": "^16.10.2",
+    "rollup": "^1.23.1",
+    "rollup-plugin-terser": "^5.1.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
   },
