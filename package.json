@@ -82,8 +82,8 @@
   },
   "bundlesize": [
     {
-      "path": "dist/index.js",
-      "maxSize": "1.5 kB"
+      "path": "dist/react-children-utilities.js",
+      "maxSize": "1 kB"
     }
   ]
 }
