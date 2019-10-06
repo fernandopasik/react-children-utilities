@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
 import groupByType from '../groupByType';
@@ -9,7 +9,7 @@ interface Props {
 
 describe('groupByType', () => {
   it('groups', () => {
-    const Grouped = ({ children }: Props) => (
+    const Grouped = ({ children }: Props): ReactElement => (
       <div>
         <div className="spans">{groupByType(children, ['span', 'i'], 'rest').span}</div>
         <div className="rest">{groupByType(children, ['span', 'i'], 'rest').rest}</div>

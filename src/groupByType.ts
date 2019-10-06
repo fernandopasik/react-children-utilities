@@ -7,7 +7,7 @@ export interface GroupedChildren {
 const groupByType = (
   children: ReactNode,
   types: ReactNode[] = [],
-  rest: string = 'rest',
+  rest = 'rest',
 ): GroupedChildren => {
   return Children.toArray(children).reduce((groups: GroupedChildren, child: ReactNode) => {
     const isGrouped = isValidElement(child) && types.includes(child.type);
