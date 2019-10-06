@@ -22,6 +22,7 @@
     "iyegoroff (https://github.com/iyegoroff)"
   ],
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "typings": "./src/index.d.ts",
   "scripts": {
     "build": "del dist && tsc && rollup -c",
