@@ -1,7 +1,7 @@
 import { Children, ReactNode, ReactElement } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-interface FindFunction {
+export interface FindFunction {
   (child: ReactNode, index?: number, children?: ReactNode[]): ReactNode;
 }
 

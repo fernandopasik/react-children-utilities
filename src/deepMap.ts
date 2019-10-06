@@ -1,7 +1,7 @@
 import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-interface MapFunction {
+export interface MapFunction {
   (child: ReactNode, index?: number, children?: ReactNode[]): ReactNode;
 }
 

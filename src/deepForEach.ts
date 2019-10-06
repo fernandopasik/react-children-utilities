@@ -1,7 +1,7 @@
 import { Children, ReactElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-interface ForEachFunction {
+export interface ForEachFunction {
   (child: ReactNode, index?: number, children?: ReactNode[]): void;
 }
 

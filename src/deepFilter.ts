@@ -1,7 +1,7 @@
 import { Children, cloneElement, ReactElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-interface FilterFunction {
+export interface FilterFunction {
   (child: ReactNode, index?: number, children?: ReactNode[]): boolean;
 }
 

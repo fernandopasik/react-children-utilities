@@ -1,6 +1,6 @@
 import { Children, ReactNode } from 'react';
 
-interface FilterFunction {
+export interface FilterFunction {
   (child: ReactNode, index?: number, children?: ReactNode[]): boolean;
 }
 

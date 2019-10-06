@@ -1,6 +1,6 @@
 import { Children, isValidElement, ReactNode, ReactElement } from 'react';
 
-interface GroupedChildren {
+export interface GroupedChildren {
   [name: string]: ReactNode[];
 }
 
