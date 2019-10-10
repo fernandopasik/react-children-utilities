@@ -2,7 +2,6 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.ts', 'src/**/*.tsx'],
   testEnvironment: 'enzyme',
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.tsx?$': 'ts-jest',
   },
   globals: {
