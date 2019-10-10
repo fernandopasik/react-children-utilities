@@ -8,7 +8,7 @@ import Children, {
   filter,
   groupByType,
   onlyText,
-} from '..';
+} from '../react-children-utilities';
 
 describe('children', () => {
   it('has the right exports', () => {
