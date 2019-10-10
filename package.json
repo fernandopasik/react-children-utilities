@@ -21,9 +21,9 @@
     "mrm007 (https://github.com/mrm007)",
     "iyegoroff (https://github.com/iyegoroff)"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "./src/index.d.ts",
+  "main": "react-children-utilities.js",
+  "module": "react-children-utilities.js",
+  "typings": "react-children-utilities.d.ts",
   "scripts": {
     "build": "tsc && rollup -c",
     "prebuild": "del lib react-children-utilities.*",
