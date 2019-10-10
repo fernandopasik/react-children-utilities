@@ -24,6 +24,6 @@
   "rules": {
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   }
 }
