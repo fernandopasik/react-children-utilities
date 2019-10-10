@@ -1,4 +1,5 @@
 node_modules/**
-dist/**
+/lib/**
+/react-children-utilities.*
 coverage/**
 flow-typed/**

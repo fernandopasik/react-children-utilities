@@ -13,7 +13,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist",
+    "outDir": ".",
     "rootDirs": ["src"],
     "skipLibCheck": true,
     "sourceMap": true,

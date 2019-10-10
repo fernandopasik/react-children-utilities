@@ -19,6 +19,5 @@ yarn-error.log
 coverage
 
 # build and temp folders
-!dist
-
-.babelrc
+!/lib
+!/react-children-utilities.*
