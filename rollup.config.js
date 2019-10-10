@@ -2,17 +2,9 @@ import { terser } from 'rollup-plugin-terser';
 
 export default [
   {
-    input: 'dist/index.js',
+    input: 'react-children-utilities.js',
     output: {
-      file: 'dist/react-children-utilities.js',
-      format: 'esm',
-      sourcemap: true,
-    },
-  },
-  {
-    input: 'dist/index.js',
-    output: {
-      file: 'dist/react-children-utilities.min.js',
+      file: 'react-children-utilities.min.js',
       format: 'esm',
       sourcemap: true,
     },
