@@ -25,7 +25,8 @@
   "module": "dist/index.js",
   "typings": "./src/index.d.ts",
   "scripts": {
-    "build": "del dist && tsc && rollup -c",
+    "build": "tsc && rollup -c",
+    "prebuild": "del lib react-children-utilities.*",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "size": "bundlesize",
