@@ -42,9 +42,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@types/enzyme": "^3.10.3",
