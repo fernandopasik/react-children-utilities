@@ -2,6 +2,6 @@
   "hooks": {
     "commit-msg": "commitlint -e $GIT_PARAMS",
     "pre-commit": "lint-staged",
-    "pre-push": "yarn lint && yarn test && yarn flow && yarn build && yarn size"
+    "pre-push": "yarn verify"
   }
 }

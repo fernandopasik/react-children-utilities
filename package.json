@@ -38,7 +38,8 @@
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "size": "bundlesize",
     "test": "jest --coverage",
-    "preversion": "yarn lint && yarn check-types && yarn test && yarn build && yarn size"
+    "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size",
+    "preversion": "yarn verify"
   },
   "dependencies": {},
   "devDependencies": {
