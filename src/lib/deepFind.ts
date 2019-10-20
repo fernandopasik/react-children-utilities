@@ -7,7 +7,7 @@ export interface FindFunction {
 
 const deepFind = (children: ReactNode, deepFindFn: FindFunction): ReactNode | undefined => {
   let found;
-  Children.toArray(children).find((child) => {
+  Children.toArray(children).find((child: ReactNode) => {
     if (hasComplexChildren(child)) {
       // Find inside the child that has children
       found = deepFind((child as ReactElement).props.children, deepFindFn);

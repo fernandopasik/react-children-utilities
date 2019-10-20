@@ -8,7 +8,7 @@ export interface FilterFunction {
 const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNode[] => {
   return Children.toArray(children)
     .filter(deepFilterFn)
-    .map((child) => {
+    .map((child: ReactNode) => {
       if (hasComplexChildren(child)) {
         // Clone the child that has children and filter them too
         return cloneElement(child as ReactElement, {

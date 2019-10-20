@@ -6,7 +6,7 @@ export interface ForEachFunction {
 }
 
 const deepForEach = (children: ReactNode, deepForEachFn: ForEachFunction): void => {
-  Children.forEach(children, (child) => {
+  Children.forEach(children, (child: ReactNode) => {
     if (hasComplexChildren(child)) {
       // Each inside the child that has children
       deepForEach((child as ReactElement).props.children, deepForEachFn);

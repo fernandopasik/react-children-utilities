@@ -6,7 +6,7 @@ export interface MapFunction {
 }
 
 const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] => {
-  return Children.map(children, (child) => {
+  return Children.map(children, (child: ReactNode) => {
     if (hasComplexChildren(child)) {
       // Clone the child that has children and map them too
       return deepMapFn(
