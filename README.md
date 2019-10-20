@@ -53,13 +53,9 @@ import Children from 'react-children-utilities';
 
 ## Api documentation
 
-### Children.filter
-
-Creates a new children array with all elements that pass the test implemented by the provided function.
-
-```
-Children.filter(children, callback)
-```
+- [deepFilter(children, deepFilterFn)](/docs/deep-filter.md)
+- [deepMap(children, deepMapFn)](/docs/deep-map.md)
+- [filter(children, filterFn)](/docs/filter.md)
 
 ### Children.groupByType
 
@@ -67,14 +63,6 @@ Returns an object with keys that map each tag name to an array of children of th
 
 ```
 Children.groupByType(children, tagNames[, restKey])
-```
-
-### Children.deepMap
-
-Creates a new children array with the results of calling a provided function on every element (and its children) in the provided children.
-
-```
-Children.deepMap(children, callback)
 ```
 
 ### Children.deepForEach
