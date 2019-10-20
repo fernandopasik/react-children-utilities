@@ -7,12 +7,8 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
-  "parserOptions": {
-    "project": "./tsconfig.all.json"
-  },
-  "env": {
-    "browser": true
-  },
+  "parserOptions": { "project": "./tsconfig.all.json" },
+  "env": { "browser": true },
   "rules": {
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
