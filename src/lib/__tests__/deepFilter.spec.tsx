@@ -10,7 +10,7 @@ interface Props {
 describe('deepFilter', () => {
   it('nested elements', () => {
     const DeepFiltered = ({ children }: Props): ReactElement => (
-      <div>{deepFilter(children, (item) => (item as ReactElement).type === 'span')}</div>
+      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
     const wrapper = shallow(
@@ -42,7 +42,7 @@ describe('deepFilter', () => {
 
   it('non nested elements', () => {
     const DeepFiltered = ({ children }: Props): ReactElement => (
-      <div>{deepFilter(children, (item) => (item as ReactElement).type === 'span')}</div>
+      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
     const wrapper = shallow(
@@ -61,7 +61,7 @@ describe('deepFilter', () => {
 
   it('remove elements event if they have matching nested children', () => {
     const DeepFiltered = ({ children }: Props): ReactElement => (
-      <div>{deepFilter(children, (item) => (item as ReactElement).type === 'span')}</div>
+      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
     const wrapper = shallow(
@@ -91,7 +91,7 @@ describe('deepFilter', () => {
 
   it('keeps empty matching elements if children do not match', () => {
     const DeepFiltered = ({ children }: Props): ReactElement => (
-      <div>{deepFilter(children, (item) => (item as ReactElement).type === 'span')}</div>
+      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
     const wrapper = shallow(
