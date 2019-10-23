@@ -74,6 +74,8 @@ const MyComponent = ({ children }) => {
 - [deepForEach(children, forEachFn)](/docs/deep-foreach.md)
 - [deepMap(children, mapFn)](/docs/deep-map.md)
 - [filter(children, filterFn)](/docs/filter.md)
+- [hasChildren(children)](/docs/has-children.md)
+- [hasComplexChildren(children)](/docs/has-complex-children.md)
 - [onlyText(children)](/docs/only-text.md)
 
 ### Children.groupByType
