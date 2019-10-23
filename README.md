@@ -74,17 +74,10 @@ const MyComponent = ({ children }) => {
 - [deepForEach(children, forEachFn)](/docs/deep-foreach.md)
 - [deepMap(children, mapFn)](/docs/deep-map.md)
 - [filter(children, filterFn)](/docs/filter.md)
+- [groupByType(children, types, rest)](/docs/group-by-type.md)
 - [hasChildren(children)](/docs/has-children.md)
 - [hasComplexChildren(children)](/docs/has-complex-children.md)
 - [onlyText(children)](/docs/only-text.md)
-
-### Children.groupByType
-
-Returns an object with keys that map each tag name to an array of children of that type, and a key that maps the rest of children.
-
-```
-Children.groupByType(children, tagNames[, restKey])
-```
 
 ## License
 
