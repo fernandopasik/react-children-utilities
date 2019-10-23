@@ -21,3 +21,5 @@ coverage
 # build and temp folders
 /lib
 /react-children-utilities.*
+_site
+.jekyll-cache

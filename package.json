@@ -34,6 +34,7 @@
     "prebuild": "del lib react-children-utilities.*",
     "build": "tsc && rollup -c && yarn flowgen",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
+    "docs": "jekyll serve -s docs/",
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "size": "bundlesize",
