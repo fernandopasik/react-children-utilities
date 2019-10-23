@@ -81,7 +81,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.11.0",
     "react-test-renderer": "^16.11.0",
-    "rollup": "^1.25.1",
+    "rollup": "^1.25.2",
     "rollup-plugin-terser": "^5.1.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.4"
