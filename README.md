@@ -53,9 +53,9 @@ import Children from 'react-children-utilities';
 
 ## Api documentation
 
-- [deepFilter(children, deepFilterFn)](/docs/deep-filter.md)
-- [deepMap(children, deepMapFn)](/docs/deep-map.md)
+- [deepFilter(children, filterFn)](/docs/deep-filter.md)
 - [deepForEach(children, forEachFn)](/docs/deep-foreach.md)
+- [deepMap(children, mapFn)](/docs/deep-map.md)
 - [filter(children, filterFn)](/docs/filter.md)
 
 ### Children.groupByType

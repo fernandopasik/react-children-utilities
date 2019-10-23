@@ -9,7 +9,7 @@ Creates a new children array with all elements that pass the test implemented by
 ```typescript
 deepFilter(
   children: ReactNode,
-  deepFilterFn: (child: ReactNode, index?: number, children?: ReactNode[]): boolean,
+  filterFn: (child: ReactNode, index?: number, children?: ReactNode[]): boolean,
 ): ReactNode[]
 ```
 
@@ -18,7 +18,7 @@ deepFilter(
 <dl>
   <dt><b>children</b></dt>
   <dd>The children array from the element where is used.</dd>
-  <dt><b>deepFilterFn</b></dt>
+  <dt><b>filterFn</b></dt>
   <dd>Predicate to test recursively each element (and its children) of the children array. Return true to keep the element and false to remove it. It accepts three arguments:</dd>
   <dd>
     <dl>
