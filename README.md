@@ -29,26 +29,42 @@
 
 Extended utils for React.Children opaque data structure.
 
-## Install
+## Installation
 
-This is a peer dependency so react must be present
+Available as a package and can be added to your application with npm or yarn after installing the peer dependency `react`
 
-```
-npm install --save react-children-utilities react
+```sh
+# with yarn
+yarn add react-children-utilities react
+
+# with npm
+npm install --save react-children-utilities
 ```
 
 ## Usage
 
-Instead of requiring Children from React, require this one, it will extend existing capabilities from Children in your current React version.
+This package extends the existing React.Children utilities, you can import it as a whole.
 
-```
-var Children = require('react-children-utilities');
-```
-
-With ES6 modules
-
-```
+```jsx
+import React from 'react';
 import Children from 'react-children-utilities';
+
+const MyComponent = ({ children }) => {
+  const onlySpans = Children.filter(children, (child) => child.type === 'span');
+  return <div>{onlySpans}</div>;
+};
+```
+
+Also you can import only the function you need
+
+```jsx
+import React from 'react';
+import { filter } from 'react-children-utilities';
+
+const MyComponent = ({ children }) => {
+  const onlySpans = filter(children, (child) => child.type === 'span');
+  return <div>{onlySpans}</div>;
+};
 ```
 
 ## Api documentation
