@@ -74,6 +74,7 @@ const MyComponent = ({ children }) => {
 - [deepForEach(children, forEachFn)](/docs/deep-foreach.md)
 - [deepMap(children, mapFn)](/docs/deep-map.md)
 - [filter(children, filterFn)](/docs/filter.md)
+- [onlyText(children)](/docs/only-text.md)
 
 ### Children.groupByType
 
@@ -81,14 +82,6 @@ Returns an object with keys that map each tag name to an array of children of th
 
 ```
 Children.groupByType(children, tagNames[, restKey])
-```
-
-### Children.onlyText
-
-Strips all html and returns only text nodes
-
-```
-Children.onlyText(children)
 ```
 
 ## License
