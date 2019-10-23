@@ -66,14 +66,6 @@ Returns an object with keys that map each tag name to an array of children of th
 Children.groupByType(children, tagNames[, restKey])
 ```
 
-### Children.deepForEach
-
-Executes a provided function on every element (and its children) in the provided children.
-
-```
-Children.deepForEach(children, callback)
-```
-
 ### Children.deepFind
 
 Returns the first element in the children (and its children) that satisfies the provided testing function.
