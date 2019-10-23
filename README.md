@@ -70,6 +70,7 @@ const MyComponent = ({ children }) => {
 ## Api documentation
 
 - [deepFilter(children, filterFn)](/docs/deep-filter.md)
+- [deepFind(children, findFn)](/docs/deep-find.md)
 - [deepForEach(children, forEachFn)](/docs/deep-foreach.md)
 - [deepMap(children, mapFn)](/docs/deep-map.md)
 - [filter(children, filterFn)](/docs/filter.md)
@@ -80,14 +81,6 @@ Returns an object with keys that map each tag name to an array of children of th
 
 ```
 Children.groupByType(children, tagNames[, restKey])
-```
-
-### Children.deepFind
-
-Returns the first element in the children (and its children) that satisfies the provided testing function.
-
-```
-Children.deepFind(children, callback)
 ```
 
 ### Children.onlyText
