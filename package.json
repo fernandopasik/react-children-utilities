@@ -39,6 +39,7 @@
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "size": "bundlesize",
     "test": "jest --coverage",
+    "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss",
     "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size",
     "preversion": "yarn verify"
   },
@@ -76,6 +77,7 @@
     "jest-junit": "^9.0.0",
     "lint-staged": "^9.4.2",
     "make-dir-cli": "^2.0.0",
+    "normalize.css": "^8.0.1",
     "prettier": "^1.18.2",
     "raf": "^3.4.1",
     "react": "^16.10.2",
