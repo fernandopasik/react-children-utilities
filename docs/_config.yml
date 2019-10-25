@@ -1,3 +1,6 @@
 title: React Children Utilities
 description: Extended utils for React.Children opaque data structure.
 
+sass:
+  style: compressed
+
