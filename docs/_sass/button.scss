@@ -1,0 +1,15 @@
+.button {
+  display: inline-flex;
+  border-radius: 0.2em;
+  vertical-align: middle;
+  appearance: none;
+  padding: 0.25em 0.75em;
+  border: 0.1em solid currentColor;
+  font-size: 1em;
+
+  &-group {
+    .button + .button {
+      margin-left: 0.5em;
+    }
+  }
+}
