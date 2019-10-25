@@ -7,6 +7,31 @@ main_nav:
   - title: API
     url: /api
 
+content_table:
+  - title: Getting Started
+    url: /getting-started
+  - title: API
+    url: /api
+    links:
+      - title: deepFilter
+        url: /api/deep-filter
+      - title: deepFind
+        url: /api/deep-find
+      - title: deepForEach
+        url: /api/deep-foreach
+      - title: deepMap
+        url: /api/deep-map
+      - title: filter
+        url: /api/filter
+      - title: groupByType
+        url: /api/group-by-type
+      - title: hasChildren
+        url: /api/has-children
+      - title: hasComplexChildren
+        url: /api/has-complex-children
+      - title: onlyText
+        url: /api/only-text
+
 sass:
   style: compressed
 
