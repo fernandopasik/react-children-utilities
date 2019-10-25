@@ -1,6 +1,12 @@
 title: React Children Utilities
 description: Extended utils for React.Children opaque data structure.
 
+main_nav:
+  - title: Getting Started
+    url: /getting-started
+  - title: API
+    url: /api
+
 sass:
   style: compressed
 
