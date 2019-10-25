@@ -7,6 +7,18 @@
   border: 0.1em solid currentColor;
   font-size: 1em;
 
+  &--github {
+    background-color: #e0e0e0;
+    color: #424242;
+    border-color: #bdbdbd;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #424242;
+      color: #e0e0e0;
+      border-color: #212121;
+    }
+  }
+
   &-group {
     .button + .button {
       margin-left: 0.5em;
