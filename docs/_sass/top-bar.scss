@@ -1,0 +1,56 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 100%;
+
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 300;
+  font-size: 18px;
+
+  &--space {
+    padding-top: 60px;
+  }
+
+  &__section {
+    display: inline-flex;
+    flex: 1 1 auto;
+    padding: 0 10px;
+
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+
+  &__link {
+    align-items: center;
+    color: white;
+    display: flex;
+    padding: 0 10px;
+  }
+
+  &__nav {
+    display: flex;
+
+    &__link {
+      border-bottom: 4px solid transparent;
+      padding: 4px 10px 0;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+
+      &--active {
+        border-bottom-color: currentColor;
+      }
+    }
+  }
+
+  .octicon {
+    fill: white;
+  }
+}

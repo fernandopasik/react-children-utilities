@@ -1,0 +1,12 @@
+<header class="top-bar">
+	<section class="top-bar__section">
+		<a href="/" class="top-bar__link">{{ site.title | escape }}</a>
+	</section>
+	<section class="top-bar__section">
+		<nav class="top-bar__nav">
+			{% for item in site.main_nav %}
+			<a href="{{ item.url | escape }}" class="top-bar__link">{{ item.title | escape }}</a>
+			{% endfor %}
+		</nav>
+	</section>
+</header>
