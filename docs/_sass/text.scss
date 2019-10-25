@@ -1,0 +1,31 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  font-size: 1em;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+%title {
+  color: #212121;
+}
+
+h1 {
+  font-size: 2em;
+  @extend %title;
+}
+
+h2 {
+  font-size: 1.5em;
+  @extend %title;
+}
+
+h3 {
+  font-size: 1.25em;
+  @extend %title;
+}

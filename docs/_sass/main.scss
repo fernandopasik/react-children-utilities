@@ -1,1 +1,5 @@
-@import 'normalize.scss';
+@import 'normalize.scss', 'text.scss';
+
+html {
+  --primary-color: dodgerblue;
+}
