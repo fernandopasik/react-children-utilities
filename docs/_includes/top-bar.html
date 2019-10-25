@@ -7,6 +7,9 @@
 			{% for item in site.main_nav %}
 			<a href="{{ item.url | escape }}" class="top-bar__link">{{ item.title | escape }}</a>
 			{% endfor %}
+			<a href="{{ site.github.repository_url | escape }}" class="top-bar__link">
+				{% include github-icon.html %}
+			</a>
 		</nav>
 	</section>
 </header>
