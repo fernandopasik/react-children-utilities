@@ -1,19 +1,30 @@
-import { Children, ReactElement, ReactNode } from 'react';
+import { Children, ReactNode, ReactElement, ReactText, isValidElement } from 'react';
 import hasChildren from './hasChildren';
 
-const onlyText = (children: ReactNode): string => {
-  return Children.toArray(children)
-    .reduce((flattened: string[], child: ReactNode): string[] => {
-      if (!child) {
-        return flattened;
-      }
+const childToString = (child: ReactText | boolean | undefined | {} | null): string => {
+  if (typeof child === 'undefined' || child === null || typeof child === 'boolean') {
+    return '';
+  }
 
-      return [
-        ...flattened,
-        hasChildren(child) ? onlyText((child as ReactElement).props.children) : child.toString(),
-      ];
-    }, [])
-    .join('');
+  return child.toString();
+};
+
+const onlyText = (children: ReactNode): string => {
+  if (!(children instanceof Array) && !isValidElement(children)) {
+    return childToString(children);
+  }
+
+  return Children.toArray(children).reduce((text: string, child: ReactNode): string => {
+    let newText;
+
+    if (!hasChildren(child)) {
+      newText = childToString(child);
+    } else {
+      newText = onlyText((child as ReactElement).props.children);
+    }
+
+    return text.concat(newText);
+  }, '');
 };
 
 export default onlyText;

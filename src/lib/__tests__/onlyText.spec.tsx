@@ -84,9 +84,11 @@ describe('onlyText', () => {
         {null}
         {3}
         {true}
+        {false}
+        <i>b</i>
       </OnlyText>,
     );
 
-    expect(wrapper).toHaveText('example3');
+    expect(wrapper).toHaveText('example3b');
   });
 });
