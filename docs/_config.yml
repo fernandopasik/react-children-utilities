@@ -4,3 +4,5 @@ description: Extended utils for React.Children opaque data structure.
 sass:
   style: compressed
 
+plugins:
+  - jekyll-seo-tag
