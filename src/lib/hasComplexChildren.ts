@@ -1,10 +1,11 @@
-import { Children, isValidElement, ReactNode, ReactElement } from 'react';
+import { Children, isValidElement, ReactNode } from 'react';
 
 import hasChildren from './hasChildren';
 
 const hasComplexChildren = (element: ReactNode): boolean =>
+  isValidElement(element) &&
   hasChildren(element) &&
-  Children.toArray((element as ReactElement).props.children).reduce(
+  Children.toArray(element.props.children).reduce(
     (response: boolean, child: ReactNode) => response || isValidElement(child),
     false,
   );
