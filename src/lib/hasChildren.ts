@@ -1,6 +1,6 @@
-import { ReactNode, ReactElement } from 'react';
+import { ReactNode, isValidElement } from 'react';
 
-const hasChildren = (child: ReactNode): boolean =>
-  Boolean(child && (child as ReactElement).props && (child as ReactElement).props.children);
+const hasChildren = (element: ReactNode): boolean =>
+  isValidElement(element) && Boolean(element.props.children);
 
 export default hasChildren;
