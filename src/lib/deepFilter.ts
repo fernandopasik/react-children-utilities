@@ -1,4 +1,4 @@
-import { Children, cloneElement, ReactElement, ReactNode } from 'react';
+import { Children, cloneElement, ReactNode, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
 export interface FilterFunction {
@@ -9,11 +9,11 @@ const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNod
   return Children.toArray(children)
     .filter(deepFilterFn)
     .map((child: ReactNode) => {
-      if (hasComplexChildren(child)) {
+      if (isValidElement(child) && hasComplexChildren(child)) {
         // Clone the child that has children and filter them too
-        return cloneElement(child as ReactElement, {
-          ...(child as ReactElement).props,
-          children: deepFilter((child as ReactElement).props.children, deepFilterFn),
+        return cloneElement(child, {
+          ...child.props,
+          children: deepFilter(child.props.children, deepFilterFn),
         });
       }
       return child;

@@ -1,4 +1,4 @@
-import { Children, ReactElement, ReactNode } from 'react';
+import { Children, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
 export interface ForEachFunction {
@@ -7,9 +7,9 @@ export interface ForEachFunction {
 
 const deepForEach = (children: ReactNode, deepForEachFn: ForEachFunction): void => {
   Children.forEach(children, (child: ReactNode) => {
-    if (hasComplexChildren(child)) {
+    if (isValidElement(child) && hasComplexChildren(child)) {
       // Each inside the child that has children
-      deepForEach((child as ReactElement).props.children, deepForEachFn);
+      deepForEach(child.props.children, deepForEachFn);
     }
     deepForEachFn(child);
   });

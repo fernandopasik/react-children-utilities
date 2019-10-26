@@ -1,4 +1,4 @@
-import { Children, cloneElement, ReactElement, ReactNode } from 'react';
+import { Children, cloneElement, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
 export interface MapFunction {
@@ -7,12 +7,12 @@ export interface MapFunction {
 
 const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] => {
   return Children.map(children, (child: ReactNode) => {
-    if (hasComplexChildren(child)) {
+    if (isValidElement(child) && hasComplexChildren(child)) {
       // Clone the child that has children and map them too
       return deepMapFn(
-        cloneElement(child as ReactElement, {
-          ...(child as ReactElement).props,
-          children: deepMap((child as ReactElement).props.children, deepMapFn),
+        cloneElement(child, {
+          ...child.props,
+          children: deepMap(child.props.children, deepMapFn),
         }),
       );
     }

@@ -1,4 +1,4 @@
-import { Children, ReactNode, ReactElement } from 'react';
+import { Children, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
 export interface FindFunction {
@@ -9,9 +9,9 @@ const deepFind = (children: ReactNode, deepFindFn: FindFunction): ReactNode | un
   let found;
 
   Children.toArray(children).find((child: ReactNode) => {
-    if (hasComplexChildren(child)) {
+    if (isValidElement(child) && hasComplexChildren(child)) {
       // Find inside the child that has children
-      found = deepFind((child as ReactElement).props.children, deepFindFn);
+      found = deepFind(child.props.children, deepFindFn);
       return typeof found !== 'undefined';
     }
 
