@@ -1,4 +1,4 @@
-import { Children, ReactNode, ReactElement, ReactText, isValidElement } from 'react';
+import { Children, isValidElement, ReactNode, ReactText } from 'react';
 import hasChildren from './hasChildren';
 
 const childToString = (child: ReactText | boolean | undefined | {} | null): string => {
@@ -17,10 +17,10 @@ const onlyText = (children: ReactNode): string => {
   return Children.toArray(children).reduce((text: string, child: ReactNode): string => {
     let newText;
 
-    if (!hasChildren(child)) {
-      newText = childToString(child);
+    if (isValidElement(child) && hasChildren(child)) {
+      newText = onlyText(child.props.children);
     } else {
-      newText = onlyText((child as ReactElement).props.children);
+      newText = childToString(child);
     }
 
     return text.concat(newText);
