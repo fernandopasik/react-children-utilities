@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default-member, import/named */
+/* eslint-disable import/no-named-as-default-member */
 
 import Children, {
   deepFilter,
