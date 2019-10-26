@@ -1,4 +1,4 @@
-import { Children, cloneElement, ReactNode, isValidElement } from 'react';
+import { Children, cloneElement, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
 export interface FilterFunction {

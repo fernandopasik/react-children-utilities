@@ -1,4 +1,4 @@
-import { ReactNode, isValidElement } from 'react';
+import { isValidElement, ReactNode } from 'react';
 
 const hasChildren = (element: ReactNode): boolean =>
   isValidElement(element) && Boolean(element.props.children);
