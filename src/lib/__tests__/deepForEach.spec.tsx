@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { isValidElement, ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
 import deepForEach from '../deepForEach';
@@ -12,7 +12,7 @@ describe('deepForEach', () => {
     const DeepForEached = ({ children }: Props): ReactElement => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
-        if (child && (child as ReactElement).type === 'b') {
+        if (isValidElement(child) && child.type === 'b') {
           items.push((child as ReactElement).props.children);
         }
       });
@@ -43,8 +43,8 @@ describe('deepForEach', () => {
     const DeepForEached = ({ children }: Props): ReactElement => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
-        if (child && (child as ReactElement).type === 'b') {
-          items.push((child as ReactElement).props.children);
+        if (isValidElement(child) && child.type === 'b') {
+          items.push(child.props.children);
         }
       });
       return <div>{items}</div>;
@@ -64,8 +64,8 @@ describe('deepForEach', () => {
     const DeepForEached = ({ children }: Props): ReactElement => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
-        if (child && (child as ReactElement).type === 'b') {
-          items.push((child as ReactElement).props.children);
+        if (isValidElement(child) && child.type === 'b') {
+          items.push(child.props.children);
         }
       });
       return <div>{items}</div>;

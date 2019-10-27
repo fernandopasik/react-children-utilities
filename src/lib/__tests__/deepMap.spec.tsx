@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, ReactNode } from 'react';
+import React, { cloneElement, isValidElement, ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
 import deepMap from '../deepMap';
@@ -10,9 +10,9 @@ interface Props {
 const DeepMapped = ({ children }: Props): ReactElement => (
   <div>
     {deepMap(children, (child: ReactNode) => {
-      if (child && (child as ReactElement).type === 'b') {
-        return cloneElement(child as ReactElement, {
-          ...(child as ReactElement).props,
+      if (isValidElement(child) && child.type === 'b') {
+        return cloneElement(child, {
+          ...child.props,
           className: 'mapped',
         });
       }

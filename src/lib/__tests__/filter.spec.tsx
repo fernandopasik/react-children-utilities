@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { isValidElement, ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
 import filter from '../filter';
@@ -12,7 +12,7 @@ describe('filter', () => {
     const Filtered = ({ children }: Props): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
-          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'div'),
+          Boolean(isValidElement(item) && item.type === 'div'),
         )}
       </div>
     );
@@ -32,7 +32,7 @@ describe('filter', () => {
     const Filtered = ({ children }: Props): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
-          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'span'),
+          Boolean(isValidElement(item) && item.type === 'span'),
         )}
       </div>
     );
@@ -54,7 +54,7 @@ describe('filter', () => {
     const Filtered = ({ children }: Props): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
-          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'span'),
+          Boolean(isValidElement(item) && item.type === 'span'),
         )}
       </div>
     );
@@ -77,7 +77,7 @@ describe('filter', () => {
     const Filtered = ({ children }: Props): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
-          Boolean(item && (item as ReactElement).type && (item as ReactElement).type === 'div'),
+          Boolean(isValidElement(item) && item.type === 'div'),
         )}
       </div>
     );
