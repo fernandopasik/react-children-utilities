@@ -1,0 +1,45 @@
+.content {
+  padding-right: 40px;
+}
+
+.content-wrapper {
+  display: flex;
+}
+
+.content-aside-wrapper {
+  position: fixed;
+  height: calc(100vh - 60px);
+  background-color: #f7f7f7;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 999px;
+}
+
+.content-table {
+  &-link {
+    color: #1a1a1a;
+    cursor: pointer;
+    display: block;
+    padding: 4px 0;
+
+    &:hover {
+      color: #6d6d6d;
+    }
+  }
+
+  &-items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-weight: 600;
+
+    & & {
+      padding-left: 20px;
+      font-weight: 400;
+
+      .content-table-link {
+        padding: 2px 0;
+      }
+    }
+  }
+}

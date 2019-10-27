@@ -1,0 +1,20 @@
+<nav class="content-table">
+	<ul class="content-table-items">
+		{% for item in site.content_table %}
+		<li>
+			<a href="{{ item.url | escape }}" class="content-table-link">{{ item.title | escape }}</a>
+			{% if item.links %}
+			<ul class="content-table-items">
+				{% for subitem in item.links %}
+				<li>
+					<a href="{{ subitem.url | escape }}" class="content-table-link">{{
+						subitem.title | escape
+					}}</a>
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+</nav>
