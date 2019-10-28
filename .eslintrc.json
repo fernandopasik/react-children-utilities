@@ -7,11 +7,13 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
+  "plugins": ["prettier"],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "env": { "browser": true },
   "rules": {
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
+    "prettier/prettier": "error",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   }
 }
