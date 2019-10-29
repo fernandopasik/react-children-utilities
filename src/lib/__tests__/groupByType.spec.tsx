@@ -144,30 +144,6 @@ describe('groupByType', () => {
   });
 
   describe('returns on rest', () => {
-    it('on non matched element types', () => {
-      let elements;
-
-      const Grouped = ({ children }: Props): ReactElement => {
-        elements = groupByType(children, ['span']);
-        return <div>{children}</div>;
-      };
-
-      shallow(
-        <Grouped>
-          <span>1</span>
-          <b>2</b>
-          <i>3</i>
-        </Grouped>,
-      );
-
-      const [first, second] = elements.rest;
-
-      expect(first.type).toBe('b');
-      expect(first.props.children).toBe('2');
-      expect(second.type).toBe('i');
-      expect(second.props.children).toBe('3');
-    });
-
     it('on text children', () => {
       let elements;
 
