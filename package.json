@@ -56,6 +56,7 @@
     "@typescript-eslint/parser": "^2.6.0",
     "bundlesize": "^0.18.0",
     "codecov": "^3.6.1",
+    "credits-cli": "^3.1.0",
     "del-cli": "^3.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
