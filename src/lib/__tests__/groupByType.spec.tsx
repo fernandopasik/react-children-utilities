@@ -8,6 +8,95 @@ interface Props {
 }
 
 describe('groupByType', () => {
+  it('groups elements with same tagName', () => {
+    let elements;
+
+    const Grouped = ({ children }: Props): ReactElement => {
+      elements = groupByType(children, ['span', 'strong']);
+      return <div>{children}</div>;
+    };
+
+    shallow(
+      <Grouped>
+        <span>
+          <b>1</b>
+        </span>
+        <span>2</span>
+        <strong>3</strong>
+      </Grouped>,
+    );
+
+    const [first, second] = elements.span;
+    expect(shallow(first)).toHaveHTML('<span><b>1</b></span>');
+    expect(shallow(second)).toHaveHTML('<span>2</span>');
+
+    const [third] = elements.strong;
+    expect(shallow(third)).toHaveHTML('<strong>3</strong>');
+  });
+
+  it('groups the non matching types in rest', () => {
+    let elements;
+
+    const Grouped = ({ children }: Props): ReactElement => {
+      elements = groupByType(children, ['span', 'strong']);
+      return <div>{children}</div>;
+    };
+
+    shallow(
+      <Grouped>
+        <span>
+          <b>1</b>
+        </span>
+        <span>2</span>
+        <b>3</b>
+        <i>4</i>
+      </Grouped>,
+    );
+
+    const [first, second] = elements.rest;
+    expect(shallow(first)).toHaveHTML('<b>3</b>');
+    expect(shallow(second)).toHaveHTML('<i>4</i>');
+  });
+
+  it('groups the non matching types in rest with a different key name', () => {
+    let elements;
+
+    const Grouped = ({ children }: Props): ReactElement => {
+      elements = groupByType(children, ['span', 'strong'], 'others');
+      return <div>{children}</div>;
+    };
+
+    shallow(
+      <Grouped>
+        <span>2</span>
+        <b>3</b>
+      </Grouped>,
+    );
+
+    const [first] = elements.others;
+    expect(shallow(first)).toHaveHTML('<b>3</b>');
+  });
+
+  it('if no types provided groups everything on rest', () => {
+    let elements;
+
+    const Grouped = ({ children }: Props): ReactElement => {
+      elements = groupByType(children);
+      return <div>{children}</div>;
+    };
+
+    shallow(
+      <Grouped>
+        <span>2</span>
+        <b>3</b>
+      </Grouped>,
+    );
+
+    const [first, second] = elements.rest;
+    expect(shallow(first)).toHaveHTML('<span>2</span>');
+    expect(shallow(second)).toHaveHTML('<b>3</b>');
+  });
+
   describe('returns empty object', () => {
     it('on empty children', () => {
       let elements;
