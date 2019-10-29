@@ -8,33 +8,127 @@ interface Props {
 }
 
 describe('groupByType', () => {
-  it('groups', () => {
-    const Grouped = ({ children }: Props): ReactElement => (
-      <div>
-        <div className="spans">{groupByType(children, ['span', 'i'], 'rest').span}</div>
-        <div className="rest">{groupByType(children, ['span', 'i'], 'rest').rest}</div>
-        <div className="empty">{groupByType(children, ['span', 'i'], 'rest').i}</div>
-      </div>
-    );
+  describe('returns empty object', () => {
+    it('on empty children', () => {
+      let elements;
 
-    const wrapper = shallow(
-      <Grouped>
-        <span>
-          <b>1</b>
-        </span>
-        <span>
+      const Grouped = ({ children }: Props): ReactElement => {
+        elements = groupByType(children, ['span', 'i']);
+        return <div>{children}</div>;
+      };
+
+      shallow(<Grouped />);
+
+      expect(elements).toStrictEqual({});
+    });
+
+    it('on boolean children', () => {
+      let elements;
+
+      const Grouped = ({ children }: Props): ReactElement => {
+        elements = groupByType(children, ['span', 'i']);
+        return <div>{children}</div>;
+      };
+
+      shallow(
+        <Grouped>
+          {false}
+          {true}
+        </Grouped>,
+      );
+
+      expect(elements).toStrictEqual({});
+    });
+
+    it('on null children', () => {
+      let elements;
+
+      const Grouped = ({ children }: Props): ReactElement => {
+        elements = groupByType(children, ['span', 'i']);
+        return <div>{children}</div>;
+      };
+
+      shallow(<Grouped>{null}</Grouped>);
+
+      expect(elements).toStrictEqual({});
+    });
+  });
+
+  describe('returns on rest', () => {
+    it('on non matched element types', () => {
+      let elements;
+
+      const Grouped = ({ children }: Props): ReactElement => {
+        elements = groupByType(children, ['span']);
+        return <div>{children}</div>;
+      };
+
+      shallow(
+        <Grouped>
+          <span>1</span>
           <b>2</b>
-        </span>
-        <strong>3</strong>
-      </Grouped>,
-    );
+          <i>3</i>
+        </Grouped>,
+      );
 
-    expect(wrapper.find('.spans b')).toExist();
-    expect(wrapper.find('.spans b')).toHaveLength(2);
-    expect(wrapper.find('.spans strong')).not.toExist();
-    expect(wrapper.find('.rest span')).not.toExist();
-    expect(wrapper.find('.rest strong')).toExist();
-    expect(wrapper.find('.rest strong')).toHaveLength(1);
-    expect(wrapper.find('.empty').children()).not.toExist();
+      const [first, second] = elements.rest;
+
+      expect(first.type).toBe('b');
+      expect(first.props.children).toBe('2');
+      expect(second.type).toBe('i');
+      expect(second.props.children).toBe('3');
+    });
+
+    it('on text children', () => {
+      let elements;
+
+      const Grouped = ({ children }: Props): ReactElement => {
+        elements = groupByType(children, ['span']);
+        return <div>{children}</div>;
+      };
+
+      shallow(<Grouped>example with some words</Grouped>);
+
+      expect(elements).toStrictEqual({ rest: ['example with some words'] });
+    });
+
+    it('on number children', () => {
+      let elements;
+
+      const Grouped = ({ children }: Props): ReactElement => {
+        elements = groupByType(children, ['span']);
+        return <div>{children}</div>;
+      };
+
+      shallow(
+        <Grouped>
+          {1}
+          {2}
+        </Grouped>,
+      );
+
+      expect(elements).toStrictEqual({ rest: [1, 2] });
+    });
+
+    it('on mixed non element children', () => {
+      let elements;
+
+      const Grouped = ({ children }: Props): ReactElement => {
+        elements = groupByType(children, ['span']);
+        return <div>{children}</div>;
+      };
+
+      shallow(
+        <Grouped>
+          {true}
+          example
+          {null}
+          with some words
+          {3}
+        </Grouped>,
+      );
+
+      expect(elements).toStrictEqual({ rest: ['example', 'with some words', 3] });
+    });
   });
 });
