@@ -11,7 +11,6 @@ const groupByType = (
 ): GroupedChildren => {
   return Children.toArray(children).reduce((groups: GroupedChildren, child: ReactNode) => {
     const isGrouped = isValidElement(child) && types.includes(child.type);
-    const addChild = isGrouped ? (child as ReactElement).props.children : child;
     const key = isGrouped ? (child as ReactElement).type : rest;
 
     if (typeof key !== 'string') {
@@ -22,7 +21,7 @@ const groupByType = (
 
     return {
       ...groups,
-      [key]: [...(group || []), addChild],
+      [key]: [...(group || []), child],
     };
   }, {});
 };
