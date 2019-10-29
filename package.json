@@ -39,6 +39,7 @@
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "size": "bundlesize",
     "test": "jest --coverage",
+    "thanks": "credits . --reporter markdown > THANKS.md",
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss",
     "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size",
     "preversion": "yarn verify"
