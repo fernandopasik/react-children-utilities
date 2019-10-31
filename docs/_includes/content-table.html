@@ -2,12 +2,14 @@
 	<ul class="content-table-items">
 		{% for item in site.content_table %}
 		<li>
-			<a href="{{ item.url | escape }}" class="content-table-link">{{ item.title | escape }}</a>
+			<a href="{{ site.github.url }}{{ item.url | escape }}" class="content-table-link">{{
+				item.title | escape
+			}}</a>
 			{% if item.links %}
 			<ul class="content-table-items">
 				{% for subitem in item.links %}
 				<li>
-					<a href="{{ subitem.url | escape }}" class="content-table-link">{{
+					<a href="{{ site.github.url }}{{ subitem.url | escape }}" class="content-table-link">{{
 						subitem.title | escape
 					}}</a>
 				</li>
