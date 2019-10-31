@@ -14,23 +14,23 @@ content_table:
     url: /api
     links:
       - title: deepFilter
-        url: /api/deep-filter
+        url: /deep-filter
       - title: deepFind
-        url: /api/deep-find
+        url: /deep-find
       - title: deepForEach
-        url: /api/deep-foreach
+        url: /deep-foreach
       - title: deepMap
-        url: /api/deep-map
+        url: /deep-map
       - title: filter
-        url: /api/filter
+        url: /filter
       - title: groupByType
-        url: /api/group-by-type
+        url: /group-by-type
       - title: hasChildren
-        url: /api/has-children
+        url: /has-children
       - title: hasComplexChildren
-        url: /api/has-complex-children
+        url: /has-complex-children
       - title: onlyText
-        url: /api/only-text
+        url: /only-text
 
 google_analytics: UA-5425682-4
 
