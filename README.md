@@ -10,7 +10,7 @@
 [![peerDependency Status][badge-deps-peer]][url-deps-peer]
 [![devDependency Status][badge-deps-dev]][url-deps-dev]
 
-[badge-size]: http://img.badgesize.io/https://unpkg.com/react-children-utilities?compression=gzip
+[badge-size]: http://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip
 [badge-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
 [badge-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
 [badge-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json
@@ -18,7 +18,7 @@
 [badge-downloads]: https://img.shields.io/npm/dm/react-children-utilities.svg
 [badge-deps-peer]: https://david-dm.org/fernandopasik/react-children-utilities/peer-status.svg
 [badge-deps-dev]: https://david-dm.org/fernandopasik/react-children-utilities/dev-status.svg
-[url-size]: https://unpkg.com/react-children-utilities 'Gzip Bundle Size'
+[url-size]: https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size'
 [url-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities 'Build Status'
 [url-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities 'Test Coverage Status'
 [url-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities?targetFile=package.json 'Known Vulnerabilities'
