@@ -1,9 +1,7 @@
 import { Children, cloneElement, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-export interface MapFunction {
-  (child: ReactNode, index?: number, children?: ReactNode[]): ReactNode;
-}
+export type MapFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => ReactNode;
 
 const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] => {
   return Children.map(children, (child: ReactNode) => {

@@ -1,9 +1,7 @@
 import { Children, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-export interface ForEachFunction {
-  (child: ReactNode, index?: number, children?: ReactNode[]): void;
-}
+export type ForEachFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => void;
 
 const deepForEach = (children: ReactNode, deepForEachFn: ForEachFunction): void => {
   Children.forEach(children, (child: ReactNode) => {

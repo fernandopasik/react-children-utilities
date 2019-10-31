@@ -1,9 +1,7 @@
 import { Children, cloneElement, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-export interface FilterFunction {
-  (child: ReactNode, index?: number, children?: ReactNode[]): boolean;
-}
+export type FilterFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => boolean;
 
 const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNode[] => {
   return Children.toArray(children)

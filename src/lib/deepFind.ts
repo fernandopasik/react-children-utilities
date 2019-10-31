@@ -1,9 +1,7 @@
 import { Children, isValidElement, ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
-export interface FindFunction {
-  (child: ReactNode, index?: number, children?: ReactNode[]): ReactNode;
-}
+export type FindFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => ReactNode;
 
 const deepFind = (children: ReactNode, deepFindFn: FindFunction): ReactNode | undefined => {
   let found;
