@@ -11,12 +11,17 @@ const groupByType = (
 ): GroupedChildren => {
   return Children.toArray(children).reduce((groups: GroupedChildren, child: ReactNode) => {
     const newGroups = { ...groups };
+    let key = rest;
 
     if (isValidElement(child) && typeof child.type === 'string' && types.includes(child.type)) {
-      newGroups[child.type] = [...(newGroups[child.type] || []), child];
-    } else {
-      newGroups[rest] = [...(newGroups[rest] || []), child];
+      key = child.type;
     }
+
+    if (typeof newGroups[key] === 'undefined') {
+      newGroups[key] = [];
+    }
+
+    newGroups[key] = [...newGroups[key], child];
 
     return newGroups;
   }, {});
