@@ -32,14 +32,14 @@ describe('deepMap', () => {
           <b>3</b>
         </span>
         <div>
-          <div>
+          <b>
             <b>4</b>
-          </div>
+          </b>
         </div>
       </DeepMapped>,
     );
 
-    expect(wrapper.find('b.mapped')).toHaveLength(4);
+    expect(wrapper.find('b.mapped')).toHaveLength(5);
     expect(wrapper.find('b:not(.mapped)')).toHaveLength(0);
   });
 
