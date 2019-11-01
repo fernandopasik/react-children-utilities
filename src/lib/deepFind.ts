@@ -7,15 +7,15 @@ const deepFind = (children: ReactNode, deepFindFn: FindFunction): ReactNode | un
   let found;
 
   Children.toArray(children).find((child: ReactNode) => {
+    if (deepFindFn(child)) {
+      found = child;
+      return true;
+    }
+
     if (isValidElement(child) && hasComplexChildren(child)) {
       // Find inside the child that has children
       found = deepFind(child.props.children, deepFindFn);
       return typeof found !== 'undefined';
-    }
-
-    if (deepFindFn(child)) {
-      found = child;
-      return true;
     }
 
     return false;

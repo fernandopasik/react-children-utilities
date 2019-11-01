@@ -27,6 +27,29 @@ describe('deepFind', () => {
     expect(wrapper.children().at(0)).toMatchElement(<i>2</i>);
   });
 
+  it('a matching element with matching nested elements', () => {
+    const DeepFound = ({ children }: Props): ReactElement => (
+      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
+    );
+
+    const wrapper = shallow(
+      <DeepFound>
+        <b>1</b>
+        <i>
+          <i>2</i>
+        </i>
+        <i>3</i>
+      </DeepFound>,
+    );
+
+    expect(wrapper.children()).toHaveLength(1);
+    expect(wrapper.children().at(0)).toMatchElement(
+      <i>
+        <i>2</i>
+      </i>,
+    );
+  });
+
   it('a non nested element', () => {
     const DeepFound = ({ children }: Props): ReactElement => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
