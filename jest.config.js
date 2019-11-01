@@ -9,5 +9,5 @@ module.exports = {
       tsConfig: 'tsconfig.all.json',
     },
   },
-  setupFilesAfterEnv: ['jest-enzyme'],
+  setupFilesAfterEnv: ['./setupTests.ts'],
 };
