@@ -2,14 +2,21 @@
   "extends": [
     "airbnb",
     "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/all",
     "plugin:jest/all",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "env": { "browser": true },
+  "overrides": [
+    {
+      "files": "*.spec.*",
+      "rules": { "@typescript-eslint/no-magic-numbers": "off" }
+    }
+  ],
   "rules": {
+    "@typescript-eslint/no-type-alias": ["error", { "allowCallbacks": "always" }],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
