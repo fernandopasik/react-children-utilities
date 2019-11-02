@@ -1,5 +1,5 @@
 title: React Children Utilities
-description: Extended utils for React.Children opaque data structure.
+description: Recursive and extended utils for React children opaque data structure.
 
 main_nav:
   - title: Getting Started

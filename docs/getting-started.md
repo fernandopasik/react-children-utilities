@@ -4,7 +4,7 @@ layout: default
 
 # Getting Started
 
-This library provides extended utilities for operating on React.Children opaque data structure
+This library provides Recursive and extended utils for operating on React children opaque data structure.
 
 ## Installation
 
