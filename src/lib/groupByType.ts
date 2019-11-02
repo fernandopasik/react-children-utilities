@@ -7,7 +7,8 @@ export interface GroupedChildren {
 const groupByType = (
   children: ReactNode,
   types: ReactNode[] = [],
-  rest = 'rest',
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  rest: string = 'rest',
 ): GroupedChildren => {
   return Children.toArray(children).reduce((groups: GroupedChildren, child: ReactNode) => {
     const newGroups = { ...groups };
