@@ -3,7 +3,13 @@ code {
 }
 
 pre {
-  overflow-x: auto;
+  overflow: scroll;
+  tab-size: 2;
+  hyphens: none;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
 
   padding: 1em;
   background: #212121;
