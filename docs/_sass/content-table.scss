@@ -46,6 +46,12 @@
     }
   }
 
+  &-title {
+    text-transform: uppercase;
+    font-size: 16px;
+    margin: 0 0 16px;
+  }
+
   &-items {
     padding: 0;
     margin: 0;
