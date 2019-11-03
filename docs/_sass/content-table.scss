@@ -2,6 +2,10 @@
   padding-right: 40px;
   flex: 1 1 auto;
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    padding-right: 20px;
+  }
 }
 
 .content-wrapper {
@@ -9,7 +13,11 @@
 }
 
 .content-aside {
-  flex: 0 0 300px;
+  flex: 0 0 250px;
+
+  @media (max-width: 1024px) {
+    flex: 0 0 180px;
+  }
 }
 
 .content-aside-wrapper {
@@ -19,6 +27,11 @@
   padding-top: 40px;
   padding-left: 40px;
   padding-right: 999px;
+
+  @media (max-width: 1024px) {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
 }
 
 .content-table {
