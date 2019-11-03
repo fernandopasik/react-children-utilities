@@ -6,10 +6,19 @@
   @media (max-width: 1024px) {
     padding-right: 20px;
   }
+
+  @media (max-width: 600px) {
+    flex: none;
+    padding: 0;
+  }
 }
 
 .content-wrapper {
   display: flex;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .content-aside {
@@ -17,6 +26,10 @@
 
   @media (max-width: 1024px) {
     flex: 0 0 180px;
+  }
+
+  @media (max-width: 600px) {
+    flex: none;
   }
 }
 
@@ -31,6 +44,12 @@
   @media (max-width: 1024px) {
     padding-top: 20px;
     padding-left: 20px;
+  }
+
+  @media (max-width: 600px) {
+    position: static;
+    height: auto;
+    padding: 20px 0;
   }
 }
 
