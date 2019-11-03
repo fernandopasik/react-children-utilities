@@ -1,9 +1,14 @@
 .content {
   padding-right: 40px;
+  flex: 1 1 auto;
 }
 
 .content-wrapper {
   display: flex;
+}
+
+.content-aside {
+  flex: 0 0 300px;
 }
 
 .content-aside-wrapper {
