@@ -5,6 +5,7 @@
 [![Test Coverage Status][badge-cov]][url-cov]
 [![Known Vulnerabilities][badge-sec]][url-sec]
 
+[![All Contributors][badge-contributors]](#contributors-)
 [![npm version][badge-version]][url-version]
 [![npm downloads][badge-downloads]][url-downloads]
 
@@ -12,6 +13,7 @@
 [badge-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
 [badge-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
 [badge-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json
+[badge-contributors]: https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square
 [badge-version]: https://img.shields.io/npm/v/react-children-utilities.svg
 [badge-downloads]: https://img.shields.io/npm/dm/react-children-utilities.svg
 [url-size]: https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size'
