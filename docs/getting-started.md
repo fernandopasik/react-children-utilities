@@ -43,3 +43,7 @@ const MyComponent = ({ children }) => {
   return <div>{onlySpans}</div>;
 };
 ```
+
+## Next Steps
+
+To find out about more methods please check the [API](/api)

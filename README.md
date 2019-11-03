@@ -63,7 +63,7 @@ const MyComponent = ({ children }) => {
 };
 ```
 
-## Api documentation
+## API documentation
 
 - [deepFilter(children, filterFn)](/docs/deep-filter.md)
 - [deepFind(children, findFn)](/docs/deep-find.md)
