@@ -30,6 +30,7 @@
     "/src",
     "!*.spec.*"
   ],
+  "sideEffects": false,
   "main": "react-children-utilities.js",
   "module": "react-children-utilities.js",
   "typings": "react-children-utilities.d.ts",
