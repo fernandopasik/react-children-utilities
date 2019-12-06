@@ -25,10 +25,8 @@
     "Ryosuke IWANAGA (https://github.com/riywo)"
   ],
   "files": [
-    "/react-children-utilities.*",
     "/lib",
-    "/src",
-    "!*.spec.*"
+    "/react-children-utilities.*"
   ],
   "sideEffects": false,
   "main": "react-children-utilities.js",
