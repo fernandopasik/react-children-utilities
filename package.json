@@ -98,6 +98,9 @@
   "peerDependencies": {
     "react": "16.x.x || 15.x.x"
   },
+  "resolutions": {
+    "serialize-javascript": "^2.1.1"
+  },
   "bundlesize": [
     {
       "path": "react-children-utilities.min.js",
