@@ -104,5 +104,6 @@
       "path": "react-children-utilities.min.js",
       "maxSize": "1 kB"
     }
-  ]
+  ],
+  "type": "module"
 }
