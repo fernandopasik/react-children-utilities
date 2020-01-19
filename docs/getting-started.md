@@ -46,4 +46,4 @@ const MyComponent = ({ children }) => {
 
 ## Next Steps
 
-To find out about more methods please check the [API](/api)
+To find out about more methods please check the [API]({{ site.github.url }}/api)
