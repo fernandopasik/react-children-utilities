@@ -17,6 +17,7 @@
   ],
   "rules": {
     "@typescript-eslint/no-type-alias": ["error", { "allowCallbacks": "always" }],
+    "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
