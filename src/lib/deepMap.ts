@@ -3,7 +3,7 @@ import hasComplexChildren from './hasComplexChildren';
 
 export type MapFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => ReactNode;
 
-const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] => {
+const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode => {
   return Children.map(children, (child: ReactNode) => {
     if (isValidElement(child) && hasComplexChildren(child)) {
       // Clone the child that has children and map them too
