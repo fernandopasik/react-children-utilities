@@ -9,7 +9,11 @@
 				{{ item.title | escape }}
 			</a>
 			{% endfor %}
-			<a href="{{ site.github.repository_url | escape }}" class="top-bar__link">
+			<a
+				href="{{ site.github.repository_url | escape }}"
+				class="top-bar__link"
+				aria-label="{{ site.title | escape }} Project Github Repository Link"
+			>
 				{% include github-icon.html %}
 			</a>
 		</nav>
