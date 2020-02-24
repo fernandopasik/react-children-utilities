@@ -24,14 +24,15 @@
     "Mark Allen (https://github.com/TSMMark)",
     "Ryosuke IWANAGA (https://github.com/riywo)"
   ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "react-children-utilities.js",
+  "module": "react-children-utilities.js",
+  "typings": "react-children-utilities.d.ts",
   "files": [
     "/lib",
     "/react-children-utilities.*"
   ],
-  "sideEffects": false,
-  "main": "react-children-utilities.js",
-  "module": "react-children-utilities.js",
-  "typings": "react-children-utilities.d.ts",
   "scripts": {
     "prebuild": "del lib react-children-utilities.*",
     "build": "tsc && rollup -c && yarn flowgen",
@@ -101,6 +102,5 @@
       "path": "react-children-utilities.min.js",
       "maxSize": "1 kB"
     }
-  ],
-  "type": "module"
+  ]
 }
