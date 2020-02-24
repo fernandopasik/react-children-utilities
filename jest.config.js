@@ -1,9 +1,7 @@
 module.exports = {
   collectCoverageFrom: ['src/**/*.ts', 'src/**/*.tsx'],
   testEnvironment: 'enzyme',
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
+  transform: { '^.+\\.[t|j]sx?$': 'ts-jest' },
   globals: {
     'ts-jest': {
       tsConfig: 'tsconfig.all.json',
