@@ -1,18 +1,18 @@
 <!--
-**IMPORTANT: Please do not create a Pull Request without creating an issue first so it can be discussed first.**
+**IMPORTANT**: Please do not create a Pull Request **without creating an issue first** so it can be discussed.
 -->
 
-**Description**
-<!--
-Explain the **details** for making this change.
+<!-- Indicate which issue is being closed with this pull request. -->
 
-What existing problem does the pull request solve?
-
-Add screenshots or logs that help understand the description.
--->
-
-<!-- Make sure tests pass on Circle CI, CodeCov and BundleSize. -->
-
-**Closing issues**
-<!-- Mention which issue is being closed with this pull request. -->
 Closes #XXX.
+
+## Description
+
+<!--
+Explain the changes proposed in the pull request as well as
+the problem that these changes solve
+
+Please add any information relevant on context that could help the review.
+-->
+
+<!-- It is **required** that **all github checks pass** for the review. -->
