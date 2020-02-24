@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSources": true,
-    "lib": ["es2019", "dom", "dom.iterable"],
+    "lib": ["es2020", "dom", "dom.iterable"],
     "module": "ESNext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
