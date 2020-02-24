@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSources": true,
+    "jsx": "react",
     "lib": ["es2020", "dom", "dom.iterable"],
     "module": "ESNext",
     "moduleResolution": "node",
