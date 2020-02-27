@@ -8,6 +8,7 @@ export default [
       format: 'esm',
       sourcemap: true,
     },
+    external: ['react'],
     plugins: [
       terser({
         warnings: true,
