@@ -1,6 +1,6 @@
 {
   "name": "react-children-utilities",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Recursive and extended utils for React children opaque data structure",
   "keywords": [
     "children",
