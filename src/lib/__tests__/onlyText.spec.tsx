@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
-import onlyText from '../onlyText';
+import onlyText, { childToString } from '../onlyText';
 
 interface Props {
   children?: ReactNode;
@@ -90,5 +90,31 @@ describe('onlyText', () => {
     );
 
     expect(wrapper).toHaveText('example3b');
+  });
+
+  describe('child to string', () => {
+    it('string', () => {
+      expect(childToString('a')).toStrictEqual('a');
+    });
+
+    it('number', () => {
+      expect(childToString(1)).toStrictEqual('1');
+    });
+
+    it('boolean', () => {
+      expect(childToString(true)).toStrictEqual('');
+    });
+
+    it('{}', () => {
+      expect(childToString({})).toStrictEqual('');
+    });
+
+    it('null', () => {
+      expect(childToString(null)).toStrictEqual('');
+    });
+
+    it('undefined', () => {
+      expect(childToString()).toStrictEqual('');
+    });
   });
 });
