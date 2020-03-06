@@ -6,7 +6,11 @@ const childToString = (child: ReactText | boolean | undefined | {} | null): stri
     return '';
   }
 
-  return child.toString();
+  if (JSON.stringify(child) === '{}') {
+    return '';
+  }
+
+  return (child as string | number).toString();
 };
 
 const onlyText = (children: ReactNode): string => {
