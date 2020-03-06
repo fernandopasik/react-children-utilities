@@ -17,6 +17,7 @@
   ],
   "rules": {
     "@typescript-eslint/no-type-alias": ["error", { "allowCallbacks": "always" }],
+    "@typescript-eslint/prefer-readonly-parameter-types": "off",
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
