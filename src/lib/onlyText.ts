@@ -1,7 +1,7 @@
 import { Children, isValidElement, ReactNode, ReactText } from 'react';
 import hasChildren from './hasChildren';
 
-const childToString = (child: ReactText | boolean | undefined | {} | null): string => {
+export const childToString = (child?: ReactText | boolean | {} | null): string => {
   if (typeof child === 'undefined' || child === null || typeof child === 'boolean') {
     return '';
   }
