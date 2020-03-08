@@ -43,6 +43,17 @@ jobs:
       - store_test_results:
           path: reports/junit
 
+  check-types:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *yarn_install
+      - run:
+          name: Check Types
+          command: yarn check-types
+
   test:
     docker:
       - image: circleci/node:lts
@@ -97,6 +108,9 @@ workflows:
     jobs:
       - setup
       - lint:
+          requires:
+            - setup
+      - check-types:
           requires:
             - setup
       - test:
