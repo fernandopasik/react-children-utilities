@@ -4,6 +4,6 @@
     "allowJs": true,
     "noEmit": true
   },
-  "include": ["src/**/*", "*.js", "*.ts", "node_modules/jest-enzyme/lib/index.d.ts"],
-  "exclude": ["src/**/*.flow"]
+  "include": ["src/**/*", "./*.js", "node_modules/jest-enzyme/lib/index.d.ts"],
+  "exclude": ["**/*.flow"]
 }
