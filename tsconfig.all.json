@@ -2,8 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
-    "noEmit": true,
-    "jsx": "react"
+    "noEmit": true
   },
   "include": ["src/**/*", "*.js", "*.ts", "node_modules/jest-enzyme/lib/index.d.ts"],
   "exclude": ["src/**/*.flow"]
