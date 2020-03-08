@@ -1,48 +1,110 @@
 version: 2.1
+
+aliases:
+  - &restore_yarn_cache
+    restore_cache:
+      name: Restore yarn cache
+      keys:
+        - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - yarn-packages-v1-{{ .Branch }}-
+        - yarn-packages-v1-
+  - &yarn_install
+    run:
+      name: Install dependencies
+      command: yarn --frozen-lockfile
+
 jobs:
-  build:
+  setup:
     docker:
-      - image: circleci/node:lts-browsers
-    branches:
-      ignore:
-        - gh-pages
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: yarn
+          name: Nodejs Version
+          command: node --version
+      - *restore_yarn_cache
+      - *yarn_install
+      - save_cache:
+          name: Save yarn cache
+          paths:
+            - ~/.cache/yarn
+          key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  lint:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *yarn_install
+      - run:
+          name: Lint
+          command: yarn lint --format junit -o reports/junit/js-lint-results.xml
+      - store_test_results:
+          path: reports/junit
+
+  test:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *yarn_install
       - run:
           name: Unit Tests
           command: yarn test --coverage --ci --reporters=default --reporters=jest-junit
-          when: always
           environment:
             JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - run:
           name: Send coverage
           command: yarn codecov
           when: always
-      - run:
-          name: Lint
-          command: yarn lint --format junit -o reports/junit/js-lint-results.xml
-          when: always
-      - run:
-          name: Flow
-          command: yarn flow
-          when: always
       - store_test_results:
           path: reports/junit
-      - store_artifacts:
-          path: reports/junit
+
+  build:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - *restore_yarn_cache
+      - *yarn_install
       - run:
           name: Build
           command: yarn build
           when: always
+      - persist_to_workspace:
+          root: .
+          paths:
+            - lib
+            - react-children-utilities.*
+
+  check-size:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - *restore_yarn_cache
+      - *yarn_install
       - run:
-          name: Check Bundle Size
+          name: Check filesize
           command: yarn size
-          when: always
-experimental:
-  notify:
-    branches:
-      only:
-        - master
+
+workflows:
+  default:
+    jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
+      - test:
+          requires:
+            - setup
+      - build:
+          requires:
+            - setup
+      - check-size:
+          requires:
+            - build
