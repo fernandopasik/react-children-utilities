@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
 
-import groupByType from '../groupByType';
+import groupByType, { GroupedChildren } from '../groupByType';
 
 interface Props {
   children?: ReactNode;
@@ -9,7 +9,7 @@ interface Props {
 
 describe('groupByType', () => {
   it('groups elements with same tagName', () => {
-    let elements;
+    let elements: GroupedChildren = {};
 
     const Grouped = ({ children }: Props): ReactElement => {
       elements = groupByType(children, ['span', 'strong']);
@@ -26,16 +26,16 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    const [first, second] = elements.span;
+    const [first, second] = elements.span as ReactElement[];
     expect(shallow(first)).toHaveHTML('<span><b>1</b></span>');
     expect(shallow(second)).toHaveHTML('<span>2</span>');
 
-    const [third] = elements.strong;
+    const [third] = elements.strong as ReactElement[];
     expect(shallow(third)).toHaveHTML('<strong>3</strong>');
   });
 
   it('groups the non matching types in rest', () => {
-    let elements;
+    let elements: GroupedChildren = {};
 
     const Grouped = ({ children }: Props): ReactElement => {
       elements = groupByType(children, ['span', 'strong']);
@@ -53,13 +53,13 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    const [first, second] = elements.rest;
+    const [first, second] = elements.rest as ReactElement[];
     expect(shallow(first)).toHaveHTML('<b>3</b>');
     expect(shallow(second)).toHaveHTML('<i>4</i>');
   });
 
   it('groups the non matching types in rest with a different key name', () => {
-    let elements;
+    let elements: GroupedChildren = {};
 
     const Grouped = ({ children }: Props): ReactElement => {
       elements = groupByType(children, ['span', 'strong'], 'others');
@@ -73,12 +73,12 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    const [first] = elements.others;
+    const [first] = elements.others as ReactElement[];
     expect(shallow(first)).toHaveHTML('<b>3</b>');
   });
 
   it('if no types provided groups everything on rest', () => {
-    let elements;
+    let elements: GroupedChildren = {};
 
     const Grouped = ({ children }: Props): ReactElement => {
       elements = groupByType(children);
@@ -92,14 +92,14 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    const [first, second] = elements.rest;
+    const [first, second] = elements.rest as ReactElement[];
     expect(shallow(first)).toHaveHTML('<span>2</span>');
     expect(shallow(second)).toHaveHTML('<b>3</b>');
   });
 
   describe('returns empty object', () => {
     it('on empty children', () => {
-      let elements;
+      let elements: GroupedChildren = {};
 
       const Grouped = ({ children }: Props): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
@@ -112,7 +112,7 @@ describe('groupByType', () => {
     });
 
     it('on boolean children', () => {
-      let elements;
+      let elements: GroupedChildren = {};
 
       const Grouped = ({ children }: Props): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
@@ -130,7 +130,7 @@ describe('groupByType', () => {
     });
 
     it('on null children', () => {
-      let elements;
+      let elements: GroupedChildren = {};
 
       const Grouped = ({ children }: Props): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
@@ -145,7 +145,7 @@ describe('groupByType', () => {
 
   describe('returns on rest', () => {
     it('on text children', () => {
-      let elements;
+      let elements: GroupedChildren = {};
 
       const Grouped = ({ children }: Props): ReactElement => {
         elements = groupByType(children, ['span']);
@@ -158,7 +158,7 @@ describe('groupByType', () => {
     });
 
     it('on number children', () => {
-      let elements;
+      let elements: GroupedChildren = {};
 
       const Grouped = ({ children }: Props): ReactElement => {
         elements = groupByType(children, ['span']);
@@ -176,7 +176,7 @@ describe('groupByType', () => {
     });
 
     it('on mixed non element children', () => {
-      let elements;
+      let elements: GroupedChildren = {};
 
       const Grouped = ({ children }: Props): ReactElement => {
         elements = groupByType(children, ['span']);
