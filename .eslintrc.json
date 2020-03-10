@@ -11,7 +11,7 @@
   "env": { "browser": true },
   "overrides": [
     {
-      "files": "*.spec.*",
+      "files": ["*.spec.*"],
       "rules": { "@typescript-eslint/no-magic-numbers": "off" }
     }
   ],
