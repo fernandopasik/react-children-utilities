@@ -26,11 +26,5 @@
     "target": "es2017"
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "**/__mocks__/**",
-    "**/__tests__/**",
-    "**/*.flow",
-    "**/*.spec.*",
-    "node_modules"
-  ]
+  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.flow", "**/*.spec.*", "node_modules"]
 }

@@ -10,10 +10,7 @@
   "parserOptions": { "project": "./tsconfig.all.json" },
   "env": { "browser": true },
   "overrides": [
-    {
-      "files": ["*.spec.*"],
-      "rules": { "@typescript-eslint/no-magic-numbers": "off" }
-    }
+    { "files": ["*.spec.*"], "rules": { "@typescript-eslint/no-magic-numbers": "off" } }
   ],
   "rules": {
     "@typescript-eslint/no-type-alias": ["error", { "allowCallbacks": "always" }],
