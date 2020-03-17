@@ -13,7 +13,7 @@ describe('deepForEach', () => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
         if (isValidElement(child) && child.type === 'b') {
-          items.push((child as ReactElement).props.children);
+          items.push((child as ReactElement<{ children: ReactNode[] }>).props.children);
         }
       });
       return <div>{items}</div>;
@@ -43,7 +43,7 @@ describe('deepForEach', () => {
     const DeepForEached = ({ children }: Props): ReactElement => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
-        if (isValidElement(child) && child.type === 'b') {
+        if (isValidElement<{ children?: ReactNode[] }>(child) && child.type === 'b') {
           items.push(child.props.children);
         }
       });
@@ -64,7 +64,7 @@ describe('deepForEach', () => {
     const DeepForEached = ({ children }: Props): ReactElement => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
-        if (isValidElement(child) && child.type === 'b') {
+        if (isValidElement<{ children?: ReactNode[] }>(child) && child.type === 'b') {
           items.push(child.props.children);
         }
       });
