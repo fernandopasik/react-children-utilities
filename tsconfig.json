@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "inlineSources": true,
     "jsx": "react",
-    "lib": ["es2020", "dom", "dom.iterable"],
+    "lib": ["dom", "dom.iterable", "es2020"],
     "module": "ESNext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
@@ -25,6 +25,6 @@
     "strictPropertyInitialization": true,
     "target": "es2017"
   },
-  "include": ["src/**/*"],
-  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.flow", "**/*.spec.*", "node_modules"]
+  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.flow", "**/*.spec.*", "node_modules"],
+  "include": ["src/**/*"]
 }
