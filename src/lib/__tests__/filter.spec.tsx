@@ -9,7 +9,7 @@ interface Props {
 
 describe('filter', () => {
   it('returns same children', () => {
-    const Filtered = ({ children }: Props): ReactElement => (
+    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),
@@ -29,7 +29,7 @@ describe('filter', () => {
   });
 
   it('returns only matching children', () => {
-    const Filtered = ({ children }: Props): ReactElement => (
+    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
@@ -51,7 +51,7 @@ describe('filter', () => {
   });
 
   it('does not filter nested elements', () => {
-    const Filtered = ({ children }: Props): ReactElement => (
+    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
@@ -74,7 +74,7 @@ describe('filter', () => {
   });
 
   it('can handle empty children', () => {
-    const Filtered = ({ children }: Props): ReactElement => (
+    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),

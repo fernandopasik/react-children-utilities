@@ -7,7 +7,7 @@ interface Props {
   children?: ReactNode;
 }
 
-const DeepMapped = ({ children }: Props): ReactElement => (
+const DeepMapped = ({ children }: Readonly<Props>): ReactElement => (
   <div>
     {deepMap(children, (child: ReactNode) => {
       if (isValidElement(child) && child.type === 'b') {

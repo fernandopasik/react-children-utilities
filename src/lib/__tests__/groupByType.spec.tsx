@@ -11,7 +11,7 @@ describe('groupByType', () => {
   it('groups elements with same tagName', () => {
     let elements: GroupedChildren = {};
 
-    const Grouped = ({ children }: Props): ReactElement => {
+    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
       elements = groupByType(children, ['span', 'strong']);
       return <div>{children}</div>;
     };
@@ -37,7 +37,7 @@ describe('groupByType', () => {
   it('groups the non matching types in rest', () => {
     let elements: GroupedChildren = {};
 
-    const Grouped = ({ children }: Props): ReactElement => {
+    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
       elements = groupByType(children, ['span', 'strong']);
       return <div>{children}</div>;
     };
@@ -61,7 +61,7 @@ describe('groupByType', () => {
   it('groups the non matching types in rest with a different key name', () => {
     let elements: GroupedChildren = {};
 
-    const Grouped = ({ children }: Props): ReactElement => {
+    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
       elements = groupByType(children, ['span', 'strong'], 'others');
       return <div>{children}</div>;
     };
@@ -80,7 +80,7 @@ describe('groupByType', () => {
   it('if no types provided groups everything on rest', () => {
     let elements: GroupedChildren = {};
 
-    const Grouped = ({ children }: Props): ReactElement => {
+    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
       elements = groupByType(children);
       return <div>{children}</div>;
     };
@@ -101,7 +101,7 @@ describe('groupByType', () => {
     it('on empty children', () => {
       let elements: GroupedChildren = {};
 
-      const Grouped = ({ children }: Props): ReactElement => {
+      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -114,7 +114,7 @@ describe('groupByType', () => {
     it('on boolean children', () => {
       let elements: GroupedChildren = {};
 
-      const Grouped = ({ children }: Props): ReactElement => {
+      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -132,7 +132,7 @@ describe('groupByType', () => {
     it('on null children', () => {
       let elements: GroupedChildren = {};
 
-      const Grouped = ({ children }: Props): ReactElement => {
+      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -147,7 +147,7 @@ describe('groupByType', () => {
     it('on text children', () => {
       let elements: GroupedChildren = {};
 
-      const Grouped = ({ children }: Props): ReactElement => {
+      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };
@@ -160,7 +160,7 @@ describe('groupByType', () => {
     it('on number children', () => {
       let elements: GroupedChildren = {};
 
-      const Grouped = ({ children }: Props): ReactElement => {
+      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };
@@ -178,7 +178,7 @@ describe('groupByType', () => {
     it('on mixed non element children', () => {
       let elements: GroupedChildren = {};
 
-      const Grouped = ({ children }: Props): ReactElement => {
+      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };

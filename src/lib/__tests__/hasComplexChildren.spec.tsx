@@ -10,7 +10,7 @@ interface Props {
 describe('hasComplexChildren', () => {
   describe('returns true', () => {
     it('with elements', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(
         <Test>
@@ -23,7 +23,7 @@ describe('hasComplexChildren', () => {
     });
 
     it('with combined types', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(
         <Test>
@@ -37,7 +37,7 @@ describe('hasComplexChildren', () => {
     });
 
     it('with valid and non valid types', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(
         <Test>
@@ -54,7 +54,7 @@ describe('hasComplexChildren', () => {
 
   describe('returns false', () => {
     it('when empty', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(<Test />);
 
@@ -62,7 +62,7 @@ describe('hasComplexChildren', () => {
     });
 
     it('with null', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(<Test>{null}</Test>);
 
@@ -70,7 +70,7 @@ describe('hasComplexChildren', () => {
     });
 
     it('with false', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(<Test>{null}</Test>);
 
@@ -78,7 +78,7 @@ describe('hasComplexChildren', () => {
     });
 
     it('with text', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(<Test>My test</Test>);
 
@@ -86,7 +86,7 @@ describe('hasComplexChildren', () => {
     });
 
     it('with numbers', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(<Test>{1}</Test>);
 
@@ -94,7 +94,7 @@ describe('hasComplexChildren', () => {
     });
 
     it('with true', () => {
-      const Test = ({ children }: Props): ReactElement => <div>{children}</div>;
+      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
 
       const wrapper = shallow(<Test>{true}</Test>);
 

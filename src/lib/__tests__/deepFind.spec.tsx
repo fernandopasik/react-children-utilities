@@ -9,7 +9,7 @@ interface Props {
 
 describe('deepFind', () => {
   it('a nested element', () => {
-    const DeepFound = ({ children }: Props): ReactElement => (
+    const DeepFound = ({ children }: Readonly<Props>): ReactElement => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
@@ -28,7 +28,7 @@ describe('deepFind', () => {
   });
 
   it('a matching element with matching nested elements', () => {
-    const DeepFound = ({ children }: Props): ReactElement => (
+    const DeepFound = ({ children }: Readonly<Props>): ReactElement => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
@@ -51,7 +51,7 @@ describe('deepFind', () => {
   });
 
   it('a non nested element', () => {
-    const DeepFound = ({ children }: Props): ReactElement => (
+    const DeepFound = ({ children }: Readonly<Props>): ReactElement => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
@@ -67,7 +67,7 @@ describe('deepFind', () => {
   });
 
   it('can not find anything', () => {
-    const DeepFound = ({ children }: Props): ReactElement => (
+    const DeepFound = ({ children }: Readonly<Props>): ReactElement => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 

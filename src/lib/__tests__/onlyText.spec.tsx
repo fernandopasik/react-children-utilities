@@ -7,7 +7,7 @@ interface Props {
   children?: ReactNode;
 }
 
-const OnlyText = ({ children }: Props): ReactElement => <div>{onlyText(children)}</div>;
+const OnlyText = ({ children }: Readonly<Props>): ReactElement => <div>{onlyText(children)}</div>;
 
 describe('onlyText', () => {
   it('on nested elements', () => {
