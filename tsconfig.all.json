@@ -2,5 +2,5 @@
   "extends": "./tsconfig.json",
   "compilerOptions": { "allowJs": true, "noEmit": true },
   "exclude": ["**/*.flow"],
-  "include": ["./*.js", "src/**/*", "node_modules/jest-enzyme/lib/index.d.ts"]
+  "include": ["./*.js", "node_modules/jest-enzyme/lib/index.d.ts", "src/**/*"]
 }
