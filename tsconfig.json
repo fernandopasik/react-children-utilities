@@ -25,6 +25,6 @@
     "strictPropertyInitialization": true,
     "target": "es2017"
   },
-  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.flow", "**/*.spec.*", "node_modules"],
+  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.flow", "**/*.spec.*"],
   "include": ["src/**/*"]
 }
