@@ -15,7 +15,6 @@
   "rules": {
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0] }],
     "@typescript-eslint/no-type-alias": ["error", { "allowCallbacks": "always" }],
-    "@typescript-eslint/no-unsafe-member-access": "warn",
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
