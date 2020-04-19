@@ -1,13 +1,8 @@
 # React Children Utilities
 
-[![Gzip Bundle Size][badge-size]][url-size]
-[![Build Status][badge-ci]][url-ci]
-[![Test Coverage Status][badge-cov]][url-cov]
-[![Known Vulnerabilities][badge-sec]][url-sec]
+[![Gzip Bundle Size][badge-size]][url-size] [![Build Status][badge-ci]][url-ci] [![Test Coverage Status][badge-cov]][url-cov] [![Known Vulnerabilities][badge-sec]][url-sec]
 
-[![All Contributors][badge-contributors]](#contributors-)
-[![npm version][badge-version]][url-version]
-[![npm downloads][badge-downloads]][url-downloads]
+[![All Contributors][badge-contributors]](#contributors-) [![npm version][badge-version]][url-version] [![npm downloads][badge-downloads]][url-downloads]
 
 [badge-size]: http://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip
 [badge-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
@@ -96,6 +91,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
