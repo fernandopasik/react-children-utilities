@@ -8,6 +8,7 @@ export type FindFunction = (
 ) => boolean;
 
 const deepFind = (children: ReactNode, deepFindFn: FindFunction): ReactNode | undefined => {
+  // eslint-disable-next-line @typescript-eslint/init-declarations
   let found;
 
   Children.toArray(children).find(
