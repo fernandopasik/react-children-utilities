@@ -42,6 +42,16 @@ describe('onlyText', () => {
     expect(wrapper).toHaveText('');
   });
 
+  it('on empty child', () => {
+    const wrapper = shallow(
+      <OnlyText>
+        <span />
+      </OnlyText>,
+    );
+
+    expect(wrapper).toHaveText('');
+  });
+
   it('on text', () => {
     const wrapper = shallow(<OnlyText>test 1 test 2</OnlyText>);
 

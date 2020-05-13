@@ -23,6 +23,8 @@ const onlyText = (children: ReactNode): string => {
 
     if (isValidElement(child) && hasChildren(child)) {
       newText = onlyText(child.props.children);
+    } else if (isValidElement(child) && !hasChildren(child)) {
+      newText = '';
     } else {
       newText = childToString(child);
     }
