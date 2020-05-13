@@ -81,6 +81,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "bcbrian",
+      "name": "Brian Bartholomew",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6721622?v=4",
+      "profile": "http://brianbartholomew.com",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7

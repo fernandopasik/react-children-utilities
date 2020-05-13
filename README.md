@@ -87,11 +87,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://medium.com/@riywo"><img src="https://avatars2.githubusercontent.com/u/37822?v=4" width="100px;" alt=""/><br /><sub><b>Ryosuke IWANAGA</b></sub></a><br /><a href="https://github.com/fernandopasik/react-children-utilities/issues?q=author%3Ariywo" title="Bug reports">🐛</a> <a href="https://github.com/fernandopasik/react-children-utilities/commits?author=riywo" title="Code">💻</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/dpinol/"><img src="https://avatars0.githubusercontent.com/u/1954955?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Pinyol</b></sub></a><br /><a href="https://github.com/fernandopasik/react-children-utilities/issues?q=author%3Adpinol" title="Bug reports">🐛</a> <a href="https://github.com/fernandopasik/react-children-utilities/commits?author=dpinol" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="http://brianbartholomew.com"><img src="https://avatars0.githubusercontent.com/u/6721622?v=4" width="100px;" alt=""/><br /><sub><b>Brian Bartholomew</b></sub></a><br /><a href="https://github.com/fernandopasik/react-children-utilities/issues?q=author%3Abcbrian" title="Bug reports">🐛</a> <a href="https://github.com/fernandopasik/react-children-utilities/commits?author=bcbrian" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
