@@ -9,7 +9,13 @@
   ],
   "env": { "browser": true },
   "overrides": [
-    { "files": ["*.spec.*"], "rules": { "@typescript-eslint/no-magic-numbers": "off" } }
+    {
+      "files": ["*.spec.*"],
+      "rules": {
+        "@typescript-eslint/no-magic-numbers": "off",
+        "@typescript-eslint/naming-convention": "off"
+      }
+    }
   ],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "rules": {
