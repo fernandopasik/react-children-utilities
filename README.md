@@ -60,15 +60,15 @@ const MyComponent = ({ children }) => {
 
 ## API documentation
 
-- [deepFilter(children, filterFn)](/docs/deep-filter.md)
-- [deepFind(children, findFn)](/docs/deep-find.md)
-- [deepForEach(children, forEachFn)](/docs/deep-foreach.md)
-- [deepMap(children, mapFn)](/docs/deep-map.md)
-- [filter(children, filterFn)](/docs/filter.md)
-- [groupByType(children, types, rest)](/docs/group-by-type.md)
-- [hasChildren(children)](/docs/has-children.md)
-- [hasComplexChildren(children)](/docs/has-complex-children.md)
-- [onlyText(children)](/docs/only-text.md)
+- [deepFilter](/docs/deep-filter.md)
+- [deepFind](/docs/deep-find.md)
+- [deepForEach](/docs/deep-foreach.md)
+- [deepMap](/docs/deep-map.md)
+- [filter](/docs/filter.md)
+- [groupByType](/docs/group-by-type.md)
+- [hasChildren](/docs/has-children.md)
+- [hasComplexChildren](/docs/has-complex-children.md)
+- [onlyText](/docs/only-text.md)
 
 ## Contributors ✨
 
@@ -94,6 +94,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
