@@ -1,6 +1,5 @@
-import React, { isValidElement, ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
-
+import React, { isValidElement, ReactElement, ReactNode } from 'react';
 import filter from '../filter';
 
 interface Props {

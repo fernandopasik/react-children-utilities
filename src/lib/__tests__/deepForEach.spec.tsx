@@ -1,6 +1,5 @@
-import React, { isValidElement, ReactElement, ReactNode } from 'react';
 import { shallow } from 'enzyme';
-
+import React, { isValidElement, ReactElement, ReactNode } from 'react';
 import deepForEach from '../deepForEach';
 
 interface Props {
