@@ -1,5 +1,5 @@
 node_modules/**
-/lib/**
-/react-children-utilities.*
 coverage/**
 flow-typed/**
+/lib/**
+/react-children-utilities.*
