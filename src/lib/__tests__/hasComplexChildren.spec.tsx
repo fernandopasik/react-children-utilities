@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
-import React, { ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import React from 'react';
 import hasComplexChildren from '../hasComplexChildren';
 
 interface Props {

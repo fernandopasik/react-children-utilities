@@ -1,4 +1,5 @@
-import { Children, isValidElement, ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import { Children, isValidElement } from 'react';
 import hasChildren from './hasChildren';
 
 const hasComplexChildren = (

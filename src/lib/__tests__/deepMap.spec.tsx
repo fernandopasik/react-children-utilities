@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
-import React, { cloneElement, isValidElement, ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import React, { cloneElement, isValidElement } from 'react';
 import deepMap from '../deepMap';
 
 interface Props {

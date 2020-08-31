@@ -1,4 +1,5 @@
-import { Children, isValidElement, ReactNode, ReactText } from 'react';
+import type { ReactNode, ReactText } from 'react';
+import { Children, isValidElement } from 'react';
 import hasChildren from './hasChildren';
 
 // eslint-disable-next-line @typescript-eslint/ban-types

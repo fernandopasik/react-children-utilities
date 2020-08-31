@@ -1,6 +1,8 @@
 import { shallow } from 'enzyme';
-import React, { ReactElement, ReactNode } from 'react';
-import groupByType, { GroupedChildren } from '../groupByType';
+import type { ReactElement, ReactNode } from 'react';
+import React from 'react';
+import type { GroupedChildren } from '../groupByType';
+import groupByType from '../groupByType';
 
 interface Props {
   children?: ReactNode;

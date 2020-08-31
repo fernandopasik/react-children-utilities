@@ -1,4 +1,5 @@
-import { Children, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { Children } from 'react';
 
 type FilterFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => boolean;
 

@@ -1,4 +1,5 @@
-import { Children, cloneElement, isValidElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { Children, cloneElement, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
 export type FilterFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => boolean;

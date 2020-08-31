@@ -1,4 +1,5 @@
-import { Children, isValidElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { Children, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren';
 
 export type ForEachFunction = (child: ReactNode, index?: number) => void;
