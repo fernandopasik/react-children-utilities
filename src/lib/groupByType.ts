@@ -5,6 +5,12 @@ export interface GroupedChildren {
   [name: string]: ReactNode[];
 }
 
+const isChildInTypes = (
+  child: ReactNode,
+  types: readonly ReactNode[] = [],
+): child is { type: string } =>
+  isValidElement(child) && typeof child.type === 'string' && types.includes(child.type);
+
 const groupByType = (
   children: ReactNode,
   types: readonly ReactNode[] = [],
@@ -14,11 +20,7 @@ const groupByType = (
   return Children.toArray(children).reduce(
     (groups: Readonly<GroupedChildren>, child: ReactNode) => {
       const newGroups = { ...groups };
-      let key = rest;
-
-      if (isValidElement(child) && typeof child.type === 'string' && types.includes(child.type)) {
-        key = child.type;
-      }
+      const key = isChildInTypes(child, types) ? child.type : rest;
 
       if (typeof newGroups[key] === 'undefined') {
         newGroups[key] = [];
