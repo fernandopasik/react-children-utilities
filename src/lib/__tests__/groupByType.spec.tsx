@@ -2,13 +2,35 @@ import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
 import type { GroupedChildren } from '../groupByType';
-import groupByType from '../groupByType';
+import groupByType, { isChildInTypes } from '../groupByType';
 
 interface Props {
   children?: ReactNode;
 }
 
 describe('groupByType', () => {
+  describe('isChildInTypes', () => {
+    it('can handle empty types', () => {
+      const child = <div />;
+      expect(isChildInTypes(child)).toBe(false);
+    });
+    it('detects if element is within the types', () => {
+      const child = <span />;
+      expect(isChildInTypes(child, ['span', 'div', 'b'])).toBe(true);
+    });
+    it('detects if element is not within the types', () => {
+      const child = <span />;
+      expect(isChildInTypes(child, ['div', 'b'])).toBe(false);
+    });
+
+    it('detects function element types', () => {
+      const Example = (): ReactElement => <div />;
+
+      const child = <Example />;
+      expect(isChildInTypes(child, [Example])).toBe(false);
+    });
+  });
+
   it('groups elements with same tagName', () => {
     let elements: GroupedChildren = {};
 

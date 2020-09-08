@@ -5,7 +5,7 @@ export interface GroupedChildren {
   [name: string]: ReactNode[];
 }
 
-const isChildInTypes = (
+export const isChildInTypes = (
   child: ReactNode,
   types: readonly ReactNode[] = [],
 ): child is { type: string } =>
