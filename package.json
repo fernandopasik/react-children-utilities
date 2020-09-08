@@ -84,7 +84,6 @@
     "jest-enzyme": "^7.1.2",
     "jest-junit": "^11.1.0",
     "lint-staged": "^10.2.13",
-    "make-dir-cli": "^2.0.0",
     "normalize.css": "^8.0.1",
     "prettier": "^2.1.1",
     "prettier-plugin-organize-imports": "^1.1.1",
