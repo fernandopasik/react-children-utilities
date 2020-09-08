@@ -13,7 +13,9 @@
       "files": ["*.spec.*"],
       "rules": {
         "@typescript-eslint/no-magic-numbers": "off",
-        "@typescript-eslint/naming-convention": "off"
+        "@typescript-eslint/naming-convention": "off",
+        "max-lines": "off",
+        "max-lines-per-function": "off"
       }
     }
   ],
@@ -24,6 +26,11 @@
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
+    "max-lines": ["error", 100],
+    "max-lines-per-function": [
+      "error",
+      { "max": 20, "skipBlankLines": true, "skipComments": true }
+    ],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   }
 }
