@@ -1,10 +1,6 @@
 import type { ReactNode } from 'react';
 import { Children, isValidElement } from 'react';
 
-export interface GroupedChildren {
-  [name: string]: ReactNode[];
-}
-
 export const isChildInTypes = (
   child: ReactNode,
   types: readonly ReactNode[] = [],
@@ -16,9 +12,9 @@ const groupByType = (
   types: readonly ReactNode[] = [],
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   rest: string = 'rest',
-): GroupedChildren => {
+): Record<string, ReactNode[]> => {
   return Children.toArray(children).reduce(
-    (groups: Readonly<GroupedChildren>, child: ReactNode) => {
+    (groups: Readonly<Record<string, ReactNode[]>>, child: ReactNode) => {
       const newGroups = { ...groups };
       const key = isChildInTypes(child, types) ? child.type : rest;
 
