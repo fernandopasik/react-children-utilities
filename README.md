@@ -4,19 +4,19 @@
 
 [![All Contributors][badge-contributors]](#contributors-) [![npm version][badge-version]][url-version] [![npm downloads][badge-downloads]][url-downloads]
 
-[badge-size]: http://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip
 [badge-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
-[badge-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
-[badge-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json
 [badge-contributors]: https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square
-[badge-version]: https://img.shields.io/npm/v/react-children-utilities.svg
+[badge-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
 [badge-downloads]: https://img.shields.io/npm/dm/react-children-utilities.svg
-[url-size]: https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size'
+[badge-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json
+[badge-size]: http://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip
+[badge-version]: https://img.shields.io/npm/v/react-children-utilities.svg
 [url-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities 'Build Status'
 [url-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities 'Test Coverage Status'
-[url-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities?targetFile=package.json 'Known Vulnerabilities'
-[url-version]: https://www.npmjs.com/package/react-children-utilities 'npm version'
 [url-downloads]: https://www.npmjs.com/package/react-children-utilities 'npm downloads'
+[url-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities?targetFile=package.json 'Known Vulnerabilities'
+[url-size]: https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size'
+[url-version]: https://www.npmjs.com/package/react-children-utilities 'npm version'
 
 Recursive and extended utils for React children opaque data structure.
 
