@@ -1,6 +1,6 @@
 # Credits for react-children-utilities
-## react-children-utilities relies on the work of 249 people:
 
+## react-children-utilities relies on the work of 249 people:
 
 ## npm
 
@@ -253,4 +253,3 @@
 - **Dylan Greene** (1 package)
 - **Steven Levithan** *steves_list@hotmail.com* (1 package)
 - **Eemeli Aro** *eemeli@gmail.com* (1 package)
-
