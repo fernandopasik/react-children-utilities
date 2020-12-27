@@ -26,7 +26,7 @@
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
-    "max-lines": ["error", 100],
+    "max-lines": ["error", { "max": 100, "skipBlankLines": true, "skipComments": true }],
     "max-lines-per-function": [
       "error",
       { "max": 20, "skipBlankLines": true, "skipComments": true }
