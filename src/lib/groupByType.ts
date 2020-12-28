@@ -10,8 +10,7 @@ export const isChildInTypes = (
 const groupByType = (
   children: ReactNode,
   types: readonly ReactNode[] = [],
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-  rest: string = 'rest',
+  rest = 'rest',
 ): Record<string, ReactNode[]> => {
   return Children.toArray(children).reduce(
     (groups: Readonly<Record<string, ReactNode[]>>, child: ReactNode) => {
