@@ -12,7 +12,7 @@ export const childToString = (child?: ReactText | boolean | {} | null): string =
     return '';
   }
 
-  return (child as string | number).toString();
+  return (child as number | string).toString();
 };
 
 const onlyText = (children: ReactNode): string => {
