@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": { "allowJs": true, "noEmit": true, "outDir": "$$ts-jest" },
+  "compilerOptions": { "allowJs": true, "noEmit": true },
   "exclude": ["**/*.flow", "/lib", "/react-children-utilities.*"],
   "include": [".**/**/*", "**/*", "node_modules/jest-enzyme/lib/index.d.ts"]
 }
