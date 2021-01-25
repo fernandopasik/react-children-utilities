@@ -1,0 +1,12 @@
+node_modules
+yarn*.*
+.editorconfig
+.gitattributes
+.*ignore
+LICENSE
+/coverage
+/lib
+/react-children-utilities.*
+/docs/_layouts/compress.html
+_site
+.jekyll-cache
