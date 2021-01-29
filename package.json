@@ -36,6 +36,7 @@
     "prebuild": "del lib react-children-utilities.*",
     "build": "tsc && rollup -c && yarn flowgen",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
+    "clean": "del coverage lib react-children-utilities.*",
     "docs": "jekyll serve -s docs/",
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
     "format": "prettier --write ** ./* ./.??*",
