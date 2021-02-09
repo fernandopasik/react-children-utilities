@@ -11,7 +11,7 @@ aliases:
   - &yarn_install
     run:
       name: Install dependencies
-      command: HUSKY_SKIP_INSTALL=1 yarn --frozen-lockfile
+      command: HUSKY=0 yarn --frozen-lockfile
 
 jobs:
   setup:
