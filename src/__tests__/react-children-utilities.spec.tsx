@@ -8,6 +8,7 @@ import Children, {
   filter,
   groupByType,
   onlyText,
+  onlyValid,
 } from '../react-children-utilities';
 
 describe('children', () => {
@@ -32,5 +33,8 @@ describe('children', () => {
 
     expect(onlyText).toBeInstanceOf(Function);
     expect(Children.onlyText).toStrictEqual(onlyText);
+
+    expect(onlyValid).toBeInstanceOf(Function);
+    expect(Children.onlyValid).toStrictEqual(onlyValid);
   });
 });

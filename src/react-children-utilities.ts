@@ -8,6 +8,7 @@ import groupByType from './lib/groupByType';
 import hasChildren from './lib/hasChildren';
 import hasComplexChildren from './lib/hasComplexChildren';
 import onlyText from './lib/onlyText';
+import onlyValid from './lib/onlyValid';
 
 export {
   deepFilter,
@@ -19,6 +20,7 @@ export {
   hasChildren,
   hasComplexChildren,
   onlyText,
+  onlyValid,
 };
 
 export default {
@@ -32,4 +34,5 @@ export default {
   hasChildren,
   hasComplexChildren,
   onlyText,
+  onlyValid,
 };

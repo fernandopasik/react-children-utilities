@@ -15,3 +15,4 @@ The library extends the existing React.Children utilities, so you can import it 
 - [hasChildren(children)]({{ site.github.url }}/has-children)
 - [hasComplexChildren(children)]({{ site.github.url }}/has-complex-children)
 - [onlyText(children)]({{ site.github.url }}/only-text)
+- [onlyValid(children)]({{ site.github.url }}/only-valid)

@@ -69,6 +69,7 @@ const MyComponent = ({ children }) => {
 - [hasChildren](/docs/has-children.md)
 - [hasComplexChildren](/docs/has-complex-children.md)
 - [onlyText](/docs/only-text.md)
+- [onlyValid](/docs/only-valid.md)
 
 ## Contributors ✨
 

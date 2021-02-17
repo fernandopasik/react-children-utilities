@@ -32,6 +32,8 @@ content_table:
         url: /has-complex-children
       - title: onlyText
         url: /only-text
+      - title: onlyValid
+        url: /only-valid
 
 google_analytics: UA-5425682-4
 
