@@ -33,7 +33,7 @@
     "/react-children-utilities.*"
   ],
   "scripts": {
-    "add-js-extension": "replace-in-files --regex=\"(import .* from '\\.[^']*)\" --replacement=\"$&.js\" lib/**/*.js react-children-utilities.js",
+    "add-js-extension": "replace-in-files --regex=\"((import|export) .* from '\\.[^']*)\" --replacement=\"$&.js\" lib/**/*.js react-children-utilities.js",
     "prebuild": "del lib react-children-utilities.*",
     "build": "tsc && yarn add-js-extension && rollup -c && yarn flowgen",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
