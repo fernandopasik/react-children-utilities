@@ -4,8 +4,7 @@
     "plugin:@typescript-eslint/all",
     "plugin:import/typescript",
     "plugin:jest/all",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
+    "plugin:prettier/recommended"
   ],
   "env": { "browser": true },
   "overrides": [
