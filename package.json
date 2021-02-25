@@ -33,8 +33,9 @@
     "/react-children-utilities.*"
   ],
   "scripts": {
+    "add-js-extension": "replace-in-files --regex=\"(import .* from '\\.[^']*)\" --replacement=\"$&.js\" lib/**/*.js react-children-utilities.js",
     "prebuild": "del lib react-children-utilities.*",
-    "build": "tsc && rollup -c && yarn flowgen",
+    "build": "tsc && yarn add-js-extension && rollup -c && yarn flowgen",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
     "clean": "del coverage lib react-children-utilities.*",
     "docs": "jekyll serve -s docs/",
@@ -98,6 +99,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-test-renderer": "^17.0.1",
+    "replace-in-files-cli": "^1.0.0",
     "rollup": "^2.39.0",
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^26.5.1",
