@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React, { isValidElement } from 'react';
-import filter from '../filter';
+import filter from '../filter.js';
 
 interface Props {
   children?: ReactNode;

@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
-import deepFind from '../deepFind';
+import deepFind from '../deepFind.js';
 
 interface Props {
   children?: ReactNode;

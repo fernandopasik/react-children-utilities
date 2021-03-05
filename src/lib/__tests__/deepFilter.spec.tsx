@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
-import deepFilter from '../deepFilter';
+import deepFilter from '../deepFilter.js';
 
 interface Props {
   children?: ReactNode;

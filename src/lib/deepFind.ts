@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Children, isValidElement } from 'react';
-import hasComplexChildren from './hasComplexChildren';
+import hasComplexChildren from './hasComplexChildren.js';
 
 export type FindFunction = (
   child: ReactNode,

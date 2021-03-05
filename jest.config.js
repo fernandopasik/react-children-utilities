@@ -4,4 +4,5 @@ export default {
   setupFilesAfterEnv: ['jest-enzyme'],
   testEnvironment: 'enzyme',
   transform: { '^.+\\.[j|t]sx?$': 'ts-jest' },
+  moduleNameMapper: { '(.*)\\.js': '$1' },
 };

@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
-import groupByType, { isChildInTypes } from '../groupByType';
+import groupByType, { isChildInTypes } from '../groupByType.js';
 
 interface Props {
   children?: ReactNode;

@@ -1,14 +1,14 @@
 import { Children } from 'react';
-import deepFilter from './lib/deepFilter';
-import deepFind from './lib/deepFind';
-import deepForEach from './lib/deepForEach';
-import deepMap from './lib/deepMap';
-import filter from './lib/filter';
-import groupByType from './lib/groupByType';
-import hasChildren from './lib/hasChildren';
-import hasComplexChildren from './lib/hasComplexChildren';
-import onlyText from './lib/onlyText';
-import onlyValid from './lib/onlyValid';
+import deepFilter from './lib/deepFilter.js';
+import deepFind from './lib/deepFind.js';
+import deepForEach from './lib/deepForEach.js';
+import deepMap from './lib/deepMap.js';
+import filter from './lib/filter.js';
+import groupByType from './lib/groupByType.js';
+import hasChildren from './lib/hasChildren.js';
+import hasComplexChildren from './lib/hasComplexChildren.js';
+import onlyText from './lib/onlyText.js';
+import onlyValid from './lib/onlyValid.js';
 
 export {
   deepFilter,
