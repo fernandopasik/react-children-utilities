@@ -10,7 +10,7 @@
 [badge-downloads]: https://img.shields.io/npm/dm/react-children-utilities.svg
 [badge-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json
 [badge-size]: http://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip
-[badge-version]: https://img.shields.io/npm/v/react-children-utilities.svg
+[badge-version]: https://img.shields.io/npm/v/react-children-utilities.svg?logo=npm
 [url-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities 'Build Status'
 [url-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities 'Test Coverage Status'
 [url-downloads]: https://www.npmjs.com/package/react-children-utilities 'npm downloads'
