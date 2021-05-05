@@ -10,7 +10,7 @@ interface Props {
 const DeepMapped = ({ children }: Readonly<Props>): ReactElement => (
   <div>
     {deepMap(children, (child: ReactNode) => {
-      if (isValidElement(child) && child.type === 'b') {
+      if (isValidElement<{ className: string }>(child) && child.type === 'b') {
         return cloneElement(child, {
           ...child.props,
           className: 'mapped',
