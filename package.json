@@ -39,7 +39,7 @@
     "clean": "del coverage lib react-children-utilities.*",
     "docs": "jekyll serve -s docs/",
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
-    "format": "prettier --write ** ./* ./.??*",
+    "format": "prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*",
     "postinstall": "husky install",
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "prepublishOnly": "pinst --disable",
