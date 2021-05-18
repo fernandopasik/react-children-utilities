@@ -20,7 +20,6 @@
   ],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "rules": {
-    "@typescript-eslint/ban-types": ["error", { "types": { "{}": false } }],
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0] }],
     "@typescript-eslint/no-type-alias": ["error", { "allowCallbacks": "always" }],
     "import/extensions": ["error", "always"],
