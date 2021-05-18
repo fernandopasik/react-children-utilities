@@ -8,8 +8,8 @@ export type MapFunction = (
   children?: readonly ReactNode[],
 ) => ReactNode;
 
-const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] => {
-  return Children.toArray(children).map(
+const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] =>
+  Children.toArray(children).map(
     (child: ReactNode, index: number, mapChildren: readonly ReactNode[]) => {
       if (isValidElement(child) && hasComplexChildren(child)) {
         // Clone the child that has children and map them too
@@ -23,6 +23,5 @@ const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] => {
       return deepMapFn(child, index, mapChildren);
     },
   );
-};
 
 export default deepMap;

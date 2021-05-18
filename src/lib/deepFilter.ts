@@ -4,8 +4,8 @@ import hasComplexChildren from './hasComplexChildren.js';
 
 export type FilterFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => boolean;
 
-const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNode[] => {
-  return Children.toArray(children)
+const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNode[] =>
+  Children.toArray(children)
     .filter(deepFilterFn)
     .map((child: ReactNode) => {
       if (isValidElement(child) && hasComplexChildren(child)) {
@@ -17,6 +17,5 @@ const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNod
       }
       return child;
     });
-};
 
 export default deepFilter;

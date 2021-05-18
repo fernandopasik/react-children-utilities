@@ -11,8 +11,8 @@ const groupByType = (
   children: ReactNode,
   types: readonly ReactNode[] = [],
   rest = 'rest',
-): Record<string, ReactNode[]> => {
-  return Children.toArray(children).reduce(
+): Record<string, ReactNode[]> =>
+  Children.toArray(children).reduce(
     (groups: Readonly<Record<string, ReactNode[]>>, child: ReactNode) => {
       const newGroups = { ...groups };
       const key = isChildInTypes(child, types) ? child.type : rest;
@@ -27,6 +27,5 @@ const groupByType = (
     },
     {},
   );
-};
 
 export default groupByType;
