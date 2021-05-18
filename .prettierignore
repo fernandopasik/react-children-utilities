@@ -1,11 +1,10 @@
+.DS_Store
 node_modules
 yarn*.*
-.DS_Store
 .all-contributorsrc
 .editorconfig
 .flowconfig
 .gitattributes
-.husky
 .*ignore
 LICENSE
 /coverage
