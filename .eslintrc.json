@@ -13,6 +13,7 @@
       "rules": {
         "@typescript-eslint/no-magic-numbers": "off",
         "@typescript-eslint/naming-convention": "off",
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
         "max-lines": "off",
         "max-lines-per-function": "off"
       }
