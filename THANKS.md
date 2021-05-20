@@ -1,6 +1,6 @@
 # Credits for react-children-utilities
-
 ## react-children-utilities relies on the work of 256 people:
+
 
 ## npm
 
@@ -9,7 +9,7 @@
 - **Jordan Harband** *ljharb@gmail.com* (45 packages)
 - **Isaac Z. Schlueter** *isaacs@npmjs.com* (17 packages)
 - **Mario Nebl** *hello@herebecode.com* (16 packages)
-- **John-David Dalton** *john.david.dalton@gmail.com* (15 packages)
+- **John-David Dalton** *john.david.dalton@gmail.com* (14 packages)
 - **Felix Böhm** *me@feedic.com* (11 packages)
 - **James Halliday** *mail@substack.net* (10 packages)
 - **Sebastian McKenzie** *sebmck@gmail.com* (9 packages)
@@ -61,6 +61,7 @@
 - **Ryan Zimmerman** *opensrc@ryanzim.com* (2 packages)
 - **Wez Furlong** *wez@fb.com* (2 packages)
 - **Stefan Penner** *stefan.penner@gmail.com* (2 packages)
+- **Microsoft Corp.** (2 packages)
 - **Thomas Watson Steen** *w@tson.dk* (2 packages)
 - **Thorsten Lorenz** *thlorenz@gmx.de* (2 packages)
 - **Joshua Boy Nicolai Appelman** *joshua@jbna.nl* (2 packages)
@@ -92,7 +93,6 @@
 - **Louis-Dominique Dubeau** *ldd@lddubeau.com* (2 packages)
 - **Keith Cirkel** *npm@keithcirkel.co.uk* (2 packages)
 - **Stephen Sawchuk** *sawchuk@gmail.com* (2 packages)
-- **Microsoft Corp.** (2 packages)
 - **Nick Fitzgerald** *nfitzgerald@mozilla.com* (1 package)
 - **Justin Ridgewell** *justin@ridgewell.name* (1 package)
 - **Heather Arthur** *fayearthur@gmail.com* (1 package)
@@ -260,3 +260,4 @@
 - **Gregg Caines** (1 package)
 - **Dylan Greene** (1 package)
 - **Eemeli Aro** *eemeli@gmail.com* (1 package)
+
