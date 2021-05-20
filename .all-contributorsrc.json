@@ -3,9 +3,7 @@
   "projectOwner": "fernandopasik",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "imageSize": 100,
   "commit": true,
   "commitConvention": "angular",
@@ -15,82 +13,56 @@
       "name": "Fernando Pasik",
       "avatar_url": "https://avatars1.githubusercontent.com/u/1301335?v=4",
       "profile": "https://fernandopasik.com",
-      "contributions": [
-        "bug",
-        "code",
-        "doc",
-        "ideas"
-      ]
+      "contributions": ["bug", "code", "doc", "ideas"]
     },
     {
       "login": "mrm007",
       "name": "mrm007",
       "avatar_url": "https://avatars3.githubusercontent.com/u/3297808?v=4",
       "profile": "https://github.com/mrm007",
-      "contributions": [
-        "bug",
-        "code"
-      ]
+      "contributions": ["bug", "code"]
     },
     {
       "login": "vasilevich",
       "name": "yosef langer",
       "avatar_url": "https://avatars2.githubusercontent.com/u/1217224?v=4",
       "profile": "https://github.com/vasilevich",
-      "contributions": [
-        "bug",
-        "code"
-      ]
+      "contributions": ["bug", "code"]
     },
     {
       "login": "iyegoroff",
       "name": "iyegoroff",
       "avatar_url": "https://avatars2.githubusercontent.com/u/4447438?v=4",
       "profile": "https://github.com/iyegoroff",
-      "contributions": [
-        "bug",
-        "code"
-      ]
+      "contributions": ["bug", "code"]
     },
     {
       "login": "TSMMark",
       "name": "Mark Allen",
       "avatar_url": "https://avatars1.githubusercontent.com/u/4197823?v=4",
       "profile": "http://vydia.com",
-      "contributions": [
-        "bug",
-        "code"
-      ]
+      "contributions": ["bug", "code"]
     },
     {
       "login": "riywo",
       "name": "Ryosuke IWANAGA",
       "avatar_url": "https://avatars2.githubusercontent.com/u/37822?v=4",
       "profile": "https://medium.com/@riywo",
-      "contributions": [
-        "bug",
-        "code"
-      ]
+      "contributions": ["bug", "code"]
     },
     {
       "login": "dpinol",
       "name": "Daniel Pinyol",
       "avatar_url": "https://avatars0.githubusercontent.com/u/1954955?v=4",
       "profile": "https://www.linkedin.com/in/dpinol/",
-      "contributions": [
-        "bug",
-        "code"
-      ]
+      "contributions": ["bug", "code"]
     },
     {
       "login": "bcbrian",
       "name": "Brian Bartholomew",
       "avatar_url": "https://avatars0.githubusercontent.com/u/6721622?v=4",
       "profile": "http://brianbartholomew.com",
-      "contributions": [
-        "bug",
-        "code"
-      ]
+      "contributions": ["bug", "code"]
     }
   ],
   "contributorsPerLine": 7
