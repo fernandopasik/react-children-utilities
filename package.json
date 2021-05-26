@@ -45,7 +45,7 @@
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "size": "bundlesize",
+    "size": "bundlewatch",
     "test": "jest --coverage",
     "thanks": "credits . --reporter markdown > THANKS.md",
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss && prettier docs/_sass/normalize.scss --write",
@@ -67,7 +67,7 @@
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "all-contributors-cli": "^6.20.0",
-    "bundlesize": "^1.0.0-beta.2",
+    "bundlewatch": "^0.3.2",
     "codecov": "^3.8.2",
     "credits-cli": "^3.1.0",
     "del-cli": "^3.0.1",
@@ -107,10 +107,12 @@
   "peerDependencies": {
     "react": "17.x.x || 16.x.x || 15.x.x"
   },
-  "bundlesize": [
-    {
-      "path": "react-children-utilities.min.js",
-      "maxSize": "1 kB"
-    }
-  ]
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "react-children-utilities.min.js",
+        "maxSize": "1 kB"
+      }
+    ]
+  }
 }
