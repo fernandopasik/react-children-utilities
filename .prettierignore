@@ -5,7 +5,7 @@ yarn*.*
 .flowconfig
 .gitattributes
 .*ignore
-LICENSE
+/LICENSE
 /coverage
 /lib
 /react-children-utilities.*
