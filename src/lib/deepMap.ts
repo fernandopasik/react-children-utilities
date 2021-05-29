@@ -2,13 +2,10 @@ import type { ReactNode } from 'react';
 import { Children, cloneElement, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
-export type MapFunction = (
-  child: ReactNode,
-  index?: number,
-  children?: readonly ReactNode[],
-) => ReactNode;
-
-const deepMap = (children: ReactNode, deepMapFn: MapFunction): ReactNode[] =>
+const deepMap = (
+  children: ReactNode,
+  deepMapFn: (child: ReactNode, index?: number, children?: readonly ReactNode[]) => ReactNode,
+): ReactNode[] =>
   Children.toArray(children).map(
     (child: ReactNode, index: number, mapChildren: readonly ReactNode[]) => {
       if (isValidElement(child) && hasComplexChildren(child)) {

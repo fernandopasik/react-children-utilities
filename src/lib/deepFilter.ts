@@ -2,9 +2,10 @@ import type { ReactNode } from 'react';
 import { Children, cloneElement, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
-export type FilterFunction = (child: ReactNode, index?: number, children?: ReactNode[]) => boolean;
-
-const deepFilter = (children: ReactNode, deepFilterFn: FilterFunction): ReactNode[] =>
+const deepFilter = (
+  children: ReactNode,
+  deepFilterFn: (child: ReactNode, index?: number, children?: ReactNode[]) => boolean,
+): ReactNode[] =>
   Children.toArray(children)
     .filter(deepFilterFn)
     .map((child: ReactNode) => {

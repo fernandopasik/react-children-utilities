@@ -2,9 +2,10 @@ import type { ReactNode } from 'react';
 import { Children, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
-export type ForEachFunction = (child: ReactNode, index?: number) => void;
-
-const deepForEach = (children: ReactNode, deepForEachFn: ForEachFunction): void => {
+const deepForEach = (
+  children: ReactNode,
+  deepForEachFn: (child: ReactNode, index?: number) => void,
+): void => {
   Children.forEach(children, (child: ReactNode, index: number) => {
     if (isValidElement(child) && hasComplexChildren(child)) {
       // Each inside the child that has children
