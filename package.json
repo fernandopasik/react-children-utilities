@@ -15,13 +15,13 @@
   "license": "MIT",
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [
-    "yosef langer (https://github.com/vasilevich)",
-    "mrm007 (https://github.com/mrm007)",
+    "Brian Bartholomew (https://github.com/bcbrian)",
+    "Daniel Pinyol (https://github.com/dpinol)",
     "iyegoroff (https://github.com/iyegoroff)",
     "Mark Allen (https://github.com/TSMMark)",
+    "mrm007 (https://github.com/mrm007)",
     "Ryosuke IWANAGA (https://github.com/riywo)",
-    "Daniel Pinyol (https://github.com/dpinol)",
-    "Brian Bartholomew (https://github.com/bcbrian)"
+    "yosef langer (https://github.com/vasilevich)"
   ],
   "sideEffects": false,
   "type": "module",
@@ -41,16 +41,16 @@
     "docs": "jekyll serve -s docs/",
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
     "format": "prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*",
-    "postinstall": "husky install",
     "lint": "eslint . --ext js,jsx,ts,tsx",
-    "prepublishOnly": "pinst --disable",
+    "postinstall": "husky install",
     "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
+    "preversion": "yarn verify",
     "size": "bundlewatch",
     "test": "jest --coverage",
     "thanks": "credits . --reporter markdown > THANKS.md",
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss && prettier docs/_sass/normalize.scss --write",
-    "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size",
-    "preversion": "yarn verify"
+    "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size"
   },
   "resolutions": {
     "axios": "^0.21.1"
@@ -110,8 +110,8 @@
   "bundlewatch": {
     "files": [
       {
-        "path": "react-children-utilities.min.js",
-        "maxSize": "1 kB"
+        "maxSize": "1 kB",
+        "path": "react-children-utilities.min.js"
       }
     ]
   }
