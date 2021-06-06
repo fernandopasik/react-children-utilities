@@ -2,23 +2,18 @@
 
 Recursive and extended utils for React children opaque data structure.
 
-[![Gzip Bundle Size][badge-size]][url-size] [![Build Status][badge-ci]][url-ci] [![Test Coverage Status][badge-cov]][url-cov] [![Known Vulnerabilities][badge-sec]][url-sec]
+<!-- BADGES - START -->
 
-[![All Contributors][badge-contributors]](#contributors-) [![npm version][badge-version]][url-version] [![npm downloads][badge-downloads]][url-downloads]
+[![Gzip Bundle Size](https://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip)](https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size')
+[![Build Status](https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg)](https://circleci.com/gh/fernandopasik/react-children-utilities 'Build Status')
+[![Coverage Status](https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg)](https://codecov.io/gh/fernandopasik/react-children-utilities 'Coverage Status')
+[![Known Vulnerabilities](https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json)](https://snyk.io/test/github/fernandopasik/react-children-utilities?targetFile=package.json 'Known Vulnerabilities')
 
-[badge-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities.svg?style=svg
-[badge-contributors]: https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square
-[badge-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg
-[badge-downloads]: https://img.shields.io/npm/dm/react-children-utilities.svg
-[badge-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json
-[badge-size]: http://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip
-[badge-version]: https://img.shields.io/npm/v/react-children-utilities.svg?logo=npm
-[url-ci]: https://circleci.com/gh/fernandopasik/react-children-utilities 'Build Status'
-[url-cov]: https://codecov.io/gh/fernandopasik/react-children-utilities 'Test Coverage Status'
-[url-downloads]: https://www.npmjs.com/package/react-children-utilities 'npm downloads'
-[url-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities?targetFile=package.json 'Known Vulnerabilities'
-[url-size]: https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size'
-[url-version]: https://www.npmjs.com/package/react-children-utilities 'npm version'
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+[![npm version](https://img.shields.io/npm/v/react-children-utilities.svg?logo=npm)](https://www.npmjs.com/package/react-children-utilities 'npm version')
+[![npm downloads](https://img.shields.io/npm/dm/react-children-utilities.svg)](https://www.npmjs.com/package/react-children-utilities 'npm downloads')
+
+<!-- BADGES - END -->
 
 ## Installation
 
