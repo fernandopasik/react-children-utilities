@@ -1,5 +1,7 @@
 # React Children Utilities
 
+Recursive and extended utils for React children opaque data structure.
+
 [![Gzip Bundle Size][badge-size]][url-size] [![Build Status][badge-ci]][url-ci] [![Test Coverage Status][badge-cov]][url-cov] [![Known Vulnerabilities][badge-sec]][url-sec]
 
 [![All Contributors][badge-contributors]](#contributors-) [![npm version][badge-version]][url-version] [![npm downloads][badge-downloads]][url-downloads]
@@ -17,8 +19,6 @@
 [url-sec]: https://snyk.io/test/github/fernandopasik/react-children-utilities?targetFile=package.json 'Known Vulnerabilities'
 [url-size]: https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size'
 [url-version]: https://www.npmjs.com/package/react-children-utilities 'npm version'
-
-Recursive and extended utils for React children opaque data structure.
 
 ## Installation
 
