@@ -52,9 +52,6 @@
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss && prettier docs/_sass/normalize.scss --write",
     "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size"
   },
-  "resolutions": {
-    "axios": "^0.21.1"
-  },
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
