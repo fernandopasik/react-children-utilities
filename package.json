@@ -48,7 +48,6 @@
     "preversion": "yarn verify",
     "size": "bundlewatch",
     "test": "jest --coverage",
-    "thanks": "credits . --reporter markdown > THANKS.md",
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss && prettier docs/_sass/normalize.scss --write",
     "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size"
   },
@@ -66,7 +65,6 @@
     "all-contributors-cli": "^6.20.0",
     "bundlewatch": "^0.3.2",
     "codecov": "^3.8.2",
-    "credits-cli": "^3.1.0",
     "del-cli": "^4.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
