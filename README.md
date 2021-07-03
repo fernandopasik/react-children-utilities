@@ -95,4 +95,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## License
 
-MIT (c) 2018 [Fernando Pasik](https://fernandopasik.com)
+MIT (c) 2016 [Fernando Pasik](https://fernandopasik.com)
