@@ -1,104 +1,80 @@
-import { shallow } from 'enzyme';
-import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
 import hasChildren from '../hasChildren.js';
-
-interface Props {
-  children?: ReactNode;
-}
 
 describe('hasChildren', () => {
   describe('returns true', () => {
     it('with elements', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
-
-      const wrapper = shallow(
-        <Test>
+      const element = (
+        <>
           <span />
           <span />
-        </Test>,
+        </>
       );
 
-      expect(hasChildren(wrapper.getElement())).toBe(true);
+      expect(hasChildren(element)).toBe(true);
     });
 
     it('with text', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
+      const element = <>My test</>;
 
-      const wrapper = shallow(<Test>My test</Test>);
-
-      expect(hasChildren(wrapper.getElement())).toBe(true);
+      expect(hasChildren(element)).toBe(true);
     });
 
     it('with numbers', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
+      const element = <>{1}</>;
 
-      const wrapper = shallow(<Test>{1}</Test>);
-
-      expect(hasChildren(wrapper.getElement())).toBe(true);
+      expect(hasChildren(element)).toBe(true);
     });
 
     it('with true', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
+      const element = <>{true}</>;
 
-      const wrapper = shallow(<Test>{true}</Test>);
-
-      expect(hasChildren(wrapper.getElement())).toBe(true);
+      expect(hasChildren(element)).toBe(true);
     });
 
     it('with combined types', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
-
-      const wrapper = shallow(
-        <Test>
+      const element = (
+        <>
           <span />
           My test
           {1}
-        </Test>,
+        </>
       );
 
-      expect(hasChildren(wrapper.getElement())).toBe(true);
+      expect(hasChildren(element)).toBe(true);
     });
 
     it('with valid and non valid types', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
-
-      const wrapper = shallow(
-        <Test>
+      const element = (
+        <>
           <span />
           My test
           {null}
           {false}
-        </Test>,
+        </>
       );
 
-      expect(hasChildren(wrapper.getElement())).toBe(true);
+      expect(hasChildren(element)).toBe(true);
     });
   });
 
   describe('returns false', () => {
     it('when empty', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
+      const element = <div />;
 
-      const wrapper = shallow(<Test />);
-
-      expect(hasChildren(wrapper.getElement())).toBe(false);
+      expect(hasChildren(element)).toBe(false);
     });
 
     it('with null', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
+      const element = <>{null}</>;
 
-      const wrapper = shallow(<Test>{null}</Test>);
-
-      expect(hasChildren(wrapper.getElement())).toBe(false);
+      expect(hasChildren(element)).toBe(false);
     });
 
     it('with false', () => {
-      const Test = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
+      const element = <>{null}</>;
 
-      const wrapper = shallow(<Test>{null}</Test>);
-
-      expect(hasChildren(wrapper.getElement())).toBe(false);
+      expect(hasChildren(element)).toBe(false);
     });
   });
 });
