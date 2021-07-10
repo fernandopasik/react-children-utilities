@@ -1,6 +1,7 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
+import type { ReactTestRendererJSON } from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import onlyText, { childToString } from '../onlyText.js';
 
 interface Props {
@@ -11,7 +12,7 @@ const OnlyText = ({ children }: Readonly<Props>): ReactElement => <div>{onlyText
 
 describe('onlyText', () => {
   it('on nested elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyText>
         <span>0</span>
         <b>1</b>
@@ -21,74 +22,92 @@ describe('onlyText', () => {
         <i>3</i>
       </OnlyText>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('0123');
+    expect(text).toBe('0123');
   });
 
   it('on non nested elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyText>
         <span>0</span>
         <b>1</b>
       </OnlyText>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('01');
+    expect(text).toBe('01');
   });
 
   it('on empty', () => {
-    const wrapper = shallow(<OnlyText />);
+    const element = TestRenderer.create(<OnlyText />);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('');
+    expect(text).toBe('');
   });
 
   it('on empty child', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyText>
         <span />
       </OnlyText>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('');
+    expect(text).toBe('');
   });
 
   it('on text', () => {
-    const wrapper = shallow(<OnlyText>test 1 test 2</OnlyText>);
+    const element = TestRenderer.create(<OnlyText>test 1 test 2</OnlyText>);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('test 1 test 2');
+    expect(text).toBe('test 1 test 2');
   });
 
   it('on number', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyText>
         {1}
         {2}
       </OnlyText>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('12');
+    expect(text).toBe('12');
   });
 
   it('on true', () => {
-    const wrapper = shallow(<OnlyText>{true}</OnlyText>);
+    const element = TestRenderer.create(<OnlyText>{true}</OnlyText>);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('');
+    expect(text).toBe('');
   });
 
   it('on false', () => {
-    const wrapper = shallow(<OnlyText>{false}</OnlyText>);
+    const element = TestRenderer.create(<OnlyText>{false}</OnlyText>);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('');
+    expect(text).toBe('');
   });
 
   it('on null', () => {
-    const wrapper = shallow(<OnlyText>{null}</OnlyText>);
+    const element = TestRenderer.create(<OnlyText>{null}</OnlyText>);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('');
+    expect(text).toBe('');
   });
 
   it('on combined types', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyText>
         example
         {null}
@@ -98,8 +117,10 @@ describe('onlyText', () => {
         <i>b</i>
       </OnlyText>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
+    const [text] = children ?? [];
 
-    expect(wrapper).toHaveText('example3b');
+    expect(text).toBe('example3b');
   });
 
   describe('child to string', () => {
