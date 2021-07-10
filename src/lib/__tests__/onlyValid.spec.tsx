@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
+import TestRenderer from 'react-test-renderer';
 import onlyValid from '../onlyValid.js';
 
 interface Props {
@@ -12,23 +12,27 @@ const CustomElement = (): ReactElement => <div>I am a react element</div>;
 
 describe('onlyValid', () => {
   it('does not filter all valid html elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyValid>
         <span>0</span>
         <i>2</i>
       </OnlyValid>,
     );
 
-    expect(wrapper).toContainReact(
+    expect(element.toJSON()).toMatchInlineSnapshot(`
       <div>
-        <span>0</span>
-        <i>2</i>
-      </div>,
-    );
+        <span>
+          0
+        </span>
+        <i>
+          2
+        </i>
+      </div>
+    `);
   });
 
   it('does not filter all valid html and custom elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyValid>
         <span>0</span>
         <CustomElement />
@@ -36,17 +40,23 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(wrapper).toContainReact(
+    expect(element.toJSON()).toMatchInlineSnapshot(`
       <div>
-        <span>0</span>
-        <CustomElement />
-        <i>2</i>
-      </div>,
-    );
+        <span>
+          0
+        </span>
+        <div>
+          I am a react element
+        </div>
+        <i>
+          2
+        </i>
+      </div>
+    `);
   });
 
   it('does not filter nested all valid elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyValid>
         <span>0</span>
         <i>2</i>
@@ -59,22 +69,30 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(wrapper).toContainReact(
+    expect(element.toJSON()).toMatchInlineSnapshot(`
       <div>
-        <span>0</span>
-        <i>2</i>
         <span>
-          <strong>3</strong>
+          0
+        </span>
+        <i>
+          2
+        </i>
+        <span>
           <strong>
-            <strong>4</strong>
+            3
+          </strong>
+          <strong>
+            <strong>
+              4
+            </strong>
           </strong>
         </span>
-      </div>,
-    );
+      </div>
+    `);
   });
 
   it('filters non react elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyValid>
         <span>0</span>
         text
@@ -88,17 +106,23 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(wrapper).toContainReact(
+    expect(element.toJSON()).toMatchInlineSnapshot(`
       <div>
-        <span>0</span>
-        <i>2</i>
-        <b>3</b>
-      </div>,
-    );
+        <span>
+          0
+        </span>
+        <i>
+          2
+        </i>
+        <b>
+          3
+        </b>
+      </div>
+    `);
   });
 
   it('filters nested non react elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyValid>
         <span>0</span>
         text
@@ -117,28 +141,36 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(wrapper).toContainReact(
+    expect(element.toJSON()).toMatchInlineSnapshot(`
       <div>
-        <span>0</span>
-        <i>2</i>
         <span>
-          <strong>3</strong>
+          0
+        </span>
+        <i>
+          2
+        </i>
+        <span>
           <strong>
-            <strong>4</strong>
+            3
+          </strong>
+          <strong>
+            <strong>
+              4
+            </strong>
           </strong>
         </span>
-      </div>,
-    );
+      </div>
+    `);
   });
 
   it('works on empty', () => {
-    const wrapper = shallow(<OnlyValid />);
+    const element = TestRenderer.create(<OnlyValid />);
 
-    expect(wrapper).toContainReact(<div />);
+    expect(element.toJSON()).toMatchInlineSnapshot(`<div />`);
   });
 
   it('can filter all elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <OnlyValid>
         text
         {null}
@@ -149,6 +181,6 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(wrapper).toContainReact(<div />);
+    expect(element.toJSON()).toMatchInlineSnapshot(`<div />`);
   });
 });
