@@ -1,6 +1,7 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
+import type { ReactTestRendererJSON } from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import deepFind from '../deepFind.js';
 
 interface Props {
@@ -13,7 +14,7 @@ describe('deepFind', () => {
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFound>
         <b>1</b>
         <span>
@@ -22,9 +23,14 @@ describe('deepFind', () => {
         <i>3</i>
       </DeepFound>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(1);
-    expect(wrapper.children().at(0)).toMatchElement(<i>2</i>);
+    expect(children).toHaveLength(1);
+    expect(children?.[0]).toMatchInlineSnapshot(`
+      <i>
+        2
+      </i>
+    `);
   });
 
   it('a matching element with matching nested elements', () => {
@@ -32,7 +38,7 @@ describe('deepFind', () => {
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFound>
         <b>1</b>
         <i>
@@ -41,13 +47,16 @@ describe('deepFind', () => {
         <i>3</i>
       </DeepFound>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(1);
-    expect(wrapper.children().at(0)).toMatchElement(
+    expect(children).toHaveLength(1);
+    expect(children?.[0]).toMatchInlineSnapshot(`
       <i>
-        <i>2</i>
-      </i>,
-    );
+        <i>
+          2
+        </i>
+      </i>
+    `);
   });
 
   it('a non nested element', () => {
@@ -55,15 +64,20 @@ describe('deepFind', () => {
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFound>
         <b>1</b>
         <i>3</i>
       </DeepFound>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(1);
-    expect(wrapper.children().at(0)).toMatchElement(<i>3</i>);
+    expect(children).toHaveLength(1);
+    expect(children?.[0]).toMatchInlineSnapshot(`
+      <i>
+        3
+      </i>
+    `);
   });
 
   it('can not find anything', () => {
@@ -71,14 +85,15 @@ describe('deepFind', () => {
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFound>
         <b>1</b>
         <b>2</b>
       </DeepFound>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(0);
-    expect(wrapper).toMatchElement(<div />);
+    expect(children).toBeNull();
+    expect(element).toMatchInlineSnapshot(`<div />`);
   });
 });
