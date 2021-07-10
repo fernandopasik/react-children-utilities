@@ -1,6 +1,7 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React, { isValidElement } from 'react';
+import type { ReactTestRendererJSON } from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import deepForEach from '../deepForEach.js';
 
 interface Props {
@@ -19,7 +20,7 @@ describe('deepForEach', () => {
       return <div>{items}</div>;
     };
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepForEached>
         <b>1</b>
         <b>2</b>
@@ -35,8 +36,9 @@ describe('deepForEach', () => {
         example
       </DeepForEached>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper).toHaveText('1234');
+    expect(children).toStrictEqual(['1', '2', '3', '4']);
   });
 
   it('on non nested elements', () => {
@@ -50,14 +52,15 @@ describe('deepForEach', () => {
       return <div>{items}</div>;
     };
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepForEached>
         <b>1</b>
         <b>2</b>
       </DeepForEached>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper).toHaveText('12');
+    expect(children).toStrictEqual(['1', '2']);
   });
 
   it('on empty', () => {
@@ -71,8 +74,9 @@ describe('deepForEach', () => {
       return <div>{items}</div>;
     };
 
-    const wrapper = shallow(<DeepForEached />);
+    const element = TestRenderer.create(<DeepForEached />);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper).toHaveText('');
+    expect(children).toBeNull();
   });
 });
