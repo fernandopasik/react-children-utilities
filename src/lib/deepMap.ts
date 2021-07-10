@@ -3,7 +3,7 @@ import { Children, cloneElement, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
 const deepMap = (
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   deepMapFn: (child: ReactNode, index?: number, children?: readonly ReactNode[]) => ReactNode,
 ): ReactNode[] =>
   Children.toArray(children).map(

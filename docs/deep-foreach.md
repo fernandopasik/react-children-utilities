@@ -8,7 +8,7 @@ Executes a provided function once on each child (and its children) on a children
 
 ```typescript
 deepForEach(
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   forEachFn: (child: ReactNode, index?: number, children?: ReactNode[]): void,
 ): void
 ```

@@ -7,7 +7,7 @@ layout: page
 Deep filters all non React Elements
 
 ```typescript
-onlyValid(children: ReactNode): ReactNode[]
+onlyValid(children: ReactNode | ReactNode[]): ReactNode[]
 ```
 
 ## Arguments

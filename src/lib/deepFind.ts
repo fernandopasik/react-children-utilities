@@ -3,7 +3,7 @@ import { Children, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
 const deepFind = (
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   deepFindFn: (child: ReactNode, index?: number, children?: readonly ReactNode[]) => boolean,
 ): ReactNode | undefined => {
   // eslint-disable-next-line @typescript-eslint/init-declarations

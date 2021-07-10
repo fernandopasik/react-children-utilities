@@ -8,7 +8,7 @@ Returns the first element in the children array (and its children) that satisfie
 
 ```typescript
 deepFind(
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   findFn: (child: ReactNode, index?: number, children?: ReactNode[]): ReactNode,
 ): ReactNode | undefined
 ```

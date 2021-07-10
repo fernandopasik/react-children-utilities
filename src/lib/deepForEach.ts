@@ -3,7 +3,7 @@ import { Children, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
 const deepForEach = (
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   deepForEachFn: (child: ReactNode, index?: number) => void,
 ): void => {
   Children.forEach(children, (child: ReactNode, index: number) => {

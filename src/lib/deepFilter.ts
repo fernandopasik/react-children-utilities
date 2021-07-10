@@ -3,7 +3,7 @@ import { Children, cloneElement, isValidElement } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
 const deepFilter = (
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   deepFilterFn: (child: ReactNode, index?: number, children?: ReactNode[]) => boolean,
 ): ReactNode[] =>
   Children.toArray(children)

@@ -8,7 +8,7 @@ Creates a new children array with results of calling a provided function called 
 
 ```typescript
 deepMap(
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   mapFn: (child: ReactNode, index?: number, children?: ReactNode[]): boolean,
 ): ReactNode[]
 ```

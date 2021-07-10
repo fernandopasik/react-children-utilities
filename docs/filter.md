@@ -8,7 +8,7 @@ Creates a new children array with all elements that pass the test implemented by
 
 ```typescript
 filter(
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   filterFn: (child: ReactNode, index?: number, children?: ReactNode[]): boolean,
 ): ReactNode[]
 ```

@@ -13,7 +13,7 @@ describe('deepForEach', () => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
         if (isValidElement(child) && child.type === 'b') {
-          items.push((child as ReactElement<{ children: ReactNode[] }>).props.children);
+          items.push((child as ReactElement<{ children: ReactNode | ReactNode[] }>).props.children);
         }
       });
       return <div>{items}</div>;

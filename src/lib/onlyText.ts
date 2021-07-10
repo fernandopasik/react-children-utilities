@@ -14,7 +14,7 @@ export const childToString = (child?: ReactNode): string => {
   return (child as number | string).toString();
 };
 
-const onlyText = (children: ReactNode): string => {
+const onlyText = (children: ReactNode | ReactNode[]): string => {
   if (!(children instanceof Array) && !isValidElement(children)) {
     return childToString(children);
   }

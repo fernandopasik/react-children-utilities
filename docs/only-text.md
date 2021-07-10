@@ -7,7 +7,7 @@ layout: page
 Strips all html and returns only text nodes
 
 ```typescript
-onlyText(children: ReactNode): string
+onlyText(children: ReactNode | ReactNode[]): string
 ```
 
 ## Arguments

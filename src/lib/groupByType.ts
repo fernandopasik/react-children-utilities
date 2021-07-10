@@ -8,7 +8,7 @@ export const isChildInTypes = (
   isValidElement(child) && typeof child.type === 'string' && types.includes(child.type);
 
 const groupByType = (
-  children: ReactNode,
+  children: ReactNode | ReactNode[],
   types: readonly ReactNode[] = [],
   rest = 'rest',
 ): Record<string, ReactNode[]> =>
