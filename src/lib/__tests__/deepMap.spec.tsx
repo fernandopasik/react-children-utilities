@@ -1,6 +1,8 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React, { cloneElement, isValidElement } from 'react';
+import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
+import type { ReadonlyDeep } from 'type-fest';
 import deepMap from '../deepMap.js';
 
 interface Props {
@@ -23,7 +25,7 @@ const DeepMapped = ({ children }: Readonly<Props>): ReactElement => (
 
 describe('deepMap', () => {
   it('nested elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepMapped>
         <b>1</b>
         <b>2</b>
@@ -39,25 +41,44 @@ describe('deepMap', () => {
       </DeepMapped>,
     );
 
-    expect(wrapper.find('b.mapped')).toHaveLength(5);
-    expect(wrapper.find('b:not(.mapped)')).toHaveLength(0);
+    const mapped = element.root.findAll(
+      (node: ReadonlyDeep<ReactTestInstance>) =>
+        node.type === 'b' && node.props.className === 'mapped',
+    );
+    const unmapped = element.root.findAll(
+      (node: ReadonlyDeep<ReactTestInstance>) =>
+        node.type === 'b' && node.props.className !== 'mapped',
+    );
+
+    expect(mapped).toHaveLength(5);
+    expect(unmapped).toHaveLength(0);
   });
 
   it('non nested elements', () => {
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepMapped>
         <b>1</b>
         <b>2</b>
       </DeepMapped>,
     );
 
-    expect(wrapper.find('b.mapped')).toHaveLength(2);
-    expect(wrapper.find('b:not(.mapped)')).toHaveLength(0);
+    const mapped = element.root.findAll(
+      (node: ReadonlyDeep<ReactTestInstance>) =>
+        node.type === 'b' && node.props.className === 'mapped',
+    );
+    const unmapped = element.root.findAll(
+      (node: ReadonlyDeep<ReactTestInstance>) =>
+        node.type === 'b' && node.props.className !== 'mapped',
+    );
+
+    expect(mapped).toHaveLength(2);
+    expect(unmapped).toHaveLength(0);
   });
 
   it('empty children', () => {
-    const wrapper = shallow(<DeepMapped />);
+    const element = TestRenderer.create(<DeepMapped />);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(0);
+    expect(children).toBeNull();
   });
 });
