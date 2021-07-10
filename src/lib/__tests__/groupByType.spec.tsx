@@ -13,10 +13,12 @@ describe('groupByType', () => {
       const child = <div />;
       expect(isChildInTypes(child)).toBe(false);
     });
+
     it('detects if element is within the types', () => {
       const child = <span />;
       expect(isChildInTypes(child, ['span', 'div', 'b'])).toBe(true);
     });
+
     it('detects if element is not within the types', () => {
       const child = <span />;
       expect(isChildInTypes(child, ['div', 'b'])).toBe(false);
