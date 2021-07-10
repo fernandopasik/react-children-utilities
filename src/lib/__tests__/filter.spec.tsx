@@ -1,6 +1,7 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React, { isValidElement } from 'react';
+import type { ReactTestRendererJSON } from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import filter from '../filter.js';
 
 interface Props {
@@ -17,15 +18,16 @@ describe('filter', () => {
       </div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <Filtered>
         <div>1</div>
         <div>2</div>
         <div>3</div>
       </Filtered>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(3);
+    expect(children).toHaveLength(3);
   });
 
   it('returns only matching children', () => {
@@ -37,17 +39,18 @@ describe('filter', () => {
       </div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <Filtered>
         <span>1</span>
         <strong>2</strong>
         <span>3</span>
       </Filtered>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(2);
-    expect(wrapper.find('strong')).not.toExist();
-    expect(wrapper.find('span')).toHaveLength(2);
+    expect(children).toHaveLength(2);
+    expect(element.root.findAllByType('strong')).toHaveLength(0);
+    expect(element.root.findAllByType('span')).toHaveLength(2);
   });
 
   it('does not filter nested elements', () => {
@@ -59,7 +62,7 @@ describe('filter', () => {
       </div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <Filtered>
         <span>1</span>
         <span>
@@ -68,9 +71,10 @@ describe('filter', () => {
         <span>3</span>
       </Filtered>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(3);
-    expect(wrapper.find('strong')).toExist();
+    expect(children).toHaveLength(3);
+    expect(element.root.findAllByType('strong')).toHaveLength(1);
   });
 
   it('can handle empty children', () => {
@@ -82,8 +86,9 @@ describe('filter', () => {
       </div>
     );
 
-    const wrapper = shallow(<Filtered />);
+    const element = TestRenderer.create(<Filtered />);
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper.children()).toHaveLength(0);
+    expect(children).toBeNull();
   });
 });

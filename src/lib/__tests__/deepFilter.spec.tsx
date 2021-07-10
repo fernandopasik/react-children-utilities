@@ -1,6 +1,7 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
+import type { ReactTestRendererJSON } from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import deepFilter from '../deepFilter.js';
 
 interface Props {
@@ -13,7 +14,7 @@ describe('deepFilter', () => {
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFiltered>
         <span>1</span>
         <span>2</span>
@@ -26,18 +27,25 @@ describe('deepFilter', () => {
         </span>
       </DeepFiltered>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper).toContainReact(
-      <div>
-        <span>1</span>
-        <span>2</span>
+    expect(children).toMatchInlineSnapshot(`
+      Array [
+        <span>
+          1
+        </span>,
+        <span>
+          2
+        </span>,
         <span>
           <span>
-            <span>5</span>
+            <span>
+              5
+            </span>
           </span>
-        </span>
-      </div>,
-    );
+        </span>,
+      ]
+    `);
   });
 
   it('non nested elements', () => {
@@ -45,18 +53,21 @@ describe('deepFilter', () => {
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFiltered>
         <strong>1</strong>
         <span>2</span>
       </DeepFiltered>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper).toContainReact(
-      <div>
-        <span>2</span>
-      </div>,
-    );
+    expect(children).toMatchInlineSnapshot(`
+      Array [
+        <span>
+          2
+        </span>,
+      ]
+    `);
   });
 
   it('remove elements event if they have matching nested children', () => {
@@ -64,7 +75,7 @@ describe('deepFilter', () => {
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFiltered>
         <span>1</span>
         <span>2</span>
@@ -77,16 +88,23 @@ describe('deepFilter', () => {
         </span>
       </DeepFiltered>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper).toContainReact(
-      <div>
-        <span>1</span>
-        <span>2</span>
+    expect(children).toMatchInlineSnapshot(`
+      Array [
         <span>
-          <span>3</span>
-        </span>
-      </div>,
-    );
+          1
+        </span>,
+        <span>
+          2
+        </span>,
+        <span>
+          <span>
+            3
+          </span>
+        </span>,
+      ]
+    `);
   });
 
   it('keeps empty matching elements if children do not match', () => {
@@ -94,7 +112,7 @@ describe('deepFilter', () => {
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
-    const wrapper = shallow(
+    const element = TestRenderer.create(
       <DeepFiltered>
         <span>1</span>
         <span>2</span>
@@ -107,13 +125,18 @@ describe('deepFilter', () => {
         </span>
       </DeepFiltered>,
     );
+    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(wrapper).toContainReact(
-      <div>
-        <span>1</span>
-        <span>2</span>
-        <span />
-      </div>,
-    );
+    expect(children).toMatchInlineSnapshot(`
+      Array [
+        <span>
+          1
+        </span>,
+        <span>
+          2
+        </span>,
+        <span />,
+      ]
+    `);
   });
 });
