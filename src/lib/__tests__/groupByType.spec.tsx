@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme';
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
+import TestRenderer from 'react-test-renderer';
 import groupByType, { isChildInTypes } from '../groupByType.js';
 
 interface Props {
@@ -40,7 +40,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    shallow(
+    TestRenderer.create(
       <Grouped>
         <span>
           <b>1</b>
@@ -51,11 +51,25 @@ describe('groupByType', () => {
     );
 
     const [first, second] = elements.span as ReactElement[];
-    expect(shallow(first)).toHaveHTML('<span><b>1</b></span>');
-    expect(shallow(second)).toHaveHTML('<span>2</span>');
+    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
+      <span>
+        <b>
+          1
+        </b>
+      </span>
+    `);
+    expect(TestRenderer.create(second).toJSON()).toMatchInlineSnapshot(`
+      <span>
+        2
+      </span>
+    `);
 
     const [third] = elements.strong as ReactElement[];
-    expect(shallow(third)).toHaveHTML('<strong>3</strong>');
+    expect(TestRenderer.create(third).toJSON()).toMatchInlineSnapshot(`
+      <strong>
+        3
+      </strong>
+    `);
   });
 
   it('groups the non matching types in rest', () => {
@@ -66,7 +80,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    shallow(
+    TestRenderer.create(
       <Grouped>
         <span>
           <b>1</b>
@@ -78,8 +92,16 @@ describe('groupByType', () => {
     );
 
     const [first, second] = elements.rest as ReactElement[];
-    expect(shallow(first)).toHaveHTML('<b>3</b>');
-    expect(shallow(second)).toHaveHTML('<i>4</i>');
+    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
+      <b>
+        3
+      </b>
+    `);
+    expect(TestRenderer.create(second).toJSON()).toMatchInlineSnapshot(`
+      <i>
+        4
+      </i>
+    `);
   });
 
   it('groups the non matching types in rest with a different key name', () => {
@@ -90,7 +112,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    shallow(
+    TestRenderer.create(
       <Grouped>
         <span>2</span>
         <b>3</b>
@@ -98,7 +120,11 @@ describe('groupByType', () => {
     );
 
     const [first] = elements.others as ReactElement[];
-    expect(shallow(first)).toHaveHTML('<b>3</b>');
+    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
+      <b>
+        3
+      </b>
+    `);
   });
 
   it('if no types provided groups everything on rest', () => {
@@ -109,7 +135,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    shallow(
+    TestRenderer.create(
       <Grouped>
         <span>2</span>
         <b>3</b>
@@ -117,8 +143,16 @@ describe('groupByType', () => {
     );
 
     const [first, second] = elements.rest as ReactElement[];
-    expect(shallow(first)).toHaveHTML('<span>2</span>');
-    expect(shallow(second)).toHaveHTML('<b>3</b>');
+    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
+      <span>
+        2
+      </span>
+    `);
+    expect(TestRenderer.create(second).toJSON()).toMatchInlineSnapshot(`
+      <b>
+        3
+      </b>
+    `);
   });
 
   describe('returns empty object', () => {
@@ -130,7 +164,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      shallow(<Grouped />);
+      TestRenderer.create(<Grouped />);
 
       expect(elements).toStrictEqual({});
     });
@@ -143,7 +177,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      shallow(
+      TestRenderer.create(
         <Grouped>
           {false}
           {true}
@@ -161,7 +195,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      shallow(<Grouped>{null}</Grouped>);
+      TestRenderer.create(<Grouped>{null}</Grouped>);
 
       expect(elements).toStrictEqual({});
     });
@@ -176,7 +210,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      shallow(<Grouped>example with some words</Grouped>);
+      TestRenderer.create(<Grouped>example with some words</Grouped>);
 
       expect(elements).toStrictEqual({ rest: ['example with some words'] });
     });
@@ -189,7 +223,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      shallow(
+      TestRenderer.create(
         <Grouped>
           {1}
           {2}
@@ -207,7 +241,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      shallow(
+      TestRenderer.create(
         <Grouped>
           {true}
           example
