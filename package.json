@@ -47,9 +47,10 @@
     "prepublishOnly": "pinst --disable",
     "preversion": "yarn verify",
     "size": "bundlewatch",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss && prettier docs/_sass/normalize.scss --write",
-    "verify": "yarn lint && yarn check-types && yarn test && yarn build && yarn size"
+    "verify": "yarn lint && yarn check-types && yarn test:coverage && yarn build && yarn size"
   },
   "dependencies": {},
   "devDependencies": {
