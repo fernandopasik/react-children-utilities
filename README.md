@@ -60,6 +60,7 @@ const MyComponent = ({ children }) => {
 - [deepForEach](/docs/deep-foreach.md)
 - [deepMap](/docs/deep-map.md)
 - [filter](/docs/filter.md)
+- [getElementName](/docs/get-element-name.md)
 - [groupByType](/docs/group-by-type.md)
 - [hasChildren](/docs/has-children.md)
 - [hasComplexChildren](/docs/has-complex-children.md)

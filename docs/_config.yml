@@ -24,6 +24,8 @@ content_table:
         url: /deep-map
       - title: filter
         url: /filter
+      - title: getElementName
+        url: /get-element-name
       - title: groupByType
         url: /group-by-type
       - title: hasChildren

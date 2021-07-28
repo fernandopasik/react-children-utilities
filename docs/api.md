@@ -11,6 +11,7 @@ The library extends the existing React.Children utilities, so you can import it 
 - [deepForEach(children, forEachFn)]({{ site.github.url }}/deep-foreach)
 - [deepMap(children, mapFn)]({{ site.github.url }}/deep-map)
 - [filter(children, filterFn)]({{ site.github.url }}/filter)
+- [getElementName(element)]({{ site.github.url }}/get-element-name)
 - [groupByType(children, types, rest)]({{ site.github.url }}/group-by-type)
 - [hasChildren(children)]({{ site.github.url }}/has-children)
 - [hasComplexChildren(children)]({{ site.github.url }}/has-complex-children)
