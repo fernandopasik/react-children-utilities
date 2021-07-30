@@ -11,7 +11,7 @@ const groupByType = (
     (groups: Readonly<Record<string, ReactNode[]>>, child: ReactNode) => {
       const newGroups = { ...groups };
       const elementName = getElementName(child);
-      const key = types.includes(elementName) && elementName !== null ? elementName : rest;
+      const key = elementName !== null && types.includes(elementName) ? elementName : rest;
 
       if (typeof newGroups[key] === 'undefined') {
         newGroups[key] = [];
