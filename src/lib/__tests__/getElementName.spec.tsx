@@ -1,3 +1,4 @@
+import type { FunctionComponent } from 'react';
 import React from 'react';
 import getElementName from '../getElementName.js';
 
@@ -15,7 +16,7 @@ describe('getElementName', () => {
   });
 
   it('of a functional component', () => {
-    const Example: React.FC = () => <div />;
+    const Example: FunctionComponent = () => <div />;
     expect(getElementName(<Example />)).toBe('Example');
   });
 
