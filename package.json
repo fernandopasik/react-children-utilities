@@ -42,7 +42,7 @@
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
     "format": "prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*",
     "lint": "eslint . --ext js,jsx,ts,tsx",
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
     "preversion": "yarn verify",
