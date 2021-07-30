@@ -1,11 +1,12 @@
-import type { FunctionComponent, ReactNode } from 'react';
+import type { ComponentClass, FunctionComponent, ReactNode } from 'react';
 import { Children } from 'react';
 import getElementName from './getElementName.js';
 
 // eslint-disable-next-line max-lines-per-function
 const groupByType = (
   children: ReactNode | ReactNode[],
-  types: readonly (FunctionComponent | string)[] = [],
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  types: readonly (ComponentClass<any> | FunctionComponent | string)[] = [],
   rest = 'rest',
 ): Record<string, ReactNode[]> => {
   const typeNames: string[] = types.map((type) => (typeof type === 'string' ? type : type.name));
