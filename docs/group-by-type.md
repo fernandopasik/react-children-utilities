@@ -7,7 +7,7 @@ layout: page
 Returns an object with keys that map each tag name to an array of children of that type, and a key that maps the rest of children.
 
 ```typescript
-groupByType(children: ReactNode | ReactNode[], types: ReactNode[], rest?: string): { [name: string]: ReactNode[] }
+groupByType(children: ReactNode | ReactNode[], types: (ComponentClass<any> | FunctionComponent | string)[], rest?: string): { [name: string]: ReactNode[] }
 ```
 
 ## Arguments
