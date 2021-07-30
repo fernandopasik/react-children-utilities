@@ -44,19 +44,26 @@ interface Props {
   children?: ReactNode;
 }
 
-const Grouped = ({ children }: Props): ReactElement => (
-  <div>
-    <div className="spans">{groupByType(children, ['span', 'i'], 'rest').span}</div>
-    <div className="rest">{groupByType(children, ['span', 'i'], 'rest').rest}</div>
-    <div className="empty">{groupByType(children, ['span', 'i'], 'rest').i}</div>
-  </div>
-);
+const MyElement = (): ReactElement => <div />;
+
+const Grouped = ({ children }: Props): ReactElement => {
+  const groups = groupByType(children, ['span', 'i', 'MyElement'], 'rest');
+  return (
+    <div>
+      <div className="spans">{groups.span}</div>
+      <div className="rest">{groups.rest}</div>
+      <div className="my-element">{groups.MyElement}</div>
+      <div className="empty">{groups.i}</div>
+    </div>
+  );
+};
 
 const Example = (): ReactElement => (
   <Grouped>
     <span>
       <b>1</b>
     </span>
+    <MyElement />
     <span>
       <b>2</b>
     </span>
@@ -78,6 +85,9 @@ render(<Example />, document.body);
 //   </div>
 //   <div className="rest">
 //     <strong>3</strong>
+//   </div>
+//   <div className="my-element">
+//     <MyElement />
 //   </div>
 //   <div className="empty"></div>
 // </div>
