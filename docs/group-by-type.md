@@ -16,7 +16,15 @@ groupByType(children: ReactNode | ReactNode[], types: (ComponentClass<any> | Fun
   <dt><b>children</b></dt>
   <dd>The children array from the element where is used.</dd>
   <dt><b>types</b></dt>
-  <dd>The types of elements that will be grouped.</dd>
+  <dd>
+    The types of elements that will be grouped. Different kind of types can be passed
+    <ul>
+      <li>Tag name string</li>
+      <li>React Element name string</li>
+      <li>React Element function</li>
+      <li>React Element class</li>
+    </ul>
+  </dd>
   <dt><b>rest</b></dt>
   <dd>The name of the group where the remaining elements will be grouped into.</dd>
 </dl>
