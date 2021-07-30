@@ -48,6 +48,29 @@ describe('groupByType', () => {
     `);
   });
 
+  it('can group react elements by name', () => {
+    let elements: Record<string, ReactNode[]> = {};
+
+    const Example = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
+    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      elements = groupByType(children, ['span', 'Example']);
+      return <div>{children}</div>;
+    };
+
+    TestRenderer.create(
+      <Grouped>
+        <span>1</span>
+        <Example>2</Example>
+        <span>3</span>
+        <Example>4</Example>
+      </Grouped>,
+    );
+
+    expect(elements.span).toHaveLength(2);
+    expect(elements.Example).toHaveLength(2);
+    expect(elements.rest).toBeUndefined();
+  });
+
   it('groups the non matching types in rest', () => {
     let elements: Record<string, ReactNode[]> = {};
 
@@ -212,6 +235,8 @@ describe('groupByType', () => {
     it('on mixed non element children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
+      const Example = (): ReactElement => <div />;
+
       const Grouped = ({ children }: Readonly<Props>): ReactElement => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
@@ -224,10 +249,20 @@ describe('groupByType', () => {
           {null}
           with some words
           {3}
+          <Example />
         </Grouped>,
       );
 
-      expect(elements).toStrictEqual({ rest: ['example', 'with some words', 3] });
+      expect(elements).toMatchInlineSnapshot(`
+Object {
+  "rest": Array [
+    "example",
+    "with some words",
+    3,
+    <Example />,
+  ],
+}
+`);
     });
   });
 });
