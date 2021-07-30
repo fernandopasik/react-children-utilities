@@ -1,10 +1,10 @@
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Children } from 'react';
 import getElementName from './getElementName.js';
 
 const groupByType = (
   children: ReactNode | ReactNode[],
-  types: readonly ReactNode[] = [],
+  types: readonly (ReactElement | string)[] = [],
   rest = 'rest',
 ): Record<string, ReactNode[]> =>
   Children.toArray(children).reduce(
