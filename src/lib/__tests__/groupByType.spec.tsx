@@ -94,6 +94,36 @@ describe('groupByType', () => {
     expect(elements.rest).toBeUndefined();
   });
 
+  it('can group react elements by component class', () => {
+    let elements: Record<string, ReactNode[]> = {};
+
+    // eslint-disable-next-line react/prefer-stateless-function
+    class Example extends React.Component<{ children: ReactNode }> {
+      public render(): ReactElement {
+        const { children } = this.props;
+        return <div>{children}</div>;
+      }
+    }
+
+    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      elements = groupByType(children, ['span', Example]);
+      return <div>{children}</div>;
+    };
+
+    TestRenderer.create(
+      <Grouped>
+        <span>1</span>
+        <Example>2</Example>
+        <span>3</span>
+        <Example>4</Example>
+      </Grouped>,
+    );
+
+    expect(elements.span).toHaveLength(2);
+    expect(elements.Example).toHaveLength(2);
+    expect(elements.rest).toBeUndefined();
+  });
+
   it('groups the non matching types in rest', () => {
     let elements: Record<string, ReactNode[]> = {};
 
