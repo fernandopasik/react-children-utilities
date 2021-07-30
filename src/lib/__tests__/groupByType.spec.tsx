@@ -1,37 +1,13 @@
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import groupByType, { isChildInTypes } from '../groupByType.js';
+import groupByType from '../groupByType.js';
 
 interface Props {
   children?: ReactNode;
 }
 
 describe('groupByType', () => {
-  describe('isChildInTypes', () => {
-    it('can handle empty types', () => {
-      const child = <div />;
-      expect(isChildInTypes(child)).toBe(false);
-    });
-
-    it('detects if element is within the types', () => {
-      const child = <span />;
-      expect(isChildInTypes(child, ['span', 'div', 'b'])).toBe(true);
-    });
-
-    it('detects if element is not within the types', () => {
-      const child = <span />;
-      expect(isChildInTypes(child, ['div', 'b'])).toBe(false);
-    });
-
-    it('detects function element types', () => {
-      const Example = (): ReactElement => <div />;
-
-      const child = <Example />;
-      expect(isChildInTypes(child, [Example])).toBe(false);
-    });
-  });
-
   it('groups elements with same tagName', () => {
     let elements: Record<string, ReactNode[]> = {};
 

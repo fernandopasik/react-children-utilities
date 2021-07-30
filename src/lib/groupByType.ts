@@ -1,11 +1,6 @@
 import type { ReactNode } from 'react';
-import { Children, isValidElement } from 'react';
-
-export const isChildInTypes = (
-  child: ReactNode,
-  types: readonly ReactNode[] = [],
-): child is { type: string } =>
-  isValidElement(child) && typeof child.type === 'string' && types.includes(child.type);
+import { Children } from 'react';
+import getElementName from './getElementName.js';
 
 const groupByType = (
   children: ReactNode | ReactNode[],
@@ -15,7 +10,8 @@ const groupByType = (
   Children.toArray(children).reduce(
     (groups: Readonly<Record<string, ReactNode[]>>, child: ReactNode) => {
       const newGroups = { ...groups };
-      const key = isChildInTypes(child, types) ? child.type : rest;
+      const elementName = getElementName(child);
+      const key = types.includes(elementName) && elementName !== null ? elementName : rest;
 
       if (typeof newGroups[key] === 'undefined') {
         newGroups[key] = [];
