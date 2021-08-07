@@ -7,6 +7,8 @@ import Children, {
   deepMap,
   filter,
   groupByType,
+  hasChildren,
+  hasComplexChildren,
   onlyText,
   onlyValid,
 } from '../react-children-utilities.js';
@@ -30,6 +32,12 @@ describe('children', () => {
 
     expect(groupByType).toBeInstanceOf(Function);
     expect(Children.groupByType).toStrictEqual(groupByType);
+
+    expect(hasChildren).toBeInstanceOf(Function);
+    expect(Children.hasChildren).toStrictEqual(hasChildren);
+
+    expect(hasComplexChildren).toBeInstanceOf(Function);
+    expect(Children.hasComplexChildren).toStrictEqual(hasComplexChildren);
 
     expect(onlyText).toBeInstanceOf(Function);
     expect(Children.onlyText).toStrictEqual(onlyText);
