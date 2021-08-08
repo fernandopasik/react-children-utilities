@@ -9,6 +9,6 @@ yarn*.*
 /coverage
 /lib
 /react-children-utilities.*
-_layouts/compress.html
+/docs/_layouts/compress.html
 _site
 .jekyll-cache
