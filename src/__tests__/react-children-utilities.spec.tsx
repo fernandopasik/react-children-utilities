@@ -6,6 +6,7 @@ import Children, {
   deepForEach,
   deepMap,
   filter,
+  getElementName,
   groupByType,
   hasChildren,
   hasComplexChildren,
@@ -29,6 +30,9 @@ describe('children', () => {
 
     expect(deepMap).toBeInstanceOf(Function);
     expect(Children.deepMap).toStrictEqual(deepMap);
+
+    expect(getElementName).toBeInstanceOf(Function);
+    expect(Children.getElementName).toStrictEqual(getElementName);
 
     expect(groupByType).toBeInstanceOf(Function);
     expect(Children.groupByType).toStrictEqual(groupByType);
