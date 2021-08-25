@@ -54,7 +54,6 @@
   "peerDependencies": {
     "react": "17.x.x || 16.x.x || 15.x.x"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
