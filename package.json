@@ -1,18 +1,11 @@
 {
   "name": "react-children-utilities",
   "version": "2.6.1",
+  "type": "module",
   "description": "Recursive and extended utils for React children opaque data structure",
-  "keywords": [
-    "children",
-    "react",
-    "reactjs",
-    "utilities",
-    "utils"
-  ],
+  "repository": "fernandopasik/react-children-utilities",
   "homepage": "https://fernandopasik.com/react-children-utilities",
   "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
-  "repository": "fernandopasik/react-children-utilities",
-  "license": "MIT",
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [
     "Brian Bartholomew (https://github.com/bcbrian)",
@@ -23,8 +16,7 @@
     "Ryosuke IWANAGA (https://github.com/riywo)",
     "yosef langer (https://github.com/vasilevich)"
   ],
-  "sideEffects": false,
-  "type": "module",
+  "license": "MIT",
   "main": "react-children-utilities.js",
   "module": "react-children-utilities.js",
   "typings": "react-children-utilities.d.ts",
@@ -32,9 +24,15 @@
     "/lib",
     "/react-children-utilities.*"
   ],
+  "keywords": [
+    "children",
+    "react",
+    "reactjs",
+    "utilities",
+    "utils"
+  ],
   "scripts": {
     "all-contributors": "all-contributors --config .all-contributorsrc.json",
-    "prebuild": "del lib react-children-utilities.*",
     "build": "tsc && rollup -c && yarn flowgen",
     "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
     "clean": "del coverage lib react-children-utilities.*",
@@ -42,8 +40,9 @@
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
     "format": "prettier --write .",
     "lint": "eslint . --ext js,jsx,ts,tsx",
-    "prepare": "husky install",
     "postpublish": "pinst --enable",
+    "prebuild": "del lib react-children-utilities.*",
+    "prepare": "husky install",
     "prepublishOnly": "pinst --disable",
     "preversion": "yarn verify",
     "size": "bundlewatch",
@@ -51,6 +50,9 @@
     "test:coverage": "jest --coverage",
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss && prettier docs/_sass/normalize.scss --write",
     "verify": "yarn lint && yarn check-types && yarn test:coverage && yarn build && yarn size"
+  },
+  "peerDependencies": {
+    "react": "17.x.x || 16.x.x || 15.x.x"
   },
   "dependencies": {},
   "devDependencies": {
@@ -96,9 +98,7 @@
     "type-fest": "^2.0.0",
     "typescript": "^4.3.5"
   },
-  "peerDependencies": {
-    "react": "17.x.x || 16.x.x || 15.x.x"
-  },
+  "sideEffects": false,
   "bundlewatch": {
     "files": [
       {
