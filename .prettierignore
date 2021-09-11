@@ -1,5 +1,7 @@
+.husky/_
 node_modules
-yarn*.*
+yarn-error.log
+yarn.lock
 .flowconfig
 /LICENSE
 /coverage
