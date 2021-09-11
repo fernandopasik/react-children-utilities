@@ -3731,6 +3731,11 @@ mute-stream@0.0.8:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
+mvdan-sh@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/mvdan-sh/-/mvdan-sh-0.5.0.tgz#fa76f611a103595ad0f04f5d18e582892c46e87c"
+  integrity sha512-UWbdl4LHd2fUnaEcOUFVWRdWGLkNoV12cKVIPiirYd8qM5VkCoCTXErlDubevrkEG7kGohvjRxAlTQmOqG80tw==
+
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
@@ -4123,6 +4128,13 @@ prettier-plugin-pkg@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/prettier-plugin-pkg/-/prettier-plugin-pkg-0.10.0.tgz#07d5acfcc3818dbec957e21e9860d7c3f80e02d4"
   integrity sha512-NvqkGTfAdB9Bu7txMaePQTieVAo4mvBGkWsdtOego5WwJT3cu6mLlYDBe/FEQ9gcW6+vjYiBwkP0qs3lBIZbfw==
+
+prettier-plugin-sh@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-sh/-/prettier-plugin-sh-0.7.1.tgz#a2d38de10e55919ea945a6e72c4815b16d6614ad"
+  integrity sha512-2MWRdGOSz0yf/z2kTKF1AqxDuH9MZD8faoDAz5ySGphxssi9oyM3Ys+jp7AfqsCXvGUDbRA4EJOlKS0yZKAW6w==
+  dependencies:
+    mvdan-sh "^0.5.0"
 
 prettier@^2.1.1, prettier@^2.3.2:
   version "2.3.2"
