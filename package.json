@@ -39,6 +39,7 @@
     "docs": "jekyll serve -s docs/",
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "postpublish": "pinst --enable",
     "prebuild": "del lib react-children-utilities.*",
