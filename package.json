@@ -99,6 +99,9 @@
     "type-fest": "^2.3.4",
     "typescript": "^4.4.3"
   },
+  "resolutions": {
+    "strip-ansi": "^6.0.1"
+  },
   "sideEffects": false,
   "bundlewatch": {
     "files": [
