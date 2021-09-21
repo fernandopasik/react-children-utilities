@@ -125,27 +125,27 @@ describe('onlyText', () => {
 
   describe('child to string', () => {
     it('string', () => {
-      expect(childToString('a')).toStrictEqual('a');
+      expect(childToString('a')).toBe('a');
     });
 
     it('number', () => {
-      expect(childToString(1)).toStrictEqual('1');
+      expect(childToString(1)).toBe('1');
     });
 
     it('boolean', () => {
-      expect(childToString(true)).toStrictEqual('');
+      expect(childToString(true)).toBe('');
     });
 
     it('{}', () => {
-      expect(childToString({})).toStrictEqual('');
+      expect(childToString({})).toBe('');
     });
 
     it('null', () => {
-      expect(childToString(null)).toStrictEqual('');
+      expect(childToString(null)).toBe('');
     });
 
     it('undefined', () => {
-      expect(childToString()).toStrictEqual('');
+      expect(childToString()).toBe('');
     });
   });
 });
