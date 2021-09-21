@@ -6,7 +6,7 @@ Recursive and extended utils for React children opaque data structure.
 
 [![Gzip Bundle Size](https://img.badgesize.io/https://unpkg.com/react-children-utilities/react-children-utilities.min.js?compression=gzip)](https://unpkg.com/react-children-utilities/react-children-utilities.min.js 'Gzip Bundle Size')
 [![Build Status](https://github.com/fernandopasik/react-children-utilities/actions/workflows/main.yml/badge.svg)](https://github.com/fernandopasik/react-children-utilities/actions/workflows/main.yml 'Build Status')
-[![Coverage Status](https://codecov.io/gh/fernandopasik/react-children-utilities/branch/master/graph/badge.svg)](https://codecov.io/gh/fernandopasik/react-children-utilities 'Coverage Status')
+[![Coverage Status](https://codecov.io/gh/fernandopasik/react-children-utilities/branch/main/graph/badge.svg)](https://codecov.io/gh/fernandopasik/react-children-utilities 'Coverage Status')
 [![Known Vulnerabilities](https://snyk.io/test/github/fernandopasik/react-children-utilities/badge.svg?targetFile=package.json)](https://snyk.io/test/github/fernandopasik/react-children-utilities?targetFile=package.json 'Known Vulnerabilities')
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
