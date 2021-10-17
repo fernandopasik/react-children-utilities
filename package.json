@@ -50,7 +50,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "update:normalize": "cp -rf node_modules/normalize.css/normalize.css docs/_sass/normalize.scss && prettier docs/_sass/normalize.scss --write",
-    "verify": "yarn lint && yarn check-types && yarn test:coverage && yarn build && yarn size"
+    "verify": "yarn format:check && yarn lint && yarn check-types && yarn test:coverage && yarn build && yarn size"
   },
   "peerDependencies": {
     "react": "17.x.x || 16.x.x || 15.x.x"
