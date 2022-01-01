@@ -1,13 +1,16 @@
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import type { ReadonlyDeep } from 'type-fest';
 import onlyValid from '../onlyValid.js';
 
 interface Props {
   children?: ReactNode;
 }
 
-const OnlyValid = ({ children }: Readonly<Props>): ReactElement => <div>{onlyValid(children)}</div>;
+const OnlyValid = ({ children }: ReadonlyDeep<Props>): ReactElement => (
+  <div>{onlyValid(children)}</div>
+);
 const CustomElement = (): ReactElement => <div>I am a react element</div>;
 
 describe('onlyValid', () => {

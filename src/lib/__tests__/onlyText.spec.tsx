@@ -2,13 +2,16 @@ import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
 import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
+import type { ReadonlyDeep } from 'type-fest';
 import onlyText, { childToString } from '../onlyText.js';
 
 interface Props {
   children?: ReactNode;
 }
 
-const OnlyText = ({ children }: Readonly<Props>): ReactElement => <div>{onlyText(children)}</div>;
+const OnlyText = ({ children }: ReadonlyDeep<Props>): ReactElement => (
+  <div>{onlyText(children)}</div>
+);
 
 describe('onlyText', () => {
   it('on nested elements', () => {
