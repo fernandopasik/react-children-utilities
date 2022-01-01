@@ -48,13 +48,13 @@ describe('hasComplexChildren', () => {
     });
 
     it('with null', () => {
-      const element = <>{null}</>;
+      const element = <div>{null}</div>;
 
       expect(hasComplexChildren(element)).toBe(false);
     });
 
     it('with false', () => {
-      const element = <>{null}</>;
+      const element = <div>{null}</div>;
 
       expect(hasComplexChildren(element)).toBe(false);
     });
@@ -66,13 +66,13 @@ describe('hasComplexChildren', () => {
     });
 
     it('with numbers', () => {
-      const element = <>{1}</>;
+      const element = <div>{1}</div>;
 
       expect(hasComplexChildren(element)).toBe(false);
     });
 
     it('with true', () => {
-      const element = <>{true}</>;
+      const element = <div>{true}</div>;
 
       expect(hasComplexChildren(element)).toBe(false);
     });
