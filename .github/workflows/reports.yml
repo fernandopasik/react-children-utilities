@@ -4,12 +4,14 @@ on:
     workflows: ['main']
     types:
       - completed
+
 jobs:
   report-lint:
     name: Lint Report
     runs-on: ubuntu-latest
     steps:
-      - uses: dorny/test-reporter@v1
+      - name: Publish Report
+        uses: dorny/test-reporter@v1
         with:
           artifact: lint-results
           name: Lint Report
@@ -19,7 +21,8 @@ jobs:
     name: Unit Tests Report
     runs-on: ubuntu-latest
     steps:
-      - uses: dorny/test-reporter@v1
+      - name: Publish Report
+        uses: dorny/test-reporter@v1
         with:
           artifact: unit-test-results
           name: Unit Tests Report
