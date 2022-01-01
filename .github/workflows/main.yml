@@ -61,9 +61,11 @@ jobs:
       - run: yarn test:coverage --ci --reporters=default --reporters=jest-junit
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/unit-test-results.xml'
-      - run: yarn codecov
+      - name: Upload Report to Codecov
+        uses: codecov/codecov-action@v2
         if: always()
-      - uses: actions/upload-artifact@v2
+      - name: Upload Report
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: unit-test-results
