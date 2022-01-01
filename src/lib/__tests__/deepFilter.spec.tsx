@@ -12,7 +12,12 @@ interface Props {
 describe('deepFilter', () => {
   it('nested elements', () => {
     const DeepFiltered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
+      <div>
+        {deepFilter(
+          children,
+          (item: ReadonlyDeep<ReactNode>) => (item as ReactElement).type === 'span',
+        )}
+      </div>
     );
 
     const element = TestRenderer.create(
@@ -51,7 +56,12 @@ describe('deepFilter', () => {
 
   it('non nested elements', () => {
     const DeepFiltered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
+      <div>
+        {deepFilter(
+          children,
+          (item: ReadonlyDeep<ReactNode>) => (item as ReactElement).type === 'span',
+        )}
+      </div>
     );
 
     const element = TestRenderer.create(
@@ -73,7 +83,12 @@ describe('deepFilter', () => {
 
   it('remove elements event if they have matching nested children', () => {
     const DeepFiltered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
+      <div>
+        {deepFilter(
+          children,
+          (item: ReadonlyDeep<ReactNode>) => (item as ReactElement).type === 'span',
+        )}
+      </div>
     );
 
     const element = TestRenderer.create(
@@ -110,7 +125,12 @@ describe('deepFilter', () => {
 
   it('keeps empty matching elements if children do not match', () => {
     const DeepFiltered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
+      <div>
+        {deepFilter(
+          children,
+          (item: ReadonlyDeep<ReactNode>) => (item as ReactElement).type === 'span',
+        )}
+      </div>
     );
 
     const element = TestRenderer.create(

@@ -13,7 +13,7 @@ describe('filter', () => {
   it('returns same children', () => {
     const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
-        {filter(children, (item: ReactNode) =>
+        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
           Boolean(isValidElement(item) && item.type === 'div'),
         )}
       </div>
@@ -34,7 +34,7 @@ describe('filter', () => {
   it('returns only matching children', () => {
     const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
-        {filter(children, (item: ReactNode) =>
+        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
           Boolean(isValidElement(item) && item.type === 'span'),
         )}
       </div>
@@ -57,7 +57,7 @@ describe('filter', () => {
   it('does not filter nested elements', () => {
     const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
-        {filter(children, (item: ReactNode) =>
+        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
           Boolean(isValidElement(item) && item.type === 'span'),
         )}
       </div>
@@ -81,7 +81,7 @@ describe('filter', () => {
   it('can handle empty children', () => {
     const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
-        {filter(children, (item: ReactNode) =>
+        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
           Boolean(isValidElement(item) && item.type === 'div'),
         )}
       </div>

@@ -13,7 +13,7 @@ describe('deepForEach', () => {
   it('on nested elements', () => {
     const DeepForEached = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       const items: ReactNode[] = [];
-      deepForEach(children, (child: ReactNode) => {
+      deepForEach(children, (child: ReadonlyDeep<ReactNode>) => {
         if (isValidElement(child) && child.type === 'b') {
           items.push((child as ReactElement<{ children: ReactNode | ReactNode[] }>).props.children);
         }
@@ -45,7 +45,7 @@ describe('deepForEach', () => {
   it('on non nested elements', () => {
     const DeepForEached = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       const items: ReactNode[] = [];
-      deepForEach(children, (child: ReactNode) => {
+      deepForEach(children, (child: ReadonlyDeep<ReactNode>) => {
         if (isValidElement<{ children?: ReactNode[] }>(child) && child.type === 'b') {
           items.push(child.props.children);
         }
@@ -67,7 +67,7 @@ describe('deepForEach', () => {
   it('on empty', () => {
     const DeepForEached = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       const items: ReactNode[] = [];
-      deepForEach(children, (child: ReactNode) => {
+      deepForEach(children, (child: ReadonlyDeep<ReactNode>) => {
         if (isValidElement<{ children?: ReactNode[] }>(child) && child.type === 'b') {
           items.push(child.props.children);
         }
