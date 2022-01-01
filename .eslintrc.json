@@ -29,7 +29,7 @@
     "max-lines": ["error", { "max": 130, "skipBlankLines": true, "skipComments": true }],
     "max-lines-per-function": [
       "error",
-      { "max": 20, "skipBlankLines": true, "skipComments": true }
+      { "max": 25, "skipBlankLines": true, "skipComments": true }
     ],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   }
