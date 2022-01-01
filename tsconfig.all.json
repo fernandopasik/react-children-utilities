@@ -1,6 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": { "allowJs": true, "noEmit": true, "outDir": "$$ts-jest" },
-  "exclude": ["**/*.flow", "/lib", "/react-children-utilities.*"],
-  "include": [".**/**/*", "**/*"]
-}

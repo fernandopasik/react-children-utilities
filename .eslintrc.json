@@ -19,7 +19,7 @@
       }
     }
   ],
-  "parserOptions": { "project": "./tsconfig.all.json" },
+  "parserOptions": { "project": "./tsconfig.json" },
   "rules": {
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
     "import/extensions": ["error", "always"],

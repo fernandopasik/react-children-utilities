@@ -33,8 +33,8 @@
   ],
   "scripts": {
     "all-contributors": "all-contributors --config .all-contributorsrc.json",
-    "build": "tsc && rollup -c && yarn flowgen",
-    "check-types": "tsc --noEmit -p tsconfig.all.json && flow",
+    "build": "tsc -p tsconfig.build.json && rollup -c && yarn flowgen",
+    "check-types": "tsc --noEmit && flow",
     "clean": "del coverage lib react-children-utilities.*",
     "docs": "jekyll serve -s docs/",
     "flowgen": "flowgen react-children-utilities.d.ts --quiet -o react-children-utilities.js.flow",
