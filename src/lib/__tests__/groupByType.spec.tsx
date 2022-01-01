@@ -1,6 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
+import type { ReadonlyDeep } from 'type-fest';
 import groupByType from '../groupByType.js';
 
 interface Props {
@@ -11,7 +12,7 @@ describe('groupByType', () => {
   it('groups elements with same tagName', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+    const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       elements = groupByType(children, ['span', 'strong']);
       return <div>{children}</div>;
     };
@@ -51,8 +52,8 @@ describe('groupByType', () => {
   it('can group react elements by name', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Example = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
-    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+    const Example = ({ children }: ReadonlyDeep<Props>): ReactElement => <div>{children}</div>;
+    const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       elements = groupByType(children, ['span', 'Example']);
       return <div>{children}</div>;
     };
@@ -74,8 +75,8 @@ describe('groupByType', () => {
   it('can group react elements by component function', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Example = ({ children }: Readonly<Props>): ReactElement => <div>{children}</div>;
-    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+    const Example = ({ children }: ReadonlyDeep<Props>): ReactElement => <div>{children}</div>;
+    const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       elements = groupByType(children, ['span', Example]);
       return <div>{children}</div>;
     };
@@ -105,7 +106,7 @@ describe('groupByType', () => {
       }
     }
 
-    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+    const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       elements = groupByType(children, ['span', Example]);
       return <div>{children}</div>;
     };
@@ -127,7 +128,7 @@ describe('groupByType', () => {
   it('groups the non matching types in rest', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+    const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       elements = groupByType(children, ['span', 'strong']);
       return <div>{children}</div>;
     };
@@ -159,7 +160,7 @@ describe('groupByType', () => {
   it('groups the non matching types in rest with a different key name', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+    const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       elements = groupByType(children, ['span', 'strong'], 'others');
       return <div>{children}</div>;
     };
@@ -182,7 +183,7 @@ describe('groupByType', () => {
   it('if no types provided groups everything on rest', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+    const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
       elements = groupByType(children);
       return <div>{children}</div>;
     };
@@ -211,7 +212,7 @@ describe('groupByType', () => {
     it('on empty children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -224,7 +225,7 @@ describe('groupByType', () => {
     it('on boolean children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -242,7 +243,7 @@ describe('groupByType', () => {
     it('on null children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -257,7 +258,7 @@ describe('groupByType', () => {
     it('on text children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };
@@ -270,7 +271,7 @@ describe('groupByType', () => {
     it('on number children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };
@@ -290,7 +291,7 @@ describe('groupByType', () => {
 
       const Example = (): ReactElement => <div />;
 
-      const Grouped = ({ children }: Readonly<Props>): ReactElement => {
+      const Grouped = ({ children }: ReadonlyDeep<Props>): ReactElement => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };

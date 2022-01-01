@@ -2,6 +2,7 @@ import type { ReactElement, ReactNode } from 'react';
 import React, { isValidElement } from 'react';
 import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
+import type { ReadonlyDeep } from 'type-fest';
 import filter from '../filter.js';
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
 
 describe('filter', () => {
   it('returns same children', () => {
-    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
+    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),
@@ -31,7 +32,7 @@ describe('filter', () => {
   });
 
   it('returns only matching children', () => {
-    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
+    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
@@ -54,7 +55,7 @@ describe('filter', () => {
   });
 
   it('does not filter nested elements', () => {
-    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
+    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
@@ -78,7 +79,7 @@ describe('filter', () => {
   });
 
   it('can handle empty children', () => {
-    const Filtered = ({ children }: Readonly<Props>): ReactElement => (
+    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),
