@@ -1,0 +1,15 @@
+name: Setup
+description: Setups latest Node LTS and installs dependencies
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        cache: yarn
+        check-latest: true
+        node-version: 16
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash

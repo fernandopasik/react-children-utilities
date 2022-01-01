@@ -11,38 +11,29 @@ jobs:
     name: Install Dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          check-latest: true
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: ./.github/actions/setup
   check-format:
     name: Check Format
     runs-on: ubuntu-latest
     needs: [install]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          check-latest: true
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: yarn format:check
   lint:
     name: Lint
     runs-on: ubuntu-latest
     needs: [install]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          check-latest: true
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: yarn lint --format junit -o reports/lint-results.xml
       - uses: actions/upload-artifact@v2
         if: always()
@@ -54,26 +45,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: [install]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          check-latest: true
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: yarn check-types
   unit-test:
     name: Unit Tests
     runs-on: ubuntu-latest
     needs: [install]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          check-latest: true
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: yarn test:coverage --ci --reporters=default --reporters=jest-junit
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/unit-test-results.xml'
@@ -89,13 +74,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [check-format, lint, check-types, unit-test]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          check-latest: true
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: ./.github/actions/setup
       - run: yarn build
       - uses: actions/upload-artifact@v2
         with:
@@ -106,13 +88,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-          check-latest: true
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: ./.github/actions/setup
       - uses: actions/download-artifact@v2
         with:
           name: bundle
