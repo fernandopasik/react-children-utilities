@@ -821,9 +821,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "17.0.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.10.tgz#616f16e9d3a2a3d618136b1be244315d95bd7cab"
-  integrity sha512-S/3xB4KzyFxYGCppyDt68yzBU9ysL88lSdIah4D6cptdcltc4NCPCAMc0+PCpg/lLIyC7IPvj2Z52OJWeIUkog==
+  version "17.0.11"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.11.tgz#e0630988ea4c75efde22d5b099360ecfe494160f"
+  integrity sha512-TgLsFcuinMobmML3PsILoRJq/h11/qS7UDlak1LUsazJcvJeKejEBuI1m5X2pBnMBF5T5HRAvtcnr4cV5nvc8Q==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -1610,9 +1610,9 @@ core-js-pure@^3.20.2:
   integrity sha512-Q2H6tQ5MtPtcC7f3HxJ48i4Q7T9ybPKgvWyuH7JXIoNa2pm0KuBnycsET/qw1SLLZYfbsbrZQNMeIOClb+6WIA==
 
 cosmiconfig-typescript-loader@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-1.0.3.tgz#528f2bb3e6b6705020dc42df659f24837e75b611"
-  integrity sha512-ARo21VjxdacJUcHxgVMEYNIoVPYiuKOEwWBIYej4M22+pEbe3LzKgmht2UPM+0u7/T/KnZf2r/5IzHv2Nwz+/w==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-1.0.4.tgz#2903d53aec07c8079c5ff4aa1b10bd5d2fbdff81"
+  integrity sha512-ulv2dvwurP/MZAIthXm69bO7EzzIUThZ6RJ1qXhdlXM6to3F+IKBL/17EnhYSG52A5N1KcAUu66vSG/3/77KrA==
   dependencies:
     cosmiconfig "^7"
     ts-node "^10.4.0"
@@ -1842,9 +1842,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.4.17:
-  version "1.4.51"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.51.tgz#a432f5a5d983ace79278a33057300cf949627e63"
-  integrity sha512-JNEmcYl3mk1tGQmy0EvL5eik/CKSBuzAyGP0QFdG6LIgxQe3II0BL1m2zKc2MZMf3uGqHWE1TFddJML0RpjSHQ==
+  version "1.4.52"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.52.tgz#ce44c6d6cc449e7688a4356b8c261cfeafa26833"
+  integrity sha512-JGkh8HEh5PnVrhU4HbpyyO0O791dVY6k7AdqfDeqbcRMeoGxtNHWT77deR2nhvbLe4dKpxjlDEvdEwrvRLGu2Q==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -2309,10 +2309,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.4.tgz#28d9969ea90661b5134259f312ab6aa7929ac5e2"
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
 
-flow-bin@^0.169.0:
-  version "0.169.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.169.0.tgz#3c25ecefc165929159f30b8eb5b8b74cc7ead9a7"
-  integrity sha512-CflYPrd4KiMh5RyvoJbkM5Az1PKDzFBCu3tHqNcZkHeCbYgtLAcYVTs1w8aKDXfTiBSPZ7B9u5KT5RdmsY2mzQ==
+flow-bin@^0.170.0:
+  version "0.170.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.170.0.tgz#1da264de9868cc20a338f801bedc370e3e06f5cc"
+  integrity sha512-h4qy4f5loKdeLhj7TRM6XQWhmPpnfjDcOg6GPDuJnLAQuB60LJIHZ8QL3hxMf0oA++NkiYx62Vr8oHu+UZ2bGQ==
 
 flowgen@^1.16.2:
   version "1.16.2"
@@ -3487,7 +3487,7 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-lint-staged@^12.2.2:
+lint-staged@^12.3.1:
   version "12.3.1"
   resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-12.3.1.tgz#d475b0c0d0a12d91dde58a429ac6268dea485f06"
   integrity sha512-Ocht/eT+4/siWOZDJpNUKcKX2UeWW/pDbohJ4gRsrafAjBi79JK8kiNVk2ciIVNKdw0Q4ABptl2nr6uQAlRImw==
@@ -4047,9 +4047,9 @@ pinst@^2.1.6:
     fromentries "^1.3.2"
 
 pirates@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.4.tgz#07df81e61028e402735cdd49db701e4885b4e6e6"
-  integrity sha512-ZIrVPH+A52Dw84R0L3/VS9Op04PuQ2SEoJL6bkshmiTic/HldyW9Tf7oH5mhJZBK7NmDx27vSMrYEXPXclpDKw==
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.5.tgz#feec352ea5c3268fb23a37c702ab1699f35a5f3b"
+  integrity sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==
 
 pkg-dir@^4.2.0:
   version "4.2.0"
