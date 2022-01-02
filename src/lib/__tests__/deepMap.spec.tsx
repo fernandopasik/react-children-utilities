@@ -42,10 +42,12 @@ describe('deepMap', () => {
     );
 
     const mapped = element.root.findAll(
+      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
       (node: ReadonlyDeep<ReactTestInstance>) =>
         node.type === 'b' && node.props.className === 'mapped',
     );
     const unmapped = element.root.findAll(
+      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
       (node: ReadonlyDeep<ReactTestInstance>) =>
         node.type === 'b' && node.props.className !== 'mapped',
     );
@@ -63,10 +65,12 @@ describe('deepMap', () => {
     );
 
     const mapped = element.root.findAll(
+      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
       (node: ReadonlyDeep<ReactTestInstance>) =>
         node.type === 'b' && node.props.className === 'mapped',
     );
     const unmapped = element.root.findAll(
+      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
       (node: ReadonlyDeep<ReactTestInstance>) =>
         node.type === 'b' && node.props.className !== 'mapped',
     );
