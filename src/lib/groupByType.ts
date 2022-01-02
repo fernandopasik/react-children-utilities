@@ -10,6 +10,7 @@ const groupByType = (
   types: readonly (ComponentClass<any> | FunctionComponent | string)[] = [],
   rest = 'rest',
 ): Record<string, ReactNode[]> => {
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   const typeNames: string[] = types.map((type) => (typeof type === 'string' ? type : type.name));
 
   return Children.toArray(children).reduce(
