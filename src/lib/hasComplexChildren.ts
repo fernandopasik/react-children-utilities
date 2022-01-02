@@ -5,7 +5,7 @@ import hasChildren from './hasChildren.js';
 
 const hasComplexChildren = (
   element: ReadonlyDeep<ReactNode>,
-): element is ReactElement<{ children: ReactNode | ReactNode[] }> =>
+): element is ReactElement<{ children: ReadonlyDeep<ReactNode | ReactNode[]> }> =>
   isValidElement(element) &&
   hasChildren(element) &&
   Children.toArray(element.props.children).reduce(

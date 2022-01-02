@@ -4,7 +4,8 @@ import type { ReadonlyDeep } from 'type-fest';
 
 const hasChildren = (
   element: ReadonlyDeep<ReactNode>,
-): element is ReactElement<{ children: ReactNode | ReactNode[] }> =>
-  isValidElement<{ children?: ReactNode[] }>(element) && Boolean(element.props.children);
+): element is ReactElement<{ children: ReadonlyDeep<ReactNode | ReactNode[]> }> =>
+  isValidElement<{ children?: ReadonlyDeep<ReactNode[]> }>(element) &&
+  Boolean(element.props.children);
 
 export default hasChildren;

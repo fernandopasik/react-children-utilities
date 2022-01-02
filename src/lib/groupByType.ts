@@ -1,10 +1,11 @@
 import type { ComponentClass, FunctionComponent, ReactNode } from 'react';
 import { Children } from 'react';
+import type { ReadonlyDeep } from 'type-fest';
 import getElementName from './getElementName.js';
 
 // eslint-disable-next-line max-lines-per-function
 const groupByType = (
-  children: ReactNode | ReactNode[],
+  children: ReadonlyDeep<ReactNode | ReactNode[]>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   types: readonly (ComponentClass<any> | FunctionComponent | string)[] = [],
   rest = 'rest',
@@ -12,7 +13,7 @@ const groupByType = (
   const typeNames: string[] = types.map((type) => (typeof type === 'string' ? type : type.name));
 
   return Children.toArray(children).reduce(
-    (groups: Readonly<Record<string, ReactNode[]>>, child: ReactNode) => {
+    (groups: Readonly<Record<string, ReactNode[]>>, child: ReadonlyDeep<ReactNode>) => {
       const newGroups = { ...groups };
       const elementName = getElementName(child);
       const key = elementName !== null && typeNames.includes(elementName) ? elementName : rest;

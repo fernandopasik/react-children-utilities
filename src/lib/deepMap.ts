@@ -1,13 +1,18 @@
 import type { ReactNode } from 'react';
 import { Children, cloneElement, isValidElement } from 'react';
+import type { ReadonlyDeep } from 'type-fest';
 import hasComplexChildren from './hasComplexChildren.js';
 
 const deepMap = (
-  children: ReactNode | ReactNode[],
-  deepMapFn: (child: ReactNode, index?: number, children?: readonly ReactNode[]) => ReactNode,
+  children: ReadonlyDeep<ReactNode | ReactNode[]>,
+  deepMapFn: (
+    child: ReadonlyDeep<ReactNode>,
+    index?: number,
+    children?: ReadonlyDeep<ReactNode[]>,
+  ) => ReactNode,
 ): ReactNode[] =>
   Children.toArray(children).map(
-    (child: ReactNode, index: number, mapChildren: readonly ReactNode[]) => {
+    (child: ReadonlyDeep<ReactNode>, index: number, mapChildren: ReadonlyDeep<ReactNode[]>) => {
       if (isValidElement(child) && hasComplexChildren(child)) {
         // Clone the child that has children and map them too
         return deepMapFn(
