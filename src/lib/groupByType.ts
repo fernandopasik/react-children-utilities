@@ -13,18 +13,18 @@ const groupByType = (
   const typeNames: string[] = types.map((type) => (typeof type === 'string' ? type : type.name));
 
   return Children.toArray(children).reduce(
-    (groups: Readonly<Record<string, ReactNode[]>>, child: ReadonlyDeep<ReactNode>) => {
-      const newGroups = { ...groups };
+    // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+    (acc: Record<string, ReactNode[]>, child: ReadonlyDeep<ReactNode>) => {
       const elementName = getElementName(child);
       const key = elementName !== null && typeNames.includes(elementName) ? elementName : rest;
 
-      if (typeof newGroups[key] === 'undefined') {
-        newGroups[key] = [];
+      if (typeof acc[key] === 'undefined') {
+        acc[key] = [];
       }
 
-      newGroups[key] = [...newGroups[key], child];
+      acc[key] = [...acc[key], child];
 
-      return newGroups;
+      return acc;
     },
     {},
   );
