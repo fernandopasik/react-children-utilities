@@ -17,13 +17,9 @@ Recursive and extended utils for React children opaque data structure.
 
 ## Installation
 
-Available as a package and can be added to your application with npm or yarn after installing the peer dependency `react`
+Can be added to your application after installing the peer dependency `react`
 
 ```sh
-# with yarn
-yarn add react-children-utilities react
-
-# with npm
 npm install --save react-children-utilities
 ```
 
