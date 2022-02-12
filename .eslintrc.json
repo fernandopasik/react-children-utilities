@@ -14,6 +14,7 @@
         "@typescript-eslint/no-magic-numbers": "off",
         "@typescript-eslint/naming-convention": "off",
         "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "jest/no-conditional-in-test": "off",
         "max-lines": "off",
         "max-lines-per-function": "off"
       }
