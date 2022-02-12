@@ -24,7 +24,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check Format
-        run: yarn format:check
+        run: npm run format:check
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Lint
-        run: yarn lint --format junit -o reports/lint-results.xml
+        run: npm run lint -- --format junit -o reports/lint-results.xml
       - name: Upload Report
         uses: actions/upload-artifact@v2
         if: always()
@@ -52,7 +52,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check Typescript Types
-        run: yarn check-types
+        run: npm run check-types
   unit-test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -63,7 +63,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Unit Tests
-        run: yarn test:coverage --ci --reporters=default --reporters=jest-junit
+        run: npm run test:coverage -- --ci --reporters=default --reporters=jest-junit
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/unit-test-results.xml'
       - name: Upload Report to Codecov
@@ -89,7 +89,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -109,4 +109,4 @@ jobs:
         with:
           name: bundle
       - name: Check Size
-        run: yarn size
+        run: npm run size

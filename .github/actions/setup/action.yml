@@ -7,9 +7,9 @@ runs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        cache: yarn
+        cache: npm
         check-latest: true
         node-version: 16
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: npm ci
       shell: bash

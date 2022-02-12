@@ -13,7 +13,6 @@ Thumbs.db
 # npm
 node_modules
 npm-debug.log
-yarn-error.log
 
 # test files
 coverage
