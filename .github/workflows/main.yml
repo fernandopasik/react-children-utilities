@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
   check-format:
@@ -20,7 +20,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check Format
@@ -31,13 +31,13 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Lint
         run: npm run lint -- --format junit -o reports/lint-results.xml
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: lint-results
@@ -48,7 +48,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check Typescript Types
@@ -59,7 +59,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Unit Tests
@@ -70,7 +70,7 @@ jobs:
         uses: codecov/codecov-action@v2
         if: always()
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: unit-test-results
@@ -85,13 +85,13 @@ jobs:
       - unit-test
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
         run: npm run build
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: bundle
           path: react-children-utilities.min.*
@@ -101,11 +101,11 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Download Build Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: bundle
       - name: Check Size
