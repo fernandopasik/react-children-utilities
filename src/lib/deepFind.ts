@@ -3,14 +3,14 @@ import { Children, isValidElement } from 'react';
 import type { ReadonlyDeep } from 'type-fest';
 import hasComplexChildren from './hasComplexChildren.js';
 
-const deepFind = (
+function deepFind(
   children: ReadonlyDeep<ReactNode | ReactNode[]>,
   deepFindFn: (
     child: ReadonlyDeep<ReactNode>,
     index?: number,
     children?: ReadonlyDeep<ReactNode[]>,
   ) => boolean,
-): ReactNode | undefined => {
+): ReactNode | undefined {
   // eslint-disable-next-line @typescript-eslint/init-declarations
   let found;
 
@@ -32,6 +32,6 @@ const deepFind = (
   );
 
   return found;
-};
+}
 
 export default deepFind;

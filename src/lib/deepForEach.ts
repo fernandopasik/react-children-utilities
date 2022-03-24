@@ -3,10 +3,10 @@ import { Children, isValidElement } from 'react';
 import type { ReadonlyDeep } from 'type-fest';
 import hasComplexChildren from './hasComplexChildren.js';
 
-const deepForEach = (
+function deepForEach(
   children: ReadonlyDeep<ReactNode | ReactNode[]>,
   deepForEachFn: (child: ReadonlyDeep<ReactNode>, index?: number) => void,
-): void => {
+): void {
   Children.forEach(children, (child: ReadonlyDeep<ReactNode>, index: number) => {
     if (isValidElement(child) && hasComplexChildren(child)) {
       // Each inside the child that has children
@@ -14,6 +14,6 @@ const deepForEach = (
     }
     deepForEachFn(child, index);
   });
-};
+}
 
 export default deepForEach;

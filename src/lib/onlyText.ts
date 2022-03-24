@@ -3,7 +3,7 @@ import { Children, isValidElement } from 'react';
 import type { ReadonlyDeep } from 'type-fest';
 import hasChildren from './hasChildren.js';
 
-export const childToString = (child?: ReadonlyDeep<ReactNode>): string => {
+export function childToString(child?: ReadonlyDeep<ReactNode>): string {
   if (typeof child === 'undefined' || child === null || typeof child === 'boolean') {
     return '';
   }
@@ -13,9 +13,9 @@ export const childToString = (child?: ReadonlyDeep<ReactNode>): string => {
   }
 
   return (child as number | string).toString();
-};
+}
 
-const onlyText = (children: ReadonlyDeep<ReactNode | ReactNode[]>): string => {
+function onlyText(children: ReadonlyDeep<ReactNode | ReactNode[]>): string {
   if (!(children instanceof Array) && !isValidElement(children)) {
     return childToString(children);
   }
@@ -36,6 +36,6 @@ const onlyText = (children: ReadonlyDeep<ReactNode | ReactNode[]>): string => {
     },
     '',
   );
-};
+}
 
 export default onlyText;

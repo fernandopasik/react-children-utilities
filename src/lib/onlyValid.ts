@@ -3,7 +3,7 @@ import { isValidElement } from 'react';
 import type { ReadonlyDeep } from 'type-fest';
 import deepFilter from './deepFilter.js';
 
-const onlyValid = (children: ReadonlyDeep<ReactNode | ReactNode[]>): ReactNode[] =>
-  deepFilter(children, (child: ReadonlyDeep<ReactNode>) => isValidElement(child));
-
+function onlyValid(children: ReadonlyDeep<ReactNode | ReactNode[]>): ReactNode[] {
+  return deepFilter(children, (child: ReadonlyDeep<ReactNode>) => isValidElement(child));
+}
 export default onlyValid;

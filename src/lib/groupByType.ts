@@ -4,12 +4,12 @@ import type { ReadonlyDeep } from 'type-fest';
 import getElementName from './getElementName.js';
 
 // eslint-disable-next-line max-lines-per-function
-const groupByType = (
+function groupByType(
   children: ReadonlyDeep<ReactNode | ReactNode[]>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/prefer-readonly-parameter-types
   types: readonly (ComponentClass<any> | FunctionComponent | string)[] = [],
   rest = 'rest',
-): Record<string, ReactNode[]> => {
+): Record<string, ReactNode[]> {
   // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   const typeNames: string[] = types.map((type) => (typeof type === 'string' ? type : type.name));
 
@@ -29,6 +29,6 @@ const groupByType = (
     },
     {},
   );
-};
+}
 
 export default groupByType;
