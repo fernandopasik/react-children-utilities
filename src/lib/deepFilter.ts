@@ -1,19 +1,14 @@
 import type { ReactNode } from 'react';
 import { Children, cloneElement, isValidElement } from 'react';
-import type { ReadonlyDeep } from 'type-fest';
 import hasComplexChildren from './hasComplexChildren.js';
 
 const deepFilter = (
-  children: ReadonlyDeep<ReactNode | ReactNode[]>,
-  deepFilterFn: (
-    child: ReadonlyDeep<ReactNode>,
-    index?: number,
-    children?: ReadonlyDeep<ReactNode[]>,
-  ) => boolean,
+  children: ReactNode | ReactNode[],
+  deepFilterFn: (child: ReactNode, index?: number, children?: ReactNode[]) => boolean,
 ): ReactNode[] =>
   Children.toArray(children)
     .filter(deepFilterFn)
-    .map((child: ReadonlyDeep<ReactNode>) => {
+    .map((child: ReactNode) => {
       if (isValidElement(child) && hasComplexChildren(child)) {
         // Clone the child that has children and filter them too
         return cloneElement(child, {

@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 import { isValidElement } from 'react';
-import type { ReadonlyDeep } from 'type-fest';
 
-const getElementName = (element: ReadonlyDeep<ReactNode>): string | null => {
+const getElementName = (element: ReactNode): string | null => {
   if (!isValidElement(element)) {
     return null;
   }
