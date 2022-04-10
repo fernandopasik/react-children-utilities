@@ -23,6 +23,7 @@
   "parserOptions": { "project": "./tsconfig.json" },
   "rules": {
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
+    "@typescript-eslint/prefer-readonly-parameter-types": "off",
     "import/extensions": ["error", "always"],
     "import/no-unresolved": "off",
     "jest/no-hooks": "off",
