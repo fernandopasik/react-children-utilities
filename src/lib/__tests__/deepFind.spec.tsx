@@ -1,23 +1,13 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
 import React from 'react';
 import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
-import type { ReadonlyDeep } from 'type-fest';
 import deepFind from '../deepFind.js';
-
-interface Props {
-  children?: ReactNode;
-}
 
 describe('deepFind', () => {
   it('a nested element', () => {
-    const DeepFound = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>
-        {deepFind(
-          children,
-          (child: ReadonlyDeep<ReactNode>) => (child as ReactElement).type === 'i',
-        )}
-      </div>
+    const DeepFound: FC = ({ children = [] }) => (
+      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
     const element = TestRenderer.create(
@@ -40,13 +30,8 @@ describe('deepFind', () => {
   });
 
   it('a matching element with matching nested elements', () => {
-    const DeepFound = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>
-        {deepFind(
-          children,
-          (child: ReadonlyDeep<ReactNode>) => (child as ReactElement).type === 'i',
-        )}
-      </div>
+    const DeepFound: FC = ({ children }) => (
+      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
     const element = TestRenderer.create(
@@ -71,13 +56,8 @@ describe('deepFind', () => {
   });
 
   it('a non nested element', () => {
-    const DeepFound = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>
-        {deepFind(
-          children,
-          (child: ReadonlyDeep<ReactNode>) => (child as ReactElement).type === 'i',
-        )}
-      </div>
+    const DeepFound: FC = ({ children }) => (
+      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
     const element = TestRenderer.create(
@@ -97,13 +77,8 @@ describe('deepFind', () => {
   });
 
   it('can not find anything', () => {
-    const DeepFound = ({ children }: ReadonlyDeep<Props>): ReactElement => (
-      <div>
-        {deepFind(
-          children,
-          (child: ReadonlyDeep<ReactNode>) => (child as ReactElement).type === 'i',
-        )}
-      </div>
+    const DeepFound: FC = ({ children }) => (
+      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
     const element = TestRenderer.create(

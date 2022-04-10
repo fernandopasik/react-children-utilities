@@ -1,19 +1,14 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 import React, { isValidElement } from 'react';
 import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
-import type { ReadonlyDeep } from 'type-fest';
 import filter from '../filter.js';
-
-interface Props {
-  children?: ReactNode;
-}
 
 describe('filter', () => {
   it('returns same children', () => {
-    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
+    const Filtered: FC = ({ children }) => (
       <div>
-        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
+        {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),
         )}
       </div>
@@ -32,9 +27,9 @@ describe('filter', () => {
   });
 
   it('returns only matching children', () => {
-    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
+    const Filtered: FC = ({ children }) => (
       <div>
-        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
+        {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
         )}
       </div>
@@ -55,9 +50,9 @@ describe('filter', () => {
   });
 
   it('does not filter nested elements', () => {
-    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
+    const Filtered: FC = ({ children }) => (
       <div>
-        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
+        {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
         )}
       </div>
@@ -79,9 +74,9 @@ describe('filter', () => {
   });
 
   it('can handle empty children', () => {
-    const Filtered = ({ children }: ReadonlyDeep<Props>): ReactElement => (
+    const Filtered: FC = ({ children }) => (
       <div>
-        {filter(children, (item: ReadonlyDeep<ReactNode>) =>
+        {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),
         )}
       </div>

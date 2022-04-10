@@ -1,17 +1,12 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 import React, { cloneElement, isValidElement } from 'react';
 import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
-import type { ReadonlyDeep } from 'type-fest';
 import deepMap from '../deepMap.js';
 
-interface Props {
-  children?: ReactNode;
-}
-
-const DeepMapped = ({ children }: ReadonlyDeep<Props>): ReactElement => (
+const DeepMapped: FC = ({ children }) => (
   <div>
-    {deepMap(children, (child: ReadonlyDeep<ReactNode>) => {
+    {deepMap(children, (child: ReactNode) => {
       if (isValidElement<{ className: string }>(child) && child.type === 'b') {
         return cloneElement(child, {
           ...child.props,
@@ -42,14 +37,10 @@ describe('deepMap', () => {
     );
 
     const mapped = element.root.findAll(
-      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-      (node: ReadonlyDeep<ReactTestInstance>) =>
-        node.type === 'b' && node.props.className === 'mapped',
+      (node: ReactTestInstance) => node.type === 'b' && node.props.className === 'mapped',
     );
     const unmapped = element.root.findAll(
-      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-      (node: ReadonlyDeep<ReactTestInstance>) =>
-        node.type === 'b' && node.props.className !== 'mapped',
+      (node: ReactTestInstance) => node.type === 'b' && node.props.className !== 'mapped',
     );
 
     expect(mapped).toHaveLength(5);
@@ -65,14 +56,10 @@ describe('deepMap', () => {
     );
 
     const mapped = element.root.findAll(
-      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-      (node: ReadonlyDeep<ReactTestInstance>) =>
-        node.type === 'b' && node.props.className === 'mapped',
+      (node: ReactTestInstance) => node.type === 'b' && node.props.className === 'mapped',
     );
     const unmapped = element.root.findAll(
-      // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-      (node: ReadonlyDeep<ReactTestInstance>) =>
-        node.type === 'b' && node.props.className !== 'mapped',
+      (node: ReactTestInstance) => node.type === 'b' && node.props.className !== 'mapped',
     );
 
     expect(mapped).toHaveLength(2);
