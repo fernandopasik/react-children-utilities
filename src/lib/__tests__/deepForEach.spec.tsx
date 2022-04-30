@@ -4,9 +4,14 @@ import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
 import deepForEach from '../deepForEach.js';
 
+interface Props {
+  // eslint-disable-next-line react/require-default-props
+  children?: ReactNode;
+}
+
 describe('deepForEach', () => {
   it('on nested elements', () => {
-    const DeepForEached: FC = ({ children }) => {
+    const DeepForEached: FC<Props> = ({ children }) => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
         if (isValidElement(child) && child.type === 'b') {
@@ -38,7 +43,7 @@ describe('deepForEach', () => {
   });
 
   it('on non nested elements', () => {
-    const DeepForEached: FC = ({ children }) => {
+    const DeepForEached: FC<Props> = ({ children }) => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
         if (isValidElement<{ children?: ReactNode[] }>(child) && child.type === 'b') {
@@ -60,7 +65,7 @@ describe('deepForEach', () => {
   });
 
   it('on empty', () => {
-    const DeepForEached: FC = ({ children }) => {
+    const DeepForEached: FC<Props> = ({ children }) => {
       const items: ReactNode[] = [];
       deepForEach(children, (child: ReactNode) => {
         if (isValidElement<{ children?: ReactNode[] }>(child) && child.type === 'b') {

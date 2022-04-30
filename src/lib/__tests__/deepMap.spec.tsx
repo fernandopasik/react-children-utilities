@@ -4,7 +4,12 @@ import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-render
 import TestRenderer from 'react-test-renderer';
 import deepMap from '../deepMap.js';
 
-const DeepMapped: FC = ({ children }) => (
+interface Props {
+  // eslint-disable-next-line react/require-default-props
+  children?: ReactNode;
+}
+
+const DeepMapped: FC<Props> = ({ children }) => (
   <div>
     {deepMap(children, (child: ReactNode) => {
       if (isValidElement<{ className: string }>(child) && child.type === 'b') {

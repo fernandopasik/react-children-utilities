@@ -4,9 +4,14 @@ import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
 import deepFilter from '../deepFilter.js';
 
+interface Props {
+  // eslint-disable-next-line react/require-default-props
+  children?: ReactNode;
+}
+
 describe('deepFilter', () => {
   it('nested elements', () => {
-    const DeepFiltered: FC = ({ children }) => (
+    const DeepFiltered: FC<Props> = ({ children }) => (
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
@@ -45,7 +50,7 @@ describe('deepFilter', () => {
   });
 
   it('non nested elements', () => {
-    const DeepFiltered: FC = ({ children }) => (
+    const DeepFiltered: FC<Props> = ({ children }) => (
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
@@ -67,7 +72,7 @@ describe('deepFilter', () => {
   });
 
   it('remove elements event if they have matching nested children', () => {
-    const DeepFiltered: FC = ({ children }) => (
+    const DeepFiltered: FC<Props> = ({ children }) => (
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
@@ -104,7 +109,7 @@ describe('deepFilter', () => {
   });
 
   it('keeps empty matching elements if children do not match', () => {
-    const DeepFiltered: FC = ({ children }) => (
+    const DeepFiltered: FC<Props> = ({ children }) => (
       <div>{deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}</div>
     );
 
