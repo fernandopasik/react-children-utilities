@@ -67,7 +67,7 @@ jobs:
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/unit-test-results.xml'
       - name: Upload Report to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         if: always()
       - name: Upload Report
         uses: actions/upload-artifact@v3
