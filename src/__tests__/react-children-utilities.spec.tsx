@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default-member, jest/max-expects */
 
 import Children, {
   deepFilter,
