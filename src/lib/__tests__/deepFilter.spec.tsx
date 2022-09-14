@@ -31,7 +31,7 @@ describe('deepFilter', () => {
     const { children } = element.toJSON() as ReactTestRendererJSON;
 
     expect(children).toMatchInlineSnapshot(`
-      Array [
+      [
         <span>
           1
         </span>,
@@ -63,7 +63,7 @@ describe('deepFilter', () => {
     const { children } = element.toJSON() as ReactTestRendererJSON;
 
     expect(children).toMatchInlineSnapshot(`
-      Array [
+      [
         <span>
           2
         </span>,
@@ -92,7 +92,7 @@ describe('deepFilter', () => {
     const { children } = element.toJSON() as ReactTestRendererJSON;
 
     expect(children).toMatchInlineSnapshot(`
-      Array [
+      [
         <span>
           1
         </span>,
@@ -129,7 +129,7 @@ describe('deepFilter', () => {
     const { children } = element.toJSON() as ReactTestRendererJSON;
 
     expect(children).toMatchInlineSnapshot(`
-      Array [
+      [
         <span>
           1
         </span>,

@@ -308,15 +308,15 @@ describe('groupByType', () => {
       );
 
       expect(elements).toMatchInlineSnapshot(`
-Object {
-  "rest": Array [
-    "example",
-    "with some words",
-    3,
-    <Example />,
-  ],
-}
-`);
+        {
+          "rest": [
+            "example",
+            "with some words",
+            3,
+            <Example />,
+          ],
+        }
+      `);
     });
   });
 });
