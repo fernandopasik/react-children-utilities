@@ -37,7 +37,7 @@ content_table:
       - title: onlyValid
         url: /only-valid
 
-google_analytics: UA-5425682-4
+google_analytics: G-2MWB7NGC05
 
 sass:
   style: compressed
