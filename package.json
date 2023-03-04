@@ -2,7 +2,7 @@
   "name": "react-children-utilities",
   "version": "2.8.0",
   "type": "module",
-  "description": "Recursive and extended utils for React children opaque data structure",
+  "description": "Extended utils for ⚛️ React.Children data structure that adds recursive filter, map and more methods to iterate nested children.",
   "repository": "fernandopasik/react-children-utilities",
   "homepage": "https://fernandopasik.com/react-children-utilities",
   "bugs": "https://github.com/fernandopasik/react-children-utilities/issues",
