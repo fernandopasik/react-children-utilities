@@ -1,6 +1,6 @@
 # React Children Utilities
 
-Recursive and extended utils for React children opaque data structure.
+Extended utils for ⚛️ React.Children data structure that adds recursive filter, map and more methods to iterate nested children.
 
 <!-- BADGES - START -->
 
