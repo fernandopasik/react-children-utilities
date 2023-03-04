@@ -58,6 +58,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@rollup/plugin-terser": "^0.4.0",
     "@types/jest": "^29.4.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -93,7 +94,6 @@
     "react-dom": "^18.2.0",
     "react-test-renderer": "^18.2.0",
     "rollup": "^3.18.0",
-    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.5"
   },
