@@ -1,6 +1,6 @@
 {
   "name": "react-children-utilities",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "type": "module",
   "description": "Extended utils for ⚛️ React.Children data structure that adds recursive filter, map and more methods to iterate nested children.",
   "repository": "fernandopasik/react-children-utilities",
