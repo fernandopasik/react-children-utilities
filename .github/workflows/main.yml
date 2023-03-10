@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup
-        uses: fernandopasik/actions/setup-node
+        uses: fernandopasik/actions/setup-node@main
   check-format:
     name: Check Format
     runs-on: ubuntu-latest
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup
-        uses: fernandopasik/actions/setup-node
+        uses: fernandopasik/actions/setup-node@main
       - name: Check Format
         run: npm run format:check
   lint:
@@ -33,7 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup
-        uses: fernandopasik/actions/setup-node
+        uses: fernandopasik/actions/setup-node@main
       - name: Lint
         run: npm run lint -- --format junit -o reports/lint-results.xml
       - name: Upload Report
@@ -50,7 +50,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup
-        uses: fernandopasik/actions/setup-node
+        uses: fernandopasik/actions/setup-node@main
       - name: Check Typescript Types
         run: npm run check-types
   unit-test:
@@ -61,7 +61,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup
-        uses: fernandopasik/actions/setup-node
+        uses: fernandopasik/actions/setup-node@main
       - name: Unit Tests
         run: npm run test:coverage -- --ci --reporters=default --reporters=jest-junit
         env:
@@ -87,7 +87,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup
-        uses: fernandopasik/actions/setup-node
+        uses: fernandopasik/actions/setup-node@main
       - name: Build
         run: npm run build
       - name: Upload Build Artifact
@@ -103,7 +103,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup
-        uses: fernandopasik/actions/setup-node
+        uses: fernandopasik/actions/setup-node@main
       - name: Download Build Artifact
         uses: actions/download-artifact@v3
         with:
