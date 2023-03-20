@@ -5,7 +5,7 @@ import getElementName from './getElementName.js';
 // eslint-disable-next-line max-lines-per-function
 const groupByType = (
   children: ReactNode | ReactNode[],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/prefer-readonly-parameter-types
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   types: readonly (ComponentClass<any> | FunctionComponent | string)[] = [],
   rest = 'rest',
 ): Record<string, ReactNode[]> => {
