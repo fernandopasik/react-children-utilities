@@ -6,7 +6,7 @@ import getElementName from './getElementName.js';
 const groupByType = (
   children: ReactNode | ReactNode[],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  types: readonly (ComponentClass<any> | FunctionComponent | string)[] = [],
+  types: (ComponentClass<any> | FunctionComponent | string)[] = [],
   rest = 'rest',
 ): Record<string, ReactNode[]> => {
   const typeNames: string[] = types.map((type) => (typeof type === 'string' ? type : type.name));
