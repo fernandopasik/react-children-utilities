@@ -9,6 +9,10 @@ jobs:
   report-lint:
     name: Lint Report
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      checks: write
     steps:
       - name: Publish Report
         uses: dorny/test-reporter@v1
@@ -20,6 +24,10 @@ jobs:
   report-unit-test:
     name: Unit Tests Report
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      checks: write
     steps:
       - name: Publish Report
         uses: dorny/test-reporter@v1
