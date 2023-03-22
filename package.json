@@ -53,7 +53,7 @@
     "verify": "npm run format:check && npm run lint && npm run check-types && npm run test:coverage && npm run build && npm run size"
   },
   "peerDependencies": {
-    "react": "18 || 17 || 16 || 15"
+    "react": ">=15"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.0",
