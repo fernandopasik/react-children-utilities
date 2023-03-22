@@ -2,7 +2,6 @@ import type { ComponentClass, FunctionComponent, ReactNode } from 'react';
 import { Children } from 'react';
 import getElementName from './getElementName.js';
 
-// eslint-disable-next-line max-lines-per-function
 const groupByType = (
   children: ReactNode | ReactNode[],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
