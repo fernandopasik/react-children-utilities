@@ -1,17 +1,12 @@
-import type { FC, ReactElement, ReactNode } from 'react';
+import type { FC, PropsWithChildren, ReactElement, ReactNode } from 'react';
 import React from 'react';
 import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
 import deepFind from '../deepFind.js';
 
-interface Props {
-  // eslint-disable-next-line react/require-default-props
-  children?: ReactNode;
-}
-
 describe('deepFind', () => {
   it('a nested element', () => {
-    const DeepFound: FC<Props> = ({ children = [] }) => (
+    const DeepFound: FC<PropsWithChildren> = ({ children = [] }) => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
@@ -35,7 +30,7 @@ describe('deepFind', () => {
   });
 
   it('a matching element with matching nested elements', () => {
-    const DeepFound: FC<Props> = ({ children }) => (
+    const DeepFound: FC<PropsWithChildren> = ({ children }) => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
@@ -61,7 +56,7 @@ describe('deepFind', () => {
   });
 
   it('a non nested element', () => {
-    const DeepFound: FC<Props> = ({ children }) => (
+    const DeepFound: FC<PropsWithChildren> = ({ children }) => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 
@@ -82,7 +77,7 @@ describe('deepFind', () => {
   });
 
   it('can not find anything', () => {
-    const DeepFound: FC<Props> = ({ children }) => (
+    const DeepFound: FC<PropsWithChildren> = ({ children }) => (
       <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
     );
 

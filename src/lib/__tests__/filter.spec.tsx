@@ -1,17 +1,12 @@
-import type { FC, ReactNode } from 'react';
+import type { FC, PropsWithChildren, ReactNode } from 'react';
 import React, { isValidElement } from 'react';
 import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
 import filter from '../filter.js';
 
-interface Props {
-  // eslint-disable-next-line react/require-default-props
-  children?: ReactNode;
-}
-
 describe('filter', () => {
   it('returns same children', () => {
-    const Filtered: FC<Props> = ({ children }) => (
+    const Filtered: FC<PropsWithChildren> = ({ children }) => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),
@@ -32,7 +27,7 @@ describe('filter', () => {
   });
 
   it('returns only matching children', () => {
-    const Filtered: FC<Props> = ({ children }) => (
+    const Filtered: FC<PropsWithChildren> = ({ children }) => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
@@ -55,7 +50,7 @@ describe('filter', () => {
   });
 
   it('does not filter nested elements', () => {
-    const Filtered: FC<Props> = ({ children }) => (
+    const Filtered: FC<PropsWithChildren> = ({ children }) => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'span'),
@@ -79,7 +74,7 @@ describe('filter', () => {
   });
 
   it('can handle empty children', () => {
-    const Filtered: FC<Props> = ({ children }) => (
+    const Filtered: FC<PropsWithChildren> = ({ children }) => (
       <div>
         {filter(children, (item: ReactNode) =>
           Boolean(isValidElement(item) && item.type === 'div'),

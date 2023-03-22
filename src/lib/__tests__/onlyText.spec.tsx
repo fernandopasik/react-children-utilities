@@ -1,15 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { FC, PropsWithChildren, ReactNode } from 'react';
 import React from 'react';
 import type { ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
 import onlyText, { childToString } from '../onlyText.js';
 
-interface Props {
-  // eslint-disable-next-line react/require-default-props
-  children?: ReactNode;
-}
-
-const OnlyText: FC<Props> = ({ children }) => <div>{onlyText(children)}</div>;
+const OnlyText: FC<PropsWithChildren> = ({ children }) => <div>{onlyText(children)}</div>;
 
 describe('onlyText', () => {
   it('on nested elements', () => {

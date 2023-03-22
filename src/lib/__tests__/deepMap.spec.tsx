@@ -1,15 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { FC, PropsWithChildren, ReactNode } from 'react';
 import React, { cloneElement, isValidElement } from 'react';
 import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-renderer';
 import TestRenderer from 'react-test-renderer';
 import deepMap from '../deepMap.js';
 
-interface Props {
-  // eslint-disable-next-line react/require-default-props
-  children?: ReactNode;
-}
-
-const DeepMapped: FC<Props> = ({ children }) => (
+const DeepMapped: FC<PropsWithChildren> = ({ children }) => (
   <div>
     {deepMap(children, (child: ReactNode) => {
       if (isValidElement<{ className: string }>(child) && child.type === 'b') {

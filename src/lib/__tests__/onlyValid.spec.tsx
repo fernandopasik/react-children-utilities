@@ -1,15 +1,10 @@
-import type { FC, ReactNode } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import onlyValid from '../onlyValid.js';
 
-interface Props {
-  // eslint-disable-next-line react/require-default-props
-  children?: ReactNode;
-}
-
-const OnlyValid: FC<Props> = ({ children }) => <div>{onlyValid(children)}</div>;
-const CustomElement: FC<Props> = () => <div>I am a react element</div>;
+const OnlyValid: FC<PropsWithChildren> = ({ children }) => <div>{onlyValid(children)}</div>;
+const CustomElement: FC<PropsWithChildren> = () => <div>I am a react element</div>;
 
 describe('onlyValid', () => {
   it('does not filter all valid html elements', () => {

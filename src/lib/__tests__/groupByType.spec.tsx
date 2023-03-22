@@ -1,18 +1,13 @@
-import type { FC, ReactElement, ReactNode } from 'react';
+import type { FC, PropsWithChildren, ReactElement, ReactNode } from 'react';
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import groupByType from '../groupByType.js';
-
-interface Props {
-  // eslint-disable-next-line react/require-default-props
-  children?: ReactNode;
-}
 
 describe('groupByType', () => {
   it('groups elements with same tagName', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped: FC<Props> = ({ children }) => {
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children, ['span', 'strong']);
       return <div>{children}</div>;
     };
@@ -52,8 +47,8 @@ describe('groupByType', () => {
   it('can group react elements by name', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Example: FC<Props> = ({ children }) => <div>{children}</div>;
-    const Grouped: FC<Props> = ({ children }) => {
+    const Example: FC<PropsWithChildren> = ({ children }) => <div>{children}</div>;
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children, ['span', 'Example']);
       return <div>{children}</div>;
     };
@@ -75,8 +70,8 @@ describe('groupByType', () => {
   it('can group react elements by component function', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Example: FC<Props> = ({ children }) => <div>{children}</div>;
-    const Grouped: FC<Props> = ({ children }) => {
+    const Example: FC<PropsWithChildren> = ({ children }) => <div>{children}</div>;
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children, ['span', Example]);
       return <div>{children}</div>;
     };
@@ -106,7 +101,7 @@ describe('groupByType', () => {
       }
     }
 
-    const Grouped: FC<Props> = ({ children }) => {
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children, ['span', Example]);
       return <div>{children}</div>;
     };
@@ -128,7 +123,7 @@ describe('groupByType', () => {
   it('groups the non matching types in rest', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped: FC<Props> = ({ children }) => {
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children, ['span', 'strong']);
       return <div>{children}</div>;
     };
@@ -160,7 +155,7 @@ describe('groupByType', () => {
   it('groups the non matching types in rest with a different key name', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped: FC<Props> = ({ children }) => {
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children, ['span', 'strong'], 'others');
       return <div>{children}</div>;
     };
@@ -183,7 +178,7 @@ describe('groupByType', () => {
   it('if no types provided groups everything on rest', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    const Grouped: FC<Props> = ({ children }) => {
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children);
       return <div>{children}</div>;
     };
@@ -212,7 +207,7 @@ describe('groupByType', () => {
     it('on empty children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped: FC<Props> = ({ children }) => {
+      const Grouped: FC<PropsWithChildren> = ({ children }) => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -225,7 +220,7 @@ describe('groupByType', () => {
     it('on boolean children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped: FC<Props> = ({ children }) => {
+      const Grouped: FC<PropsWithChildren> = ({ children }) => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -243,7 +238,7 @@ describe('groupByType', () => {
     it('on null children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped: FC<Props> = ({ children }) => {
+      const Grouped: FC<PropsWithChildren> = ({ children }) => {
         elements = groupByType(children, ['span', 'i']);
         return <div>{children}</div>;
       };
@@ -258,7 +253,7 @@ describe('groupByType', () => {
     it('on text children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped: FC<Props> = ({ children }) => {
+      const Grouped: FC<PropsWithChildren> = ({ children }) => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };
@@ -271,7 +266,7 @@ describe('groupByType', () => {
     it('on number children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Grouped: FC<Props> = ({ children }) => {
+      const Grouped: FC<PropsWithChildren> = ({ children }) => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };
@@ -289,9 +284,9 @@ describe('groupByType', () => {
     it('on mixed non element children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Example: FC<Props> = () => <div />;
+      const Example: FC<PropsWithChildren> = () => <div />;
 
-      const Grouped: FC<Props> = ({ children }) => {
+      const Grouped: FC<PropsWithChildren> = ({ children }) => {
         elements = groupByType(children, ['span']);
         return <div>{children}</div>;
       };
