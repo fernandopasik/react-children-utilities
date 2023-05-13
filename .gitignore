@@ -24,7 +24,7 @@ pnpm-lock.yaml
 yarn.lock
 
 # test files
-coverage
+/coverage
 
 # build and temp folders
 /lib
