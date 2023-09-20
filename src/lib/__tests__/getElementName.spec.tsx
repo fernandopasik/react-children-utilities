@@ -23,6 +23,7 @@ describe('getElementName', () => {
   it('of a class component', () => {
     // eslint-disable-next-line react/prefer-stateless-function
     class Example extends React.Component {
+      // eslint-disable-next-line @typescript-eslint/class-methods-use-this
       public render(): JSX.Element {
         return <div />;
       }
