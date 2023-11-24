@@ -11,7 +11,6 @@ export default [
     external: ['react'],
     plugins: [
       terser({
-        warnings: true,
         mangle: {
           module: true,
           properties: true,
