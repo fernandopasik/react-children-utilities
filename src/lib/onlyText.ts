@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { Children, isValidElement } from 'react';
-import hasChildren from './hasChildren.js';
 
 export const childToString = (child?: ReactNode): string => {
   if (typeof child === 'undefined' || child === null || typeof child === 'boolean') {
@@ -22,9 +21,14 @@ const onlyText = (children: ReactNode | ReactNode[]): string => {
   return Children.toArray(children).reduce((text: string, child: ReactNode): string => {
     let newText = '';
 
-    if (isValidElement(child) && hasChildren(child)) {
+    const isValidElementResult = isValidElement<{ children?: React.ReactNode | React.ReactNode[] }>(
+      child,
+    );
+    const hasChildren = isValidElementResult && 'children' in child.props;
+
+    if (isValidElementResult && hasChildren) {
       newText = onlyText(child.props.children);
-    } else if (isValidElement(child) && !hasChildren(child)) {
+    } else if (isValidElementResult && !hasChildren) {
       newText = '';
     } else {
       newText = childToString(child);
