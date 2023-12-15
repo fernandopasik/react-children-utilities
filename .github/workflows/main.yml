@@ -37,7 +37,7 @@ jobs:
       - name: Lint
         run: npm run lint -- --format junit -o reports/lint-results.xml
       - name: Upload Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: lint-results
@@ -70,7 +70,7 @@ jobs:
         uses: codecov/codecov-action@v3
         if: always()
       - name: Upload Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: unit-test-results
@@ -91,7 +91,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bundle
           path: react-children-utilities.min.*
