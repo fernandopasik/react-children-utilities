@@ -105,7 +105,7 @@ jobs:
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Download Build Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: bundle
       - name: Check Size
