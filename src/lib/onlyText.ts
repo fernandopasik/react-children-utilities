@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import { Children, isValidElement } from 'react';
+import { Children, isValidElement, type ReactNode } from 'react';
 
 export const childToString = (child?: ReactNode): string => {
   if (typeof child === 'undefined' || child === null || typeof child === 'boolean') {
@@ -13,6 +12,10 @@ export const childToString = (child?: ReactNode): string => {
   return (child as number | string).toString();
 };
 
+interface ExpectedChildProps {
+  children?: React.ReactNode | React.ReactNode[];
+}
+
 const onlyText = (children: ReactNode | ReactNode[]): string => {
   if (!(children instanceof Array) && !isValidElement(children)) {
     return childToString(children);
@@ -21,15 +24,8 @@ const onlyText = (children: ReactNode | ReactNode[]): string => {
   return Children.toArray(children).reduce((text: string, child: ReactNode): string => {
     let newText = '';
 
-    const isValidElementResult = isValidElement<{ children?: React.ReactNode | React.ReactNode[] }>(
-      child,
-    );
-    const hasChildren = isValidElementResult && 'children' in child.props;
-
-    if (isValidElementResult && hasChildren) {
-      newText = onlyText(child.props.children);
-    } else if (isValidElementResult && !hasChildren) {
-      newText = '';
+    if (isValidElement<ExpectedChildProps>(child)) {
+      newText = 'children' in child.props ? onlyText(child.props.children) : '';
     } else {
       newText = childToString(child);
     }
