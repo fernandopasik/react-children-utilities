@@ -94,6 +94,9 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.3.3"
   },
+  "overrides": {
+    "axios": "^1.6.3"
+  },
   "sideEffects": false,
   "bundlewatch": {
     "files": [
