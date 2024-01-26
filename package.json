@@ -42,7 +42,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "prebuild": "del lib react-children-utilities.*",
-    "prepare": "husky install",
+    "prepare": "husky",
     "preversion": "npm run verify",
     "size": "bundlewatch",
     "test": "jest",
