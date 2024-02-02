@@ -1,0 +1,7 @@
+[
+  {
+    "gzip": true,
+    "limit": "800 B",
+    "path": "react-children-utilities.min.js"
+  }
+]
