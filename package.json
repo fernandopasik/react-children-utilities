@@ -54,8 +54,8 @@
     "react": ">=15"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.6.0",
-    "@commitlint/config-conventional": "^18.6.0",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@size-limit/file": "^11.0.2",
     "@types/jest": "^29.5.12",
