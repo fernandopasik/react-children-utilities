@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import React from 'react';
 import hasComplexChildren from '../hasComplexChildren.js';
 

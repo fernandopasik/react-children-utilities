@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 import React, { cloneElement, isValidElement } from 'react';
 import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-renderer';

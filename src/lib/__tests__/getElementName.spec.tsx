@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import type { FunctionComponent } from 'react';
 import React from 'react';
 import getElementName from '../getElementName.js';
