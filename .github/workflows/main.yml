@@ -35,13 +35,7 @@ jobs:
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Lint
-        run: npm run lint -- --format junit -o reports/lint-results.xml
-      - name: Upload Report
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: lint-results
-          path: reports/lint-results.xml
+        run: npm run lint
   check-types:
     name: Check Typescript Types
     runs-on: ubuntu-latest
@@ -63,18 +57,10 @@ jobs:
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Unit Tests
-        run: npm run test:coverage -- --ci --reporters=default --reporters=jest-junit
-        env:
-          JEST_JUNIT_OUTPUT_FILE: 'reports/unit-test-results.xml'
+        run: npm run test:coverage -- --ci
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v4
         if: always()
-      - name: Upload Report
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: unit-test-results
-          path: reports/unit-test-results.xml
   build:
     name: Build
     runs-on: ubuntu-latest
