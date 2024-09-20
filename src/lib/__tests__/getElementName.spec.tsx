@@ -18,6 +18,7 @@ describe('getElementName', () => {
 
   it('of a functional component', () => {
     const Example: FunctionComponent = () => <div />;
+
     expect(getElementName(<Example />)).toBe('Example');
   });
 
@@ -29,6 +30,7 @@ describe('getElementName', () => {
         return <div />;
       }
     }
+
     expect(getElementName(<Example />)).toBe('Example');
   });
 });

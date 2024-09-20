@@ -24,6 +24,7 @@ describe('groupByType', () => {
     );
 
     const [first, second] = elements.span as ReactElement[];
+
     expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
       <span>
         <b>
@@ -38,6 +39,7 @@ describe('groupByType', () => {
     `);
 
     const [third] = elements.strong as ReactElement[];
+
     expect(TestRenderer.create(third).toJSON()).toMatchInlineSnapshot(`
       <strong>
         3
@@ -141,6 +143,7 @@ describe('groupByType', () => {
     );
 
     const [first, second] = elements.rest as ReactElement[];
+
     expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
       <b>
         3
@@ -169,6 +172,7 @@ describe('groupByType', () => {
     );
 
     const [first] = elements.others as ReactElement[];
+
     expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
       <b>
         3
@@ -192,6 +196,7 @@ describe('groupByType', () => {
     );
 
     const [first, second] = elements.rest as ReactElement[];
+
     expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
       <span>
         2
