@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
-import deepFilter from '../deepFilter.js';
+import deepFilter from './deepFilter.js';
 
 describe('deepFilter', () => {
   it('nested elements', () => {

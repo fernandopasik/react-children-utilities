@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import React, { type FunctionComponent } from 'react';
-import getElementName from '../getElementName.js';
+import getElementName from './getElementName.js';
 
 describe('getElementName', () => {
   it('of a html element', () => {

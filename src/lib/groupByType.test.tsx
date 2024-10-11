@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import TestRenderer from 'react-test-renderer';
-import groupByType from '../groupByType.js';
+import groupByType from './groupByType.js';
 
 describe('groupByType', () => {
   it('groups elements with same tagName', () => {

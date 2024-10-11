@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": { "allowJs": false, "noEmit": false, "outDir": "." },
-  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.flow", "**/*.spec.*"],
+  "exclude": ["**/*.flow", "**/*.test.*"],
   "include": ["src/**/*"]
 }

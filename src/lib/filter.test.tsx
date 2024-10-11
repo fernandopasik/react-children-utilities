@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import React, { isValidElement, type FC, type PropsWithChildren, type ReactNode } from 'react';
 import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
-import filter from '../filter.js';
+import filter from './filter.js';
 
 describe('filter', () => {
   it('returns same children', () => {

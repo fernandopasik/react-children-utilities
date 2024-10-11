@@ -10,7 +10,7 @@ import TestRenderer, {
   type ReactTestInstance,
   type ReactTestRendererJSON,
 } from 'react-test-renderer';
-import deepMap from '../deepMap.js';
+import deepMap from './deepMap.js';
 
 const DeepMapped: FC<PropsWithChildren> = ({ children }) => (
   <div>

@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import React from 'react';
-import hasComplexChildren from '../hasComplexChildren.js';
+import hasComplexChildren from './hasComplexChildren.js';
 
 describe('hasComplexChildren', () => {
   describe('returns true', () => {

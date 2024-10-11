@@ -55,7 +55,7 @@ export default ts.config(
     },
   },
   {
-    files: ['**/*.spec.*'],
+    files: ['**/*.test.*'],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
       '@typescript-eslint/no-deprecated': 'off',

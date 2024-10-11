@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import React, { type FC, type PropsWithChildren } from 'react';
 import TestRenderer from 'react-test-renderer';
-import onlyValid from '../onlyValid.js';
+import onlyValid from './onlyValid.js';
 
 const OnlyValid: FC<PropsWithChildren> = ({ children }) => <div>{onlyValid(children)}</div>;
 const CustomElement: FC<PropsWithChildren> = () => <div>I am a react element</div>;

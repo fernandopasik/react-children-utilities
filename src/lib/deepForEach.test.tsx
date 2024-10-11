@@ -7,7 +7,7 @@ import React, {
   type ReactNode,
 } from 'react';
 import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
-import deepForEach from '../deepForEach.js';
+import deepForEach from './deepForEach.js';
 
 describe('deepForEach', () => {
   it('on nested elements', () => {

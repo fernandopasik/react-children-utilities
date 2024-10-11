@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
-import deepFind from '../deepFind.js';
+import deepFind from './deepFind.js';
 
 describe('deepFind', () => {
   it('a nested element', () => {
