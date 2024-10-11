@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import { isValidElement } from 'react';
+import { isValidElement, type ReactNode } from 'react';
 import deepFilter from './deepFilter.js';
 
 const onlyValid = (children: ReactNode | ReactNode[]): ReactNode[] =>

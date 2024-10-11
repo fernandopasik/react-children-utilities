@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import { Children } from 'react';
+import { Children, type ReactNode } from 'react';
 
 const filter = (
   children: ReactNode | ReactNode[],

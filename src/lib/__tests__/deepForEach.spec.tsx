@@ -1,8 +1,12 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FC, PropsWithChildren, ReactElement, ReactNode } from 'react';
-import React, { isValidElement } from 'react';
-import type { ReactTestRendererJSON } from 'react-test-renderer';
-import TestRenderer from 'react-test-renderer';
+import React, {
+  isValidElement,
+  type FC,
+  type PropsWithChildren,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
+import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
 import deepForEach from '../deepForEach.js';
 
 describe('deepForEach', () => {

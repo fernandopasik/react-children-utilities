@@ -1,8 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FC, PropsWithChildren, ReactNode } from 'react';
-import React from 'react';
-import type { ReactTestRendererJSON } from 'react-test-renderer';
-import TestRenderer from 'react-test-renderer';
+import React, { type FC, type PropsWithChildren, type ReactNode } from 'react';
+import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
 import onlyText, { childToString } from '../onlyText.js';
 
 const OnlyText: FC<PropsWithChildren> = ({ children }) => <div>{onlyText(children)}</div>;

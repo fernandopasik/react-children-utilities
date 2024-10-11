@@ -1,6 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FunctionComponent } from 'react';
-import React from 'react';
+import React, { type FunctionComponent } from 'react';
 import getElementName from '../getElementName.js';
 
 describe('getElementName', () => {
@@ -23,7 +22,6 @@ describe('getElementName', () => {
   });
 
   it('of a class component', () => {
-    // eslint-disable-next-line react/prefer-stateless-function
     class Example extends React.Component {
       // eslint-disable-next-line @typescript-eslint/class-methods-use-this
       public render(): JSX.Element {

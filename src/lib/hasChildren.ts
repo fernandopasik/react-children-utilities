@@ -1,5 +1,4 @@
-import type { ReactElement, ReactNode } from 'react';
-import { isValidElement } from 'react';
+import { isValidElement, type ReactElement, type ReactNode } from 'react';
 
 const hasChildren = (
   element: ReactNode,

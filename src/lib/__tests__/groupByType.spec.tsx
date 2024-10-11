@@ -1,6 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FC, PropsWithChildren, ReactElement, ReactNode } from 'react';
-import React from 'react';
+import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import TestRenderer from 'react-test-renderer';
 import groupByType from '../groupByType.js';
 
@@ -96,7 +95,6 @@ describe('groupByType', () => {
   it('can group react elements by component class', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    // eslint-disable-next-line react/prefer-stateless-function
     class Example extends React.Component<{ children: ReactNode }> {
       public render(): ReactElement {
         const { children } = this.props;

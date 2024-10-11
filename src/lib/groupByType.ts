@@ -1,5 +1,4 @@
-import type { ComponentClass, FunctionComponent, ReactNode } from 'react';
-import { Children } from 'react';
+import { Children, type ComponentClass, type FunctionComponent, type ReactNode } from 'react';
 import getElementName from './getElementName.js';
 
 const groupByType = (

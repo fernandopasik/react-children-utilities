@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import { Children, isValidElement } from 'react';
+import { Children, isValidElement, type ReactNode } from 'react';
 import hasComplexChildren from './hasComplexChildren.js';
 
 const deepForEach = (

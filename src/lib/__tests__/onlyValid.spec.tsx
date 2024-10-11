@@ -1,6 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FC, PropsWithChildren } from 'react';
-import React from 'react';
+import React, { type FC, type PropsWithChildren } from 'react';
 import TestRenderer from 'react-test-renderer';
 import onlyValid from '../onlyValid.js';
 

@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import { isValidElement } from 'react';
+import { isValidElement, type ReactNode } from 'react';
 
 const getElementName = (element: ReactNode): string | null => {
   if (!isValidElement(element)) {

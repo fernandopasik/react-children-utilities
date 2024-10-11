@@ -1,8 +1,15 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FC, PropsWithChildren, ReactNode } from 'react';
-import React, { cloneElement, isValidElement } from 'react';
-import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-renderer';
-import TestRenderer from 'react-test-renderer';
+import React, {
+  cloneElement,
+  isValidElement,
+  type FC,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react';
+import TestRenderer, {
+  type ReactTestInstance,
+  type ReactTestRendererJSON,
+} from 'react-test-renderer';
 import deepMap from '../deepMap.js';
 
 const DeepMapped: FC<PropsWithChildren> = ({ children }) => (

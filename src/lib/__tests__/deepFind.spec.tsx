@@ -1,8 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FC, PropsWithChildren, ReactElement, ReactNode } from 'react';
-import React from 'react';
-import type { ReactTestRendererJSON } from 'react-test-renderer';
-import TestRenderer from 'react-test-renderer';
+import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
+import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
 import deepFind from '../deepFind.js';
 
 describe('deepFind', () => {
