@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default-member, jest/max-expects */
+/* eslint-disable import/no-named-as-default-member */
 import { describe, expect, it } from '@jest/globals';
 import Children, {
   deepFilter,

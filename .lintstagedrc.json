@@ -1,4 +1,4 @@
 {
-  "*": ["prettier --check"],
-  "*.{js,jsx,ts,tsx}": ["eslint", "jest --bail --findRelatedTests --passWithNoTests"]
+  "*": ["prettier --check", "eslint"],
+  "*.{js,jsx,ts,tsx}": ["jest --bail --findRelatedTests --passWithNoTests"]
 }
