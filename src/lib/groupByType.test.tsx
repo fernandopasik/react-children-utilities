@@ -1,6 +1,6 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, it } from '@jest/globals';
+import { cleanup, render, screen } from '@testing-library/react';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
-import TestRenderer from 'react-test-renderer';
 import groupByType from './groupByType.js';
 
 describe('groupByType', () => {
@@ -9,10 +9,10 @@ describe('groupByType', () => {
 
     const Grouped: FC<PropsWithChildren> = ({ children }) => {
       elements = groupByType(children, ['span', 'strong']);
-      return <div>{children}</div>;
+      return <div data-testid="grouped">{children}</div>;
     };
 
-    TestRenderer.create(
+    render(
       <Grouped>
         <span>
           <b>1</b>
@@ -22,28 +22,19 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    const [first, second] = elements.span as ReactElement[];
+    cleanup();
+    render(elements.span);
 
-    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
-      <span>
-        <b>
-          1
-        </b>
-      </span>
-    `);
-    expect(TestRenderer.create(second).toJSON()).toMatchInlineSnapshot(`
-      <span>
-        2
-      </span>
-    `);
+    expect(screen.queryByText(1)).not.toBeNull();
+    expect(screen.queryByText(2)).not.toBeNull();
+    expect(screen.queryByText(3)).toBeNull();
 
-    const [third] = elements.strong as ReactElement[];
+    cleanup();
+    render(elements.strong);
 
-    expect(TestRenderer.create(third).toJSON()).toMatchInlineSnapshot(`
-      <strong>
-        3
-      </strong>
-    `);
+    expect(screen.queryByText(1)).toBeNull();
+    expect(screen.queryByText(2)).toBeNull();
+    expect(screen.queryByText(3)).not.toBeNull();
   });
 
   it('can group react elements by name', () => {
@@ -55,7 +46,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    TestRenderer.create(
+    render(
       <Grouped>
         <span>1</span>
         <Example>2</Example>
@@ -78,7 +69,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    TestRenderer.create(
+    render(
       <Grouped>
         <span>1</span>
         <Example>2</Example>
@@ -107,7 +98,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    TestRenderer.create(
+    render(
       <Grouped>
         <span>1</span>
         <Example>2</Example>
@@ -129,7 +120,7 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    TestRenderer.create(
+    render(
       <Grouped>
         <span>
           <b>1</b>
@@ -140,18 +131,13 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    const [first, second] = elements.rest as ReactElement[];
+    cleanup();
+    render(elements.rest);
 
-    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
-      <b>
-        3
-      </b>
-    `);
-    expect(TestRenderer.create(second).toJSON()).toMatchInlineSnapshot(`
-      <i>
-        4
-      </i>
-    `);
+    expect(screen.queryByText(1)).toBeNull();
+    expect(screen.queryByText(2)).toBeNull();
+    expect(screen.queryByText(3)).not.toBeNull();
+    expect(screen.queryByText(4)).not.toBeNull();
   });
 
   it('groups the non matching types in rest with a different key name', () => {
@@ -162,20 +148,18 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    TestRenderer.create(
+    render(
       <Grouped>
         <span>2</span>
         <b>3</b>
       </Grouped>,
     );
 
-    const [first] = elements.others as ReactElement[];
+    cleanup();
+    render(elements.others);
 
-    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
-      <b>
-        3
-      </b>
-    `);
+    expect(screen.queryByText(2)).toBeNull();
+    expect(screen.queryByText(3)).not.toBeNull();
   });
 
   it('if no types provided groups everything on rest', () => {
@@ -186,25 +170,18 @@ describe('groupByType', () => {
       return <div>{children}</div>;
     };
 
-    TestRenderer.create(
+    render(
       <Grouped>
         <span>2</span>
         <b>3</b>
       </Grouped>,
     );
 
-    const [first, second] = elements.rest as ReactElement[];
+    cleanup();
+    render(elements.rest);
 
-    expect(TestRenderer.create(first).toJSON()).toMatchInlineSnapshot(`
-      <span>
-        2
-      </span>
-    `);
-    expect(TestRenderer.create(second).toJSON()).toMatchInlineSnapshot(`
-      <b>
-        3
-      </b>
-    `);
+    expect(screen.queryByText(2)).not.toBeNull();
+    expect(screen.queryByText(3)).not.toBeNull();
   });
 
   describe('returns empty object', () => {
@@ -216,7 +193,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      TestRenderer.create(<Grouped />);
+      render(<Grouped />);
 
       expect(elements).toStrictEqual({});
     });
@@ -229,7 +206,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      TestRenderer.create(
+      render(
         <Grouped>
           {false}
           {true}
@@ -247,7 +224,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      TestRenderer.create(<Grouped>{null}</Grouped>);
+      render(<Grouped>{null}</Grouped>);
 
       expect(elements).toStrictEqual({});
     });
@@ -262,7 +239,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      TestRenderer.create(<Grouped>example with some words</Grouped>);
+      render(<Grouped>example with some words</Grouped>);
 
       expect(elements).toStrictEqual({ rest: ['example with some words'] });
     });
@@ -275,7 +252,7 @@ describe('groupByType', () => {
         return <div>{children}</div>;
       };
 
-      TestRenderer.create(
+      render(
         <Grouped>
           {1}
           {2}
@@ -288,14 +265,14 @@ describe('groupByType', () => {
     it('on mixed non element children', () => {
       let elements: Record<string, ReactNode[]> = {};
 
-      const Example: FC<PropsWithChildren> = () => <div />;
+      const Example: FC<PropsWithChildren> = () => <div data-testid="example" />;
 
       const Grouped: FC<PropsWithChildren> = ({ children }) => {
         elements = groupByType(children, ['span']);
-        return <div>{children}</div>;
+        return <div data-testid="grouped">{children}</div>;
       };
 
-      TestRenderer.create(
+      render(
         <Grouped>
           {true}
           example
@@ -306,16 +283,14 @@ describe('groupByType', () => {
         </Grouped>,
       );
 
-      expect(elements).toMatchInlineSnapshot(`
-        {
-          "rest": [
-            "example",
-            "with some words",
-            3,
-            <Example />,
-          ],
-        }
-      `);
+      cleanup();
+      render(elements.rest);
+
+      expect(screen.queryByTestId('example')).not.toBeNull();
+
+      expect(screen.queryByText(/example/u)).not.toBeNull();
+      expect(screen.queryByText(/with some words/u)).not.toBeNull();
+      expect(screen.queryByText(/3/u)).not.toBeNull();
     });
   });
 });

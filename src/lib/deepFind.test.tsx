@@ -1,94 +1,73 @@
 import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
-import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
 import deepFind from './deepFind.js';
 
 describe('deepFind', () => {
-  it('a nested element', () => {
-    const DeepFound: FC<PropsWithChildren> = ({ children = [] }) => (
-      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
-    );
+  const DeepFound: FC<PropsWithChildren> = ({ children = [] }) => (
+    <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
+  );
 
-    const element = TestRenderer.create(
+  it('a nested element', () => {
+    render(
       <DeepFound>
-        <b>1</b>
-        <span>
-          <i>2</i>
+        <b data-testid="no">1</b>
+        <span data-testid="yes">
+          <i data-testid="yes">2</i>
         </span>
-        <i>3</i>
+        <i data-testid="no">3</i>
       </DeepFound>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(children).toHaveLength(1);
-    expect(children?.[0]).toMatchInlineSnapshot(`
-      <i>
-        2
-      </i>
-    `);
+    expect(screen.queryByTestId('no')).toBeNull();
+    expect(screen.queryByText('1')).toBeNull();
+    expect(screen.queryByText('3')).toBeNull();
+    expect(screen.queryAllByTestId('yes')).toHaveLength(1);
+    expect(screen.queryByText('2')).not.toBeNull();
   });
 
   it('a matching element with matching nested elements', () => {
-    const DeepFound: FC<PropsWithChildren> = ({ children }) => (
-      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
-    );
-
-    const element = TestRenderer.create(
+    render(
       <DeepFound>
-        <b>1</b>
-        <i>
-          <i>2</i>
+        <b data-testid="no">1</b>
+        <i data-testid="yes">
+          <i data-testid="yes">2</i>
         </i>
-        <i>3</i>
+        <i data-testid="no">3</i>
       </DeepFound>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(children).toHaveLength(1);
-    expect(children?.[0]).toMatchInlineSnapshot(`
-      <i>
-        <i>
-          2
-        </i>
-      </i>
-    `);
+    expect(screen.queryByTestId('no')).toBeNull();
+    expect(screen.queryByText('1')).toBeNull();
+    expect(screen.queryByText('3')).toBeNull();
+    expect(screen.queryAllByTestId('yes')).toHaveLength(2);
+    expect(screen.queryByText('2')).not.toBeNull();
   });
 
   it('a non nested element', () => {
-    const DeepFound: FC<PropsWithChildren> = ({ children }) => (
-      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
-    );
-
-    const element = TestRenderer.create(
+    render(
       <DeepFound>
-        <b>1</b>
-        <i>3</i>
+        <b data-testid="no">1</b>
+        <i data-testid="yes">3</i>
       </DeepFound>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(children).toHaveLength(1);
-    expect(children?.[0]).toMatchInlineSnapshot(`
-      <i>
-        3
-      </i>
-    `);
+    expect(screen.queryByTestId('no')).toBeNull();
+    expect(screen.queryByText('1')).toBeNull();
+    expect(screen.queryAllByTestId('yes')).toHaveLength(1);
+    expect(screen.queryByText('3')).not.toBeNull();
   });
 
   it('can not find anything', () => {
-    const DeepFound: FC<PropsWithChildren> = ({ children }) => (
-      <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
-    );
-
-    const element = TestRenderer.create(
+    render(
       <DeepFound>
-        <b>1</b>
-        <b>2</b>
+        <b data-testid="no">1</b>
+        <b data-testid="no">2</b>
       </DeepFound>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(children).toBeNull();
-    expect(element).toMatchInlineSnapshot(`<div />`);
+    expect(screen.queryByTestId('no')).toBeNull();
+    expect(screen.queryByText('1')).toBeNull();
+    expect(screen.queryByText('2')).toBeNull();
   });
 });

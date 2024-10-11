@@ -1,4 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
 import React, {
   cloneElement,
   isValidElement,
@@ -6,19 +7,15 @@ import React, {
   type PropsWithChildren,
   type ReactNode,
 } from 'react';
-import TestRenderer, {
-  type ReactTestInstance,
-  type ReactTestRendererJSON,
-} from 'react-test-renderer';
 import deepMap from './deepMap.js';
 
 const DeepMapped: FC<PropsWithChildren> = ({ children }) => (
-  <div>
+  <div data-testid="deepmapped">
     {deepMap(children, (child: ReactNode) => {
-      if (isValidElement<{ className: string }>(child) && child.type === 'b') {
+      if (isValidElement<{ 'data-testid': string }>(child) && child.type === 'b') {
         return cloneElement(child, {
           ...child.props,
-          className: 'mapped',
+          'data-testid': 'mapped',
         });
       }
       return child;
@@ -28,7 +25,7 @@ const DeepMapped: FC<PropsWithChildren> = ({ children }) => (
 
 describe('deepMap', () => {
   it('nested elements', () => {
-    const element = TestRenderer.create(
+    render(
       <DeepMapped>
         <b>1</b>
         <b>2</b>
@@ -44,40 +41,24 @@ describe('deepMap', () => {
       </DeepMapped>,
     );
 
-    const mapped = element.root.findAll(
-      (node: ReactTestInstance) => node.type === 'b' && node.props.className === 'mapped',
-    );
-    const unmapped = element.root.findAll(
-      (node: ReactTestInstance) => node.type === 'b' && node.props.className !== 'mapped',
-    );
-
-    expect(mapped).toHaveLength(5);
-    expect(unmapped).toHaveLength(0);
+    expect(screen.queryAllByTestId('mapped')).toHaveLength(5);
   });
 
   it('non nested elements', () => {
-    const element = TestRenderer.create(
+    render(
       <DeepMapped>
         <b>1</b>
         <b>2</b>
       </DeepMapped>,
     );
 
-    const mapped = element.root.findAll(
-      (node: ReactTestInstance) => node.type === 'b' && node.props.className === 'mapped',
-    );
-    const unmapped = element.root.findAll(
-      (node: ReactTestInstance) => node.type === 'b' && node.props.className !== 'mapped',
-    );
-
-    expect(mapped).toHaveLength(2);
-    expect(unmapped).toHaveLength(0);
+    expect(screen.queryAllByTestId('mapped')).toHaveLength(2);
   });
 
-  it('empty children', () => {
-    const element = TestRenderer.create(<DeepMapped />);
-    const { children } = element.toJSON() as ReactTestRendererJSON;
+  it('empty children', async () => {
+    render(<DeepMapped />);
 
-    expect(children).toBeNull();
+    const { textContent } = await screen.findByTestId('deepmapped');
+    expect(textContent).toBe('');
   });
 });

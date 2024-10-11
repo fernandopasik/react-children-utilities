@@ -1,13 +1,15 @@
 import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
 import React, { type FC, type PropsWithChildren, type ReactNode } from 'react';
-import TestRenderer, { type ReactTestRendererJSON } from 'react-test-renderer';
 import onlyText, { childToString } from './onlyText.js';
 
-const OnlyText: FC<PropsWithChildren> = ({ children }) => <div>{onlyText(children)}</div>;
-
 describe('onlyText', () => {
-  it('on nested elements', () => {
-    const element = TestRenderer.create(
+  const OnlyText: FC<PropsWithChildren> = ({ children }) => (
+    <div data-testid="only">{onlyText(children)}</div>
+  );
+
+  it('on nested elements', async () => {
+    render(
       <OnlyText>
         <span>0</span>
         <b>1</b>
@@ -17,87 +19,83 @@ describe('onlyText', () => {
         <i>3</i>
       </OnlyText>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
-    const [text] = children ?? [];
 
-    expect(text).toBe('0123');
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('0123');
   });
 
-  it('on non nested elements', () => {
-    const element = TestRenderer.create(
+  it('on non nested elements', async () => {
+    render(
       <OnlyText>
         <span>0</span>
         <b>1</b>
       </OnlyText>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
-    const [text] = children ?? [];
 
-    expect(text).toBe('01');
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('01');
   });
 
-  it('on empty', () => {
-    const element = TestRenderer.create(<OnlyText />);
-    const { children } = element.toJSON() as ReactTestRendererJSON;
+  it('on empty', async () => {
+    render(<OnlyText />);
 
-    expect(children).toBeNull();
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('');
   });
 
-  it('on empty child', () => {
-    const element = TestRenderer.create(
+  it('on empty child', async () => {
+    render(
       <OnlyText>
         <span />
       </OnlyText>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
 
-    expect(children).toBeNull();
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('');
   });
 
-  it('on text', () => {
-    const element = TestRenderer.create(<OnlyText>test 1 test 2</OnlyText>);
-    const { children } = element.toJSON() as ReactTestRendererJSON;
-    const [text] = children ?? [];
+  it('on text', async () => {
+    render(<OnlyText>test 1 test 2</OnlyText>);
 
-    expect(text).toBe('test 1 test 2');
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('test 1 test 2');
   });
 
-  it('on number', () => {
-    const element = TestRenderer.create(
+  it('on number', async () => {
+    render(
       <OnlyText>
         {1}
         {2}
       </OnlyText>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
-    const [text] = children ?? [];
 
-    expect(text).toBe('12');
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('12');
   });
 
-  it('on true', () => {
-    const element = TestRenderer.create(<OnlyText>{true}</OnlyText>);
-    const { children } = element.toJSON() as ReactTestRendererJSON;
+  it('on true', async () => {
+    render(<OnlyText>{true}</OnlyText>);
 
-    expect(children).toBeNull();
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('');
   });
 
-  it('on false', () => {
-    const element = TestRenderer.create(<OnlyText>{false}</OnlyText>);
-    const { children } = element.toJSON() as ReactTestRendererJSON;
+  it('on false', async () => {
+    render(<OnlyText>{false}</OnlyText>);
 
-    expect(children).toBeNull();
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('');
   });
 
-  it('on null', () => {
-    const element = TestRenderer.create(<OnlyText>{null}</OnlyText>);
-    const { children } = element.toJSON() as ReactTestRendererJSON;
+  it('on null', async () => {
+    render(<OnlyText>{null}</OnlyText>);
 
-    expect(children).toBeNull();
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('');
   });
 
-  it('on combined types', () => {
-    const element = TestRenderer.create(
+  it('on combined types', async () => {
+    render(
       <OnlyText>
         example
         {null}
@@ -107,10 +105,9 @@ describe('onlyText', () => {
         <i>b</i>
       </OnlyText>,
     );
-    const { children } = element.toJSON() as ReactTestRendererJSON;
-    const [text] = children ?? [];
 
-    expect(text).toBe('example3b');
+    const { textContent } = await screen.findByTestId('only');
+    expect(textContent).toBe('example3b');
   });
 
   describe('child to string', () => {
