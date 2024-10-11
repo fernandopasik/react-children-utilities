@@ -1,5 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import 'global-jsdom/register';
+
+import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { beforeEach, describe, it } from 'node:test';
 import React, {
   isValidElement,
   type FC,
@@ -25,6 +28,10 @@ describe('deepForEach', () => {
     return <div data-testid="deepforeach">{items}</div>;
   };
 
+  beforeEach(() => {
+    cleanup();
+  });
+
   it('on nested elements', () => {
     render(
       <DeepForEached>
@@ -43,7 +50,7 @@ describe('deepForEach', () => {
       </DeepForEached>,
     );
 
-    expect(screen.queryAllByTestId('foreach')).toHaveLength(4);
+    assert.equal(screen.queryAllByTestId('foreach').length, 4);
   });
 
   it('on non nested elements', () => {
@@ -54,13 +61,13 @@ describe('deepForEach', () => {
       </DeepForEached>,
     );
 
-    expect(screen.queryAllByTestId('foreach')).toHaveLength(2);
+    assert.equal(screen.queryAllByTestId('foreach').length, 2);
   });
 
   it('on empty', async () => {
     render(<DeepForEached />);
 
     const { textContent } = await screen.findByTestId('deepforeach');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 });

@@ -1,5 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import 'global-jsdom/register';
+
+import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { beforeEach, describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren } from 'react';
 import onlyValid from './onlyValid.js';
 
@@ -7,6 +10,10 @@ describe('onlyValid', () => {
   const OnlyValid: FC<PropsWithChildren> = ({ children }) => (
     <div data-testid="onlyvalid">{onlyValid(children)}</div>
   );
+
+  beforeEach(() => {
+    cleanup();
+  });
 
   it('does not filter all valid html elements', () => {
     render(
@@ -16,9 +23,9 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(screen.queryAllByTestId('yes')).toHaveLength(2);
-    expect(screen.queryByText('0')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
+    assert.equal(screen.queryAllByTestId('yes').length, 2);
+    assert.notEqual(screen.queryByText('0'), null);
+    assert.notEqual(screen.queryByText('2'), null);
   });
 
   it('does not filter all valid html and custom elements', () => {
@@ -34,10 +41,10 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(screen.queryAllByTestId('yes')).toHaveLength(3);
-    expect(screen.queryByText('0')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('I am a react element')).not.toBeNull();
+    assert.equal(screen.queryAllByTestId('yes').length, 3);
+    assert.notEqual(screen.queryByText('0'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('I am a react element'), null);
   });
 
   it('does not filter nested all valid elements', () => {
@@ -54,11 +61,11 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(screen.queryAllByTestId('yes')).toHaveLength(6);
-    expect(screen.queryByText('0')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('3')).not.toBeNull();
-    expect(screen.queryByText('4')).not.toBeNull();
+    assert.equal(screen.queryAllByTestId('yes').length, 6);
+    assert.notEqual(screen.queryByText('0'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('3'), null);
+    assert.notEqual(screen.queryByText('4'), null);
   });
 
   it('filters non react elements', () => {
@@ -76,16 +83,16 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(screen.queryAllByTestId('yes')).toHaveLength(3);
-    expect(screen.queryByText('0')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('4')).not.toBeNull();
-    expect(screen.queryByText('text')).toBeNull();
-    expect(screen.queryByText('null')).toBeNull();
-    expect(screen.queryByText('3')).toBeNull();
-    expect(screen.queryByText('true')).toBeNull();
-    expect(screen.queryByText('false')).toBeNull();
-    expect(screen.queryByText('undefined')).toBeNull();
+    assert.equal(screen.queryAllByTestId('yes').length, 3);
+    assert.notEqual(screen.queryByText('0'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('4'), null);
+    assert.equal(screen.queryByText('text'), null);
+    assert.equal(screen.queryByText('null'), null);
+    assert.equal(screen.queryByText('3'), null);
+    assert.equal(screen.queryByText('true'), null);
+    assert.equal(screen.queryByText('false'), null);
+    assert.equal(screen.queryByText('undefined'), null);
   });
 
   it('filters nested non react elements', () => {
@@ -108,24 +115,24 @@ describe('onlyValid', () => {
       </OnlyValid>,
     );
 
-    expect(screen.queryAllByTestId('yes')).toHaveLength(6);
-    expect(screen.queryByText('0')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('4')).not.toBeNull();
-    expect(screen.queryByText('5')).not.toBeNull();
-    expect(screen.queryByText('text')).toBeNull();
-    expect(screen.queryByText('null')).toBeNull();
-    expect(screen.queryByText('3')).toBeNull();
-    expect(screen.queryByText('true')).toBeNull();
-    expect(screen.queryByText('false')).toBeNull();
-    expect(screen.queryByText('undefined')).toBeNull();
+    assert.equal(screen.queryAllByTestId('yes').length, 6);
+    assert.notEqual(screen.queryByText('0'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('4'), null);
+    assert.notEqual(screen.queryByText('5'), null);
+    assert.equal(screen.queryByText('text'), null);
+    assert.equal(screen.queryByText('null'), null);
+    assert.equal(screen.queryByText('3'), null);
+    assert.equal(screen.queryByText('true'), null);
+    assert.equal(screen.queryByText('false'), null);
+    assert.equal(screen.queryByText('undefined'), null);
   });
 
   it('works on empty', async () => {
     render(<OnlyValid />);
 
     const { textContent } = await screen.findByTestId('onlyvalid');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 
   it('can filter all elements', async () => {
@@ -141,12 +148,12 @@ describe('onlyValid', () => {
     );
 
     const { textContent } = await screen.findByTestId('onlyvalid');
-    expect(textContent).toBe('');
-    expect(screen.queryByText('text')).toBeNull();
-    expect(screen.queryByText('null')).toBeNull();
-    expect(screen.queryByText('3')).toBeNull();
-    expect(screen.queryByText('true')).toBeNull();
-    expect(screen.queryByText('false')).toBeNull();
-    expect(screen.queryByText('undefined')).toBeNull();
+    assert.equal(textContent, '');
+    assert.equal(screen.queryByText('text'), null);
+    assert.equal(screen.queryByText('null'), null);
+    assert.equal(screen.queryByText('3'), null);
+    assert.equal(screen.queryByText('true'), null);
+    assert.equal(screen.queryByText('false'), null);
+    assert.equal(screen.queryByText('undefined'), null);
   });
 });

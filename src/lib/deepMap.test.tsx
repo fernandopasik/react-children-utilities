@@ -1,5 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import 'global-jsdom/register';
+
+import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { beforeEach, describe, it } from 'node:test';
 import React, {
   cloneElement,
   isValidElement,
@@ -23,6 +26,10 @@ const DeepMapped: FC<PropsWithChildren> = ({ children }) => (
   </div>
 );
 
+beforeEach(() => {
+  cleanup();
+});
+
 describe('deepMap', () => {
   it('nested elements', () => {
     render(
@@ -41,7 +48,7 @@ describe('deepMap', () => {
       </DeepMapped>,
     );
 
-    expect(screen.queryAllByTestId('mapped')).toHaveLength(5);
+    assert.equal(screen.queryAllByTestId('mapped').length, 5);
   });
 
   it('non nested elements', () => {
@@ -52,13 +59,13 @@ describe('deepMap', () => {
       </DeepMapped>,
     );
 
-    expect(screen.queryAllByTestId('mapped')).toHaveLength(2);
+    assert.equal(screen.queryAllByTestId('mapped').length, 2);
   });
 
   it('empty children', async () => {
     render(<DeepMapped />);
 
     const { textContent } = await screen.findByTestId('deepmapped');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 });

@@ -1,5 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import 'global-jsdom/register';
+
+import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { beforeEach, describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import deepFilter from './deepFilter.js';
 
@@ -9,6 +12,10 @@ describe('deepFilter', () => {
       {deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}
     </div>
   );
+
+  beforeEach(() => {
+    cleanup();
+  });
 
   it('nested elements', () => {
     render(
@@ -25,13 +32,13 @@ describe('deepFilter', () => {
       </DeepFiltered>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('3')).toBeNull();
-    expect(screen.queryByText('4')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(5);
-    expect(screen.queryByText('1')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('5')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('3'), null);
+    assert.equal(screen.queryByText('4'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 5);
+    assert.notEqual(screen.queryByText('1'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('5'), null);
   });
 
   it('non nested elements', () => {
@@ -42,10 +49,10 @@ describe('deepFilter', () => {
       </DeepFiltered>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('1')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(1);
-    expect(screen.queryByText('2')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('1'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 1);
+    assert.notEqual(screen.queryByText('2'), null);
   });
 
   it('remove elements event if they have matching nested children', () => {
@@ -63,13 +70,13 @@ describe('deepFilter', () => {
       </DeepFiltered>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('4')).toBeNull();
-    expect(screen.queryByText('5')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(4);
-    expect(screen.queryByText('1')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('3')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('4'), null);
+    assert.equal(screen.queryByText('5'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 4);
+    assert.notEqual(screen.queryByText('1'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('3'), null);
   });
 
   it('keeps empty matching elements if children do not match', () => {
@@ -87,19 +94,19 @@ describe('deepFilter', () => {
       </DeepFiltered>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('3')).toBeNull();
-    expect(screen.queryByText('4')).toBeNull();
-    expect(screen.queryByText('5')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(3);
-    expect(screen.queryByText('1')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('3'), null);
+    assert.equal(screen.queryByText('4'), null);
+    assert.equal(screen.queryByText('5'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 3);
+    assert.notEqual(screen.queryByText('1'), null);
+    assert.notEqual(screen.queryByText('2'), null);
   });
 
   it('can handle empty children', async () => {
     render(<DeepFiltered />);
 
     const { textContent } = await screen.findByTestId('filtered');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 });

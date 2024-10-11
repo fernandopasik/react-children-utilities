@@ -1,5 +1,8 @@
 /* eslint-disable import/no-named-as-default-member */
-import { describe, expect, it } from '@jest/globals';
+import 'global-jsdom/register';
+
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import Children, {
   deepFilter,
   deepFind,
@@ -16,37 +19,37 @@ import Children, {
 
 describe('children', () => {
   it('has the right exports', () => {
-    expect(filter).toBeInstanceOf(Function);
-    expect(Children.filter).toStrictEqual(filter);
+    assert.ok(filter instanceof Function);
+    assert.strictEqual(Children.filter, filter);
 
-    expect(deepFilter).toBeInstanceOf(Function);
-    expect(Children.deepFilter).toStrictEqual(deepFilter);
+    assert.ok(deepFilter instanceof Function);
+    assert.strictEqual(Children.deepFilter, deepFilter);
 
-    expect(deepFind).toBeInstanceOf(Function);
-    expect(Children.deepFind).toStrictEqual(deepFind);
+    assert.ok(deepFind instanceof Function);
+    assert.strictEqual(Children.deepFind, deepFind);
 
-    expect(deepForEach).toBeInstanceOf(Function);
-    expect(Children.deepForEach).toStrictEqual(deepForEach);
+    assert.ok(deepForEach instanceof Function);
+    assert.strictEqual(Children.deepForEach, deepForEach);
 
-    expect(deepMap).toBeInstanceOf(Function);
-    expect(Children.deepMap).toStrictEqual(deepMap);
+    assert.ok(deepMap instanceof Function);
+    assert.strictEqual(Children.deepMap, deepMap);
 
-    expect(getElementName).toBeInstanceOf(Function);
-    expect(Children.getElementName).toStrictEqual(getElementName);
+    assert.ok(getElementName instanceof Function);
+    assert.strictEqual(Children.getElementName, getElementName);
 
-    expect(groupByType).toBeInstanceOf(Function);
-    expect(Children.groupByType).toStrictEqual(groupByType);
+    assert.ok(groupByType instanceof Function);
+    assert.strictEqual(Children.groupByType, groupByType);
 
-    expect(hasChildren).toBeInstanceOf(Function);
-    expect(Children.hasChildren).toStrictEqual(hasChildren);
+    assert.ok(hasChildren instanceof Function);
+    assert.strictEqual(Children.hasChildren, hasChildren);
 
-    expect(hasComplexChildren).toBeInstanceOf(Function);
-    expect(Children.hasComplexChildren).toStrictEqual(hasComplexChildren);
+    assert.ok(hasComplexChildren instanceof Function);
+    assert.strictEqual(Children.hasComplexChildren, hasComplexChildren);
 
-    expect(onlyText).toBeInstanceOf(Function);
-    expect(Children.onlyText).toStrictEqual(onlyText);
+    assert.ok(onlyText instanceof Function);
+    assert.strictEqual(Children.onlyText, onlyText);
 
-    expect(onlyValid).toBeInstanceOf(Function);
-    expect(Children.onlyValid).toStrictEqual(onlyValid);
+    assert.ok(onlyValid instanceof Function);
+    assert.strictEqual(Children.onlyValid, onlyValid);
   });
 });

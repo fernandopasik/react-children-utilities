@@ -1,5 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import 'global-jsdom/register';
+
+import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { beforeEach, describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren, type ReactNode } from 'react';
 import onlyText, { childToString } from './onlyText.js';
 
@@ -7,6 +10,10 @@ describe('onlyText', () => {
   const OnlyText: FC<PropsWithChildren> = ({ children }) => (
     <div data-testid="only">{onlyText(children)}</div>
   );
+
+  beforeEach(() => {
+    cleanup();
+  });
 
   it('on nested elements', async () => {
     render(
@@ -21,7 +28,7 @@ describe('onlyText', () => {
     );
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('0123');
+    assert.equal(textContent, '0123');
   });
 
   it('on non nested elements', async () => {
@@ -33,14 +40,14 @@ describe('onlyText', () => {
     );
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('01');
+    assert.equal(textContent, '01');
   });
 
   it('on empty', async () => {
     render(<OnlyText />);
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 
   it('on empty child', async () => {
@@ -51,14 +58,14 @@ describe('onlyText', () => {
     );
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 
   it('on text', async () => {
     render(<OnlyText>test 1 test 2</OnlyText>);
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('test 1 test 2');
+    assert.equal(textContent, 'test 1 test 2');
   });
 
   it('on number', async () => {
@@ -70,28 +77,28 @@ describe('onlyText', () => {
     );
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('12');
+    assert.equal(textContent, '12');
   });
 
   it('on true', async () => {
     render(<OnlyText>{true}</OnlyText>);
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 
   it('on false', async () => {
     render(<OnlyText>{false}</OnlyText>);
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 
   it('on null', async () => {
     render(<OnlyText>{null}</OnlyText>);
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 
   it('on combined types', async () => {
@@ -107,32 +114,32 @@ describe('onlyText', () => {
     );
 
     const { textContent } = await screen.findByTestId('only');
-    expect(textContent).toBe('example3b');
+    assert.equal(textContent, 'example3b');
   });
 
   describe('child to string', () => {
     it('string', () => {
-      expect(childToString('a')).toBe('a');
+      assert.equal(childToString('a'), 'a');
     });
 
     it('number', () => {
-      expect(childToString(1)).toBe('1');
+      assert.equal(childToString(1), '1');
     });
 
     it('boolean', () => {
-      expect(childToString(true)).toBe('');
+      assert.equal(childToString(true), '');
     });
 
     it('{}', () => {
-      expect(childToString({} as ReactNode)).toBe('');
+      assert.equal(childToString({} as ReactNode), '');
     });
 
     it('null', () => {
-      expect(childToString(null)).toBe('');
+      assert.equal(childToString(null), '');
     });
 
     it('undefined', () => {
-      expect(childToString()).toBe('');
+      assert.equal(childToString(), '');
     });
   });
 });

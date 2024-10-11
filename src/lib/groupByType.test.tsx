@@ -1,5 +1,8 @@
-import { describe, it } from '@jest/globals';
+import 'global-jsdom/register';
+
 import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import groupByType from './groupByType.js';
 
@@ -25,16 +28,16 @@ describe('groupByType', () => {
     cleanup();
     render(elements.span);
 
-    expect(screen.queryByText(1)).not.toBeNull();
-    expect(screen.queryByText(2)).not.toBeNull();
-    expect(screen.queryByText(3)).toBeNull();
+    assert.notEqual(screen.queryByText(1), null);
+    assert.notEqual(screen.queryByText(2), null);
+    assert.equal(screen.queryByText(3), null);
 
     cleanup();
     render(elements.strong);
 
-    expect(screen.queryByText(1)).toBeNull();
-    expect(screen.queryByText(2)).toBeNull();
-    expect(screen.queryByText(3)).not.toBeNull();
+    assert.equal(screen.queryByText(1), null);
+    assert.equal(screen.queryByText(2), null);
+    assert.notEqual(screen.queryByText(3), null);
   });
 
   it('can group react elements by name', () => {
@@ -55,9 +58,9 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    expect(elements.span).toHaveLength(2);
-    expect(elements.Example).toHaveLength(2);
-    expect(elements.rest).toBeUndefined();
+    assert.equal(elements.span.length, 2);
+    assert.equal(elements.Example.length, 2);
+    assert.equal(elements.rest, undefined);
   });
 
   it('can group react elements by component function', () => {
@@ -78,9 +81,9 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    expect(elements.span).toHaveLength(2);
-    expect(elements.Example).toHaveLength(2);
-    expect(elements.rest).toBeUndefined();
+    assert.equal(elements.span.length, 2);
+    assert.equal(elements.Example.length, 2);
+    assert.equal(elements.rest, undefined);
   });
 
   it('can group react elements by component class', () => {
@@ -107,9 +110,9 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    expect(elements.span).toHaveLength(2);
-    expect(elements.Example).toHaveLength(2);
-    expect(elements.rest).toBeUndefined();
+    assert.equal(elements.span.length, 2);
+    assert.equal(elements.Example.length, 2);
+    assert.equal(elements.rest, undefined);
   });
 
   it('groups the non matching types in rest', () => {
@@ -134,10 +137,10 @@ describe('groupByType', () => {
     cleanup();
     render(elements.rest);
 
-    expect(screen.queryByText(1)).toBeNull();
-    expect(screen.queryByText(2)).toBeNull();
-    expect(screen.queryByText(3)).not.toBeNull();
-    expect(screen.queryByText(4)).not.toBeNull();
+    assert.equal(screen.queryByText(1), null);
+    assert.equal(screen.queryByText(2), null);
+    assert.notEqual(screen.queryByText(3), null);
+    assert.notEqual(screen.queryByText(4), null);
   });
 
   it('groups the non matching types in rest with a different key name', () => {
@@ -158,8 +161,8 @@ describe('groupByType', () => {
     cleanup();
     render(elements.others);
 
-    expect(screen.queryByText(2)).toBeNull();
-    expect(screen.queryByText(3)).not.toBeNull();
+    assert.equal(screen.queryByText(2), null);
+    assert.notEqual(screen.queryByText(3), null);
   });
 
   it('if no types provided groups everything on rest', () => {
@@ -180,8 +183,8 @@ describe('groupByType', () => {
     cleanup();
     render(elements.rest);
 
-    expect(screen.queryByText(2)).not.toBeNull();
-    expect(screen.queryByText(3)).not.toBeNull();
+    assert.notEqual(screen.queryByText(2), null);
+    assert.notEqual(screen.queryByText(3), null);
   });
 
   describe('returns empty object', () => {
@@ -195,7 +198,7 @@ describe('groupByType', () => {
 
       render(<Grouped />);
 
-      expect(elements).toStrictEqual({});
+      assert.deepStrictEqual(elements, {});
     });
 
     it('on boolean children', () => {
@@ -213,7 +216,7 @@ describe('groupByType', () => {
         </Grouped>,
       );
 
-      expect(elements).toStrictEqual({});
+      assert.deepStrictEqual(elements, {});
     });
 
     it('on null children', () => {
@@ -226,7 +229,7 @@ describe('groupByType', () => {
 
       render(<Grouped>{null}</Grouped>);
 
-      expect(elements).toStrictEqual({});
+      assert.deepStrictEqual(elements, {});
     });
   });
 
@@ -241,7 +244,7 @@ describe('groupByType', () => {
 
       render(<Grouped>example with some words</Grouped>);
 
-      expect(elements).toStrictEqual({ rest: ['example with some words'] });
+      assert.deepStrictEqual(elements, { rest: ['example with some words'] });
     });
 
     it('on number children', () => {
@@ -259,7 +262,7 @@ describe('groupByType', () => {
         </Grouped>,
       );
 
-      expect(elements).toStrictEqual({ rest: [1, 2] });
+      assert.deepStrictEqual(elements, { rest: [1, 2] });
     });
 
     it('on mixed non element children', () => {
@@ -286,11 +289,11 @@ describe('groupByType', () => {
       cleanup();
       render(elements.rest);
 
-      expect(screen.queryByTestId('example')).not.toBeNull();
+      assert.notEqual(screen.queryByTestId('example'), null);
 
-      expect(screen.queryByText(/example/u)).not.toBeNull();
-      expect(screen.queryByText(/with some words/u)).not.toBeNull();
-      expect(screen.queryByText(/3/u)).not.toBeNull();
+      assert.notEqual(screen.queryByText(/example/u), null);
+      assert.notEqual(screen.queryByText(/with some words/u), null);
+      assert.notEqual(screen.queryByText(/3/u), null);
     });
   });
 });

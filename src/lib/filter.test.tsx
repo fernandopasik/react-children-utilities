@@ -1,5 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import 'global-jsdom/register';
+
+import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { beforeEach, describe, it } from 'node:test';
 import React, { isValidElement, type FC, type PropsWithChildren, type ReactNode } from 'react';
 import filter from './filter.js';
 
@@ -10,6 +13,10 @@ describe('filter', () => {
     </div>
   );
 
+  beforeEach(() => {
+    cleanup();
+  });
+
   it('returns same children', () => {
     render(
       <Filtered>
@@ -19,10 +26,10 @@ describe('filter', () => {
       </Filtered>,
     );
 
-    expect(screen.queryAllByTestId('yes')).toHaveLength(3);
-    expect(screen.queryByText('1')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('3')).not.toBeNull();
+    assert.equal(screen.queryAllByTestId('yes').length, 3);
+    assert.notEqual(screen.queryByText('1'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('3'), null);
   });
 
   it('returns only matching children', () => {
@@ -34,11 +41,11 @@ describe('filter', () => {
       </Filtered>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('2')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(2);
-    expect(screen.queryByText('1')).not.toBeNull();
-    expect(screen.queryByText('3')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('2'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 2);
+    assert.notEqual(screen.queryByText('1'), null);
+    assert.notEqual(screen.queryByText('3'), null);
   });
 
   it('does not filter nested elements', () => {
@@ -52,16 +59,16 @@ describe('filter', () => {
       </Filtered>,
     );
 
-    expect(screen.queryAllByTestId('yes')).toHaveLength(4);
-    expect(screen.queryByText('1')).not.toBeNull();
-    expect(screen.queryByText('2')).not.toBeNull();
-    expect(screen.queryByText('3')).not.toBeNull();
+    assert.equal(screen.queryAllByTestId('yes').length, 4);
+    assert.notEqual(screen.queryByText('1'), null);
+    assert.notEqual(screen.queryByText('2'), null);
+    assert.notEqual(screen.queryByText('3'), null);
   });
 
   it('can handle empty children', async () => {
     render(<Filtered />);
 
     const { textContent } = await screen.findByTestId('filtered');
-    expect(textContent).toBe('');
+    assert.equal(textContent, '');
   });
 });

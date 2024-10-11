@@ -1,5 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import 'global-jsdom/register';
+
+import { cleanup, render, screen } from '@testing-library/react';
+import assert from 'node:assert';
+import { beforeEach, describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
 import deepFind from './deepFind.js';
 
@@ -7,6 +10,10 @@ describe('deepFind', () => {
   const DeepFound: FC<PropsWithChildren> = ({ children = [] }) => (
     <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
   );
+
+  beforeEach(() => {
+    cleanup();
+  });
 
   it('a nested element', () => {
     render(
@@ -19,11 +26,11 @@ describe('deepFind', () => {
       </DeepFound>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('1')).toBeNull();
-    expect(screen.queryByText('3')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(1);
-    expect(screen.queryByText('2')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('1'), null);
+    assert.equal(screen.queryByText('3'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 1);
+    assert.notEqual(screen.queryByText('2'), null);
   });
 
   it('a matching element with matching nested elements', () => {
@@ -37,11 +44,11 @@ describe('deepFind', () => {
       </DeepFound>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('1')).toBeNull();
-    expect(screen.queryByText('3')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(2);
-    expect(screen.queryByText('2')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('1'), null);
+    assert.equal(screen.queryByText('3'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 2);
+    assert.notEqual(screen.queryByText('2'), null);
   });
 
   it('a non nested element', () => {
@@ -52,10 +59,10 @@ describe('deepFind', () => {
       </DeepFound>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('1')).toBeNull();
-    expect(screen.queryAllByTestId('yes')).toHaveLength(1);
-    expect(screen.queryByText('3')).not.toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('1'), null);
+    assert.equal(screen.queryAllByTestId('yes').length, 1);
+    assert.notEqual(screen.queryByText('3'), null);
   });
 
   it('can not find anything', () => {
@@ -66,8 +73,8 @@ describe('deepFind', () => {
       </DeepFound>,
     );
 
-    expect(screen.queryByTestId('no')).toBeNull();
-    expect(screen.queryByText('1')).toBeNull();
-    expect(screen.queryByText('2')).toBeNull();
+    assert.equal(screen.queryByTestId('no'), null);
+    assert.equal(screen.queryByText('1'), null);
+    assert.equal(screen.queryByText('2'), null);
   });
 });

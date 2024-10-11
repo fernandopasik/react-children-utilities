@@ -1,24 +1,25 @@
-import { describe, expect, it } from '@jest/globals';
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import React, { type FunctionComponent } from 'react';
 import getElementName from './getElementName.js';
 
 describe('getElementName', () => {
   it('of a html element', () => {
-    expect(getElementName(<div />)).toBe('div');
-    expect(getElementName(<span />)).toBe('span');
+    assert.equal(getElementName(<div />), 'div');
+    assert.equal(getElementName(<span />), 'span');
   });
 
   it('of non elements', () => {
-    expect(getElementName('div')).toBeNull();
-    expect(getElementName(null)).toBeNull();
-    expect(getElementName(3)).toBeNull();
-    expect(getElementName(undefined)).toBeNull();
+    assert.equal(getElementName('div'), null);
+    assert.equal(getElementName(null), null);
+    assert.equal(getElementName(3), null);
+    assert.equal(getElementName(undefined), null);
   });
 
   it('of a functional component', () => {
     const Example: FunctionComponent = () => <div />;
 
-    expect(getElementName(<Example />)).toBe('Example');
+    assert.equal(getElementName(<Example />), 'Example');
   });
 
   it('of a class component', () => {
@@ -29,6 +30,6 @@ describe('getElementName', () => {
       }
     }
 
-    expect(getElementName(<Example />)).toBe('Example');
+    assert.equal(getElementName(<Example />), 'Example');
   });
 });
