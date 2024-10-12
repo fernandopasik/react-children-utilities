@@ -187,6 +187,26 @@ describe('groupByType', () => {
     assert.notEqual(screen.queryByText(3), null);
   });
 
+  it('with just a single element', () => {
+    let elements: Record<string, ReactNode[]> = {};
+
+    const Grouped: FC<PropsWithChildren> = ({ children }) => {
+      elements = groupByType(children, ['span', 'strong']);
+      return <div data-testid="grouped">{children}</div>;
+    };
+
+    render(
+      <Grouped>
+        <span>2</span>
+      </Grouped>,
+    );
+
+    cleanup();
+    render(elements.span);
+
+    assert.notEqual(screen.queryByText(2), null);
+  });
+
   describe('returns empty object', () => {
     it('on empty children', () => {
       let elements: Record<string, ReactNode[]> = {};
@@ -198,7 +218,7 @@ describe('groupByType', () => {
 
       render(<Grouped />);
 
-      assert.deepStrictEqual(elements, {});
+      assert.deepEqual(elements, {});
     });
 
     it('on boolean children', () => {
@@ -216,7 +236,7 @@ describe('groupByType', () => {
         </Grouped>,
       );
 
-      assert.deepStrictEqual(elements, {});
+      assert.deepEqual(elements, {});
     });
 
     it('on null children', () => {
@@ -229,7 +249,7 @@ describe('groupByType', () => {
 
       render(<Grouped>{null}</Grouped>);
 
-      assert.deepStrictEqual(elements, {});
+      assert.deepEqual(elements, {});
     });
   });
 
@@ -244,7 +264,7 @@ describe('groupByType', () => {
 
       render(<Grouped>example with some words</Grouped>);
 
-      assert.deepStrictEqual(elements, { rest: ['example with some words'] });
+      assert.deepEqual(elements, { rest: ['example with some words'] });
     });
 
     it('on number children', () => {
@@ -262,7 +282,7 @@ describe('groupByType', () => {
         </Grouped>,
       );
 
-      assert.deepStrictEqual(elements, { rest: [1, 2] });
+      assert.deepEqual(elements, { rest: [1, 2] });
     });
 
     it('on mixed non element children', () => {
