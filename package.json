@@ -74,7 +74,7 @@
     "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-yml": "^1.14.0",
-    "flow-bin": "^0.249.0",
+    "flow-bin": "^0.250.0",
     "flowgen": "^1.21.0",
     "global-jsdom": "^25.0.0",
     "globals": "^15.11.0",
