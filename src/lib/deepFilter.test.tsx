@@ -3,13 +3,13 @@ import 'global-jsdom/register';
 import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
-import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
+import React, { type FC, type PropsWithChildren, isValidElement } from 'react';
 import deepFilter from './deepFilter.js';
 
 describe('deepFilter', () => {
   const DeepFiltered: FC<PropsWithChildren> = ({ children }) => (
     <div data-testid="filtered">
-      {deepFilter(children, (item: ReactNode) => (item as ReactElement).type === 'span')}
+      {deepFilter(children, (item) => isValidElement(item) && item.type === 'span')}
     </div>
   );
 

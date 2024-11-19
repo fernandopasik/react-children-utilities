@@ -3,21 +3,16 @@ import 'global-jsdom/register';
 import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
-import React, {
-  isValidElement,
-  type FC,
-  type PropsWithChildren,
-  type ReactElement,
-  type ReactNode,
-} from 'react';
+import React, { isValidElement, type FC, type PropsWithChildren, type ReactNode } from 'react';
 import deepForEach from './deepForEach.js';
+import hasChildren from './hasChildren.js';
 
 describe('deepForEach', () => {
   const DeepForEached: FC<PropsWithChildren> = ({ children }) => {
     const items: ReactNode[] = [];
     deepForEach(children, (child: ReactNode) => {
-      if (isValidElement(child) && child.type === 'b') {
-        const item = (child as ReactElement<{ children: ReactNode | ReactNode[] }>).props.children;
+      if (isValidElement(child) && child.type === 'b' && hasChildren(child)) {
+        const item = child.props.children;
         items.push(
           <span data-testid="foreach" key={String(item)}>
             {item}

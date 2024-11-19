@@ -3,12 +3,14 @@ import 'global-jsdom/register';
 import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
-import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
+import React, { type FC, type PropsWithChildren, type ReactNode, isValidElement } from 'react';
 import deepFind from './deepFind.js';
 
 describe('deepFind', () => {
   const DeepFound: FC<PropsWithChildren> = ({ children = [] }) => (
-    <div>{deepFind(children, (child: ReactNode) => (child as ReactElement).type === 'i')}</div>
+    <div>
+      {deepFind(children, (child: ReactNode) => isValidElement(child) && child.type === 'i')}
+    </div>
   );
 
   beforeEach(() => {
