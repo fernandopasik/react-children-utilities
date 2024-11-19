@@ -10,7 +10,8 @@ export const childToString = (child?: ReactNode): string => {
     return '';
   }
 
-  return (child as number | string).toString();
+  // eslint-disable-next-line @typescript-eslint/no-base-to-string
+  return child.toString();
 };
 
 const onlyText = (children: ReactNode | ReactNode[]): string => {
