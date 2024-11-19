@@ -54,9 +54,9 @@
     "react": ">=15"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
-    "@eslint/js": "^9.14.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.15.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@size-limit/file": "^11.1.6",
     "@testing-library/react": "^16.0.1",
@@ -65,7 +65,7 @@
     "all-contributors-cli": "^6.26.1",
     "c8": "^10.1.2",
     "del-cli": "^6.0.0",
-    "eslint": "^9.14.0",
+    "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.31.0",
@@ -78,7 +78,7 @@
     "flowgen": "^1.21.0",
     "global-jsdom": "^25.0.0",
     "globals": "^15.12.0",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "jsdom": "^25.0.1",
     "lint-staged": "^15.2.10",
     "normalize.css": "^8.0.1",
@@ -88,11 +88,11 @@
     "prettier-plugin-sh": "^0.14.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "rollup": "^4.24.4",
+    "rollup": "^4.27.3",
     "size-limit": "^11.1.6",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.13.0"
+    "typescript-eslint": "^8.15.0"
   },
   "sideEffects": false
 }
