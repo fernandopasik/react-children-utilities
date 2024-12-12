@@ -26,14 +26,14 @@ describe('groupByType', () => {
     );
 
     cleanup();
-    render(elements.span);
+    render(elements['span']);
 
     assert.notEqual(screen.queryByText(1), null);
     assert.notEqual(screen.queryByText(2), null);
     assert.equal(screen.queryByText(3), null);
 
     cleanup();
-    render(elements.strong);
+    render(elements['strong']);
 
     assert.equal(screen.queryByText(1), null);
     assert.equal(screen.queryByText(2), null);
@@ -58,9 +58,9 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    assert.equal(elements.span.length, 2);
-    assert.equal(elements.Example.length, 2);
-    assert.equal(elements.rest, undefined);
+    assert.equal(elements['span']?.length, 2);
+    assert.equal(elements['Example']?.length, 2);
+    assert.equal(elements['rest'], undefined);
   });
 
   it('can group react elements by component function', () => {
@@ -81,9 +81,9 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    assert.equal(elements.span.length, 2);
-    assert.equal(elements.Example.length, 2);
-    assert.equal(elements.rest, undefined);
+    assert.equal(elements['span']?.length, 2);
+    assert.equal(elements['Example']?.length, 2);
+    assert.equal(elements['rest'], undefined);
   });
 
   it('can group react elements by component class', () => {
@@ -110,9 +110,9 @@ describe('groupByType', () => {
       </Grouped>,
     );
 
-    assert.equal(elements.span.length, 2);
-    assert.equal(elements.Example.length, 2);
-    assert.equal(elements.rest, undefined);
+    assert.equal(elements['span']?.length, 2);
+    assert.equal(elements['Example']?.length, 2);
+    assert.equal(elements['rest'], undefined);
   });
 
   it('groups the non matching types in rest', () => {
@@ -135,7 +135,7 @@ describe('groupByType', () => {
     );
 
     cleanup();
-    render(elements.rest);
+    render(elements['rest']);
 
     assert.equal(screen.queryByText(1), null);
     assert.equal(screen.queryByText(2), null);
@@ -159,7 +159,7 @@ describe('groupByType', () => {
     );
 
     cleanup();
-    render(elements.others);
+    render(elements['others']);
 
     assert.equal(screen.queryByText(2), null);
     assert.notEqual(screen.queryByText(3), null);
@@ -181,7 +181,7 @@ describe('groupByType', () => {
     );
 
     cleanup();
-    render(elements.rest);
+    render(elements['rest']);
 
     assert.notEqual(screen.queryByText(2), null);
     assert.notEqual(screen.queryByText(3), null);
@@ -202,7 +202,7 @@ describe('groupByType', () => {
     );
 
     cleanup();
-    render(elements.span);
+    render(elements['span']);
 
     assert.notEqual(screen.queryByText(2), null);
   });
@@ -307,7 +307,7 @@ describe('groupByType', () => {
       );
 
       cleanup();
-      render(elements.rest);
+      render(elements['rest']);
 
       assert.notEqual(screen.queryByTestId('example'), null);
 
