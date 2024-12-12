@@ -10,11 +10,11 @@ import hasChildren from './hasChildren.js';
 describe('deepForEach', () => {
   const DeepForEached: FC<PropsWithChildren> = ({ children }) => {
     const items: ReactNode[] = [];
-    deepForEach(children, (child: ReactNode) => {
+    deepForEach(children, (child: ReactNode, index) => {
       if (isValidElement(child) && child.type === 'b' && hasChildren(child)) {
         const item = child.props.children;
         items.push(
-          <span data-testid="foreach" key={String(item)}>
+          <span data-testid="foreach" key={index}>
             {item}
           </span>,
         );
