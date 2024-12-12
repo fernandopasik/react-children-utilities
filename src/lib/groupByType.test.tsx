@@ -90,7 +90,7 @@ describe('groupByType', () => {
     let elements: Record<string, ReactNode[]> = {};
 
     class Example extends React.Component<{ children: ReactNode }> {
-      public render(): ReactElement {
+      public override render(): ReactElement {
         const { children } = this.props;
         return <div>{children}</div>;
       }

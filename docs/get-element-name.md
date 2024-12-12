@@ -34,7 +34,7 @@ const Example = (): ReactElement => <div>this is the inner content</div>;
 getElementName(<Example />); // Result: 'Example'
 
 class Example2 extends Component {
-  public render(): JSX.Element {
+  public override render(): JSX.Element {
     return <div />;
   }
 }
