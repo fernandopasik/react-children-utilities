@@ -15,7 +15,7 @@ import Children, {
   hasComplexChildren,
   onlyText,
   onlyValid,
-} from './react-children-utilities.js';
+} from './react-children-utilities.ts';
 
 describe('children', () => {
   it('has the right exports', () => {

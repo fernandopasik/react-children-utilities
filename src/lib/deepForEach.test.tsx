@@ -4,8 +4,8 @@ import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
 import React, { isValidElement, type FC, type PropsWithChildren, type ReactNode } from 'react';
-import deepForEach from './deepForEach.js';
-import hasChildren from './hasChildren.js';
+import deepForEach from './deepForEach.ts';
+import hasChildren from './hasChildren.ts';
 
 describe('deepForEach', () => {
   const DeepForEached: FC<PropsWithChildren> = ({ children }) => {

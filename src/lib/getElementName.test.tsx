@@ -1,7 +1,7 @@
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import React, { type FunctionComponent } from 'react';
-import getElementName from './getElementName.js';
+import getElementName from './getElementName.ts';
 
 describe('getElementName', () => {
   it('of a html element', () => {

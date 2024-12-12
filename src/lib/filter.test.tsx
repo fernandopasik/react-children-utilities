@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
 import React, { isValidElement, type FC, type PropsWithChildren, type ReactNode } from 'react';
-import filter from './filter.js';
+import filter from './filter.ts';
 
 describe('filter', () => {
   const Filtered: FC<PropsWithChildren> = ({ children }) => (

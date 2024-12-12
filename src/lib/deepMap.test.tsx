@@ -10,7 +10,7 @@ import React, {
   type PropsWithChildren,
   type ReactNode,
 } from 'react';
-import deepMap from './deepMap.js';
+import deepMap from './deepMap.ts';
 
 const DeepMapped: FC<PropsWithChildren> = ({ children }) => (
   <div data-testid="deepmapped">

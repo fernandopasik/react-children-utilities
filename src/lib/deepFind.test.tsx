@@ -3,8 +3,8 @@ import 'global-jsdom/register';
 import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
-import React, { type FC, type PropsWithChildren, type ReactNode, isValidElement } from 'react';
-import deepFind from './deepFind.js';
+import React, { isValidElement, type FC, type PropsWithChildren, type ReactNode } from 'react';
+import deepFind from './deepFind.ts';
 
 describe('deepFind', () => {
   const DeepFound: FC<PropsWithChildren> = ({ children = [] }) => (

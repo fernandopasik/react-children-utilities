@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
-import groupByType from './groupByType.js';
+import groupByType from './groupByType.ts';
 
 describe('groupByType', () => {
   it('groups elements with same tagName', () => {

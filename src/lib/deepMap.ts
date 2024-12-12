@@ -1,5 +1,5 @@
 import { Children, cloneElement, isValidElement, type ReactNode } from 'react';
-import hasComplexChildren from './hasComplexChildren.js';
+import hasComplexChildren from './hasComplexChildren.ts';
 
 const deepMap = (
   children: ReactNode | ReactNode[],

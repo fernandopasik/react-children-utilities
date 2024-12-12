@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren, type ReactNode } from 'react';
-import onlyText, { childToString } from './onlyText.js';
+import onlyText, { childToString } from './onlyText.ts';
 
 describe('onlyText', () => {
   const OnlyText: FC<PropsWithChildren> = ({ children }) => (

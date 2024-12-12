@@ -4,7 +4,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
 import React, { type FC, type PropsWithChildren } from 'react';
-import onlyValid from './onlyValid.js';
+import onlyValid from './onlyValid.ts';
 
 describe('onlyValid', () => {
   const OnlyValid: FC<PropsWithChildren> = ({ children }) => (

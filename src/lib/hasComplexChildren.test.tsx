@@ -1,7 +1,7 @@
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
 import React from 'react';
-import hasComplexChildren from './hasComplexChildren.js';
+import hasComplexChildren from './hasComplexChildren.ts';
 
 describe('hasComplexChildren', () => {
   describe('returns true', () => {

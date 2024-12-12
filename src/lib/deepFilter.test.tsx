@@ -3,8 +3,8 @@ import 'global-jsdom/register';
 import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { beforeEach, describe, it } from 'node:test';
-import React, { type FC, type PropsWithChildren, isValidElement } from 'react';
-import deepFilter from './deepFilter.js';
+import React, { isValidElement, type FC, type PropsWithChildren } from 'react';
+import deepFilter from './deepFilter.ts';
 
 describe('deepFilter', () => {
   const DeepFiltered: FC<PropsWithChildren> = ({ children }) => (
