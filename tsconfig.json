@@ -1,9 +1,8 @@
 {
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
-    "allowJs": true,
     "declaration": true,
     "declarationMap": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSources": true,
     "jsx": "react",
@@ -11,16 +10,11 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "resolveJsonModule": true,
     "rootDirs": ["src"],
     "sourceMap": true,
-    "strict": true,
     "target": "es2019"
   },
-  "exclude": ["**/*.flow", "/lib", "/react-children-utilities.*"],
+  "exclude": ["coverage", "**/*.flow", "lib", "react-children-utilities.*", "eslint.config.js"],
   "include": [".**/**/*", "**/*"]
 }
