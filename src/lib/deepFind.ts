@@ -8,6 +8,7 @@ const deepFind = (
   // eslint-disable-next-line @typescript-eslint/init-declarations
   let found;
 
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   Children.toArray(children).find((child: ReactNode, index: number, findChildren: ReactNode[]) => {
     if (deepFindFn(child, index, findChildren)) {
       found = child;
