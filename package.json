@@ -86,7 +86,7 @@
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-pkg": "^0.18.1",
-    "prettier-plugin-sh": "^0.15.0",
+    "prettier-plugin-sh": "^0.16.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rollup": "^4.30.1",
