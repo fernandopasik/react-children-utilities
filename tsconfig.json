@@ -16,6 +16,6 @@
     "sourceMap": true,
     "target": "es2019"
   },
-  "exclude": ["coverage", "**/*.flow", "lib", "react-children-utilities.*", "eslint.config.js"],
+  "exclude": ["*.config.js", "**/*.flow", "coverage", "lib", "react-children-utilities.*"],
   "include": [".**/**/*", "**/*"]
 }
