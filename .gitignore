@@ -26,8 +26,10 @@ yarn.lock
 # test files
 /coverage
 
+# jekyll
+_site
+.jekyll-cache
+
 # build and temp folders
 /lib
 /react-children-utilities.*
-_site
-.jekyll-cache
