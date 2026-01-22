@@ -4,7 +4,7 @@ import importPlugin from 'eslint-plugin-import';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import hooksPlugin from 'eslint-plugin-react-hooks';
-import ymlPlugin from 'eslint-plugin-yml';
+import { configs as ymlConfigs } from 'eslint-plugin-yml';
 import globals from 'globals';
 import ts from 'typescript-eslint';
 
@@ -15,8 +15,8 @@ export default ts.config(
   reactPlugin.configs.flat['jsx-runtime'],
   importPlugin.flatConfigs.recommended,
   importPlugin.configs.typescript,
-  ...ymlPlugin.configs['flat/recommended'],
-  ...ymlPlugin.configs['flat/prettier'],
+  ...ymlConfigs['flat/recommended'],
+  ...ymlConfigs['flat/prettier'],
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
