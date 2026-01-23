@@ -15,8 +15,10 @@ export default ts.config(
   reactPlugin.configs.flat['jsx-runtime'],
   importPlugin.flatConfigs.recommended,
   importPlugin.configs.typescript,
-  ...ymlConfigs['flat/recommended'],
-  ...ymlConfigs['flat/prettier'],
+  {
+    extends: [ymlConfigs['flat/standard'], ymlConfigs['flat/prettier']],
+    files: ['*.yaml', '*.yml'],
+  },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
