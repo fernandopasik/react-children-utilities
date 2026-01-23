@@ -33,9 +33,12 @@ export default ts.config(
     },
     rules: {
       ...hooksPlugin.configs.recommended.rules,
-      'import/no-unresolved': 'off',
+      'init-declarations': 'off',
       'max-lines': ['error', { max: 130, skipBlankLines: true, skipComments: true }],
       'max-lines-per-function': ['error', { max: 24, skipBlankLines: true, skipComments: true }],
+      'max-statements': ['error', { max: 35 }],
+      'no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2] }],
+      'no-plusplus': 'off',
       'no-ternary': 'off',
       'no-useless-assignment': 'off',
       'one-var': 'off',
