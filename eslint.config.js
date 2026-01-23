@@ -48,26 +48,27 @@ export default ts.config(
     },
   },
   {
-    // eslint-disable-next-line import/no-named-as-default-member
     extends: [...tsConfigs.all],
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
-      // eslint-disable-next-line no-magic-numbers
       '@typescript-eslint/no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2] }],
       '@typescript-eslint/prefer-readonly-parameter-types': 'off',
     },
   },
   {
     files: ['**/*.test.*'],
+    rules: { '@typescript-eslint/no-floating-promises': 'off' },
+  },
+  {
+    files: ['**/*.test.*', '*.config.@(js|ts)'],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
-      '@typescript-eslint/no-deprecated': 'off',
-      '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-magic-numbers': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'max-lines': 'off',
       'max-lines-per-function': 'off',
       'max-statements': 'off',
+      'no-magic-numbers': 'off',
       'no-undefined': 'off',
     },
   },
