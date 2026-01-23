@@ -9,7 +9,7 @@ import globals from 'globals';
 import ts, { configs as tsConfigs } from 'typescript-eslint';
 
 export default ts.config(
-  { ignores: ['coverage', 'lib', 'react-children-utilities.*', '_site'] },
+  { ignores: ['coverage/', 'lib', 'react-children-utilities.*', '_site', '.jekyll-cache'] },
   eslint.configs.all,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat['jsx-runtime'],
