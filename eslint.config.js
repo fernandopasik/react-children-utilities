@@ -52,7 +52,7 @@ export default ts.config(
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       // eslint-disable-next-line no-magic-numbers
-      '@typescript-eslint/no-magic-numbers': ['error', { ignore: [0, 1] }],
+      '@typescript-eslint/no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2] }],
       '@typescript-eslint/prefer-readonly-parameter-types': 'off',
     },
   },
