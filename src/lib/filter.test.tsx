@@ -9,7 +9,7 @@ import filter from './filter.ts';
 describe('filter', () => {
   const Filtered: FC<PropsWithChildren> = ({ children }) => (
     <div data-testid="filtered">
-      {filter(children, (item: ReactNode) => Boolean(isValidElement(item) && item.type === 'span'))}
+      {filter(children, (item: ReactNode) => isValidElement(item) && item.type === 'span')}
     </div>
   );
 
