@@ -5,6 +5,8 @@ on:
       - main
   pull_request: {}
 
+permissions: read-all
+
 jobs:
   install:
     name: Install Dependencies
