@@ -6,7 +6,7 @@ import reactPlugin from 'eslint-plugin-react';
 import hooksPlugin from 'eslint-plugin-react-hooks';
 import { configs as ymlConfigs } from 'eslint-plugin-yml';
 import globals from 'globals';
-import ts from 'typescript-eslint';
+import ts, { configs as tsConfigs } from 'typescript-eslint';
 
 export default ts.config(
   { ignores: ['coverage', 'lib', 'react-children-utilities.*', '_site'] },
@@ -49,7 +49,7 @@ export default ts.config(
   },
   {
     // eslint-disable-next-line import/no-named-as-default-member
-    extends: [...ts.configs.all],
+    extends: [...tsConfigs.all],
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       // eslint-disable-next-line no-magic-numbers
@@ -70,6 +70,10 @@ export default ts.config(
       'max-statements': 'off',
       'no-undefined': 'off',
     },
+  },
+  {
+    extends: [tsConfigs.disableTypeChecked],
+    files: ['*.config.js'],
   },
   prettier,
 );
