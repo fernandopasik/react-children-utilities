@@ -39,6 +39,7 @@ export default ts.config(
       'no-ternary': 'off',
       'no-useless-assignment': 'off',
       'one-var': 'off',
+      'react-hooks/globals': 'off',
       'sort-imports': 'off',
     },
     settings: {
