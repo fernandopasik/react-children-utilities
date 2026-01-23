@@ -1,8 +1,9 @@
+---
 name: main
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request: {}
 
 permissions: read-all
@@ -16,6 +17,7 @@ jobs:
         uses: actions/checkout@v6
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
+
   check-format:
     name: Check Format
     runs-on: ubuntu-latest
@@ -27,6 +29,7 @@ jobs:
         uses: fernandopasik/actions/setup-node@main
       - name: Check Format
         run: npm run format:check
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -38,6 +41,7 @@ jobs:
         uses: fernandopasik/actions/setup-node@main
       - name: Lint
         run: npm run lint
+
   check-types:
     name: Check Typescript Types
     runs-on: ubuntu-latest
@@ -49,6 +53,7 @@ jobs:
         uses: fernandopasik/actions/setup-node@main
       - name: Check Typescript Types
         run: npm run check-types
+
   unit-test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -63,6 +68,7 @@ jobs:
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v5
         if: always()
+
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -83,6 +89,7 @@ jobs:
         with:
           name: bundle
           path: react-children-utilities.min.*
+
   size:
     name: Check Size
     runs-on: ubuntu-latest
