@@ -30,6 +30,12 @@ yarn.lock
 _site
 .jekyll-cache
 
+# Sass
+.sass-cache
+
+# TypeScript cache
+*.tsbuildinfo
+
 # build and temp folders
 /lib
 /react-children-utilities.*
