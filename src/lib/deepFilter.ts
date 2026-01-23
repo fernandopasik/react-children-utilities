@@ -7,7 +7,6 @@ const deepFilter = (
 ): ReactNode[] =>
   Children.toArray(children)
     .filter(deepFilterFn)
-    // eslint-disable-next-line @typescript-eslint/promise-function-async
     .map((child: ReactNode) => {
       if (isValidElement(child) && hasComplexChildren(child)) {
         // Clone the child that has children and filter them too

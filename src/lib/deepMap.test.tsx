@@ -15,7 +15,7 @@ import deepMap from './deepMap.ts';
 const DeepMapped: FC<PropsWithChildren> = ({ children }) => (
   <div data-testid="deepmapped">
     {
-      // eslint-disable-next-line @typescript-eslint/promise-function-async
+      //
       deepMap(children, (child: ReactNode) => {
         if (isValidElement<{ 'data-testid': string }>(child) && child.type === 'b') {
           return cloneElement(child, {

@@ -5,12 +5,15 @@ import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import hooksPlugin from 'eslint-plugin-react-hooks';
 import { configs as ymlConfigs } from 'eslint-plugin-yml';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
-import ts, { configs as tsConfigs } from 'typescript-eslint';
+import { configs as tsConfigs } from 'typescript-eslint';
 
-export default ts.config(
+export default defineConfig([
   { ignores: ['coverage/', 'lib', 'react-children-utilities.*', '_site', '.jekyll-cache'] },
   eslint.configs.all,
+  tsConfigs.strictTypeChecked,
+  tsConfigs.stylisticTypeChecked,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat['jsx-runtime'],
   importPlugin.flatConfigs.recommended,
@@ -51,7 +54,6 @@ export default ts.config(
     },
   },
   {
-    extends: [...tsConfigs.all],
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       '@typescript-eslint/no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2] }],
@@ -80,4 +82,4 @@ export default ts.config(
     files: ['*.config.js'],
   },
   prettier,
-);
+]);

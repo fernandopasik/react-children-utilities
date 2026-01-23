@@ -5,7 +5,6 @@ const deepMap = (
   children: ReactNode | ReactNode[],
   deepMapFn: (child: ReactNode, index?: number, children?: ReactNode[]) => ReactNode,
 ): ReactNode[] =>
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
   Children.toArray(children).map((child: ReactNode, index: number, mapChildren: ReactNode[]) => {
     if (isValidElement(child) && hasComplexChildren(child)) {
       // Clone the child that has children and map them too

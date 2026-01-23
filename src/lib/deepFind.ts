@@ -5,7 +5,6 @@ const deepFind = (
   children: ReactNode | ReactNode[],
   deepFindFn: (child: ReactNode, index?: number, children?: ReactNode[]) => boolean,
 ): ReactNode | undefined => {
-  // eslint-disable-next-line @typescript-eslint/init-declarations
   let found;
 
   // eslint-disable-next-line @typescript-eslint/no-floating-promises

@@ -131,7 +131,6 @@ describe('onlyText', () => {
     });
 
     it('{}', () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       assert.equal(childToString({} as ReactNode), '');
     });
 

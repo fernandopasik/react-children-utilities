@@ -24,7 +24,7 @@ describe('getElementName', () => {
 
   it('of a class component', () => {
     class Example extends React.Component {
-      // eslint-disable-next-line @typescript-eslint/class-methods-use-this
+      // eslint-disable-next-line class-methods-use-this
       public override render(): ReactElement {
         return <div />;
       }
