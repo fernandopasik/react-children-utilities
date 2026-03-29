@@ -85,7 +85,7 @@
     "normalize.css": "^8.0.1",
     "prettier": "^3.8.1",
     "prettier-plugin-organize-imports": "^4.3.0",
-    "prettier-plugin-pkg": "^0.21.2",
+    "prettier-plugin-pkg": "^0.22.0",
     "prettier-plugin-sh": "^0.18.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
