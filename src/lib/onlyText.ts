@@ -20,7 +20,7 @@ const onlyText = (children: ReactNode | ReactNode[]): string => {
   }
 
   return Children.toArray(children).reduce((text: string, child: ReactNode): string => {
-    let newText = '';
+    let newText;
 
     if (hasChildren(child)) {
       newText = onlyText(child.props.children);
