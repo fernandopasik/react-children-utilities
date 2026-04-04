@@ -20,7 +20,7 @@ export default defineConfig([
   importConfigs.recommended,
   importConfigs.typescript,
   {
-    extends: [ymlConfigs['flat/standard'], ymlConfigs['flat/prettier']],
+    extends: [ymlConfigs.standard, ymlConfigs.prettier],
     files: ['*.yaml', '*.yml'],
   },
   {
