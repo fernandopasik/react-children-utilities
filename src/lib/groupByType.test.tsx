@@ -3,7 +3,13 @@ import 'global-jsdom/register';
 import { cleanup, render, screen } from '@testing-library/react';
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
-import React, { type FC, type PropsWithChildren, type ReactElement, type ReactNode } from 'react';
+import React, {
+  Component,
+  type FC,
+  type PropsWithChildren,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
 import groupByType from './groupByType.ts';
 
 describe('groupByType', () => {
@@ -89,7 +95,7 @@ describe('groupByType', () => {
   it('can group react elements by component class', () => {
     let elements: Record<string, ReactNode[]> = {};
 
-    class Example extends React.Component<{ children: ReactNode }> {
+    class Example extends Component<{ children: ReactNode }> {
       public override render(): ReactElement {
         const { children } = this.props;
         return <div>{children}</div>;

@@ -1,6 +1,7 @@
 import eslint from '@eslint/js';
 import prettier from 'eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import { createNodeResolver, flatConfigs as importConfigs } from 'eslint-plugin-import-x';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import hooksPlugin from 'eslint-plugin-react-hooks';
@@ -16,8 +17,8 @@ export default defineConfig([
   tsConfigs.stylisticTypeChecked,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat['jsx-runtime'],
-  importPlugin.flatConfigs.recommended,
-  importPlugin.configs.typescript,
+  importConfigs.recommended,
+  importConfigs.typescript,
   {
     extends: [ymlConfigs['flat/standard'], ymlConfigs['flat/prettier']],
     files: ['*.yaml', '*.yml'],
@@ -49,7 +50,7 @@ export default defineConfig([
       'sort-imports': 'off',
     },
     settings: {
-      'import/resolver': { typescript: {} },
+      'import-x/resolver-next': [createTypeScriptImportResolver(), createNodeResolver()],
       react: { version: 'detect' },
     },
   },

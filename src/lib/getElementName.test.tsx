@@ -1,6 +1,6 @@
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
-import React, { type FunctionComponent, type ReactElement } from 'react';
+import React, { Component, type FunctionComponent, type ReactElement } from 'react';
 import getElementName from './getElementName.ts';
 
 describe('getElementName', () => {
@@ -23,7 +23,7 @@ describe('getElementName', () => {
   });
 
   it('of a class component', () => {
-    class Example extends React.Component {
+    class Example extends Component {
       // eslint-disable-next-line class-methods-use-this
       public override render(): ReactElement {
         return <div />;
