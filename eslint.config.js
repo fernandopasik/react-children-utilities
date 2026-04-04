@@ -44,7 +44,6 @@ export default defineConfig([
       'no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2] }],
       'no-plusplus': 'off',
       'no-ternary': 'off',
-      'no-useless-assignment': 'off',
       'one-var': 'off',
       'react-hooks/globals': 'off',
       'sort-imports': 'off',
@@ -68,12 +67,10 @@ export default defineConfig([
   {
     files: ['**/*.test.*', '*.config.@(js|ts)'],
     rules: {
-      '@typescript-eslint/naming-convention': 'off',
       '@typescript-eslint/no-magic-numbers': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'max-lines': 'off',
       'max-lines-per-function': 'off',
-      'max-statements': 'off',
       'no-magic-numbers': 'off',
       'no-undefined': 'off',
     },
