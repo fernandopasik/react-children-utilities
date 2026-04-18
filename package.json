@@ -54,8 +54,8 @@
     "react": ">=15"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.0",
-    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
     "@eslint/js": "^9.39.4",
     "@rollup/plugin-terser": "^1.0.0",
     "@size-limit/file": "^12.1.0",
@@ -75,13 +75,13 @@
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-yml": "^3.3.1",
-    "flow-bin": "^0.309.0",
+    "eslint-plugin-yml": "^3.3.2",
+    "flow-bin": "^0.312.0",
     "flowgen": "^1.21.0",
     "global-jsdom": "^29.0.0",
-    "globals": "^17.5.0",
+    "globals": "^17.6.0",
     "husky": "^9.1.7",
-    "jsdom": "^29.0.2",
+    "jsdom": "^29.1.1",
     "lint-staged": "^16.4.0",
     "normalize.css": "^8.0.1",
     "prettier": "^3.8.3",
@@ -94,7 +94,7 @@
     "size-limit": "^12.1.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.58.2"
+    "typescript-eslint": "^8.59.1"
   },
   "overrides": {
     "tmp": "^0.2.5"
