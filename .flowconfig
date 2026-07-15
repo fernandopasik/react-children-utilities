@@ -1,5 +1,4 @@
 [ignore]
-<PROJECT_ROOT>/.*/malformed_package_json/package.json
 
 [include]
 
