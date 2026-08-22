@@ -98,8 +98,7 @@
   },
   "overrides": {
     "glob": "14.0.4",
-    "minimatch": "11.0.8",
-    "tmp": "^0.2.5"
+    "minimatch": "11.0.8"
   },
   "sideEffects": false
 }
